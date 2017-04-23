@@ -1,37 +1,17 @@
-## Welcome to GitHub Pages
+## About me
 
-You can use the [editor on GitHub](https://github.com/ctroupin/ctroupin.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+Engineer in Physics and PhD in Oceanography. More than 10 years of experience in oceanographic data analysis and numerical modelling. 3-year experience as the head of the
+[SOCIB](http://socib.es/) Data Center.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Interests
 
-### Markdown
+* Spatial data analysis
+* Ocean numerical modelling 
+* Data visualisation
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Contributions
 
-```markdown
-Syntax highlighted code block
+### Publications
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ctroupin/ctroupin.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+### Presentations 

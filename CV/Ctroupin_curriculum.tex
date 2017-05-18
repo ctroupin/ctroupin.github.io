@@ -1,0 +1,145 @@
+\documentclass[10pt,a4paper,svgnames]{article}
+%\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{tcolorbox}% http://ctan.org/pkg/tcolorbox
+\usepackage{fontawesome}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{doi}
+
+% Bibliography
+\usepackage{natbib}
+\bibliographystyle{sharlo}
+\renewcommand{\refname}{{Selected publications}}
+
+% Fonts
+\usepackage{fontspec}
+\setmainfont{Carlito}
+\urlstyle{rm}
+
+% Length definitions
+\setlength{\textwidth}{19cm}
+\setlength{\textheight}{28cm}
+\setlength{\hoffset}{-2.5cm}
+\setlength{\voffset}{-3cm}
+\setlength{\unitlength}{1cm}
+\setlength{\parindent}{0.25pt}
+\setlength{\bibsep}{0pt plus 0.3ex}
+\newlength{\logowidth}
+\setlength{\logowidth}{1.5cm} 
+
+
+% Pdf configuration
+\hypersetup{bookmarksopen=true,
+bookmarksnumbered=true,  
+pdffitwindow=false, 
+pdfstartview=FitH,
+pdftoolbar=false,
+pdfmenubar=false,
+pdfwindowui=true,
+pdfauthor=Charles Troupin,
+pdftitle=Charles Troupin Curriculum,
+pdfsubject=C. Troupin Resume,
+colorlinks=true,%
+breaklinks=true,%
+linkcolor=blue,anchorcolor=blue,%
+citecolor=blue,filecolor=blue,%
+menucolor=blue,%
+urlcolor=gray}
+
+% Ovale box for the skills
+\newtcbox{\skillbox}{nobeforeafter,colframe=gray,colback=lightgray,boxrule=1pt,arc=4pt,height=0.5cm,
+  boxsep=0pt,left=3pt,right=3pt,top=2.5pt,bottom=2pt,box align = center}
+  
+% Custom commands
+\newcommand{\sepa}{$\cdot$~}
+\newcommand{\role}[1]{\textbf{#1}}
+\newcommand{\montant}{\rule{0pt}{.5cm}}
+
+\begin{document} 
+	
+\pagestyle{empty}
+
+{\LARGE \textbf{Charles Troupin} {\large \sepa Data analysist \& modeler \sepa  Engineer in Physics (2005) \sepa PhD in Oceanography (2011)}}
+\vspace{.25cm}
+
+\begin{tabular*}{.65\textwidth}{clcl}
+\faMobile & +32~498~155~998 (Belgium)	\hspace{5cm}	&	& +34~638~054~012 (Spain) \\
+\faEnvelope & \href{mailto:chatroupin@yahoo.fr}{charles.troupin@gmail.com} & \faSkype & charles.troupin1 	\\
+\faLinkedinSquare & \url{https://www.linkedin.com/in/charlestroupin} & \faGithubSquare & \url{https://github.com/ctroupin/} \\
+\includegraphics[width=.35cm]{logo_orcid.png} & \url{http://orcid.org/0000-0002-0265-1021} & \faTwitterSquare &  \url{https://twitter.com/CharlesTroupin} \\
+\end{tabular*}
+
+
+\section*{Recent employments}
+
+\begin{tabular}{p{.065\linewidth} p{0.45\linewidth} p{0.415\linewidth}}
+
+2017/01--  & \montant\role{Researcher} \newline  University of Li\`{e}ge (\href{www.ulg.ac.be}{ULg})\sepa Li\`{e}ge, Belgium \newline Development of a user interface for data interpolation on a \textit{cloud} system & \skillbox{Python} \skillbox{Julia} \skillbox{Jupyter-notebooks} \skillbox{User training}\\
+
+2014/03--2017/01 & \montant\role{Head of Data Centre facility} \newline Balearic Islands Coastal Ocean Observing and Forecasting System (\href{www.socib.es}{\mbox{SOCIB}}) \sepa Palma de Mallorca, Spain & \skillbox{Team leading} \skillbox{Project management} \skillbox{Data analysis} \skillbox{Data visualisation} \skillbox{Recruitment} \skillbox{Quality control} \skillbox{Scientific outreach} \skillbox{Big data} \skillbox{Citizen science}\\ %\skillbox{International representation}\\
+ 
+2013/03--2014/03 & \montant\role{Post-doctoral researcher} \newline Mediterranean Institute for Advanced Studies (\href{http://imedea.uib-csic.es/}{IMEDEA}) \sepa \newline Esporles, Spain \newline \textit{Combined analysis of in situ, altimetry and HF radar data} & \skillbox{Data analysis} \skillbox{Python} \skillbox{Satellite image processing} \skillbox{Matlab}  \skillbox{Bash}  \\
+ 
+2010/10--2013/02 & \montant\role{Research assistant} \newline University of Li\`{e}ge (\href{www.ulg.ac.be}{ULg})\sepa Li\`{e}ge, Belgium \newline \textit{Reconstruction of incomplete satellite images in the North Sea} & \skillbox{Matlab} \skillbox{Numerical modelling} \skillbox{Data analysis} \skillbox{Multivariate statistics} \skillbox{Teaching} \\
+ 
+2006/10--2010/09 & \montant\role{PhD Candidate} \newline GeoHydrodynamics and Environment Research (\href{http://modb.oce.ulg.ac.be/}{GHER}) \sepa \newline University of Li\`{e}ge, Belgium \newline \textit{Study of the Cape Ghir filament using data analysis and numerical modelling} & \skillbox{Numerical modelling} \skillbox{Fortran} \skillbox{Spatial interpolation} \skillbox{Oceanographic campaign}  \skillbox{Tcl/Tk} \skillbox{Bash} \skillbox{Latex} \skillbox{Version control system}\\
+
+%2010/08--2010/09 & \montant\role{Trainee} \newline NATO Undersea Research Center \sepa La Spezia, Italy & \skillbox{Satellite image processing} \skillbox{Matlab} \skillbox{Statistics}\\
+
+%2005/10--2005/12 & \montant\role{Research Engineer} \newline University of Li\`{e}ge (\href{www.ulg.ac.be}{ULg})\sepa Li\`{e}ge, Belgium & \skillbox{Numerical modelling} \skillbox{Latex}
+
+\end{tabular}
+
+\section*{Skills and Competencies}
+
+\begin{tabular}{p{.125\textwidth}| p{.835\textwidth}}
+
+\textbf{Technical skills} & Author or co-author of more than 20 articles on data analysis in international, peer-reviewed journals\\
+Data analytics & Quality control \sepa Filtering \sepa Data mining \sepa Statistics \sepa Predictive modelling \sepa Format conversion\\
+
+Engineering & Fluid mechanics \sepa Aerodynamics \sepa Finite-element method \sepa Atmospheric physics \sepa Numerical simulations \sepa Internal product development \sepa Signal processing \sepa Optimization \sepa High-performance computing \\
+
+Oceanography & Spatial interpolation \sepa Time-series analysis \sepa Principal component analysis \sepa Database management \sepa Satellite image processing \sepa Singular events \\
+
+\textbf{IT skills} & \\
+
+Programming & Python: general (loggin, virtualenv, urllib, regex), data analysis (numpy, scipy, pandas), geo-location (geopy, geoip, tweepy), data formats (json, netCDF4, csv, gpx), visualisation (bokeh, matplotlib, folium, plotly) 
+\newline Matlab/Octave: data reading and processing, plotting, geostatistics, interpolation
+\newline Bash scripting: awk, cronjob, wget, ssh, ncftp 
+\newline Other: Julia, Fortran 77, 90, Tcl/Tk, JavaScript (Leaflet, Highcharts), MySQL\\
+%\cvitemf{Operating systems}{Preference with Linux (Mint, Ubuntu) \sepa Experience with Mac~OS~X Lion, Microsoft Windows}
+%\cvitem{Data formats}{netCDF (ncdump, ncview, Panoply, cdo, nco, OPeNDAP), ODV spreadsheet, HDF, CNV, CSV, JSON}
+%\cvitemf{Image processing}{GIMP, Inkskape, Darktable, ImageJ, Matlab, Python, ffmpeg, hugin, ImageMagick}
+Other tools & Version control (SVN, git) \sepa LaTeX (documents, posters, presentations, leaflet) \sepa Wiki (Dokuwiki, Mediawiki) \sepa Ocean-related software: Ocean Data View, DIVA (spatial interpolation), DINEOF (spatio-temporal interpolation of satellite images) \sepa Image processing: Darktable, GIMP, ImageMagick, Inkscape, ffmpeg\\
+
+\textbf{Soft skills} & \\
+
+Management & Team leading \sepa Planning and monitoring \sepa Scientific and technical reporting \sepa Adhering to deadlines \sepa Writing specification documents \sepa Applications for grants and supports\\
+
+Communication & Public presentations in international conferences \sepa Social networking \sepa User training \sepa Design of posters and leaflets\\
+
+Organisation & Co-organiser of the 48th International Li\`{e}ge Colloquium on Ocean Dynamics in 2016 (200 participants from 40 countries) \sepa Main organiser of several editions of the Diva workshop from 2007 to 2013\\
+
+Languages & Native speaker in French \sepa Daily use of Spanish, English and Catalan in the most recent working environments \sepa Basic level in German
+\end{tabular}
+
+%{\Large \bf Projects \& publications} % destacados
+
+
+%\vspace*{-.75cm}
+
+\bibliography{Troupin_publis_shortlist.bib}
+
+
+%\vfill
+
+\section*{Personal interests}
+%---------------------------
+
+Photography \sepa Trail and mountain running \sepa Map editing (OpenStreetMap) \sepa Travel blogging \sepa Road cycling \sepa Weather observation \& forecast
+
+
+
+\end{document}

@@ -1,0 +1,8 @@
+#!/bin/bash
+PDFLATEX='/usr/bin/pdflatex'
+${PDFLATEX} TroupinCV.tex
+bibtex article.aux
+bibtex conference.aux
+bibtex incollection.aux
+${PDFLATEX} TroupinCV.tex
+

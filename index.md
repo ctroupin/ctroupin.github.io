@@ -13,5 +13,8 @@ Engineer in Physics and PhD in Oceanography. More than 10 years of experience in
 
 ### Publications
 
+### Projects
+
+[Link to another page](projects.md).
 
 ### Presentations 

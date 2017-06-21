@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Awesome Markers Example: Basic</title>
   <meta charset="utf-8" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>
 	Grand Jogging de Verviers
@@ -108,6 +106,7 @@
 	Parcours.addTo(map);
 	var GPM = omnivore.gpx('data/JoggingVerviersGPDM.gpx', null, gpmLayer);
 	GPM.addTo(map);
+	GPM.bringToFront();
 			
 	L.marker([50.58620, 5.87271], {icon: L.AwesomeMarkers.icon({icon: 'play', prefix: 'fa', markerColor: 'green', iconColor: 'white'}) }).addTo(map);
 	L.marker([50.58522, 5.87243], {icon: L.AwesomeMarkers.icon({icon: 'stop', prefix: 'fa', markerColor: 'green', iconColor: 'white'}) }).addTo(map);

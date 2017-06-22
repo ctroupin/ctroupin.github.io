@@ -18,9 +18,11 @@ Engineer in Physics and PhD in Oceanography.
 
 ### [Publications](publications.md)
 
-### Projects
+Discover my scientif publications on oceanography and data analysis.
 
-[Link to another page](projects.md).
+### [Projects](projects.md).
+
+A mix of different personal projects I've been working on recently.
 
 ### Presentations 
 

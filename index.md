@@ -13,14 +13,17 @@ Engineer in Physics and PhD in Oceanography.
 * Spatial data analysis
 * Ocean numerical modelling 
 * Data visualisation
-* Trail running
 
 ## Contributions
 
-### Publications
+### [Publications](publications.md)
 
 ### Projects
 
 [Link to another page](projects.md).
 
 ### Presentations 
+
+## Outside the office
+
+[Photography](photography.md)

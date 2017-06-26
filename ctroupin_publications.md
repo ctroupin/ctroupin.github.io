@@ -1,4 +1,5 @@
 
+
 Alvera-Azcárate, A., C. Troupin, A. Barth, and J.-M. Beckers. 2011.
 “Comparison Between Satellite and in Situ Sea Surface Temperature Data
 in the Western Mediterranean Sea.” *Ocean Dynamics* 61 (6). Springer
@@ -177,4 +178,5 @@ De Clerck. 2012. “ORACLE: A Global Environmental Dataset for Marine
 Species Distribution Modeling.” *Global Ecology and Biogeography* 21
 (2): 272–81.
 doi:[10.1111/j.1466-8238.2011.00656.x](https://doi.org/10.1111/j.1466-8238.2011.00656.x).
+
 

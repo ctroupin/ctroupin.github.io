@@ -6,6 +6,7 @@
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{geometry}
+\usepackage{sectsty}
 \usepackage{doi}
 
 % Bibliography
@@ -29,6 +30,12 @@
 \newlength{\logowidth}
 \setlength{\logowidth}{1.5cm} 
 
+% Define colors
+\definecolor{CVblue}{HTML}{1483D3}
+\definecolor{CVorange}{HTML}{FF9900}
+\definecolor{CVgrey}{HTML}{E6E6E6}
+
+\sectionfont{\color{CVorange}}
 
 % Pdf configuration
 \hypersetup{bookmarksopen=true,
@@ -44,12 +51,12 @@ pdfsubject=C. Troupin Resume,
 colorlinks=true,%
 breaklinks=true,%
 linkcolor=blue,anchorcolor=blue,%
-citecolor=blue,filecolor=blue,%
-menucolor=blue,%
-urlcolor=gray}
+citecolor=CVblue,filecolor=blue,%
+menucolor=CVblue,%
+urlcolor=CVblue}
 
 % Ovale box for the skills
-\newtcbox{\skillbox}{nobeforeafter,colframe=gray,colback=lightgray,boxrule=1pt,arc=4pt,height=0.5cm,
+\newtcbox{\skillbox}{nobeforeafter,colframe=CVorange,colback=CVgrey,boxrule=1pt,arc=4pt,height=0.5cm,
   boxsep=0pt,left=3pt,right=3pt,top=2.5pt,bottom=2pt,box align = center}
   
 % Custom commands
@@ -78,7 +85,7 @@ urlcolor=gray}
 
 2017/01--  & \montant\role{Researcher} \newline  University of Li\`{e}ge (\href{www.ulg.ac.be}{ULg})\sepa Li\`{e}ge, Belgium \newline Development of a user interface for data interpolation on a \textit{cloud} system & \skillbox{Python} \skillbox{Julia} \skillbox{Jupyter-notebooks} \skillbox{User training}\\
 
-2014/03--2017/01 & \montant\role{Head of Data Centre facility} \newline Balearic Islands Coastal Ocean Observing and Forecasting System (\href{www.socib.es}{\mbox{SOCIB}}) \sepa Palma de Mallorca, Spain & \skillbox{Team leading} \skillbox{Project management} \skillbox{Data analysis} \skillbox{Data visualisation} \skillbox{Recruitment} \skillbox{Quality control} \skillbox{Scientific outreach} \skillbox{Big data} \skillbox{Citizen science}\\ %\skillbox{International representation}\\
+2014/03--2017/01 & \montant\role{Head of Data Centre facility} \newline Balearic Islands Coastal Ocean Observing and Forecasting System (\href{www.socib.es}{\mbox{SOCIB}}) \sepa Palma de Mallorca, Spain & \skillbox{Team leading} \skillbox{Project management} \skillbox{Data analysis} \skillbox{Data visualisation} \skillbox{Recruitment} \skillbox{Quality control} \skillbox{Scientific outreach} \skillbox{Big data}\\ %\skillbox{International representation}\\
  
 2013/03--2014/03 & \montant\role{Post-doctoral researcher} \newline Mediterranean Institute for Advanced Studies (\href{http://imedea.uib-csic.es/}{IMEDEA}) \sepa \newline Esporles, Spain \newline \textit{Combined analysis of in situ, altimetry and HF radar data} & \skillbox{Data analysis} \skillbox{Python} \skillbox{Satellite image processing} \skillbox{Matlab}  \skillbox{Bash}  \\
  
@@ -108,11 +115,12 @@ Oceanography & Spatial interpolation \sepa Time-series analysis \sepa Principal 
 Programming & Python: general (loggin, virtualenv, urllib, regex), data analysis (numpy, scipy, pandas), geo-location (geopy, geoip, tweepy), data formats (json, netCDF4, csv, gpx), visualisation (bokeh, matplotlib, folium, plotly) 
 \newline Matlab/Octave: data reading and processing, plotting, geostatistics, interpolation
 \newline Bash scripting: awk, cronjob, wget, ssh, ncftp 
-\newline Other: Julia, Fortran 77, 90, Tcl/Tk, JavaScript (Leaflet, Highcharts), MySQL\\
+\newline Other: Julia, Fortran 77, 90, Tcl/Tk, JavaScript (Leaflet, Highcharts), MySQL, PostgreSQL\\
 %\cvitemf{Operating systems}{Preference with Linux (Mint, Ubuntu) \sepa Experience with Mac~OS~X Lion, Microsoft Windows}
 %\cvitem{Data formats}{netCDF (ncdump, ncview, Panoply, cdo, nco, OPeNDAP), ODV spreadsheet, HDF, CNV, CSV, JSON}
 %\cvitemf{Image processing}{GIMP, Inkskape, Darktable, ImageJ, Matlab, Python, ffmpeg, hugin, ImageMagick}
-Other tools & Version control (SVN, git) \sepa LaTeX (documents, posters, presentations, leaflet) \sepa Wiki (Dokuwiki, Mediawiki) \sepa Ocean-related software: Ocean Data View, DIVA (spatial interpolation), DINEOF (spatio-temporal interpolation of satellite images) \sepa Image processing: Darktable, GIMP, ImageMagick, Inkscape, ffmpeg\\
+Web & HTML, CSS, markdown, AngularJS, D3, javascript, Jekyll, wordpress, Dokuwiki, Mediawiki)\\	
+Other tools & Version control (SVN, git) \sepa LaTeX (documents, posters, presentations, leaflet) \sepa  Ocean-related software: Ocean Data View, DIVA (spatial interpolation), DINEOF (spatio-temporal interpolation of satellite images) \sepa Image processing: Darktable, GIMP, ImageMagick, Inkscape, ffmpeg\\
 
 \textbf{Soft skills} & \\
 

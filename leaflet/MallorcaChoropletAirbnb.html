@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>
+			Airnbn in Mallorca
+		</title>
+		<link rel="stylesheet" href="lib/leaflet/leaflet.css" />
+		<script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script> 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.css">
+		
+		
+		<style type="text/css">
+			#descr {font-size: 1.5em; width: 30% ; margin: 2% ; float: left ; text-align: justify}
+			#map {height: 600px; width: 50% ; margin: 2% ; float: right}
+			.info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+			.legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+		</style>
+	</head>
+	<body>
+		<div id="descr">
+			
+		<h3>Airbnb density per municipalities in Mallorca</h3>
+		
+		<p>While it is interesting to observe the spatial distribution of properties managed by Airbnb, the density of properties (i.e. number of properties
+		relative to the population of each municipality can provide some surprises.</p>
+		
+		<p><b>Processing:</b> we start from a geoJSON file storing the municipality limits, and add new properties: <i>habitants</i>, <i>hrooms</i> and <i>hroomsPerHabitants</i>. 
+		Once the file is prepared, leaflet can easily use it as a layer and add some control (mouseover, mouseout and click).</p>
+		
+		<p><b>Data sources:</b> 
+		<ul>
+			<li><a href="http://www.ine.es/" title="INE">National Institute of Statistics</a>(Spain)</li>
+			<li><a href="http://insideairbnb.com/" title="InsideAirbnb">Inside Airbnb</a>, 
+			licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0." target="_blank">CC 3.0 BY</a></li>
+		</ul>
+		</p>
+		
+		<p><b>In the news: </b> <a href="http://www.diariodemallorca.es/mallorca/2017/06/05/airbnbuger/1221084.html" title="AirbnBúger">AirbnBúger</a></p>
+		
+		</div>
+		
+		<div id="map"></div>
+		<script type="text/javascript" src="./data/MallorcaHabitantsRooms.geojson"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.js"></script>
+
+		<script>
+							
+			var map = L.map('map',
+								{
+								fullscreenControl: true,
+								}
+							).setView([39.6, 2.93], 10);
+			
+			
+			map.createPane('labels');
+			map.getPane('labels').style.zIndex = 650;
+			map.getPane('labels').style.pointerEvents = 'none';
+			
+			
+			var cartodbAttribution = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
+			
+			var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+				attribution: cartodbAttribution
+			}).addTo(map);
+
+			var positronLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
+				attribution: cartodbAttribution,
+				pane: 'labels'
+			}).addTo(map);
+			
+			
+			// control that shows state info on hover
+			var info = L.control();
+
+			info.onAdd = function (map) {
+				this._div = L.DomUtil.create('div', 'info');
+				this.update();
+				return this._div;
+			};
+
+			info.update = function (props) {
+				this._div.innerHTML = (props ?
+					'<h4>' + props.NAME_4 + '</h4>' + props.habitants + ' habitants<br/>' + props.rooms + ' properties<br/>' + props.roomsPerHabitants + ' properties per 1000 hab.<br/>'
+					: 'Select a location');
+			};
+
+			info.addTo(map);
+			
+			var geojson;
+			
+			function getColor(d) {
+				return d > 100 ? '#E30002' :
+					   d > 75  ? '#FC4E2A' :
+					   d > 50  ? '#FD8D3C' :
+					   d > 25  ? '#FEB24C' :
+					   d > 10  ? '#FED976' :
+								 '#FFF2BA';
+			}
+			
+			function getColor(d) {
+				return d > 100 ? '#253494' :
+					   d > 75  ? '#2c7fb8' :
+					   d > 50  ? '#41b6c4' :
+					   d > 25  ? '#7fcdbb' :
+					   d > 10  ? '#c7e9b4' :
+								 '#ffffcc';
+			}
+			
+			
+			function style(feature) {
+				return {
+					fillColor: getColor(feature.properties.roomsPerHabitants),
+					weight: 1,
+					opacity: 1,
+					color: 'black',
+					dashArray: '2',
+					fillOpacity: 0.7
+				};
+			}
+			
+			function highlightFeature(e) {
+				var layer = e.target;
+
+				layer.setStyle({
+					weight: 5,
+					color: '#666',
+					dashArray: '',
+					fillOpacity: 0.4
+				});
+
+				if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+					layer.bringToFront();
+				}
+				
+				info.update(layer.feature.properties);
+			}
+			
+			function resetHighlight(e) {
+				geojson.resetStyle(e.target);
+				info.update();
+			}
+			
+			function zoomToFeature(e) {
+				map.fitBounds(e.target.getBounds());
+			}
+
+			
+			function onEachFeature(feature, layer) {
+				layer.on({
+					mouseover: highlightFeature,
+					mouseout: resetHighlight,
+					click: zoomToFeature
+				});
+			}
+			
+			geojson = L.geoJson(municipios, {
+				style: style,
+				onEachFeature: onEachFeature
+			}).addTo(map);
+
+
+			var legend = L.control({position: 'bottomright'});
+			legend.onAdd = function (map) {
+
+				var div = L.DomUtil.create('div', 'info legend'),
+					grades = [10, 25, 50, 75, 100],
+					labels = [],
+					from, to;
+
+				//for (var i = 0; i < grades.length; i++) {
+				for (var i = grades.length-1; i >= 0; i--) {	
+					from = grades[i];
+					to = grades[i + 1];
+
+					labels.push(
+						'<i style="background:' + getColor(from + 1) + '"></i> ' +
+						from + (to ? '&ndash;' + to : '+'));
+				}
+
+				div.innerHTML = labels.join('<br>');
+				return div;
+			};
+
+			legend.addTo(map);
+			
+			
+		</script>
+
+		
+	</body>
+</html>
+

@@ -90,8 +90,8 @@
 				var heatStyle = {
 					gradient : {.65: "white", .75:"#FFFF36", .85:"#FF9D00", .9:"#FF1700", .95:"#900000", 1:"black"},
 					minOpacity: 0.75,
-					radius: 4,
-					blur: 4,
+					radius: 7,
+					blur: 7,
 				};
 				
 				// control that shows state info on hover
@@ -245,7 +245,7 @@
 					radius : 12,
 					opacity: 0.6,
 					duration: 200,
-					colorScaleExtent: [ 1, 350 ],
+					colorScaleExtent: [ 1, 150 ],
 					radiusScaleExtent: [ 1, undefined ],
 					colorRange: [ '#FAFF69', '#F43C1D' ],
 					colorValue: function(d) { return Math.sqrt(d.length); },

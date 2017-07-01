@@ -1,0 +1,271 @@
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8"/>
+			
+			<meta name="viewport" content="width=device-width, initial-scale=1" />
+			<title>
+				Sart Tilman B5a Running
+			</title>
+			<script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
+			<link rel="stylesheet" href="css/Leaflet.Coordinates-0.1.5.css"/>
+			<style type="text/css">
+				#map { height : 800px; }
+				.info { padding: 10px 20px; font: 20px/22px Arial, Helvetica, sans-serif; background: rgba(255,255,255,0.7); 
+					box-shadow: 0 0 15px rgba(0,0,0,0.4); border-radius: 7px; } 
+						.info h4 { margin: 0 0 5px; color: #777; }
+				.legend { text-align: left; line-height: 18px; color: #555; } 
+				.legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+				.hexbin-hexagon {
+					stroke: #000;
+					stroke-width: .5px;
+				}
+				
+			</style>
+		</head>
+		<body>
+			
+			<div id="map"></div>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/togeojson/0.16.0/togeojson.js"></script>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.js"></script>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
+			<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+			<script src="https://d3js.org/d3-hexbin.v0.2.min.js"></script>
+			<script src="https://rawgit.com/Asymmetrik/leaflet-d3/master/dist/leaflet-d3.js" charset="utf-8"></script>
+			<script type="text/javascript" src="js/Leaflet.Coordinates-0.1.5.min.js"></script>
+			<script src="GPX/movesAll.js"></script>
+			
+			<script>
+				
+				var gpxdir = 'GPX/'
+				var map = L.map('map', {
+					fullscreenControl: true,
+					}).setView([50.58,5.57], 13);
+				
+				var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+					maxZoom: 19,
+					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+				});
+				
+				var CartoDB = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+					maxZoom: 18, 
+					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
+				  });
+				
+				var CartoDB_DarkMatter = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+					subdomains: 'abcd',
+					maxZoom: 19
+				});
+				
+				var Stamen_Terrain = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.{ext}', {
+					attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+					subdomains: 'abcd',
+					minZoom: 0,
+					maxZoom: 18,
+					ext: 'png'
+				});
+
+				var baseMaps = {
+					"CartoDB": CartoDB,
+					"CartoDB Dark": CartoDB_DarkMatter,
+					"OpenStreetMap": OpenStreetMap_Mapnik,
+					"Stamen_Terrain": Stamen_Terrain
+				};
+				
+				map.addLayer(CartoDB)
+				
+				L.control.coordinates({
+					position:"bottomleft",
+					decimals:3,
+					decimalSeperator:".",
+					labelTemplateLat:"Lat: {y}",
+					labelTemplateLng:"Lon: {x}"
+				}).addTo(map);
+				
+				var heatStyle = {
+					gradient : {.65: "white", .75:"#FFFF36", .85:"#FF9D00", .9:"#FF1700", .95:"#900000", 1:"black"},
+					minOpacity: 0.75,
+					radius: 4,
+					blur: 4,
+				};
+				
+				// control that shows state info on hover
+				var info = L.control({position: 'bottomright'});
+
+				info.onAdd = function (map) {
+					this._div = L.DomUtil.create('div', 'info');
+					this.update();
+					return this._div;
+				};
+
+				info.update = function (props, d) {
+				this._div.innerHTML = (props ?
+					'<b>' + props.name + '</b><br />' + props.time.substring(0, 10) +
+					'<br/>' + d.toFixed(2) + ' km' 
+					: 'Hover over <br> a track');
+				};
+
+				info.addTo(map);
+				
+				latlon = [];
+				lonlat = [];
+				
+				var haversineDistance = function (lon1, lat1, lon2, lat2) {
+					var toRad = function (x) {
+						return x * Math.PI / 180;
+					};
+					var R = 6371; // km
+					var x1 = lat2 - lat1;
+					var dLat = toRad(x1);
+					var x2 = lon2 - lon1;
+					var dLon = toRad(x2)
+					var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+					Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+					Math.sin(dLon / 2) * Math.sin(dLon / 2);
+					var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+					var d = R * c;
+
+					return d;
+				}
+				
+				var computeTrackLength = function (layer){
+					latlonalt = layer._latlngs;
+					var gpxLength = 0;
+					for ( var i=0; i < latlonalt.length-1; ++i ){
+						gpxLength += haversineDistance(latlonalt[i].lng, latlonalt[i].lat, 
+						latlonalt[i+1].lng, latlonalt[i+1].lat)
+					}
+					//console.log("Distance = " + cumDist.toFixed(3));
+					return gpxLength;
+					
+				};
+				
+							
+				function randomColor() {
+					cc = '#'+Math.floor(Math.random()*16777215).toString(16);
+					//console.log(cc)
+					return(cc);
+				}
+				
+				var pushCoords = function(feature) {
+						coords = feature.geometry.coordinates;
+						for ( var i=0; i < coords.length; ++i ){ 
+							latlon.push([coords[i][1], coords[i][0]]);
+							lonlat.push([coords[i][0], coords[i][1]]);
+							}
+						};
+						
+				// Define some functions to work on the line look
+				function highlightFeature(e) {
+					var layer = e.target;
+					trackLength = computeTrackLength(layer);					
+					layer.setStyle({
+						weight: 5,
+					});
+					if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+						layer.bringToFront();
+					}
+
+					info.update(layer.feature.properties, trackLength);
+				}
+				
+				function resetHighlight(e) {
+					var layer = e.target;
+				
+					layer.setStyle({
+						weight: 2,
+					});
+					
+					info.update();
+				}
+				
+				function zoomToFeature(e) {
+					map.fitBounds(e.target.getBounds());
+				}
+						
+				var onEachFeature = function (feature, layer) {
+					layer.on({
+						mouseover: highlightFeature,
+						mouseout: resetHighlight,
+						click: zoomToFeature
+					});
+					coords = feature.geometry.coordinates;
+					for ( var i=0; i < coords.length; ++i ){
+						latlon.push([coords[i][1], coords[i][0]]);
+						lonlat.push([coords[i][0], coords[i][1]]);
+						}
+				};
+			
+					
+				var customLayer = L.geoJson(null, {
+					style: function(feature) {
+						return { 
+							color: randomColor(), 
+							weight: 3, 
+							opacity: 1,
+							};
+					},
+					onEachFeature: onEachFeature
+				});
+				
+				
+				var customLayerLast = L.geoJson(null, {
+					style: function(feature) {
+						return { 
+							color: 'yellow', 
+							weight: 20, 
+							opacity: .55
+							};
+					} 
+				});
+			
+				var nMoves = moves.length;
+				var OldTracks = []; 
+				for (var i = 0; i < nMoves ; i++) {
+					var moveGps = omnivore.gpx(gpxdir + moves[i], null, customLayer);
+					moveGps.addTo(map);
+					if (i < nMoves - 1){
+						OldTracks.push(moveGps);
+					}
+				}
+				
+				var moveGps = omnivore.gpx(gpxdir + moves[nMoves-1], null, customLayerLast);
+				moveGps.addTo(map);
+				moveGps.bringToFront();
+				
+				var heatmap = L.heatLayer(latlon, heatStyle);
+				heatlayer = L.layerGroup(heatmap);
+				
+				var hexoptions = {
+					radius : 12,
+					opacity: 0.6,
+					duration: 200,
+					colorScaleExtent: [ 1, 350 ],
+					radiusScaleExtent: [ 1, undefined ],
+					colorRange: [ '#FAFF69', '#F43C1D' ],
+					colorValue: function(d) { return Math.sqrt(d.length); },
+					radiusRange: [ 5, 12 ],
+				};
+
+				var hexLayer = L.hexbinLayer(hexoptions);
+				hexLayer.data(lonlat);
+									
+				var overlayers = {
+					"Heat map": heatmap,
+					"Hexbin": hexLayer,
+					"Old tracks": L.layerGroup(OldTracks),
+					"Last run": moveGps
+				};
+				
+				L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);	
+				
+			</script>
+			
+		</body>
+	</html>
+

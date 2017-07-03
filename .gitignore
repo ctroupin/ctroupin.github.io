@@ -2,3 +2,6 @@
 *.swp
 *.log
 Gemfile*
+leaflet/lib
+_plugins/
+_site/

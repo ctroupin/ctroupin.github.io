@@ -28,7 +28,7 @@ Browse my scientific [publications](ctroupin_publications.md) on oceanography an
 
 ### Illustrations <i class="fa fa-picture-o" aria-hidden="true"></i>
 
-Design of high-quality [figures](./figures/figures.md). for web pages or for publications.<br>
+Design of high-quality [figures](./figures/illustrations.md) for web pages or for publications.
 
 ### Animations <i class="fa fa-film" aria-hidden="true"></i>
 
@@ -36,4 +36,4 @@ A set of movies.md.
 
 ## Outside the office
 
-[Photography <i class="fa fa-camera-retro" aria-hidden="true"></i>](photography.md)
+[Photography <i class="fa fa-camera-retro" aria-hidden="true"></i>](./photography/photography.md)

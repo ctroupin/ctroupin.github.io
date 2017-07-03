@@ -8,12 +8,15 @@ of the graphical material we had to produce for peer-reviewed publications, post
 Looking back at my first creations, I am glad to observe a continuous improvement and the development of
 a capacity to properly convey a message through a figure or an animation.
 
+Click on the figure to see other examples.
+
 <figure>
-  <img src="./altim_global3.jpg" alt="Global altimetry map obtained with Diva" width="66%">
+<a href="./figures.html"> <img src="./altim_global3.jpg" alt="Global altimetry map obtained with Diva" width="66%"></a>
 </figure> 
 
-You can see a few examples [here](./figures.md).
 
-## Conference flyers.
+## Conference flyers
+
+The most recent examples are available [here](flyers.html).
 
 

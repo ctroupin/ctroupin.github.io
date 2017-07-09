@@ -254,12 +254,23 @@
 
 				var hexLayer = L.hexbinLayer(hexoptions);
 				hexLayer.data(lonlat);
+				
+				var startpoint = [50.582, 5.566];
+				var distCircles = []
+				for(count = 1; count < 5; count++){
+					dCircle = L.circle(startpoint, count * 1000., 
+					{color: "#298C15", fillColor: "None", "weight": 2, dashArray: '20,15'});
+					dCircle.addTo(map);
+					distCircles.push(dCircle);
+				}
+				circleLayer = L.layerGroup(distCircles);
 									
 				var overlayers = {
 					"Heat map": heatmap,
 					"Hexbin": hexLayer,
 					"Old tracks": L.layerGroup(OldTracks),
-					"Last run": moveGps
+					"Last run": moveGps,
+					"Distance circles": circleLayer
 				};
 				
 				L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);	

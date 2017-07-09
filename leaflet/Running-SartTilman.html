@@ -195,10 +195,17 @@
 						click: zoomToFeature
 					});
 					coords = feature.geometry.coordinates;
+					latmean = 0
+					lonmean = 0
 					for ( var i=0; i < coords.length; ++i ){
+						latmean += coords[i][1]
+						lonmean += coords[i][0]
 						latlon.push([coords[i][1], coords[i][0]]);
 						lonlat.push([coords[i][0], coords[i][1]]);
 						}
+					latmean = latmean / coords.length
+					lonmean = lonmean / coords.length
+					L.circleMarker([latmean, lonmean], {radius: 5, color: 'red'}).addTo(map);
 				};
 			
 					

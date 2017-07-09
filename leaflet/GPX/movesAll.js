@@ -23,4 +23,9 @@ var moves = [
 	"2017/Guillemins_SartTilman_2017_06_23_07_27_48_Running_noextensions.gpx",
 	"2017/Angleur_SartTilman_2017_06_28_07_23_49_Running_noextensions.gpx",
 	"2017/SartTilman_PointdeVue_2017_06_27_12_23_53_Running_noextensions.gpx",
+	"2017/Guillemins_LandeStreupas_SartTilman_2017_07_05_08_02_20_Running_noextensions_500pts.gpx",
+	"2017/SartTilman_RocheFaucons_Move_2017_01_19_12_00_56_Running_noextensions_500pts.gpx",
+	"2017/SartTilman_piste_VMA_2017_06_29_12_13_59_Running_noextensions_500pts.gpx",
+	"2017/SartTilman_Tilff_2017_07_04_12_11_56_Running_noextensions_500pts.gpx",
+	"SartTilman_PisteVMA_2017_07_06_12_08_50_Running_noextensions_500pts.gpx"	
 ]

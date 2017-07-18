@@ -27,5 +27,8 @@ var moves = [
 	"2017/SartTilman_RocheFaucons_Move_2017_01_19_12_00_56_Running_noextensions_500pts.gpx",
 	"2017/SartTilman_piste_VMA_2017_06_29_12_13_59_Running_noextensions_500pts.gpx",
 	"2017/SartTilman_Tilff_2017_07_04_12_11_56_Running_noextensions_500pts.gpx",
-	"2017/SartTilman_PisteVMA_2017_07_06_12_08_50_Running_noextensions_500pts.gpx"	
+	"2017/SartTilman_PisteVMA_2017_07_06_12_08_50_Running_noextensions_500pts.gpx",
+ 	"2017/SartTilman_RocheFaucons_2017_07_11_12_08_14_Running_noextensions_500pts.gpx",
+	"2017/SartTilman_Mery_Hony_2017_07_13_14_05_51_Running_noextensions_500pts.gpx",
+	"2017/SartTilman_Cortil_2017_07_18_12_11_34_Running_noextensions_500pts.gpx",		
 ]

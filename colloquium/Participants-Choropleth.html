@@ -19,6 +19,7 @@
 	</head>
 	<body>	
 		<div id="map"></div>
+		<script type="text/javascript" src="./ParticipantCountry.geojson"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
 
 
@@ -48,7 +49,7 @@
 			
 			Stamen_Terrain.addTo(map);
 			
-			var participants = new L.geoJson.ajax("https://github.com/gher-ulg/Liege-Colloquium-on-Ocean-Dynamics/blob/master/data/ParticipantCountry.geojson");
+			var geojsonLayer = new L.GeoJSON.AJAX("geojson.json");
 			
 			// control that shows state info on hover
 			var info = L.control();

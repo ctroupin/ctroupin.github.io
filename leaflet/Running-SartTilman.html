@@ -203,9 +203,9 @@
 						latlon.push([coords[i][1], coords[i][0]]);
 						lonlat.push([coords[i][0], coords[i][1]]);
 						}
-					latmean = latmean / coords.length
-					lonmean = lonmean / coords.length
-					L.circleMarker([latmean, lonmean], {radius: 5, color: 'red'}).addTo(map);
+					//latmean = latmean / coords.length
+					//lonmean = lonmean / coords.length
+					//L.circleMarker([latmean, lonmean], {radius: 5, color: 'red'}).addTo(map);
 				};
 			
 					
@@ -279,6 +279,8 @@
 					"Last run": moveGps,
 					"Distance circles": circleLayer
 				};
+				
+				L.control.scale().addTo(map);
 				
 				L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);	
 				

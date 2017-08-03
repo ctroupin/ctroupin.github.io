@@ -5,14 +5,14 @@
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>
-			Participation to the International Liege Colloquium
+			Participation to the International Liege Colloquium 1969 - 1985
 		</title>
 		<script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
 	 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">	
 		<style>
-		#map {height: 600px}
+		#map {height: 800px}
 		.info { padding: 6px 8px; font: 18px/20px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); font-size: 16px; box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } 
 		.info h4 { margin: 0 0 5px; color: #777;font-size: 2em}
 		.legend { text-align: left; line-height: 18px; color: #555} .legend i { font-size: 2.5em; width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }</style>
@@ -31,12 +31,26 @@
 								}
 							).setView([25, 0], 2)
 			
-		
+			map.createPane('labels');
+			map.getPane('labels').style.zIndex = 650;
+			map.getPane('labels').style.pointerEvents = 'none';
+			
+			
+			var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				maxZoom: 19,
+				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+			});
+			
+			var CartoDBmap = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+				maxZoom: 18, 
+				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
+			  });
+			
 			var CartoDB_DarkMatter = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
 				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
 				subdomains: 'abcd',
 				maxZoom: 19
-			});	
+			});
 			
 			var Stamen_Terrain = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.{ext}', {
 				attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -46,8 +60,19 @@
 				ext: 'png'
 			});
 
+			var CartoDBLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
+				attribution: '©OpenStreetMap, ©CartoDB',
+				pane: 'labels'
+			});
 			
-			Stamen_Terrain.addTo(map);
+			var CartoDB = L.layerGroup([CartoDBmap, CartoDBLabels]);
+			CartoDB.addTo(map);
+
+			var baseMaps = {
+				"CartoDB": CartoDB,
+				"CartoDB Dark": CartoDB_DarkMatter,
+				"OpenStreetMap": OpenStreetMap_Mapnik,
+			};
 						
 			// control that shows state info on hover
 			var info = L.control();
@@ -71,10 +96,10 @@
 			
 			// Extend the colormap (>25, >50?)
 			function getColor(d) {
-				return d > 20 ? '#0c2c84' :
-					   d > 10 ? '#225ea8' :
-					   d > 5  ? '#1d91c0' :
-					   d > 2  ? '#41b6c4' :
+				return d > 100 ? '#0c2c84' :
+					   d > 50 ? '#225ea8' :
+					   d > 10  ? '#1d91c0' :
+					   d > 5  ? '#41b6c4' :
 					   d > 1  ? '#7fcdbb' :
 					   d > 0  ? '#c7e9b4' :
 								'#ffffcc';
@@ -135,7 +160,7 @@
 			legend.onAdd = function (map) {
 
 				var div = L.DomUtil.create('div', 'info legend'),
-					grades = [0, 1, 2, 5, 10, 20],
+					grades = [0, 1, 5, 10, 50, 100],
 					labels = [],
 					from, to;
 
@@ -153,6 +178,8 @@
 			};
 
 			legend.addTo(map);
+			L.control.scale().addTo(map);
+			L.control.layers(baseMaps).addTo(map);	
 			
 		</script>
 		

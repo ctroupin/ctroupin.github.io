@@ -32,6 +32,13 @@
 			        title: {
 						text: 'Liège Colloquium on Ocean Dynamics'
 					},
+					
+					tooltip: {
+					formatter: function () {
+						return 'The value for <b>' + this.x +
+								'</b> is <b>' + this.y + '</b>';
+						}
+					},
 										
 					xAxis: {
 						tickInterval: 2,

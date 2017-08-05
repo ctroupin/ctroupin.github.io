@@ -53,16 +53,16 @@
 								}
 							).setView([39.6, 2.986239], 10);
 			
-			var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-				maxZoom: 19,
-				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-			}).addTo(map);
-			
 			map.createPane('labels');
 			map.getPane('labels').style.zIndex = 650;
 			map.getPane('labels').style.pointerEvents = 'none';
 			
 			var cartodbAttribution = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
+			
+			var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				maxZoom: 19,
+				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+			}).addTo(map);
 			
 			var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
 				attribution: cartodbAttribution
@@ -71,7 +71,7 @@
 			var positronLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
 				attribution: cartodbAttribution,
 				pane: 'labels'
-			}).addTo(map);
+			});
 			
 			
 			var CartoDB_DarkMatter = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
@@ -87,9 +87,12 @@
 				maxZoom: 18,
 				ext: 'png'
 			});
+			
+			var CartoDB = L.layerGroup([positron, positronLabels]);
+			CartoDB.addTo(map);
 
 			var baseMaps = {
-				"CartoDB": positron,
+				"CartoDB": CartoDB,
 				"CartoDB Dark": CartoDB_DarkMatter,
 				"OpenStreetMap": OpenStreetMap_Mapnik,
 				"Stamen Terrain": Stamen_Terrain

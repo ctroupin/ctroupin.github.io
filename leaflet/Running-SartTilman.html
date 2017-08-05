@@ -255,7 +255,7 @@
 					colorScaleExtent: [ 1, 150 ],
 					radiusScaleExtent: [ 1, undefined ],
 					colorRange: [ '#FAFF69', '#F43C1D' ],
-					colorValue: function(d) { return Math.sqrt(d.length); },
+					colorValue: function(d) { return Math.log(d.length); },
 					radiusRange: [ 5, 12 ],
 				};
 

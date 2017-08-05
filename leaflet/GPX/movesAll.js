@@ -30,5 +30,10 @@ var moves = [
 	"2017/SartTilman_PisteVMA_2017_07_06_12_08_50_Running_noextensions_500pts.gpx",
  	"2017/SartTilman_RocheFaucons_2017_07_11_12_08_14_Running_noextensions_500pts.gpx",
 	"2017/SartTilman_Mery_Hony_2017_07_13_14_05_51_Running_noextensions_500pts.gpx",
-	"2017/SartTilman_Cortil_2017_07_18_12_11_34_Running_noextensions_500pts.gpx",		
+	"2017/SartTilman_Cortil_2017_07_18_12_11_34_Running_noextensions_500pts.gpx",
+	"2017/SartTilman-Limoges-Colonster_2017_07_20_12_26_42_Running_noextensions_500pts.gpx",
+	"2017/SartTilman-Ougree_2017_07_25_12_07_09_Running_noextensions_500pts.gpx",
+	"2017/SartTilman-Colonster-BlancGravier_2017_08_02_12_11_29_Running_noextensions_500pts.gpx",		
+	"2017/sart-tilman-ougree-bas-parc-scientifique_noextensions_500pts.gpx",
+	"2017/SartTilman-ougree-colonster_2017_08_04_12_03_22_Running_noextensions_500pts.gpx",
 ]

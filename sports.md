@@ -3,6 +3,6 @@
 ## Trail running
 
  
-![alt text](./figures/GC_activity "Running in Gran Canaria")
+![alt text](./figures/GC_activity.png "Running in Gran Canaria")
 
 

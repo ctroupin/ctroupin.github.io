@@ -1,0 +1,52 @@
+ 	<!doctype html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>{{ site.title | default: site.github.repository_name }} by {{ site.github.owner_name }}</title>
+
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ site.url }}/assets/css/academicons.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1><a href="{{ site.url }}">{{ site.url }}/</a></h1>
+
+
+	<a href="https://github.com/ctroupin"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a> &emsp;
+	<a href="https://www.linkedin.com/in/charlestroupin"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>&emsp; 
+	<a href="http://orcid.org/0000-0002-0265-1021"><i class="ai ai-orcid ai-2x" aria-hidden="true"></i></a>&emsp;
+	<a href="https://www.researchgate.net/profile/Charles_Troupin"><i class="ai ai-researchgate ai-2x" aria-hidden="true"></i></a> &emsp;
+	<a href="https://twitter.com/CharlesTroupin"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>&emsp;
+	<a href="https://www.flickr.com/photos/sharlo1982"><i class="fa fa-flickr fa-2x" aria-hidden="true"></i></a> &emsp;
+	<a href="https://500px.com/charlestroupin"><i class="fa fa-500px fa-2x" aria-hidden="true"></i></a> &emsp;
+	<a href="https://www.instagram.com/charles_troupin/"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+
+    <br>
+    </br>
+
+    <blogsection>
+
+      {{ content }}
+
+    </blogsection>
+
+
+
+  {% if site.google_analytics %}
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', '{{ site.google_analytics }}', 'auto');
+        ga('send', 'pageview');
+    </script>
+  {% endif %}
+  </body>
+</html>

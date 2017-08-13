@@ -130,7 +130,7 @@ of the Cape Ghir Upwelling Filament: A Numerical Study.” *Ocean Modelling* 41:
 
 <img class="imagelogo" src="figures/logo_galtica.png" alt="G-Altika"> Troupin, C., A. Pascual, G. Valladeau, I. Pujol, A. Lana, E. Heslop, S.
 Ruiz, M. Torner, N. Picot, and J. Tintoré. 2015. “Illustration of the emerging capabilities of SARAL/AltiKa in the coastal zone using a multi-platform approach.” 
-*Advances in Space Research* 55 (1): 51–59. doi:[10.1016/j.asr.2014.09.011](https://doi.org/10.1016/j.asr.2014.09.011).     
+*Advances in Space Research* 55 (1): 51–59. doi:[10.1016/j.asr.2014.09.011](https://doi.org/10.1016/j.asr.2014.09.011). 
 
 
 <img class="imagelogo" src="figures/logo_roms1d.png" alt="ROMS-1D"> Troupin, C., P. Sangrà, and J. Arístegui. 2010. “Seasonal variability of
@@ -154,4 +154,7 @@ doi:[10.1111/j.1466-8238.2011.00656.x](https://doi.org/10.1111/j.1466-8238.2011.
 
 ### Hidden gems
 
-Sometimes people say "*if it's not published, it doesn't exist*". Here are a few [pieces of work](./unpublished.md) that will maybe never published.
+Sometimes people say "*if it's not published, it doesn't exist*". Here are a few [pieces of work](./publications/unpublished.md) that will maybe never published.
+
+
+

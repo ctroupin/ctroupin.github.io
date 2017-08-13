@@ -146,10 +146,12 @@ Analysis (Diva).” *Ocean Modelling* 52-53: 90–101.
 doi:[10.1016/j.ocemod.2012.05.002](https://doi.org/10.1016/j.ocemod.2012.05.002).
 
 
-Tyberghein, L., H. Verbruggen, K. Pauly, C. Troupin, F. Mineur, and O.
+<img class="imagelogo" src="figures/logo_biooracle.png" alt="Bio-Oracle"> Tyberghein, L., H. Verbruggen, K. Pauly, C. Troupin, F. Mineur, and O.
 De Clerck. 2012. “ORACLE: A Global Environmental Dataset for Marine
 Species Distribution Modeling.” *Global Ecology and Biogeography* 21
 (2): 272–81.
 doi:[10.1111/j.1466-8238.2011.00656.x](https://doi.org/10.1111/j.1466-8238.2011.00656.x).
 
+### Hidden gems
 
+Sometimes people say "*if it's not published, it doesn't exist*". Here are a few [pieces of work](./unpublished.md) that will maybe never published.

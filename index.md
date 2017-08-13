@@ -32,8 +32,14 @@ Design of high-quality [figures](./figures/illustrations.md) for web pages or fo
 
 ### <i class="fa fa-film" aria-hidden="true"></i> ---  Animations 
 
-A set of movies.md. 
+A set of [movies](./animations/movies.md) to give another dimension to some datasets. 
 
 ## Outside the office
 
-[Photography <i class="fa fa-camera-retro" aria-hidden="true"></i>](./photography/photography.md)
+[Photography --- <i class="fa fa-camera-retro" aria-hidden="true"></i>](./photography/photography.md)       
+[Run & bike --- <i class="fa fa-bicycle" aria-hidden="true"></i>](./sports.md)      
+[Blog --- <i class="fa fa-book" aria-hidden="true"></i>](./blog.md)
+
+
+
+

@@ -36,4 +36,6 @@ var moves = [
 	"2017/SartTilman-Colonster-BlancGravier_2017_08_02_12_11_29_Running_noextensions_500pts.gpx",		
 	"2017/sart-tilman-ougree-bas-parc-scientifique_noextensions_500pts.gpx",
 	"2017/SartTilman-ougree-colonster_2017_08_04_12_03_22_Running_noextensions_500pts.gpx",
+	"2017/SartTilman_10Xmontee_2017_08_10_12_09_00_Running_noextensions_500pts.gpx",
+	"2017/SartTilman_Cortil_Mery_2017_08_14_12_14_52_Running_noextensions_500pts.gpx",
 ]

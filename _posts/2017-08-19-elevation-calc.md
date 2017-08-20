@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Elevation in sport social network 
+title: Computing positive elevation from GPX tracks 
 ---
 
 After a cool ride this morning I wanted to compare (quickly) the numbers given by different platforms I'm using:
@@ -9,7 +9,9 @@ After a cool ride this morning I wanted to compare (quickly) the numbers given b
 * [Wikiloc](http://wikiloc.com/)
 * [Garmin](https://connect.garmin.com)
 
-In addition we compare with [QLandkarteGT](http://www.qlandkarte.org/), a tool I really like for quick visualisation of GPX tracks and with a personal viewer I'm playing with (total distance and elevation computed in javascript).    
+![From Pépinster to Angleur and Aywaille]({{ site.url }}/figures/blog/GPX_compare1.png "From Pépinster to Angleur and Aywaille")
+
+In addition we compare with [QLandkarteGT](http://www.qlandkarte.org/), a tool I really like for quick visualisation of GPX tracks and with a personal viewer I'm playing with (total distance and elevation computed in javascript). The same GPX file is used for the comparison, i.e., I did register the track using different devices.    
 Here are the results.
 
 | Platform    | Total distance  | Ascension      | Calories      |
@@ -23,6 +25,8 @@ Here are the results.
 | Own tool    | 80.52           | 734            |               |
 
 When the table cell is empty, it simply means that the value is not computed or made available.
+
+![Profile viewed using QLandkarteGT]({{ site.url }}/figures/blog/GPX_compare2.png "Profile viewed using QLandkarteGT")
 
 ### What do we see?
 
@@ -38,7 +42,7 @@ The altitude can be obtained from
 
 In any case, the signals are affected by errors and reducing them can be done using different methods, for example filtering the signal and remove unrealistic peaks. Also, if the digital model used in the calculation has more or less resolution and accuracy, the results will necessarily differ.
 
-Still, the ratio between the largest and the smallest values is about 3, in other words, when one platform tells you've done a Vertical Kilometer, the other says that you effort had (only) 300-400 meters of positive elevation... So yes, it would be nice to have kind of a consensus.
+Still, the ratio between the largest and the smallest values is about 3, in other words, when one platform tells you've done a Vertical Kilometer, the other says that you effort had (only) 300-400 meters of positive elevation... So yes, it would be nice to have some kind of a consensus.
 
 
 

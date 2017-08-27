@@ -38,4 +38,7 @@ var moves = [
 	"2017/SartTilman-ougree-colonster_2017_08_04_12_03_22_Running_noextensions_500pts.gpx",
 	"2017/SartTilman_10Xmontee_2017_08_10_12_09_00_Running_noextensions_500pts.gpx",
 	"2017/SartTilman_Cortil_Mery_2017_08_14_12_14_52_Running_noextensions_500pts.gpx",
+	"2017/SartTilman_Piste200m_2017_08_17_12_30_09_Running_noextensions_500pts.gpx",
+	"2017/SartTilman_Golf_Tilff_2017_08_22_12_08_13_Running_noextensions_500pts.gpx",
+	"2017/SartTilman_piste800m_2017_08_24_12_02_01_Running_noextensions_500pts.gpx",
 ]

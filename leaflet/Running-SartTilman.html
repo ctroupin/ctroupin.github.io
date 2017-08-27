@@ -5,11 +5,12 @@
 			
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 			<title>
-				Sart Tilman B5a Running
+				Sart Tilman Running
 			</title>
 			<script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 			<link rel="stylesheet" href="css/Leaflet.Coordinates-0.1.5.css"/>
 			<style type="text/css">
 				#map { height : 800px; }
@@ -88,10 +89,10 @@
 				}).addTo(map);
 				
 				var heatStyle = {
-					gradient : {.65: "white", .75:"#FFFF36", .85:"#FF9D00", .9:"#FF1700", .95:"#900000", 1:"black"},
+					gradient : {.65: "white", .75:"#FFFF36", .85:"#FF9D00", .9:"#FF1700", .95:"#900000"},
 					minOpacity: 0.75,
 					radius: 7,
-					blur: 7,
+					blur: 10,
 				};
 				
 				// control that shows state info on hover
@@ -102,12 +103,19 @@
 					this.update();
 					return this._div;
 				};
-
-				info.update = function (props, d) {
+				
+				info.update = function (props, d, dp, dm) {
 				this._div.innerHTML = (props ?
-					'<b>' + props.name + '</b><br />' + props.time.substring(0, 10) +
-					'<br/>' + d.toFixed(2) + ' km' 
-					: 'Hover over <br> a track');
+					'<b>' + props.name + '</b><br/> <i class="fa fa-calendar" aria-hidden="true"></i> ' + props.time.substring(0, 10) + 
+					'&emsp; <img src="images/runner-.png" alt="Running" style="height:20px;"> ' + d.toFixed(2) + ' km' + 
+					'<br/> <b><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></b> ' + dp.toFixed(1) + ' m' + 
+					'&emsp; <b><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></b> ' + dm.toFixed(1) + ' m' 
+					: 'Hover over a track' +
+					'<br/> <i class="fa fa-calendar" aria-hidden="true"></i>' + '&emsp; <i class="fa fa-question-circle-o" aria-hidden="true"></i>' + 
+					'<br/> <b><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></b> '  + 
+					'&emsp; <b><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></b> ' 
+					);
+				
 				};
 
 				info.addTo(map);
@@ -145,6 +153,23 @@
 					
 				};
 				
+				var computeElevationGain = function (layer){
+				latlonalt = layer._latlngs;
+				var dplus = 0.
+				var dminus = 0.
+				for ( var i=0; i < latlonalt.length-1; ++i ){
+					delta = latlonalt[i+1].alt - latlonalt[i].alt
+					if (delta > 0 ){
+						dplus += delta;
+					}
+					else {
+						dminus += Math.abs(delta);
+					}
+				}
+				return [dplus, dminus];
+				
+				};
+				
 							
 				function randomColor() {
 					cc = '#'+Math.floor(Math.random()*16777215).toString(16);
@@ -163,7 +188,11 @@
 				// Define some functions to work on the line look
 				function highlightFeature(e) {
 					var layer = e.target;
-					trackLength = computeTrackLength(layer);					
+					trackLength = computeTrackLength(layer);
+					elevation = computeElevationGain(layer);
+					dplus = elevation[0];
+					dminus = elevation[1];	
+										
 					layer.setStyle({
 						weight: 5,
 					});
@@ -171,7 +200,7 @@
 						layer.bringToFront();
 					}
 
-					info.update(layer.feature.properties, trackLength);
+					info.update(layer.feature.properties, trackLength, dplus, dminus);
 				}
 				
 				function resetHighlight(e) {
@@ -254,8 +283,8 @@
 					duration: 200,
 					colorScaleExtent: [ 1, 150 ],
 					radiusScaleExtent: [ 1, undefined ],
-					colorRange: [ '#FAFF69', '#F43C1D' ],
-					colorValue: function(d) { return Math.log(d.length); },
+					colorRange: [ '#FBFF9B', '#0062FF' ],
+					colorValue: function(d) { return d.length; },
 					radiusRange: [ 5, 12 ],
 				};
 
@@ -267,7 +296,6 @@
 				for(count = 1; count < 5; count++){
 					dCircle = L.circle(startpoint, count * 1000., 
 					{color: "#298C15", fillColor: "None", "weight": 2, dashArray: '20,15'});
-					dCircle.addTo(map);
 					distCircles.push(dCircle);
 				}
 				circleLayer = L.layerGroup(distCircles);

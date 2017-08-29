@@ -48,6 +48,9 @@ Still, the ratio between the largest and the smallest values is about 3, in othe
 
 The question is: do we find such a difference in elevation with other sports, in particular running? Let's check a medium-distance race.
 
+![Velocity along the race]({{ site.url }}/figures/blog/GPX_compare3.png "Velocity viewed using QLandkarteGT")
+
+
 | Platform    | Total distance  | Ascent         | Calories      |
 |             | (km)            | (m)            |               |
 | ------------| --------------- | -------------- | ------------- |

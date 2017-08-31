@@ -41,4 +41,6 @@ var moves = [
 	"2017/SartTilman_Piste200m_2017_08_17_12_30_09_Running_noextensions_500pts.gpx",
 	"2017/SartTilman_Golf_Tilff_2017_08_22_12_08_13_Running_noextensions_500pts.gpx",
 	"2017/SartTilman_piste800m_2017_08_24_12_02_01_Running_noextensions_500pts.gpx",
+	"2017/SartTilman_ougree_cerfontaine_2017_08_29_12_11_48_Running_noextensions_500pts.gpx",
+	"2017/SartTilman_piste_2017_08_31_12_09_10_Running_noextensions_500pts.gpx",
 ]

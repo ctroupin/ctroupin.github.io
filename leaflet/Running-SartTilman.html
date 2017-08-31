@@ -63,6 +63,16 @@
 					maxZoom: 19
 				});
 				
+				var Esri_DarkGreyCanvas = L.tileLayer(
+					"http://{s}.sm.mapstack.stamen.com/" +
+					"(toner-lite,$fff[difference],$fff[@23],$fff[hsl-saturation@20])/" +
+					"{z}/{x}/{y}.png",
+					{
+						attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, ' +
+						'NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+					}
+				);
+				
 				var Stamen_Terrain = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.{ext}', {
 					attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 					subdomains: 'abcd',
@@ -75,7 +85,8 @@
 					"CartoDB": CartoDB,
 					"CartoDB Dark": CartoDB_DarkMatter,
 					"OpenStreetMap": OpenStreetMap_Mapnik,
-					"Stamen_Terrain": Stamen_Terrain
+					"Stamen_Terrain": Stamen_Terrain,
+					"Grey Canvas": Esri_DarkGreyCanvas
 				};
 				
 				map.addLayer(CartoDB)
@@ -303,7 +314,7 @@
 				var overlayers = {
 					"Heat map": heatmap,
 					"Hexbin": hexLayer,
-					"Old tracks": L.layerGroup(OldTracks),
+					"Previous tracks": L.layerGroup(OldTracks),
 					"Last run": moveGps,
 					"Distance circles": circleLayer
 				};

@@ -49,9 +49,19 @@
 				attribution: '©OpenStreetMap, ©CartoDB',
 				pane: 'labels'
 			});
-			var CartoDB = L.layerGroup([CartoDB, CartoDBLabels]);
 			
-			CartoDB.addTo(map);
+			var CartoDBall = L.layerGroup([CartoDB, CartoDBLabels]);
+			CartoDBall.addTo(map);
+
+			var baseMaps = {
+				"CartoDB": CartoDBall,
+				"CartoDB Dark": CartoDB_DarkMatter,
+				"OpenStreetMap": OpenStreetMap_Mapnik,
+				"Stamen Terrain": Stamen_Terrain,
+				"Grey Canvas": Esri_DarkGreyCanvas,
+				"Esri_WorldImagery": Esri_WorldImagery
+			};
+
 			
 			// control that shows state info on hover
 			var info = L.control();

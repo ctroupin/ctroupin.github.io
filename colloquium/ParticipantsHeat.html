@@ -44,9 +44,19 @@
 				attribution: '©OpenStreetMap, ©CartoDB',
 				pane: 'labels'
 			});
-			var CartoDB = L.layerGroup([CartoDB, CartoDBLabels]);
 			
-			CartoDB.addTo(map);
+			var CartoDBall = L.layerGroup([CartoDB, CartoDBLabels]);
+			
+			CartoDBall.addTo(map);
+			
+			var baseMaps = {
+				"CartoDB": CartoDBall,
+				"CartoDB Dark": CartoDB_DarkMatter,
+				"OpenStreetMap": OpenStreetMap_Mapnik,
+				"Stamen Terrain": Stamen_Terrain,
+				"Grey Canvas": Esri_DarkGreyCanvas,
+				"Esri_WorldImagery": Esri_WorldImagery
+			};
 			
 			var heatStyle = {
 				gradient : {.65: "white", .75:"#FFFF36", .85:"#FF9D00", .9:"#FF1700", .95:"#900000", 1:"black"},

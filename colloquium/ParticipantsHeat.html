@@ -78,11 +78,11 @@
 			};
 			
 			var heatStyle = {
-				//gradient : {.65: "white", .75:"#FFFF36", .85:"#FF9D00", .9:"#FF1700", .95:"#900000", 1:"black"},
+				gradient : {.65: "white", .75:"#FFFF36", .85:"#FF9D00", .9:"#FF1700", .95:"#900000", 1:"black"},
 				minOpacity: 0.75,
                 radius: 10,
-                blur: 5,
-                max: 23.
+                blur: 10,
+         
 			};
 			
 			map.addLayer(CartoDB)
@@ -91,13 +91,17 @@
 			coordsPointsHex = coords.map(function (p) { return [p[1], p[0]]; });
 			
 			var markers = L.markerClusterGroup();
+			var circmarkers = L.layerGroup();
 			
 			for (var i = 0; i < coords.length; i++) {
 				var a = coords[i];
 				var marker = L.marker(new L.LatLng(a[0], a[1]));
+				var circmarker = L.circleMarker(new L.LatLng(a[0], a[1]), {radius:.5, color:"red"});
 				markers.addLayer(marker);
+				circmarkers.addLayer(circmarker);
 			}
 			
+			//map.addLayer(circmarkers);		
 			map.addLayer(markers);
 
 			
@@ -109,7 +113,7 @@
 					duration: 200,
 					colorScaleExtent: [ 1, 20 ],
 					radiusScaleExtent: [ 1, undefined ],
-					colorRange: [ '#FAFF69', '#F43C1D' ],
+					colorRange: ['#FFFFFF', '#F1FF67', '#FF8C00', '#FF2300'],
 					//colorValue: function(d) { return Math.sqrt(d.length); },
 					radiusRange: [ 10, 15],
 				};
@@ -122,6 +126,7 @@
 			
 			var overlayers = {
 					"Marker cluster": markers,
+					"Single dots": circmarkers,
 					"Heat map": heatmap,
 					"Hexbin": hexLayer,
 				};

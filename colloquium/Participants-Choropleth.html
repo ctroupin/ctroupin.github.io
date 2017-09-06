@@ -20,6 +20,7 @@
 	<body>	
 		<div id="map"></div>
 		<script type="text/javascript" src="./ParticipantCountry.geojson"></script>
+		<script type="text/javascript" src="../leaflet/js/basemaps.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
 
 
@@ -33,46 +34,15 @@
 			
 			map.createPane('labels');
 			map.getPane('labels').style.zIndex = 650;
-			map.getPane('labels').style.pointerEvents = 'none';
+			map.getPane('labels').style.pointerEvents = 'none';	
 			
-			
-			var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-				maxZoom: 19,
-				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-			});
-			
-			var CartoDBmap = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
-				maxZoom: 18, 
-				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
-			  });
-			
-			var CartoDB_DarkMatter = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
-				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-				subdomains: 'abcd',
-				maxZoom: 19
-			});
-			
-			var Stamen_Terrain = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.{ext}', {
-				attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-				subdomains: 'abcd',
-				minZoom: 0,
-				maxZoom: 18,
-				ext: 'png'
-			});
-
 			var CartoDBLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
 				attribution: '©OpenStreetMap, ©CartoDB',
 				pane: 'labels'
 			});
+			var CartoDB = L.layerGroup([CartoDB, CartoDBLabels]);
 			
-			var CartoDB = L.layerGroup([CartoDBmap, CartoDBLabels]);
 			CartoDB.addTo(map);
-
-			var baseMaps = {
-				"CartoDB": CartoDB,
-				"CartoDB Dark": CartoDB_DarkMatter,
-				"OpenStreetMap": OpenStreetMap_Mapnik,
-			};
 						
 			// control that shows state info on hover
 			var info = L.control();

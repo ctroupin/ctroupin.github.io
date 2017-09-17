@@ -7,6 +7,7 @@
 \usepackage{hyperref}
 \usepackage{geometry}
 \usepackage{sectsty}
+\usepackage{titlesec}
 \usepackage{doi}
 \usepackage{academicons}
 
@@ -24,9 +25,9 @@
 \setlength{\textwidth}{19cm}
 \setlength{\textheight}{28cm}
 \setlength{\hoffset}{-2.5cm}
-\setlength{\voffset}{-3cm}
+\setlength{\voffset}{-2.cm}
 \setlength{\unitlength}{1cm}
-\setlength{\parindent}{0.25pt}
+\setlength{\parindent}{0.2pt}
 \setlength{\bibsep}{0pt plus 0.3ex}
 \newlength{\logowidth}
 \setlength{\logowidth}{1.5cm} 
@@ -36,6 +37,9 @@
 \definecolor{CVorange}{HTML}{FF9900}
 \definecolor{CVgrey}{HTML}{E6E6E6}
 \sectionfont{\color{CVorange}}
+
+\titlespacing*{\section}
+{0pt}{2ex}{1ex}
 
 % Pdf configuration
 \hypersetup{bookmarksopen=true,
@@ -72,8 +76,8 @@ urlcolor=CVblue}
 \vspace{.25cm}
 
 \begin{tabular*}{.65\textwidth}{clcl}
-\faMobile & +32~498~155~998 (Belgium)	\hspace{5cm}	&	& +34~638~054~012 (Spain) \\
-\faEnvelope & \href{mailto:chatroupin@yahoo.fr}{charles.troupin@gmail.com} & \faSkype & charles.troupin1 	\\
+\faMobile & +32~498~155~998 (Belgium)	\hspace{5cm} & \faSkype & charles.troupin1 	 \\
+\faEnvelope & \href{mailto:chatroupin@yahoo.fr}{charles.troupin@gmail.com} & \faHome	& \url{http://ctroupin.github.io}\\
 \faLinkedinSquare & \url{https://www.linkedin.com/in/charlestroupin} & \faGithubSquare & \url{https://github.com/ctroupin/} \\
 \aiOrcidSquare & \url{http://orcid.org/0000-0002-0265-1021} & \faTwitterSquare &  \url{https://twitter.com/CharlesTroupin} \\
 \end{tabular*}

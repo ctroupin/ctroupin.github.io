@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
 		<script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.css"
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<title>Diva Black Sea</title>
 		<link rel="stylesheet" href='css/Leaflet.Coordinates-0.1.5.css'>
@@ -40,7 +41,8 @@
 		
 		<p>The legend (bottom-right corner) has to be adapted to the specific range of the observations, the <i>Mixed Layer Depth</i> (MLD) in this case.</p>
 		</div>
-		<div id="map"></div>		
+		<div id="map"></div>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.js"></script>		
 		<script type="text/javascript" src="js/Leaflet.Coordinates-0.1.5.min.js"></script>	
 		<script type="text/javascript" src="data/MLD1.geojson"></script>
 		<script type="text/javascript" src="data/contour.geojson"></script>
@@ -49,6 +51,7 @@
 		<script>
 			
 			var map = L.map('map', {
+			  fullscreenControl: true,
 			  center: [43., 35.],
 			  zoom: 6
 			});

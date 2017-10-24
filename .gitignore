@@ -3,7 +3,7 @@ vendor
 *.bak
 *.swp
 *.log
-test*
+*/test*
 Gemfile*
 leaflet/lib
 _plugins/

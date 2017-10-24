@@ -1,5 +1,14 @@
 ### High-quality figures
 
+
+#### High-frequency radar velocity
+
+In order to illustrate the derivation of HF radar total velocities from the radials obtained at different site, we prepared a step-by-step animation, of which the last image is shown below.
+
+![alt text](./Medgib_drifters_currents.png "Temperature measured by the MEDGIB drifters")
+
+The background is taken from WorldView web, the green and yellow arrows are the radial velocities from Galgi and Formentera sites, and the while arrows are the total velocities. 
+
 #### Drifter trajectories
 
 The authors needed an illustration showing the drifter trajectories and the main oceanic structures as an overlay.

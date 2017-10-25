@@ -1,10 +1,14 @@
 #!/bin/bash
+# Compile the CV (tex file) and the corresponding bibliographies
+#
+
+XELATEX='/usr/bin/xelatex'
 PDFLATEX='/usr/bin/pdflatex'
 BIBTEX='/usr/bin/bibtex'
 input='Ctroupin_CVacademic.tex'
-${PDFLATEX} ${input}
+${XELATEX} ${input}
 ${BIBTEX} article.aux
 ${BIBTEX} conference.aux
 ${BIBTEX} incollection.aux
-${PDFLATEX} ${input}
+${XELATEX} ${input}
 

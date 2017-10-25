@@ -8,7 +8,7 @@ var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x
 var CartoDB = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
 		maxZoom: 18, 
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
-	  });
+});
 	  
 var CartoDB_DarkMatter = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
 	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
@@ -41,14 +41,3 @@ var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/
 	}
 );
 
-
-
-
-var baseMaps = {
-	"CartoDB": CartoDB,
-	"CartoDB Dark": CartoDB_DarkMatter,
-	"OpenStreetMap": OpenStreetMap_Mapnik,
-	"Stamen Terrain": Stamen_Terrain,
-	"Grey Canvas": Esri_DarkGreyCanvas,
-	"Esri_WorldImagery": Esri_WorldImagery
-};

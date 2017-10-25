@@ -8,6 +8,8 @@ of the graphical material we had to produce for peer-reviewed publications, post
 Looking back at my first creations, I am glad to observe a continuous improvement and the development of
 a capacity to properly convey a message through a figure or an animation.
 
+From 2015 to 2016, I was responsible for the creation of graphical material for the [In Situ component](https://github.com/CopernicusMarineInsitu/INSTACTraining) of the Copernicus Marine Environment Monitoring Service ([CMEMS](http://marine.copernicus.eu/)).
+
 Click on the figure to see other examples.
 
 <figure>

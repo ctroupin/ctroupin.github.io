@@ -44,7 +44,7 @@ var moves = [
 	"2017/SartTilman_ougree_cerfontaine_2017_08_29_12_11_48_Running_noextensions_500pts.gpx",
 	"2017/SartTilman_piste_2017_08_31_12_09_10_Running_noextensions_500pts.gpx",
 	"2017/SartTilman_LandeStreupas_2017_09_05_12_10_48_Running_noextensions_500pts.gpx",
-	"2017/SartTilman_Ougree_Cerfontaine_2017_09_06_12_13_52_Running_noextensions_500pts.gpx"
+	"2017/SartTilman_Ougree_Cerfontaine_2017_09_06_12_13_52_Running_noextensions_500pts.gpx",
 	"2017/SartTilman_Colonster_BlancGravier_2017_10_24_12_05_40_Running_noextensions_500pts.gpx",
 	"2017/SartTilman_Intervales_2017_10_12_12_03_55_Running_noextensions_500pts.gpx",
 	"2017/SartTilman_Homes_BlancGravier_2017_10_26_12_02_22_Running_noextensions_500pts.gpx",

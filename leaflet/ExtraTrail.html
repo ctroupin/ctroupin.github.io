@@ -136,12 +136,13 @@
 				var moveGps = omnivore.gpx(gpxdir + "Theux_18Km.gpx", null, customLayer).on('ready', function() {
 					//map.fitBounds(moveGps.getBounds());
 					badtrack = L.hotline(latlonalt, hotlinestyleref).addTo(map);
-					makeOverlay();
+					//makeOverlay();
 				});
 				
 				var moveGpsRef = omnivore.gpx(gpxdir + "Theux_18Km_ref.gpx", null, customLayerRef).on('ready', function() {
-					goodtrack = L.hotline(latlonalt, hotlinestyle).addTo(map)
-					});
+					goodtrack = L.hotline(latlonalt, hotlinestyle).addTo(map);
+					makeOverlay();
+				});
 				
 				function makeOverlay() {
 				var overlayers = {

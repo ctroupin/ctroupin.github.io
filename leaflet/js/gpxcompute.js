@@ -17,14 +17,14 @@ var haversineDistance = function (lon1, lat1, lon2, lat2) {
 };
 
 var computeTrackLength = function (layer){
-				latlonalt = layer._latlngs;
-				var gpxLength = 0;
-				for ( var i=0; i < latlonalt.length-1; ++i ){
-					gpxLength += haversineDistance(latlonalt[i].lng, latlonalt[i].lat, 
-					latlonalt[i+1].lng, latlonalt[i+1].lat)
-				}
-				//console.log("Distance = " + cumDist.toFixed(3));
-				return gpxLength;
+	latlonalt = layer._latlngs;
+	var gpxLength = 0;
+	for ( var i=0; i < latlonalt.length-1; ++i ){
+		gpxLength += haversineDistance(latlonalt[i].lng, latlonalt[i].lat, 
+		latlonalt[i+1].lng, latlonalt[i+1].lat)
+	}
+	//console.log("Distance = " + cumDist.toFixed(3));
+	return gpxLength;
 				
 };
 

@@ -2,7 +2,7 @@
 	<html>
 		<head>
 			<meta charset="UTF-8"/>
-			
+
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 			<title>
 				Extratrail Theux
@@ -14,16 +14,16 @@
 			<link rel="stylesheet" href="css/Leaflet.Coordinates-0.1.5.css"/>
 			<style type="text/css">
 				#map { height : 800px; }
-				.info { padding: 10px 20px; font: 20px/22px Arial, Helvetica, sans-serif; background: rgba(255,255,255,0.7); 
-					box-shadow: 0 0 15px rgba(0,0,0,0.4); border-radius: 7px; } 
+				.info { padding: 10px 20px; font: 20px/22px Arial, Helvetica, sans-serif; background: rgba(255,255,255,0.7);
+					box-shadow: 0 0 15px rgba(0,0,0,0.4); border-radius: 7px; }
 						.info h4 { margin: 0 0 5px; color: #777; }
-				.legend { text-align: left; line-height: 18px; color: #555; } 
+				.legend { text-align: left; line-height: 18px; color: #555; }
 				.legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
-				
+
 			</style>
 		</head>
 		<body>
-			
+
 			<div id="map"></div>
 			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.js"></script>
@@ -33,23 +33,23 @@
 			<script type="text/javascript" src="js/leaflet.hotline.js"></script>
 			<script type="text/javascript" src="js/Leaflet.Coordinates-0.1.5.min.js"></script>
 			<script src="GPX/SartTilmanMoves.js"></script>
-			
+
 			<script>
-				
+
 				var gpxdir = 'GPX/Extratrail/'
 				var map = L.map('map', {
 					fullscreenControl: true,
 					}).setView([50.519,5.856], 14);
-				
+
 				map.addLayer(OpenStreetMap_Mapnik)
-				
+
 				var baseMaps = {
 					"CartoDB": CartoDB,
 					"OpenStreetMap": OpenStreetMap_Mapnik,
 					"Stamen Terrain": Stamen_Terrain,
 					"CartoDB Dark": CartoDB_DarkMatter
 				};
-				
+
 				L.control.coordinates({
 					position:"bottomleft",
 					decimals:3,
@@ -57,36 +57,36 @@
 					labelTemplateLat:"Lat: {y}",
 					labelTemplateLng:"Lon: {x}"
 				}).addTo(map);
-				
+
 				var latlonalt = [];
-				
+
 				function randomColor() {
 					cc = '#'+Math.floor(Math.random()*16777215).toString(16);
 					//console.log(cc)
 					return(cc);
 				}
-				
-				
+
+
 				function zoomToFeature(e) {
 					map.fitBounds(e.target.getBounds());
 				}
-								
+
 				var onEachFeature = function (feature, layer) {
 					layer.on({
 						click: zoomToFeature
 					});
-					
+
 					coords = feature.geometry.coordinates;
 					latlonalt = [];
 					for ( var i=0; i < coords.length; ++i ){
 						latlonalt.push([coords[i][1], coords[i][0], coords[i][2]]);
 					}
 				};
-					
+
 				var customLayer1 = L.geoJson(null, {onEachFeature: onEachFeature});
 				var customLayer2 = L.geoJson(null, {onEachFeature: onEachFeature});
 				var customLayer3 = L.geoJson(null, {onEachFeature: onEachFeature});
-				
+
 				var hotlinestyle = {min: 150,
 					max: 380,
 					palette: {
@@ -99,42 +99,47 @@
 					outlineColor: 'black',
 					outlineWidth: 2,
 				};
-				
+
 				var hotlinestyleref = Object.assign({}, hotlinestyle);
 				var hotlinestylecon = Object.assign({}, hotlinestyle);
 				hotlinestyleref.outlineColor = 'white';
 				hotlinestylecon.outlineColor = 'red';
 				hotlinestylecon.outlineWidth = '3';
-				
+
+				var track1 = false;
+				var track2 = false;
+
 				omnivore.gpx(gpxdir + "Theux_18Km.gpx", null, customLayer1).on('ready', function() {
 					badtrack = L.hotline(latlonalt, hotlinestyle).addTo(map);
+					track1 = true;
 				});
-				
+
 				omnivore.gpx(gpxdir + "connexion-Theux-Spa.gpx", null, customLayer2).on('ready', function() {
 					liaison = L.hotline(latlonalt, hotlinestylecon).addTo(map);
+					track2 = true;
 				});
-				
+
 				omnivore.gpx(gpxdir + "Theux_18Km_ref.gpx", null, customLayer3).on('ready', function() {
 					goodtrack = L.hotline(latlonalt, hotlinestyleref).addTo(map);
-					makeOverlay();
-					
+					if (track1 && track2) {
+						makeOverlay();
+					}
 				});
-				
+
 				L.circle([50.510, 5.854], {radius: 300, color: 'red', opacity: .25}).addTo(map);
-				
+
 				var makeOverlay =  function () {
 					var overlayers = {
 						"Track de référence": goodtrack,
 						"Track foireux": badtrack,
 						"Connexion Theux-Spa": liaison,
 					}
-					L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);	
+					L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);
 				};
-				
+
 				L.control.scale().addTo(map);
-				
+
 			</script>
-			
+
 		</body>
 	</html>
-

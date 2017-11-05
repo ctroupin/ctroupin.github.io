@@ -80,22 +80,11 @@
 					latlonalt = [];
 					for ( var i=0; i < coords.length; ++i ){
 						latlonalt.push([coords[i][1], coords[i][0], coords[i][2]]);
-						}
+					}
 				};
 				
-				var customLayerRef = L.geoJson(null, {
-					style: function(feature) {
-						return { 
-							color: 'black', 
-							weight: 1, 
-							opacity: 1,
-							dashArray: (5, 5)
-							};
-					},
-					onEachFeature: onEachFeature
-				});
 				
-				var customLayer = L.geoJson(null, {
+				var customLayer1 = L.geoJson(null, {
 					style: function(feature) {
 						return { 
 							color: 'black', 
@@ -106,8 +95,31 @@
 					onEachFeature: onEachFeature
 				});
 				
+				var customLayer2 = L.geoJson(null, {
+					style: function(feature) {
+						return { 
+							color: 'black', 
+							weight: 1, 
+							opacity: 1,
+							};
+					},
+					onEachFeature: onEachFeature
+				});
 				
-				var hotlinestyleref = {min: 150,
+				var customLayer3 = L.geoJson(null, {
+					style: function(feature) {
+						return { 
+							color: 'black', 
+							weight: 1, 
+							opacity: 1,
+							};
+					},
+					onEachFeature: onEachFeature
+				});
+				
+				
+				
+				var hotlinestyle = {min: 150,
 					max: 380,
 					palette: {
 						0.0: '#11D818',
@@ -120,36 +132,34 @@
 					outlineWidth: 2,
 				};
 				
-				var hotlinestyle = {min: 150,
-					max: 380,
-					palette: {
-						0.0: '#11D818',
-						0.33: '#FFF918',
-						0.66: '#FFB403',
-						1.0: '#FF0C02'
-					},
-					weight: 4,
-					outlineColor: 'white',
-					outlineWidth: 2,
-				};
-			
-				var moveGps = omnivore.gpx(gpxdir + "Theux_18Km.gpx", null, customLayer).on('ready', function() {
-					//map.fitBounds(moveGps.getBounds());
-					badtrack = L.hotline(latlonalt, hotlinestyleref).addTo(map);
-					//makeOverlay();
+							
+				var hotlinestyleref = Object.assign({}, hotlinestyle);
+				var hotlinestylecon = Object.assign({}, hotlinestyle);
+				hotlinestyleref.outlineColor = 'white';
+				hotlinestylecon.outlineColor = 'red';
+				
+				
+				omnivore.gpx(gpxdir + "Theux_18Km.gpx", null, customLayer1).on('ready', function() {
+					badtrack = L.hotline(latlonalt, hotlinestyle).addTo(map);
 				});
 				
-				var moveGpsRef = omnivore.gpx(gpxdir + "Theux_18Km_ref.gpx", null, customLayerRef).on('ready', function() {
-					goodtrack = L.hotline(latlonalt, hotlinestyle).addTo(map);
+				omnivore.gpx(gpxdir + "connexion-Theux-Spa.gpx", null, customLayer2).on('ready', function() {
+					liaison = L.hotline(latlonalt, hotlinestylecon).addTo(map);
+				});
+				
+				omnivore.gpx(gpxdir + "Theux_18Km_ref.gpx", null, customLayer3).on('ready', function() {
+					goodtrack = L.hotline(latlonalt, hotlinestyleref).addTo(map);
 					makeOverlay();
+					
 				});
 				
-				function makeOverlay() {
-				var overlayers = {
-					"Track de référence": goodtrack,
-					"Track foireux": badtrack,
-				}
-				L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);	
+				var makeOverlay =  function () {
+					var overlayers = {
+						"Track de référence": goodtrack,
+						"Track foireux": badtrack,
+						"Connexion Theux-Spa": liaison,
+					}
+					L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);	
 				};
 				
 				L.control.scale().addTo(map);

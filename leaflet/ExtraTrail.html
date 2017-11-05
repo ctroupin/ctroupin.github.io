@@ -70,7 +70,7 @@
 				function zoomToFeature(e) {
 					map.fitBounds(e.target.getBounds());
 				}
-						
+								
 				var onEachFeature = function (feature, layer) {
 					layer.on({
 						click: zoomToFeature
@@ -82,42 +82,10 @@
 						latlonalt.push([coords[i][1], coords[i][0], coords[i][2]]);
 					}
 				};
-				
-				
-				var customLayer1 = L.geoJson(null, {
-					style: function(feature) {
-						return { 
-							color: 'black', 
-							weight: 1, 
-							opacity: 1,
-							};
-					},
-					onEachFeature: onEachFeature
-				});
-				
-				var customLayer2 = L.geoJson(null, {
-					style: function(feature) {
-						return { 
-							color: 'black', 
-							weight: 1, 
-							opacity: 1,
-							};
-					},
-					onEachFeature: onEachFeature
-				});
-				
-				var customLayer3 = L.geoJson(null, {
-					style: function(feature) {
-						return { 
-							color: 'black', 
-							weight: 1, 
-							opacity: 1,
-							};
-					},
-					onEachFeature: onEachFeature
-				});
-				
-				
+					
+				var customLayer1 = L.geoJson(null, {onEachFeature: onEachFeature});
+				var customLayer2 = L.geoJson(null, {onEachFeature: onEachFeature});
+				var customLayer3 = L.geoJson(null, {onEachFeature: onEachFeature});
 				
 				var hotlinestyle = {min: 150,
 					max: 380,
@@ -127,17 +95,16 @@
 						0.66: '#FFB403',
 						1.0: '#FF0C02'
 					},
-					weight: 4,
+					weight: 5,
 					outlineColor: 'black',
 					outlineWidth: 2,
 				};
 				
-							
 				var hotlinestyleref = Object.assign({}, hotlinestyle);
 				var hotlinestylecon = Object.assign({}, hotlinestyle);
 				hotlinestyleref.outlineColor = 'white';
 				hotlinestylecon.outlineColor = 'red';
-				
+				hotlinestylecon.outlineWidth = '3';
 				
 				omnivore.gpx(gpxdir + "Theux_18Km.gpx", null, customLayer1).on('ready', function() {
 					badtrack = L.hotline(latlonalt, hotlinestyle).addTo(map);
@@ -152,6 +119,8 @@
 					makeOverlay();
 					
 				});
+				
+				L.circle([50.510, 5.854], {radius: 300, color: 'red', opacity: .25}).addTo(map);
 				
 				var makeOverlay =  function () {
 					var overlayers = {

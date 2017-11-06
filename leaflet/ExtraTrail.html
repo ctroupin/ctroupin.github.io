@@ -106,25 +106,20 @@
 				hotlinestylecon.outlineColor = 'red';
 				hotlinestylecon.outlineWidth = '3';
 
-				var track1 = false;
-				var track2 = false;
+
 
 				omnivore.gpx(gpxdir + "Theux_18Km.gpx", null, customLayer1).on('ready', function() {
 					badtrack = L.hotline(latlonalt, hotlinestyle).addTo(map);
-					track1 = true;
+					omnivore.gpx(gpxdir + "connexion-Theux-Spa.gpx", null, customLayer2).on('ready', function() {
+						liaison = L.hotline(latlonalt, hotlinestylecon).addTo(map);
+						omnivore.gpx(gpxdir + "Theux_18Km_ref.gpx", null, customLayer3).on('ready', function() {
+							goodtrack = L.hotline(latlonalt, hotlinestyleref).addTo(map);
+							makeOverlay();
+							});
+						});
 				});
 
-				omnivore.gpx(gpxdir + "connexion-Theux-Spa.gpx", null, customLayer2).on('ready', function() {
-					liaison = L.hotline(latlonalt, hotlinestylecon).addTo(map);
-					track2 = true;
-				});
 
-				omnivore.gpx(gpxdir + "Theux_18Km_ref.gpx", null, customLayer3).on('ready', function() {
-					goodtrack = L.hotline(latlonalt, hotlinestyleref).addTo(map);
-					if (track1 && track2) {
-						makeOverlay();
-					}
-				});
 
 				L.circle([50.510, 5.854], {radius: 300, color: 'red', opacity: .25}).addTo(map);
 

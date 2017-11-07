@@ -2,7 +2,7 @@
 	<html>
 		<head>
 			<meta charset="UTF-8"/>
-			
+
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 			<title>
 				Sart Tilman Running
@@ -14,20 +14,20 @@
 			<link rel="stylesheet" href="css/Leaflet.Coordinates-0.1.5.css"/>
 			<style type="text/css">
 				#map { height : 800px; }
-				.info { padding: 10px 20px; font: 20px/22px Arial, Helvetica, sans-serif; background: rgba(255,255,255,0.7); 
-					box-shadow: 0 0 15px rgba(0,0,0,0.4); border-radius: 7px; } 
+				.info { padding: 10px 20px; font: 20px/22px Arial, Helvetica, sans-serif; background: rgba(255,255,255,0.7);
+					box-shadow: 0 0 15px rgba(0,0,0,0.4); border-radius: 7px; }
 						.info h4 { margin: 0 0 5px; color: #777; }
-				.legend { text-align: left; line-height: 18px; color: #555; } 
+				.legend { text-align: left; line-height: 18px; color: #555; }
 				.legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
 				.hexbin-hexagon {
 					stroke: #000;
 					stroke-width: .5px;
 				}
-				
+
 			</style>
 		</head>
 		<body>
-			
+
 			<div id="map"></div>
 			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/togeojson/0.16.0/togeojson.js"></script>
@@ -41,23 +41,24 @@
 			<script src="https://rawgit.com/Asymmetrik/leaflet-d3/master/dist/leaflet-d3.js" charset="utf-8"></script>
 			<script type="text/javascript" src="js/Leaflet.Coordinates-0.1.5.min.js"></script>
 			<script src="GPX/SartTilmanMoves.js"></script>
-			
+
 			<script>
-				
+
 				var gpxdir = 'GPX/'
 				var map = L.map('map', {
 					fullscreenControl: true,
 					}).setView([50.58,5.57], 13);
-				
+
 				map.addLayer(CartoDB)
-				
+
 				var baseMaps = {
 					"CartoDB": CartoDB,
 					"OpenStreetMap": OpenStreetMap_Mapnik,
 					"Stamen Terrain": Stamen_Terrain,
-					"CartoDB Dark": CartoDB_DarkMatter
+					"CartoDB Dark": CartoDB_DarkMatter,
+					"ESRI World Imagery": Esri_WorldImagery
 				};
-				
+
 				L.control.coordinates({
 					position:"bottomleft",
 					decimals:3,
@@ -65,14 +66,25 @@
 					labelTemplateLat:"Lat: {y}",
 					labelTemplateLng:"Lon: {x}"
 				}).addTo(map);
-				
+
 				var heatStyle = {
-					gradient : {.65: "white", .75:"#FFFF36", .85:"#FF9D00", .9:"#FF1700", .95:"#900000"},
+					gradient : {.7: "white", .8:"#FFFF36", .9:"#FF9D00", .95:"#FF1700", 1.:"black"},
 					minOpacity: 0.75,
 					radius: 7,
-					blur: 10,
+					blur: 7,
 				};
-				
+
+				var hexoptions = {
+					radius : 12,
+					opacity: 0.6,
+					duration: 200,
+					colorScaleExtent: [ 1, 150 ],
+					radiusScaleExtent: [ 1, undefined ],
+					colorRange: [ '#F8F9F8', '#FFFE00', '#FFA31B', '#FF331B' ],
+					colorValue: function(d) { return d.length; },
+					radiusRange: [ 5, 12 ],
+				};
+
 				// control that shows state info on hover
 				var info = L.control({position: 'bottomright'});
 
@@ -81,48 +93,40 @@
 					this.update();
 					return this._div;
 				};
-				
+
 				info.update = function (props, d, dp, dm) {
 				this._div.innerHTML = (props ?
-					'<b>' + props.name + '</b><br/> <i class="fa fa-calendar" aria-hidden="true"></i> ' + props.time.substring(0, 10) + 
-					'&emsp; <img src="images/runner-.png" alt="Running" style="height:20px;"> ' + d.toFixed(2) + ' km' + 
-					'<br/> <b><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></b> ' + dp.toFixed(1) + ' m' + 
-					'&emsp; <b><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></b> ' + dm.toFixed(1) + ' m' 
+					'<b>' + props.name + '</b><br/> <i class="fa fa-calendar" aria-hidden="true"></i> ' + props.time.substring(0, 10) +
+					'&emsp; <img src="images/runner-.png" alt="Running" style="height:20px;"> ' + d.toFixed(2) + ' km' +
+					'<br/> <b><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></b> ' + dp.toFixed(1) + ' m' +
+					'&emsp; <b><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></b> ' + dm.toFixed(1) + ' m'
 					: 'Hover over a track' +
-					'<br/> <i class="fa fa-calendar" aria-hidden="true"></i>' + '&emsp; <i class="fa fa-question-circle-o" aria-hidden="true"></i>' + 
-					'<br/> <b><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></b> '  + 
-					'&emsp; <b><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></b> ' 
+					'<br/> <i class="fa fa-calendar" aria-hidden="true"></i>' + '&emsp; <i class="fa fa-question-circle-o" aria-hidden="true"></i>' +
+					'<br/> <b><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></b> '  +
+					'&emsp; <b><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></b> '
 					);
-				
+
 				};
 
 				info.addTo(map);
-				
+
 				latlon = [];
 				lonlat = [];
-							
+
 				function randomColor() {
 					cc = '#'+Math.floor(Math.random()*16777215).toString(16);
 					//console.log(cc)
 					return(cc);
 				}
-				
-				var pushCoords = function(feature) {
-						coords = feature.geometry.coordinates;
-						for ( var i=0; i < coords.length; ++i ){ 
-							latlon.push([coords[i][1], coords[i][0]]);
-							lonlat.push([coords[i][0], coords[i][1]]);
-							}
-						};
-						
+
 				// Define some functions to work on the line look
 				function highlightFeature(e) {
 					var layer = e.target;
 					trackLength = computeTrackLength(layer);
 					elevation = computeElevationGain(layer);
 					dplus = elevation[0];
-					dminus = elevation[1];	
-										
+					dminus = elevation[1];
+
 					layer.setStyle({
 						weight: 5,
 					});
@@ -132,21 +136,19 @@
 
 					info.update(layer.feature.properties, trackLength, dplus, dminus);
 				}
-				
+
 				function resetHighlight(e) {
 					var layer = e.target;
-				
 					layer.setStyle({
 						weight: 2,
 					});
-					
 					info.update();
 				}
-				
+
 				function zoomToFeature(e) {
 					map.fitBounds(e.target.getBounds());
 				}
-						
+
 				var onEachFeature = function (feature, layer) {
 					layer.on({
 						mouseover: highlightFeature,
@@ -166,83 +168,70 @@
 					//lonmean = lonmean / coords.length
 					//L.circleMarker([latmean, lonmean], {radius: 5, color: 'red'}).addTo(map);
 				};
-			
-					
+
+
 				var customLayer = L.geoJson(null, {
 					style: function(feature) {
-						return { 
-							color: randomColor(), 
-							weight: 3, 
-							opacity: 1,
+						return {
+							color: randomColor(),
+							weight: 2,
+							opacity: .8,
 							};
 					},
 					onEachFeature: onEachFeature
 				});
-				
-				
+
+
 				var customLayerLast = L.geoJson(null, {
 					style: function(feature) {
-						return { 
-							color: 'yellow', 
-							weight: 20, 
-							opacity: .55
+						return {
+							color: 'yellow',
+							weight: 5,
+							opacity: 1
 							};
-					} 
+					},
+					onEachFeature: onEachFeature
 				});
-			
+
 				var nMoves = moves.length;
-				var OldTracks = []; 
+				var OldTracks = [];
 				for (var i = 0; i < nMoves ; i++) {
 					var moveGps = omnivore.gpx(gpxdir + moves[i], null, customLayer);
-					moveGps.addTo(map);
-					if (i < nMoves - 1){
-						OldTracks.push(moveGps);
-					}
+					//moveGps.addTo(map);
 				}
-				
-				var moveGps = omnivore.gpx(gpxdir + moves[nMoves-1], null, customLayerLast);
-				moveGps.addTo(map);
-				moveGps.bringToFront();
-				
+
+				var moveGpsLast = omnivore.gpx(gpxdir + moves[nMoves-1], null, customLayerLast);
+				moveGpsLast.addTo(map);
+				moveGpsLast.bringToFront();
+
 				var heatmap = L.heatLayer(latlon, heatStyle);
 				heatlayer = L.layerGroup(heatmap);
-				
-				var hexoptions = {
-					radius : 12,
-					opacity: 0.6,
-					duration: 200,
-					colorScaleExtent: [ 1, 150 ],
-					radiusScaleExtent: [ 1, undefined ],
-					colorRange: [ '#F8F9F8', '#FFFE00', '#FFA31B', '#FF331B' ],
-					colorValue: function(d) { return d.length; },
-					radiusRange: [ 5, 12 ],
-				};
 
 				var hexLayer = L.hexbinLayer(hexoptions);
 				hexLayer.data(lonlat);
-				
+				hexLayer.addTo(map);
+
 				var startpoint = [50.582, 5.566];
 				var distCircles = []
 				for(count = 1; count < 5; count++){
-					dCircle = L.circle(startpoint, count * 1000., 
+					dCircle = L.circle(startpoint, count * 1000.,
 					{color: "#298C15", fillColor: "None", "weight": 2, dashArray: '20,15'});
 					distCircles.push(dCircle);
 				}
 				circleLayer = L.layerGroup(distCircles);
-									
+
 				var overlayers = {
 					"Heat map": heatmap,
 					"Hexbin": hexLayer,
-					"Previous tracks": L.layerGroup(OldTracks),
-					"Last run": moveGps,
+					"Previous tracks": moveGps,
+					"Last run": moveGpsLast,
 					"Distance circles": circleLayer
 				};
-				
+
 				L.control.scale().addTo(map);
-				L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);	
-				
+				L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);
+
 			</script>
-			
+
 		</body>
 	</html>
-

@@ -48,4 +48,5 @@ var moves = [
 	"2017/SartTilman_Colonster_BlancGravier_2017_10_24_12_05_40_Running_noextensions_500pts.gpx",
 	"2017/SartTilman_Intervales_2017_10_12_12_03_55_Running_noextensions_500pts.gpx",
 	"2017/SartTilman_Homes_BlancGravier_2017_10_26_12_02_22_Running_noextensions_500pts.gpx",
+	"2017/SartTilman_3sapains_homes_2017_11_07_12_05_20_Running_noextensions.gpx",
 ]

@@ -205,8 +205,9 @@
 					moveGps.addTo(map);
 				}
 
-				//var moveGpsLast = omnivore.gpx(gpxdir + moves[nMoves-1], null, customLayerLast);
+				var moveGpsLast = omnivore.gpx(gpxdir + moves[nMoves-1], null, customLayerLast);
 
+				/*
 				var moveGpsLast = new L.GPX(gpxdir + moves[nMoves-1], {
 					async: true
 				}).on("loaded", function(e) {
@@ -217,6 +218,8 @@
 					chunks: 250,
 					spectrum: ['green', 'yellow', 'orange', 'red']
 				});
+
+				*/
 				map.addLayer(moveGpsLast);
 				moveGpsLast.addTo(map);
 				moveGpsLast.bringToFront();

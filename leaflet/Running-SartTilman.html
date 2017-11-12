@@ -11,7 +11,7 @@
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-			<link rel="stylesheet" href="css/Leaflet.Coordinates-0.1.5.css"/>
+			<link rel="stylesheet" href="lib/leaflet/leaflet.elevation-0.0.4.css"/>
 			<style type="text/css">
 				#map { height : 800px; }
 				.info { padding: 10px 20px; font: 20px/22px Arial, Helvetica, sans-serif; background: rgba(255,255,255,0.7);
@@ -36,7 +36,11 @@
 			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
 			<script type="text/javascript" src="js/gpxcompute.js"></script>
 			<script type="text/javascript" src="js/basemaps.js"></script>
-			<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+			<script type="text/javascript" src="lib/leaflet/leaflet.elevation-0.0.4.src.js"></script>
+			<script type="text/javascript" src="js/GPX.js"></script>
+			<script type="text/javascript" src="js/GPX.Speed.js"></script>
+			<script type="text/javascript" src="js/rainbowvis.js"></script>
+			<script src="https://d3js.org/d3.v4.min.js"></script>
 			<script src="https://d3js.org/d3-hexbin.v0.2.min.js"></script>
 			<script src="https://rawgit.com/Asymmetrik/leaflet-d3/master/dist/leaflet-d3.js" charset="utf-8"></script>
 			<script type="text/javascript" src="js/Leaflet.Coordinates-0.1.5.min.js"></script>
@@ -61,7 +65,7 @@
 
 				L.control.coordinates({
 					position:"bottomleft",
-					decimals:3,
+					decimals:4,
 					decimalSeperator:".",
 					labelTemplateLat:"Lat: {y}",
 					labelTemplateLng:"Lon: {x}"
@@ -174,8 +178,9 @@
 					style: function(feature) {
 						return {
 							color: randomColor(),
-							weight: 2,
+							weight: 1,
 							opacity: .8,
+							dashArray: [5, 5]
 							};
 					},
 					onEachFeature: onEachFeature
@@ -186,7 +191,7 @@
 					style: function(feature) {
 						return {
 							color: 'yellow',
-							weight: 5,
+							weight: 3,
 							opacity: 1
 							};
 					},
@@ -197,10 +202,22 @@
 				var OldTracks = [];
 				for (var i = 0; i < nMoves ; i++) {
 					var moveGps = omnivore.gpx(gpxdir + moves[i], null, customLayer);
-					//moveGps.addTo(map);
+					moveGps.addTo(map);
 				}
 
-				var moveGpsLast = omnivore.gpx(gpxdir + moves[nMoves-1], null, customLayerLast);
+				//var moveGpsLast = omnivore.gpx(gpxdir + moves[nMoves-1], null, customLayerLast);
+
+				var moveGpsLast = new L.GPX(gpxdir + moves[nMoves-1], {
+					async: true
+				}).on("loaded", function(e) {
+					map.fitBounds(e.target.getBounds());
+				}).speedSplitEnable({
+					minSpeed: 7,
+					maxSpeed: 20,
+					chunks: 250,
+					spectrum: ['green', 'yellow', 'orange', 'red']
+				});
+				map.addLayer(moveGpsLast);
 				moveGpsLast.addTo(map);
 				moveGpsLast.bringToFront();
 
@@ -209,7 +226,7 @@
 
 				var hexLayer = L.hexbinLayer(hexoptions);
 				hexLayer.data(lonlat);
-				hexLayer.addTo(map);
+				//hexLayer.addTo(map);
 
 				var startpoint = [50.582, 5.566];
 				var distCircles = []

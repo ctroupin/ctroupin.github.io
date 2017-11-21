@@ -52,4 +52,6 @@ var moves = [
 	"2017/SartTilman_3sapins_homes_2017_11_07_12_05_20_Running_noextensions_500pts.gpx",
 	"2017/SartTilman_10x400mBotanique_2017_11_09_12_04_40_Running_noextensions_500pts.gpx",
 	"2017/JoggingEmbourg_2017_11_12_11_05_24_Running_noextensions_500pts.gpx",
+	"2017/SartTilman_Golf_RocheFaucons_2017_11_14_11_49_48_Running_noextensions_500pts.gpx",
+	"2017/SartTilman_BlancGravier_Homes_2017_11_21_12_08_03_Running_noextensions_500pts.gpx",
 ]

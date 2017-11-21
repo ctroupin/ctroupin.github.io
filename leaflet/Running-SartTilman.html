@@ -80,9 +80,9 @@
 
 				var hexoptions = {
 					radius : 12,
-					opacity: 0.6,
+					opacity: 0.8	,
 					duration: 200,
-					colorScaleExtent: [ 1, 150 ],
+					colorScaleExtent: [ 1, 100 ],
 					radiusScaleExtent: [ 1, undefined ],
 					colorRange: [ '#F8F9F8', '#FFFE00', '#FFA31B', '#FF331B' ],
 					colorValue: function(d) { return d.length; },
@@ -133,6 +133,7 @@
 
 					layer.setStyle({
 						weight: 5,
+						dashArray: ' '
 					});
 					if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
 						layer.bringToFront();
@@ -145,6 +146,7 @@
 					var layer = e.target;
 					layer.setStyle({
 						weight: 2,
+						dashArray: [5, 5]
 					});
 					info.update();
 				}
@@ -178,7 +180,7 @@
 					style: function(feature) {
 						return {
 							color: randomColor(),
-							weight: 1,
+							weight: 2,
 							opacity: .8,
 							dashArray: [5, 5]
 							};

@@ -33,7 +33,7 @@ var moves = [
 	"2017/SartTilman_Cortil_2017_07_18_12_11_34_Running_noextensions_500pts.gpx",
 	"2017/SartTilman-Limoges-Colonster_2017_07_20_12_26_42_Running_noextensions_500pts.gpx",
 	"2017/SartTilman-Ougree_2017_07_25_12_07_09_Running_noextensions_500pts.gpx",
-	"2017/SartTilman-Colonster-BlancGravier_2017_08_02_12_11_29_Running_noextensions_500pts.gpx",		
+	"2017/SartTilman-Colonster-BlancGravier_2017_08_02_12_11_29_Running_noextensions_500pts.gpx",
 	"2017/sart-tilman-ougree-bas-parc-scientifique_noextensions_500pts.gpx",
 	"2017/SartTilman-ougree-colonster_2017_08_04_12_03_22_Running_noextensions_500pts.gpx",
 	"2017/SartTilman_10Xmontee_2017_08_10_12_09_00_Running_noextensions_500pts.gpx",
@@ -54,4 +54,9 @@ var moves = [
 	"2017/JoggingEmbourg_2017_11_12_11_05_24_Running_noextensions_500pts.gpx",
 	"2017/SartTilman_Golf_RocheFaucons_2017_11_14_11_49_48_Running_noextensions_500pts.gpx",
 	"2017/SartTilman_BlancGravier_Homes_2017_11_21_12_08_03_Running_noextensions_500pts.gpx",
+	"2017/SartTilman_Golf_RocheFaucons_2017_11_14_11_49_48_Running_noextensions_500pts.gpx",
+	"2017/Guillemins_Sart_Tilman_2017_12_06_08_04_14_Running_noextensions_500pts.gpx",
+	"2017/SartTilman_BlancGravier_2017_11_28_12_13_58_Running_noextensions_500pts.gpx",
+	"2017/SartTilman_circuit_BlancGravier_2017_11_23_12_07_42_Running_noextensions_500pts.gpx",
+	"2017/SartTilmanRochesFaucons_2017_12_05_12_08_39_Running_noextensions_500pts.gpx",
 ]

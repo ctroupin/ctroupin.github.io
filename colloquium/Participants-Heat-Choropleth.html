@@ -2,7 +2,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8">
-		
+
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Participants to the Liège Colloquium on Ocean Dynamics (1969 - 2018)</title>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
@@ -13,16 +13,16 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.6/MarkerCluster.Default.css">
 		<style>
 		#map {height: 800px}
-		.info { padding: 6px 8px; font: 18px/20px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); font-size: 16px; box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } 
+		.info { padding: 6px 8px; font: 18px/20px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); font-size: 16px; box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; }
 		.info h4 { margin: 0 0 5px; color: #777;font-size: 2em}
 		.legend { text-align: left; line-height: 18px; color: #555} .legend i { font-size: 2.5em; width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
 		</style>
 	</head>
-	
-	
+
+
 	<body class="">
 
-		<div id="map" style="height:800px"></div>	
+		<div id="map" style="height:800px"></div>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
 		<script tupe="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.6/leaflet.markercluster.js"></script>
@@ -34,22 +34,22 @@
 		<script type="text/javascript" src="./ParticipantCountry1970-2017.geojson"></script>
 
 		<script>
-			
+
 			var map = L.map('map',
 				{
 					fullscreenControl: true,
 				}
 			).setView([25, 0], 2)
-						
+
 			map.createPane('labels');
 			map.getPane('labels').style.zIndex = 650;
-			map.getPane('labels').style.pointerEvents = 'none';	
-			
+			map.getPane('labels').style.pointerEvents = 'none';
+
 			var CartoDBLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
 				attribution: '©OpenStreetMap, ©CartoDB',
 				pane: 'labels'
 			});
-			
+
 			var CartoDBall = L.layerGroup([CartoDB, CartoDBLabels]);
 			CartoDBall.addTo(map);
 
@@ -62,7 +62,7 @@
 				"Esri_WorldImagery": Esri_WorldImagery
 			};
 
-			
+
 			// control that shows state info on hover
 			var info = L.control();
 
@@ -79,9 +79,9 @@
 			};
 
 			info.addTo(map);
-			
+
 			var geojson;
-			
+
 			// Extend the colormap (>25, >50?)
 			function getColor(d) {
 				return d > 100 ? '#0c2c84' :
@@ -89,10 +89,10 @@
 					   d > 10  ? '#1d91c0' :
 					   d > 5  ? '#41b6c4' :
 					   d > 1  ? '#7fcdbb' :
-					   d > 0  ? '#c7e9b4' :
+					   d > 0  ? '#ffffff' :
 								'#ffffcc';
 			}
-			
+
 			function style(feature) {
 				return {
 					fillColor: getColor(feature.properties.Participants),
@@ -102,7 +102,7 @@
 					fillOpacity: 0.8
 				};
 			}
-			
+
 			function highlightFeature(e) {
 				var layer = e.target;
 
@@ -116,20 +116,20 @@
 				if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
 					layer.bringToFront();
 				}
-				
+
 				info.update(layer.feature.properties);
 			}
-			
+
 			function resetHighlight(e) {
 				geojson.resetStyle(e.target);
 				info.update();
 			}
-			
+
 			function zoomToFeature(e) {
 				map.fitBounds(e.target.getBounds());
 			}
 
-			
+
 			function onEachFeature(feature, layer) {
 				layer.on({
 					mouseover: highlightFeature,
@@ -137,12 +137,12 @@
 					click: zoomToFeature
 				});
 			}
-			
+
 			geojson = L.geoJson(participants, {
 				style: style,
 				onEachFeature: onEachFeature
 			}).addTo(map)	;
-			
+
 			var legend = L.control({position: 'bottomright'});
 			legend.onAdd = function (map) {
 
@@ -165,20 +165,20 @@
 			};
 
 			legend.addTo(map);
-			
+
 			var heatStyle = {
 				gradient : {.65: "white", .75:"#FFFF36", .85:"#FF9D00", .9:"#FF1700", .95:"#900000", 1:"black"},
 				minOpacity: 0.95,
                 radius: 10,
                 blur: 10,
 			};
-	
+
 			coordsPoints = coords.map(function (p) { return [p[0], p[1]]; });
 			coordsPointsHex = coords.map(function (p) { return [p[1], p[0]]; });
-			
+
 			var markers = L.markerClusterGroup();
 			var circmarkers = L.layerGroup();
-			
+
 			for (var i = 0; i < coords.length; i++) {
 				var a = coords[i];
 				var marker = L.marker(new L.LatLng(a[0], a[1]));
@@ -186,12 +186,12 @@
 				markers.addLayer(marker);
 				circmarkers.addLayer(circmarker);
 			}
-			
-			//map.addLayer(circmarkers);		
+
+			//map.addLayer(circmarkers);
 			map.addLayer(markers);
-			
+
 			var heatmap = L.heatLayer(coordsPoints, heatStyle);
-			
+
 			var hexoptions = {
 					radius : 15,
 					opacity: 0.6,
@@ -202,28 +202,29 @@
 					//colorValue: function(d) { return Math.sqrt(d.length); },
 					radiusRange: [ 10, 15],
 				};
-				
+
 			//L.circleMarker(coords).addTo(map);
 
 			var hexLayer = L.hexbinLayer(hexoptions);
 			hexLayer.data(coordsPointsHex);
 			//hexLayer.addTo(map);
-			
+
 			var countries = L.layerGroup(geojson);
-			
+
 			var overlayers = {
 					"Marker cluster": markers,
 					"Single dots": circmarkers,
 					"Heat map": heatmap,
 					"Hexbin": hexLayer,
+					"Participants per country": geojson,
 				};
-				
-			L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);	
-				
+
+			L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);
+
 
 
 		</script>
-			
-	
+
+
 
 </body></html>

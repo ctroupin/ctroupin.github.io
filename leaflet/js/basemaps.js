@@ -24,6 +24,11 @@ var Stamen_Terrain = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/terra
 	ext: 'png'
 });
 
+var Esri_OceanBasemap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
+	maxZoom: 13
+});
+
 var Esri_DarkGreyCanvas = L.tileLayer(
 	"http://{s}.sm.mapstack.stamen.com/" +
 	"(toner-lite,$fff[difference],$fff[@23],$fff[hsl-saturation@20])/" +

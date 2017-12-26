@@ -5,9 +5,9 @@ layout: projectmap
 
 ### Canary Island population
 
-Some days ago with some friend, we were asking ourselves about the population of
-the various municipalities in Gran Canaria, then the Canary Islands. It was not
-too difficult to find the answer but we needed something more visual and also
+Some days ago with some friends, we were asking ourselves about the population of
+the various municipalities in Gran Canaria, then in the rest of Canary Islands.
+It was not too difficult to find the answer but we needed something more visual and also
 a quicker way to find the population of a given place.
 
 {% include_relative maps/canarypopulation.html %}

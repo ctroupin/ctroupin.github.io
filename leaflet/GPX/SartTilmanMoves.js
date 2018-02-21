@@ -65,6 +65,7 @@ var moves = [
 	"2017/Guillemins_Sart_Tilman_2017_12_06_08_04_14_Running_noextensions_500pts.gpx",
 	"2018/SartTilman_Streupas_2018_01_16_12_05_57_Running_noextensions_500pts.gpx",
 	"2018/SartTilman_Home_Colonster_2018_01_18_12_02_30_Running_noextensions_500pts.gpx",
+	"2018/SartTilman_Tilff_Avister_2018_02_08_11_13_47_Running_noextensions_500pts.gpx",
 	"2018/SartTilman_Angleur_2018_02_14_12_09_08_Running_noextensions_500pts.gpx",
 	"2018/SartTilmanCortil_2018_02_15_12_04_25_Running_noextensions_500pts.gpx",
 ]

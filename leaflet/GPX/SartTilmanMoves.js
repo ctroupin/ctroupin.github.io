@@ -68,4 +68,7 @@ var moves = [
 	"2018/SartTilman_Tilff_Avister_2018_02_08_11_13_47_Running_noextensions_500pts.gpx",
 	"2018/SartTilman_Angleur_2018_02_14_12_09_08_Running_noextensions_500pts.gpx",
 	"2018/SartTilmanCortil_2018_02_15_12_04_25_Running_noextensions_500pts.gpx",
+	"2018/SartTilman_Beauregard_Golf_2018_02_20_11_07_59_Running_noextensions_500pts.gpx",
+	"2018/Tilff_Avister_2018_02_22_11_03_57_Running_noextensions_500pts.gpx",
+	"2018/Tilff_Avister_2018_03_01_11_07_35_Running_noextensions_500pts.gpx",
 ]

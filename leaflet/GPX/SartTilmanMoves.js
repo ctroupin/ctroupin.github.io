@@ -71,4 +71,6 @@ var moves = [
 	"2018/SartTilman_Beauregard_Golf_2018_02_20_11_07_59_Running_noextensions_500pts.gpx",
 	"2018/Tilff_Avister_2018_02_22_11_03_57_Running_noextensions_500pts.gpx",
 	"2018/Tilff_Avister_2018_03_01_11_07_35_Running_noextensions_500pts.gpx",
+	"2018/RocherBoutduMonde_2018_03_06_11_03_01_Running_noextensions_500pts.gpx",
+	"2018/SartTilman_5X800m_2018_03_08_11_06_17_Running_noextensions_500pts.gpx",
 ]

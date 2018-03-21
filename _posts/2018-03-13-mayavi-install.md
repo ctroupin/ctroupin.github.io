@@ -59,7 +59,7 @@ python setup.py install
 ## Issues
 
 Jupyter notebook 5.0 has an iopub.data_rate set to 10^7     
-**Solution:** in bash, run 
+**Solution:** in bash, run
 ```bash
 jupyter-notebook --NotebookApp.iopub_data_rate_limit=1.0e10
 ```

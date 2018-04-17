@@ -73,4 +73,8 @@ var moves = [
 	"2018/Tilff_Avister_2018_03_01_11_07_35_Running_noextensions_500pts.gpx",
 	"2018/RocherBoutduMonde_2018_03_06_11_03_01_Running_noextensions_500pts.gpx",
 	"2018/SartTilman_5X800m_2018_03_08_11_06_17_Running_noextensions_500pts.gpx",
+	"2018/SartTilman_BoucleIntervales_2018_03_27_12_03_41_Running_noextensions_500pts.gpx",
+	"2018/SartTilman_2x3K_2018_03_22_12_03_43_Running_noextensions_500pts.gpx",
+	"2018/Liege_Chenee_Angleur_2018_04_05_17_58_19_Running_noextensions_500pts.gpx",
+	"2018/SartTilman_BlancGravier_Homes_2018_04_10_12_04_55_Running_noextensions_500pts.gpx",
 ]

@@ -1,4 +1,6 @@
 var contacts = [
 ["OGS", [45.710678, 13.762393], "Arthur Capet", ],
-["IMEDEA", [39.666515, 2.581191], "Charles Troupin", "http://imedea.uib-csic.es"]
+["IMEDEA", [39.666515, 2.581191], "Charles Troupin", "http://imedea.uib-csic.es"],
+["SOCIB", [39.635786, 2.631842], "Charles Troupin", "http://socib.es/"],
+["NIB", [45.517739, 13.568863 ], "Charles", "https://www.nib.si/mbp/en/"],
 ]

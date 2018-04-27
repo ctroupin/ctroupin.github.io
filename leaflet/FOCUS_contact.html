@@ -1,0 +1,91 @@
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8"/>
+
+			<meta name="viewport" content="width=device-width, initial-scale=1" />
+			<title>
+				Contacts for internships abroad
+			</title>
+			<script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<style type="text/css">
+				#map { height : 800px; }
+				.info { padding: 10px 20px; font: 20px/22px Arial, Helvetica, sans-serif; background: rgba(255,255,255,0.7);
+					box-shadow: 0 0 15px rgba(0,0,0,0.4); border-radius: 7px; }
+						.info h4 { margin: 0 0 5px; color: #777; }
+				.legend { text-align: left; line-height: 18px; color: #555; }
+				.legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+				.hexbin-hexagon {
+					stroke: #000;
+					stroke-width: .5px;
+				}
+
+			</style>
+		</head>
+		<body>
+
+			<div id="map"></div>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
+			<script type="text/javascript" src="js/basemaps.js"></script>
+			<script src="data/contacts.dat"></script>
+
+			<script>
+
+				var origin = [50.5887, 5.8699];
+				var map = L.map('map', {
+					fullscreenControl: true,
+				}).setView(origin, 3);
+
+				var Esri_OceanBasemap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
+					attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
+					maxZoom: 13
+				});
+
+				map.addLayer(Esri_OceanBasemap)
+
+				var baseMaps = {
+					"Esri OceanBasemap": Esri_OceanBasemap,
+					"OpenStreetMap": OpenStreetMap_Mapnik,
+					"Stamen Terrain": Stamen_Terrain,
+					"ESRI Dark Grey Canvas": Esri_DarkGreyCanvas,
+				};
+
+				// control that shows state info on hover
+				var info = L.control({position: 'bottomright'});
+
+				info.onAdd = function (map) {
+					this._div = L.DomUtil.create('div', 'info');
+					this.update();
+					return this._div;
+				};
+
+				info.update = function () {
+					this._div.innerHTML = ('Click on a marker to get informations');
+				};
+
+				info.addTo(map);
+
+  			var ncontacts = contacts.length;
+				console.log(ncontacts);
+
+				function formatPopup(contact) {
+					textpopup = "<a href=" + contact[3] + ">" + contact[0] + "</a><br>" + "<i class='far fa-envelope'></i>" + contact[2];
+					return textpopup;
+				};
+
+				for (var i = 0; i < ncontacts ; i++) {
+					t = formatPopup(contacts[i]);
+					L.marker(contacts[i][1]).addTo(map).bindPopup(t).addTo(map);;
+				}
+
+				L.control.scale().addTo(map);
+				L.control.layers(baseMaps, null, {autoZIndex:true, collapsed:false}).addTo(map);
+
+			</script>
+
+		</body>
+	</html>

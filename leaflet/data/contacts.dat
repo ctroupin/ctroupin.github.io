@@ -3,4 +3,9 @@ var contacts = [
 ["IMEDEA", [39.666515, 2.581191], "Charles Troupin", "http://imedea.uib-csic.es"],
 ["SOCIB", [39.635786, 2.631842], "Charles Troupin", "http://socib.es/"],
 ["NIB", [45.517739, 13.568863 ], "Charles", "https://www.nib.si/mbp/en/"],
+["ULPGC", [28.073651, -15.452217], "Charles", "http://www.fcm.ulpgc.es/"],
+["LSCE", [48.705658, 2.133863], "Jens", "https://www.lsce.ipsl.fr/"],
+["IPSL/LOCEAN",[48.846508, 2.357388], "Jens", "https://www.ipsl.fr/en/Organisation/IPSL-Labs/LOCEAN"],
+["LOV",[43.696164, 7.306850], "Jens", "http://www.lov.obs-vlfr.fr/en"],
+["UQAR/ISMER",[48.452994, -68.511602], "Jens", "https://uqar.ca/", "http://www.ismer.ca/?lang=fr"]
 ]

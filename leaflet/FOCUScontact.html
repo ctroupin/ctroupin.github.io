@@ -70,22 +70,6 @@
 
 				var select = L.countrySelect({title:'Pick a country!'});
 
-
-				/*
-				// control that shows state info on hover
-				var info = L.control({position: 'bottomright'});
-
-				info.onAdd = function (map) {
-					this._div = L.DomUtil.create('div', 'info');
-					this.update();
-					return this._div;
-				};
-
-				info.update = function () {
-					this._div.innerHTML = ('Click on a marker to get informations');
-				};
-				*/
-
 				var legend = L.control({position: 'topright'});
 				legend.onAdd = function (map) {
 				    var div = L.DomUtil.create('div', 'info legend');
@@ -110,6 +94,17 @@
 				};
 
 				//info.addTo(map);
+
+				function getColor(thematic){
+					return thematic == "Physical oceanography" ? 'red' :
+							 	 thematic == "Chemical oceanography" ? 'orange' :
+							 	 thematic == "Modelling" ? 'green' :
+							 	 thematic == "Remote sensing" ? 'blue' :
+							   thematic == "Morphology" ? 'darkpurple' :
+								 'darkred';
+				}
+				// Possible colors:
+				// 'red', 'darkred', 'orange', 'green', 'darkgreen', 'blue', 'purple', 'darkpurple', 'cadetblue'
 
 				var GeodesicOptions = {
 					weight: 2,
@@ -152,7 +147,15 @@
 						var themeList = contacts[i][4];
 						if (themeList.indexOf(thematic) >= 0 || thematic === "All disciplines"){
 							t = formatPopup(contacts[i]);
-							m = L.marker(contacts[i][1]).bindPopup(t, customOptions).on('click', onClick);
+							cc = getColor(themeList[0]);
+							console.log(cc);
+							m = L.marker(contacts[i][1], {
+								icon: L.AwesomeMarkers.icon({
+									icon: 'info',
+									prefix: 'fa',
+									markerColor: cc
+								})
+							}).bindPopup(t, customOptions).on('click', onClick);
 							markers.addLayers(m);
 						}
 					}

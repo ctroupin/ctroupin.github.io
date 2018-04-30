@@ -13,14 +13,19 @@
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.6/MarkerCluster.css">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.6/MarkerCluster.Default.css">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css">
+			<link rel="stylesheet" href="./css/leaflet.awesome-markers.css">
 			<script type="text/javascript" src="js/Leaflet.Geodesic.js"></script>
 			<style type="text/css">
 				#map { height : 800px; }
 				.info { padding: 10px 20px; font: 20px/22px Arial, Helvetica, sans-serif; background: rgba(255,255,255,0.7);
 					box-shadow: 0 0 15px rgba(0,0,0,0.4); border-radius: 7px; }
-						.info h4 { margin: 0 0 5px; color: #777; }
+				.info h4 { margin: 0 0 5px; color: #777; }
+				.popupCustom .leaflet-popup-tip,
+				.popupCustom .leaflet-popup-content-wrapper {
+				    background: #e0e0e0;
+				    color: #234c5e;
 				}
-
 			</style>
 		</head>
 		<body>
@@ -30,6 +35,7 @@
 			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
 			<script tupe="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.6/leaflet.markercluster.js"></script>
 			<script type="text/javascript" src="js/Leaflet.CountrySelect.js"></script>
+			<script type="text/javascript" src="./js/leaflet.awesome-markers.js"></script>
 			<script type="text/javascript" src="js/basemaps.js"></script>
 			<script src="data/contacts.dat"></script>
 
@@ -40,7 +46,12 @@
 					fullscreenControl: true,
 				}).setView(origin, 4);
 
-				var select = L.countrySelect({title:'Pick a country!'});
+				// Add a marker on Liege
+				var liege = new L.LatLng(50.633333, 5.566667);
+				//L.marker(liege).addTo(map);
+
+				L.marker(liege, {icon: L.AwesomeMarkers.icon({icon: 'home', prefix: 'fa', markerColor: 'red'}) }).addTo(map);
+
 
 				var Esri_OceanBasemap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
 					attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
@@ -49,7 +60,7 @@
 
 				var OpenStreetMap_BlackAndWhite = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
 					maxZoom: 18,
-					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>. Font Awesome by Dave Gandy'
 				});
 
 				map.addLayer(OpenStreetMap_BlackAndWhite)
@@ -62,6 +73,10 @@
 					"ESRI Dark Grey Canvas": Esri_DarkGreyCanvas,
 				};
 
+				var select = L.countrySelect({title:'Pick a country!'});
+
+
+				/*
 				// control that shows state info on hover
 				var info = L.control({position: 'bottomright'});
 
@@ -74,16 +89,32 @@
 				info.update = function () {
 					this._div.innerHTML = ('Click on a marker to get informations');
 				};
+				*/
 
-				info.addTo(map);
+				var legend = L.control({position: 'topright'});
+				legend.onAdd = function (map) {
+				    var div = L.DomUtil.create('div', 'info legend');
+				    div.innerHTML = `<select id="selectThematic" onchange=getThematic()>
+							<option>Physical oceanography</option>
+							<option>Chemical oceanography</option>
+							<option>Modelling</option>
+							<option>Remote sensing</option>
+							<option>Morphology</option>
+							</select>`;
+				    div.firstChild.onmousedown = div.firstChild.ondblclick = L.DomEvent.stopPropagation;
+				    return div;
+				};
+				legend.addTo(map);
 
-				var markers = L.markerClusterGroup({ disableClusteringAtZoom: 17 });
+				function getThematic(){
+					var e = document.getElementById("selectThematic");
+					var thematic = e.options[e.selectedIndex].value;
+					console.log(thematic);
+					addMarkers(thematic);
+				};
 
-  			var ncontacts = contacts.length;
-				console.log(ncontacts);
+				//info.addTo(map);
 
-				var liege = new L.LatLng(50.633333, 5.566667);
-				L.marker(liege).addTo(map);
 
 				var GeodesicOptions = {
 					weight: 2,
@@ -105,16 +136,33 @@
 					return textpopup;
 				};
 
-				for (var i = 0; i < ncontacts ; i++) {
-					t = formatPopup(contacts[i]);
-					m = L.marker(contacts[i][1]).bindPopup(t).on('click', onClick);
-					markers.addLayer(m);
-				}
+				var customOptions =
+			    {
+			    'maxWidth': '400',
+			    'width': '200',
+			    'className' : 'popupCustom',
+					'opacity' : .3,
+			    }
 
-				map.addLayer(markers);
+				var markers = L.markerClusterGroup();
 
-				L.control.scale().addTo(map);
-				L.control.layers(baseMaps, null, {autoZIndex:true, collapsed:false}).addTo(map);
+				function addMarkers(thematic){
+					
+					markers.clearLayers();
+
+					var ncontacts = contacts.length;
+        	for (var i = 0; i < ncontacts ; i++) {
+						var themeList = contacts[i][4];
+						if (themeList.indexOf(thematic) >= 0){
+							t = formatPopup(contacts[i]);
+							m = L.marker(contacts[i][1]).bindPopup(t, customOptions).on('click', onClick);
+							markers.addLayers(m);
+						}
+					}
+					map.addLayer(markers);
+			  }
+
+
 
 				select.addTo(map);
 
@@ -132,6 +180,9 @@
 					map.fitBounds(country.getBounds());
 
 				});
+
+				L.control.scale().addTo(map);
+				L.control.layers(baseMaps, null, {autoZIndex:true, collapsed:false}).addTo(map);
 
 			</script>
 

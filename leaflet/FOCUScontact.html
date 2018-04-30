@@ -95,6 +95,7 @@
 				legend.onAdd = function (map) {
 				    var div = L.DomUtil.create('div', 'info legend');
 				    div.innerHTML = `<select id="selectThematic" onchange=getThematic()>
+						  <option>All disciplines</option>
 							<option>Physical oceanography</option>
 							<option>Chemical oceanography</option>
 							<option>Modelling</option>
@@ -114,7 +115,6 @@
 				};
 
 				//info.addTo(map);
-
 
 				var GeodesicOptions = {
 					weight: 2,
@@ -145,15 +145,17 @@
 			    }
 
 				var markers = L.markerClusterGroup();
+				var ncontacts = contacts.length;
+
+				// Initialise with all the markers
+				getThematic("All disciplines");
 
 				function addMarkers(thematic){
-					
+					// Remove the previous markers
 					markers.clearLayers();
-
-					var ncontacts = contacts.length;
-        	for (var i = 0; i < ncontacts ; i++) {
+					for (var i = 0; i < ncontacts ; i++) {
 						var themeList = contacts[i][4];
-						if (themeList.indexOf(thematic) >= 0){
+						if (themeList.indexOf(thematic) >= 0 || thematic === "All disciplines"){
 							t = formatPopup(contacts[i]);
 							m = L.marker(contacts[i][1]).bindPopup(t, customOptions).on('click', onClick);
 							markers.addLayers(m);
@@ -162,8 +164,7 @@
 					map.addLayer(markers);
 			  }
 
-
-
+				// Add country selector (not really useful)
 				select.addTo(map);
 
 				select.on('change', function(e){

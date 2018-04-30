@@ -7,14 +7,12 @@
 			<title>
 				Contacts for internships abroad
 			</title>
-			<script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css"/>
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.6/MarkerCluster.css">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.6/MarkerCluster.Default.css">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
-			<script type="text/javascript" src="js/Leaflet.Geodesic.js"></script>
 			<style type="text/css">
 				#map { height : 800px; }
 				.info { padding: 10px 20px; font: 20px/22px Arial, Helvetica, sans-serif; background: rgba(255,255,255,0.7);
@@ -30,27 +28,25 @@
 		<body>
 
 			<div id="map"></div>
+			<script type="text/javascript" src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script>
 			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
 			<script tupe="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.6/leaflet.markercluster.js"></script>
-			<script type="text/javascript" src="js/Leaflet.CountrySelect.js"></script>
 			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+			<script type="text/javascript" src="js/Leaflet.CountrySelect.js"></script>
+			<script type="text/javascript" src="js/Leaflet.Geodesic.js"></script>
 			<script type="text/javascript" src="js/basemaps.js"></script>
 			<script src="data/contacts.dat"></script>
 
 			<script>
 
-			  var origin = [50.5887, 5.8699];
+			  //var origin = [50.5887, 5.8699];
+				var origin = L.latLng(50.5887, 5.8699);
 				var map = L.map('map', {
 					fullscreenControl: true,
 				}).setView(origin, 4);
 
-				// Add a marker on Liege
-				var liege = new L.LatLng(50.633333, 5.566667);
-				//L.marker(liege).addTo(map);
-
-				L.marker(liege, {icon: L.AwesomeMarkers.icon({icon: 'home', prefix: 'fa', markerColor: 'red'}) }).addTo(map);
-
+				L.marker(origin, {icon: L.AwesomeMarkers.icon({icon: 'home', prefix: 'fa', markerColor: 'red'}) }).addTo(map);
 
 				var Esri_OceanBasemap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
 					attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
@@ -127,7 +123,7 @@
 					if (theLine != undefined) {
               map.removeLayer(theLine);
         	};
-					theLine = L.geodesic([[liege, this.getLatLng()]], GeodesicOptions).addTo(map);
+					theLine = L.geodesic([[origin, this.getLatLng()]], GeodesicOptions).addTo(map);
 				}
 
 				function formatPopup(contact) {

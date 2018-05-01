@@ -77,4 +77,11 @@ var moves = [
 	"2018/SartTilman_2x3K_2018_03_22_12_03_43_Running_noextensions_500pts.gpx",
 	"2018/Liege_Chenee_Angleur_2018_04_05_17_58_19_Running_noextensions_500pts.gpx",
 	"2018/SartTilman_BlancGravier_Homes_2018_04_10_12_04_55_Running_noextensions_500pts.gpx",
+	"2018/SartTilman_Golf_2018_04_12_10_42_21_Running_noextensions_500pts.gpx",
+	"2018/SartTilman_Boucle700mCHU_2018_04_17_12_04_13_Running_noextensions_500pts.gpx",
+	"2018/SartTilman_RocheFaucons_2018_04_19_12_04_32_Running_noextensions_500pts.gpx",
+	"2018/SartTilman_Guillemins_2018_04_26_17_31_28_Running_noextensions_500pts.gpx",
+	"2018/SartTilman_ppg_2018_04_24_12_04_24_Running_noextensions_500pts.gpx",
+	"2018/GareAngleur_SartTilman_2018_04_27_07_24_19_Running_noextensions_500pts.gpx",
+	"2018/Boncelles_Ougree_2018_04_30_12_10_31_Running_noextensions_500pts.gpx",
 ]

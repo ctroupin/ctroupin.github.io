@@ -49,6 +49,9 @@
 			<script>
 
 				var gpxdir = 'GPX/'
+				var currentTime = new Date()
+				var thisyear = currentTime.getFullYear()
+
 				var map = L.map('map', {
 					fullscreenControl: true,
 					}).setView([50.58,5.57], 13);
@@ -60,8 +63,6 @@
 					"OpenStreetMap": OpenStreetMap_Mapnik,
 					"Stamen Terrain": Stamen_Terrain,
 					"CartoDB Dark": CartoDB_DarkMatter,
-					"ESRI Dark Grey Canvas": Esri_DarkGreyCanvas,
-					"ESRI World Imagery": Esri_WorldImagery
 				};
 
 				L.control.coordinates({
@@ -92,6 +93,8 @@
 
 				// control that shows state info on hover
 				var info = L.control({position: 'bottomright'});
+				// Another control for the total distance
+				var summary = L.control({position: 'topright'});
 
 				info.onAdd = function (map) {
 					this._div = L.DomUtil.create('div', 'info');
@@ -117,6 +120,9 @@
 
 				latlon = [];
 				lonlat = [];
+				var totaldist = 0.0;
+				var ntrackyear = 0;
+				var meanposition = [];
 
 				function randomColor() {
 					cc = '#'+Math.floor(Math.random()*16777215).toString(16);
@@ -147,7 +153,6 @@
 					var layer = e.target;
 					layer.setStyle({
 						weight: 2,
-						dashArray: [5, 5]
 					});
 					info.update();
 				}
@@ -162,6 +167,7 @@
 						mouseout: resetHighlight,
 						click: zoomToFeature
 					});
+					year = parseInt(feature.properties.time.substring(0, 4));
 					coords = feature.geometry.coordinates;
 					latmean = 0
 					lonmean = 0
@@ -171,9 +177,17 @@
 						latlon.push([coords[i][1], coords[i][0]]);
 						lonlat.push([coords[i][0], coords[i][1]]);
 						}
-					//latmean = latmean / coords.length
-					//lonmean = lonmean / coords.length
-					//L.circleMarker([latmean, lonmean], {radius: 5, color: 'red'}).addTo(map);
+
+					if (year === thisyear){
+						trackLength = computeTrackLength(layer);
+						ntrackyear += 1;
+						totaldist += trackLength;
+					}
+
+					latmean = latmean / coords.length
+					lonmean = lonmean / coords.length
+					c = L.circleMarker([latmean, lonmean], {radius: 5, color: 'red'});
+					meanposition.push(c);
 				};
 
 
@@ -183,7 +197,6 @@
 							color: randomColor(),
 							weight: 2,
 							opacity: .8,
-							dashArray: [5, 5]
 							};
 					},
 					onEachFeature: onEachFeature
@@ -193,36 +206,34 @@
 				var customLayerLast = L.geoJson(null, {
 					style: function(feature) {
 						return {
-							color: 'yellow',
-							weight: 3,
+							color: '#FF9612',
+							weight: 6,
 							opacity: 1
 							};
 					},
 					onEachFeature: onEachFeature
 				});
 
+				function done(totaldist, nMoves) {
+	        summary.onAdd = function (map) {
+	            this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+	            this._div.innerHTML = 'This year:  <br> <b>Total distance: </b>' + totaldist.toFixed(2) + ' km <br>' +
+	            '<b>Number of tracks: </b>' + ntrackyear;
+	            return this._div;
+	        };
+	        summary.addTo(map);
+	      }
+
 				var nMoves = moves.length;
-				var OldTracks = [];
 				for (var i = 0; i < nMoves ; i++) {
-					var moveGps = omnivore.gpx(gpxdir + moves[i], null, customLayer);
-					moveGps.addTo(map);
+					var moveGps = omnivore.gpx(gpxdir + moves[i], null, customLayer).on('ready', function() {
+						done(totaldist, nMoves);
+					});
 				}
+				moveGps.addTo(map);
 
 				var moveGpsLast = omnivore.gpx(gpxdir + moves[nMoves-1], null, customLayerLast);
 
-				/*
-				var moveGpsLast = new L.GPX(gpxdir + moves[nMoves-1], {
-					async: true
-				}).on("loaded", function(e) {
-					map.fitBounds(e.target.getBounds());
-				}).speedSplitEnable({
-					minSpeed: 7,
-					maxSpeed: 20,
-					chunks: 250,
-					spectrum: ['green', 'yellow', 'orange', 'red']
-				});
-
-				*/
 				map.addLayer(moveGpsLast);
 				moveGpsLast.addTo(map);
 				moveGpsLast.bringToFront();
@@ -242,17 +253,19 @@
 					distCircles.push(dCircle);
 				}
 				circleLayer = L.layerGroup(distCircles);
+				meanpositionLayer = L.layerGroup(meanposition);
 
 				var overlayers = {
 					"Heat map": heatmap,
 					"Hexbin": hexLayer,
 					"Previous tracks": moveGps,
 					"Last run": moveGpsLast,
-					"Distance circles": circleLayer
+					"Distance circles": circleLayer,
+					//"Mean positions": meanpositionLayer
 				};
 
 				L.control.scale().addTo(map);
-				L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);
+				L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:true}).addTo(map);
 
 			</script>
 

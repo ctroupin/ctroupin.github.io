@@ -36,7 +36,6 @@
 			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
 			<script type="text/javascript" src="js/gpxcompute.js"></script>
 			<script type="text/javascript" src="js/basemaps.js"></script>
-			<script type="text/javascript" src="lib/leaflet/leaflet.elevation-0.0.4.src.js"></script>
 			<script type="text/javascript" src="js/GPX.js"></script>
 			<script type="text/javascript" src="js/GPX.Speed.js"></script>
 			<script type="text/javascript" src="js/rainbowvis.js"></script>
@@ -51,6 +50,7 @@
 				var gpxdir = 'GPX/'
 				var currentTime = new Date()
 				var thisyear = currentTime.getFullYear()
+				var latlonmeanlist = [];
 
 				var map = L.map('map', {
 					fullscreenControl: true,
@@ -65,6 +65,7 @@
 					"CartoDB Dark": CartoDB_DarkMatter,
 				};
 
+				/*
 				L.control.coordinates({
 					position:"bottomleft",
 					decimals:4,
@@ -72,6 +73,7 @@
 					labelTemplateLat:"Lat: {y}",
 					labelTemplateLng:"Lon: {x}"
 				}).addTo(map);
+				*/
 
 				var heatStyle = {
 					gradient : {.7: "white", .8:"#FFFF36", .9:"#FF9D00", .95:"#FF1700", 1.:"black"},
@@ -82,19 +84,19 @@
 
 				var hexoptions = {
 					radius : 12,
-					opacity: 0.8	,
+					opacity: 0.65	,
 					duration: 200,
-					colorScaleExtent: [ 1, 100 ],
+					colorScaleExtent: [ 1, 250 ],
 					radiusScaleExtent: [ 1, undefined ],
-					colorRange: [ '#F8F9F8', '#FFFE00', '#FFA31B', '#FF331B' ],
-					colorValue: function(d) { return d.length; },
-					radiusRange: [ 5, 12 ],
+					colorRange: [ '#EDEDED', '#FFE104', '#FFAB1B', '#FF040C', '#000000' ],
+					colorValue: function(d) { return log(d.length); },
+					radiusRange: [ 4, 12 ],
 				};
 
 				// control that shows state info on hover
 				var info = L.control({position: 'bottomright'});
 				// Another control for the total distance
-				var summary = L.control({position: 'topright'});
+				var summary = L.control({position: 'topleft'});
 
 				info.onAdd = function (map) {
 					this._div = L.DomUtil.create('div', 'info');
@@ -162,6 +164,7 @@
 				}
 
 				var onEachFeature = function (feature, layer) {
+					var layercolor = layer.options.color;
 					layer.on({
 						mouseover: highlightFeature,
 						mouseout: resetHighlight,
@@ -184,10 +187,9 @@
 						totaldist += trackLength;
 					}
 
-					latmean = latmean / coords.length
-					lonmean = lonmean / coords.length
-					c = L.circleMarker([latmean, lonmean], {radius: 5, color: 'red'});
-					meanposition.push(c);
+					latmean = latmean / coords.length;
+					lonmean = lonmean / coords.length;
+					latlonmeanlist.push([latmean, lonmean]);
 				};
 
 
@@ -210,24 +212,24 @@
 							weight: 6,
 							opacity: 1
 							};
-					},
-					onEachFeature: onEachFeature
+					}
 				});
 
-				function done(totaldist, nMoves) {
+				function done(totaldist) {
 	        summary.onAdd = function (map) {
 	            this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-	            this._div.innerHTML = 'This year:  <br> <b>Total distance: </b>' + totaldist.toFixed(2) + ' km <br>' +
-	            '<b>Number of tracks: </b>' + ntrackyear;
+	            this._div.innerHTML = '<b>Total 2018:</b>  <br> Total distance: ' + totaldist.toFixed(2) + ' km <br>' +
+	            'Number of tracks: ' + ntrackyear;
 	            return this._div;
 	        };
 	        summary.addTo(map);
+					meanpositionLayer = L.layerGroup(latlonmeanlist);
 	      }
 
 				var nMoves = moves.length;
 				for (var i = 0; i < nMoves ; i++) {
 					var moveGps = omnivore.gpx(gpxdir + moves[i], null, customLayer).on('ready', function() {
-						done(totaldist, nMoves);
+						done(totaldist);
 					});
 				}
 				moveGps.addTo(map);
@@ -253,7 +255,6 @@
 					distCircles.push(dCircle);
 				}
 				circleLayer = L.layerGroup(distCircles);
-				meanpositionLayer = L.layerGroup(meanposition);
 
 				var overlayers = {
 					"Heat map": heatmap,
@@ -265,7 +266,7 @@
 				};
 
 				L.control.scale().addTo(map);
-				L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:true}).addTo(map);
+				L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);
 
 			</script>
 

@@ -51,6 +51,7 @@
 				var currentTime = new Date()
 				var thisyear = currentTime.getFullYear()
 				var latlonmeanlist = [];
+				var	meanpositionLayer = L.layerGroup([]);
 
 				var map = L.map('map', {
 					fullscreenControl: true,
@@ -125,6 +126,7 @@
 				var totaldist = 0.0;
 				var ntrackyear = 0;
 				var meanposition = [];
+				var markerMean = null;
 
 				function randomColor() {
 					cc = '#'+Math.floor(Math.random()*16777215).toString(16);
@@ -189,7 +191,8 @@
 
 					latmean = latmean / coords.length;
 					lonmean = lonmean / coords.length;
-					latlonmeanlist.push([latmean, lonmean]);
+					markerMean = L.circleMarker([latmean, lonmean], {color:layercolor, radius:5});
+					meanpositionLayer.addLayer(markerMean);
 				};
 
 
@@ -215,7 +218,7 @@
 					}
 				});
 
-				function done(totaldist) {
+				function done(totaldist, markerMean) {
 	        summary.onAdd = function (map) {
 	            this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
 	            this._div.innerHTML = '<b>Total 2018:</b>  <br> Total distance: ' + totaldist.toFixed(2) + ' km <br>' +
@@ -223,38 +226,35 @@
 	            return this._div;
 	        };
 	        summary.addTo(map);
-					meanpositionLayer = L.layerGroup(latlonmeanlist);
+					latlonmeanlist.push(markerMean);
 	      }
 
 				var nMoves = moves.length;
 				for (var i = 0; i < nMoves ; i++) {
 					var moveGps = omnivore.gpx(gpxdir + moves[i], null, customLayer).on('ready', function() {
-						done(totaldist);
+						done(totaldist, markerMean);
 					});
 				}
 				moveGps.addTo(map);
 
-				var moveGpsLast = omnivore.gpx(gpxdir + moves[nMoves-1], null, customLayerLast);
-
-				map.addLayer(moveGpsLast);
-				moveGpsLast.addTo(map);
-				moveGpsLast.bringToFront();
+				var moveGpsLast = omnivore.gpx(gpxdir + moves[nMoves-1], null, customLayerLast).addTo(map);
 
 				var heatmap = L.heatLayer(latlon, heatStyle);
 				heatlayer = L.layerGroup(heatmap);
 
 				var hexLayer = L.hexbinLayer(hexoptions);
 				hexLayer.data(lonlat);
-				//hexLayer.addTo(map);
 
 				var startpoint = [50.582, 5.566];
 				var distCircles = []
 				for(count = 1; count < 5; count++){
 					dCircle = L.circle(startpoint, count * 1000.,
-					{color: "#298C15", fillColor: "None", "weight": 2, dashArray: '20,15'});
+						{color: "#298C15", fillColor: "None", "weight": 2, dashArray: '20,15'}
+					);
 					distCircles.push(dCircle);
 				}
 				circleLayer = L.layerGroup(distCircles);
+
 
 				var overlayers = {
 					"Heat map": heatmap,
@@ -262,7 +262,7 @@
 					"Previous tracks": moveGps,
 					"Last run": moveGpsLast,
 					"Distance circles": circleLayer,
-					//"Mean positions": meanpositionLayer
+					"Mean positions": meanpositionLayer,
 				};
 
 				L.control.scale().addTo(map);

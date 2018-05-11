@@ -86,4 +86,5 @@ var moves = [
 	"2018/Boncelles_Ougree_2018_04_30_12_10_31_Running_noextensions_500pts.gpx",
 	"2018/BoucleHomes_2018_05_03_12_06_49_Running_noextensions_500pts.gpx",
 	"2018/SartTilman_GareAngleur_2018_05_03_12_06_49_Running_noextensions_500pts.gpx",
+	"2018/SartTilman_BlancGravier_2018_05_08_12_04_51_Running_noextensions_500pts.gpx",
 ]

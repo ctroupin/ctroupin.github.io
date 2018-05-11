@@ -23,6 +23,11 @@
 					stroke: #000;
 					stroke-width: .5px;
 				}
+				.line{
+					width: 10px;
+					height: 10px;
+					color: red
+				}
 
 			</style>
 		</head>
@@ -221,7 +226,7 @@
 				function done(totaldist, markerMean) {
 	        summary.onAdd = function (map) {
 	            this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-	            this._div.innerHTML = '<b>Total 2018:</b>  <br> Total distance: ' + totaldist.toFixed(2) + ' km <br>' +
+	            this._div.innerHTML = '<b>Total 2018:</b>  <br> Distance: ' + totaldist.toFixed(2) + ' km <br>' +
 	            'Number of tracks: ' + ntrackyear;
 	            return this._div;
 	        };
@@ -237,7 +242,10 @@
 				}
 				moveGps.addTo(map);
 
-				var moveGpsLast = omnivore.gpx(gpxdir + moves[nMoves-1], null, customLayerLast).addTo(map);
+				var moveGpsLast = omnivore.gpx(gpxdir + moves[nMoves-1], null, customLayerLast);
+				map.addLayer(moveGpsLast);
+				moveGpsLast.addTo(map);
+				moveGpsLast.bringToFront();
 
 				var heatmap = L.heatLayer(latlon, heatStyle);
 				heatlayer = L.layerGroup(heatmap);
@@ -260,7 +268,7 @@
 					"Heat map": heatmap,
 					"Hexbin": hexLayer,
 					"Previous tracks": moveGps,
-					"Last run": moveGpsLast,
+					"<div style='color:#FF9612; display:inline'><b>Last run</b></div>": moveGpsLast,
 					"Distance circles": circleLayer,
 					"Mean positions": meanpositionLayer,
 				};

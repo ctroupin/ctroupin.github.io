@@ -63,13 +63,11 @@
 					dminus: undefined,
 				};
 
-				console.log(last.name);
-
 				var map = L.map('map', {
 					fullscreenControl: true,
 					}).setView([50.58,5.57], 13);
 
-				map.addLayer(CartoDB)
+				 map.addLayer(CartoDB)
 
 				var baseMaps = {
 					"CartoDB": CartoDB,
@@ -262,9 +260,9 @@
 				for (var i = 0; i < nMoves ; i++) {
 					var moveGps = omnivore.gpx(gpxdir + moves[i], null, customLayer).on('ready', function() {
 						done(totaldist, markerMean);
-					});
+					}).addTo(map);
 				}
-				moveGps.addTo(map);
+				//moveGps.addTo(map);
 
 				var moveGpsLast = omnivore.gpx(gpxdir + moves[nMoves-1], null, customLayerLast).on('ready', function() {
 					doneLast(last);
@@ -283,7 +281,7 @@
 				var distCircles = []
 				for(count = 1; count < 5; count++){
 					dCircle = L.circle(startpoint, count * 1000.,
-						{color: "#298C15", fillColor: "None", "weight": 2, dashArray: '20,15'}
+						{color: "#298C15", fillColor: "None", "weight": 4, dashArray: '20,15'}
 					);
 					distCircles.push(dCircle);
 				}
@@ -291,12 +289,12 @@
 
 
 				var overlayers = {
-					"Heat map": heatmap,
-					"Hexbin": hexLayer,
-					"Previous tracks": moveGps,
-					"<div style='color:#FF9612; display:inline'><b>Last run</b></div>": moveGpsLast,
-					"Distance circles": circleLayer,
-					"Mean positions": meanpositionLayer,
+					"<img src='images/heatmap_icon.png' alt='heatmap' style='height:24px;'> Heat map": heatmap,
+					"<img src='images/hexbin_icon2.png' alt='hexbin' style='height:24px;'> Hexbin": hexLayer,
+					"<img src='images/previous_icon.png' alt='previous' style='height:24px;'> Previous tracks": moveGps,
+					"<img src='images/last_icon.png' alt='last' style='height:24px;'> Last run": moveGpsLast,
+					"<img src='images/circle_icon.png' alt='last' style='height:24px;'> Distance circles": circleLayer,
+					"<img src='images/mean_icon.png' alt='last' style='height:24px;'> Mean positions": meanpositionLayer,
 				};
 
 				L.control.scale().addTo(map);

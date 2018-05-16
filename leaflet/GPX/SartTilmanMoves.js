@@ -87,4 +87,7 @@ var moves = [
 	"2018/BoucleHomes_2018_05_03_12_06_49_Running_noextensions_500pts.gpx",
 	"2018/SartTilman_GareAngleur_2018_05_03_12_06_49_Running_noextensions_500pts.gpx",
 	"2018/SartTilman_BlancGravier_2018_05_08_12_04_51_Running_noextensions_500pts.gpx",
+	"2018/trail_esneux_2018_05_13_09_31_07_Running_noextensions_500pts.gpx",
+	"2018/BlancGravier_2018_05_08_12_04_51_Running_noextensions_500pts.gpx",
+	"2018/Colonster_2018_05_15_12_06_15_Running_noextensions_500pts.gpx",
 ]

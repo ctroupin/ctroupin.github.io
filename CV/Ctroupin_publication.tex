@@ -1,11 +1,36 @@
-% !TeX program    = pdflatex
-% !TeX encoding   = UTF-8	
-
-
-\documentclass[10pt,a4paper,final]{article}
+\documentclass[10pt,a4paper,final,svgnames]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{doi}
 \usepackage{hyperref}
+\usepackage{xcolor}
+
+% Length definitions
+\setlength{\textwidth}{18cm}
+\setlength{\textheight}{26cm}
+\setlength{\hoffset}{-2.5cm}
+\setlength{\voffset}{-2.cm}
+\setlength{\unitlength}{1cm}
+\setlength{\parindent}{0.2pt}
+\newlength{\logowidth}
+\setlength{\logowidth}{1.5cm} 
+
+\hypersetup{bookmarksopen=true,
+bookmarksnumbered=true,  
+pdffitwindow=false, 
+pdfstartview=FitH,
+pdftoolbar=false,
+pdfmenubar=false,
+pdfwindowui=true,
+pdfauthor=Charles Troupin,
+pdftitle=List of publications,
+colorlinks=true,%
+breaklinks=true,%
+linkcolor=DeepSkyBlue,anchorcolor=blue,%
+citecolor=blue,filecolor=blue,%
+menucolor=blue,%
+urlcolor=DarkCyan}
+
+
 \begin{document}
 
 \nocite{*}

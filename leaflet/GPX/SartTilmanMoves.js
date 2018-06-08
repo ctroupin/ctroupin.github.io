@@ -91,4 +91,7 @@ var moves = [
 	"2018/trail_esneux_2018_05_13_09_31_07_Running_noextensions_500pts.gpx",
 	"2018/BlancGravier_2018_05_08_12_04_51_Running_noextensions_500pts.gpx",
 	"2018/Colonster_2018_05_15_12_06_15_Running_noextensions_500pts.gpx",
+	"2018/Liege_Herstal_2018_05_28_12_50_42_Running_noextensions_500pts.gpx",
+	"2018/Streupa_ParcScientifique_2017_08_08_12_08_06_Running_noextensions_500pts.gpx",
+	"2018/Tilff_RocheFaucons_2018_05_30_18_24_19_Running_noextensions_500pts.gpx",
 ]

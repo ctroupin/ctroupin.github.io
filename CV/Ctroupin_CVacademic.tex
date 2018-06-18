@@ -22,6 +22,9 @@
 \usepackage{multicol}
 \usepackage[alpine,weather]{ifsym}
 \usepackage{academicons}
+\usepackage{tabularx}
+\usepackage{booktabs}
+
 
 \setlength{\hintscolumnwidth}{2.5cm}           % if you want to change the width of the column with the dates
 \newlength{\logowidth}
@@ -41,6 +44,11 @@
 
 \newcommand{\cventryf}[1]{\cventry{\footnotesize{#1}}}
 \newcommand{\cvitemf}[1]{\cvitem{\footnotesize{#1}}}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 % for the bibliography
 % --------------------
@@ -73,58 +81,64 @@
 
 \section{Contact data}
 
-%\cventry{\faHome}{Balearic Islands Coastal Ocean Observing and Forecasting System (SOCIB)}{Parc Bit, Naorte, Bloc A 2nd Floor, Door 3  -- Palma de Mallorca 07121 -- SPAIN}{}{}{}
-\cventry{\faEnvelope}{charles.troupin@gmail.com} {}{}{}{}
-\cventry{\faSkype}{charles.troupin1}{}{}{}{}
-\cventry{\faMobile}{+32~498~155~998(BE)}{+34~638~054~012 (ES)}{}{}{}
-\cventry{\faLinkedinSquare}{\url{www.linkedin.com/in/charlestroupin}}{}{}{}{}
-\cventry{\faGithubSquare}{\url{https://github.com/ctroupin/}}{}{}{}{}
-\cventry{\aiOrcidSquare}{\url{http://orcid.org/0000-0002-0265-1021}}{}{}{}{}
-\cventry{\aiResearchGateSquare}{\url{https://www.researchgate.net/profile/Charles_Troupin}}{}{}{}{}
-% Add personal page https://github.io/ctroupin/ +  add new logo fontawesome
-\cventry{\faTwitterSquare}{\url{https://twitter.com/CharlesTroupin}}{}{}{}{}
-        
+\begin{tabular}{L{.03\textwidth}L{.375\textwidth}L{.03\textwidth}L{.5\textwidth}}
+\faEnvelope	& charles.troupin@gmail.com 	& \faSkype 			& charles.troupin1\\
+\faMobile$^{1}$		& +32~498~155~998 (BE)	 	& \faMobile$^{2}$	& +34~638~054~012 (ES)\\
+\end{tabular}
+
+\subsection{Social media}
+
+\begin{tabular}{L{.03\textwidth}L{.375\textwidth}L{.03\textwidth}L{.5\textwidth}}
+\faLinkedinSquare 	& \url{www.linkedin.com/in/charlestroupin}		& \faGithubSquare	& \url{https://github.com/ctroupin/} \\
+\aiOrcidSquare 		& \url{http://orcid.org/0000-0002-0265-1021} 	& \aiResearchGateSquare &\url{https://www.researchgate.net/profile/Charles_Troupin}\\
+\faTwitterSquare	& \url{https://twitter.com/CharlesTroupin}		&  	& \\
+\end{tabular}
+
 \section{Experience}
 
-\cventry{2017/01--\\ \includegraphics[width=\logowidth]{logo_uliege}}{Post-doctoral researcher}{GeoHydrodynamics and Environment Research (\href{http://modb.oce.ulg.ac.be/}{\mbox{GHER}})}{}{}{
+\subsection{2017/01--present}
+\raisebox{-1ex}{\includegraphics[width=\logowidth]{logo_uliege}}\textbf{Post-doctoral researcher}\\
+GeoHydrodynamics and Environment Research (\href{http://modb.oce.ulg.ac.be/}{GHER})
 \begin{itemize}%
-\item Improvement of the Diva interpolation tool.
-\item Development of a user interface for Diva on a Virtual Research Environment.
-\item Development of reading/writing tools in Julia.
+\item Improvement of the DIVA and DIVAnd interpolation software tools.
+\item Development of a user interface for Diva in a Virtual Research Environment.
+\item User support and training, documentation writing.
 \item Participation to international project meetings.
 \end{itemize}
-}
 
 
-\cventry{2014/03--\\2017/01\textcolor{white}{--}\\ \includegraphics[width=\logowidth]{logo_socib}}{Head of Data Centre facility}{Balearic Islands Coastal Ocean Observing and Forecasting System (\href{www.socib.es}{\mbox{SOCIB}})}{}{}{
-Tasks:
+\subsection{2014/03--2017/01}
+
+\raisebox{-1ex}{\includegraphics[width=\logowidth]{logo_socib}}\textbf{Head of the Data Centre Facility}, Balearic Islands Coastal Ocean Observing and Forecasting System%(\href{http//www.socib.eu}{SOCIB})
 \begin{itemize}%
 \item Management of the projects and staff of the Date Centre.
-\item Relations with external users, data providers and other facilities.
+\item Relations with external users (national and European), data providers and other facilities.
 \item Project writing and follow-up.
 \end{itemize}
 Data analytics:
 \begin{itemize}%
 \item Development of applications for the access and visualisation of oceanographic data.
 \item Forecasting of extreme sea level events (\textit{rissaga}) using time series.
-\item Acquisition and processing of new remote-sensing data\\(wind, salinity sea surface temperature, chlorophyll concentration).
+\item Acquisition and processing of satellite, remote-sensing data\\(wind, salinity sea surface temperature, chlorophyll concentration).
 \item Analysis and interpretation of multi-platform observations\\(HF radar, satellite, stations, mobile platforms).
 \end{itemize}
-}
 
-\cventry{2013/03--\\2014/03\textcolor{white}{--}\\\includegraphics[width=\logowidth]{logo_imedea.png}}{Post-doctoral researcher}{Mediterranean Institute for Advanced Studies (\href{http://imedea.uib-csic.es/}{IMEDEA})}{}{}{
+
+\subsection{2013/03--2014/03}
+
+\raisebox{-1ex}{\includegraphics[width=\logowidth]{logo_imedea.png}}~\textbf{Post-doctoral researcher}, Mediterranean Institute for Advanced Studies (\href{http://imedea.uib-csic.es/}{IMEDEA})
+
 \begin{itemize}%
 \item Preparation of high-resolution altimetry products in the Mediterranean Sea (MyOcean~2 project).
-\end{itemize}
-Data analytics:
-\begin{itemize}%
 \item Analysis of in situ and remote-sensed data in the Balearic Sea.
 \item Processing (interpolation, filtering) and interpretation of multi-sensor measurements\\(High-frequency radar, underwater glider, altimeter).
 \item Operational production of regional altimetry maps (satellite imagery).
-\end{itemize}}
+\end{itemize}
 
-\cventry{2010/10--\\2013/02\textcolor{white}{--}\\\includegraphics[width=.95\logowidth]{logo_ulg.png}}{Research assistant}{\href{www.ulg.ac.be}{University of Li\`{e}ge}}{Li\`{e}ge}{}{
-Tasks: 
+
+\subsection{2010/10--2013/02}
+
+\raisebox{-1ex}{\includegraphics[width=.95\logowidth]{logo_ulg.png}}~\textbf{Research assistant}, \href{www.ulg.ac.be}{University of Li\`{e}ge}
 \begin{itemize}%
 \item Supervisor of the laboratory "\textit{Microscopes}" for undergraduate students\\ (laboratory sessions for 60-80 students, evaluation).
 \item Presentation of new interpolation techniques in European projects.
@@ -135,26 +149,36 @@ Research:
 \item Spatio-temporal interpolation of satellite wind data.
 \item Improvement and testing of DIVA interpolation software tool.
 \end{itemize}
-}
 
-\cventry{2006/10--2010/09\textcolor{white}{--}\\\includegraphics[width=.9\logowidth]{logo_fnrs.png}\\\vspace{.1cm}
-\includegraphics[width=.9\logowidth]{logo_ulg.png}}{PhD Candidate}{Fund for Research Training in Industry and Agriculture (National Fund for Scientific Research, Belgium)}{GeoHydrodynamics and Environment Research (\href{http://modb.oce.ulg.ac.be/}{GHER}), University of Li\`{e}ge}{}{Study of the upwelling filament off Cape Ghir (Northwest Africa)%
+
+\subsection{2006/10--2010/09}
+
+\raisebox{-1ex}{\includegraphics[width=.85\logowidth]{logo_fnrs.png}}~\raisebox{-1ex}{\includegraphics[width=.85\logowidth]{logo_ulg.png}}~{\textbf{PhD Candidate}}, {Fund for Research Training in Industry and Agriculture (National Fund for Scientific Research, Belgium)}, {GeoHydrodynamics and Environment Research (\href{http://modb.oce.ulg.ac.be/}{GHER}), University of Li\`{e}ge}
+
+Study of the upwelling filament off Cape Ghir (Northwest Africa)
 \begin{itemize}%
 \item Creation of an hydrographic climatology for the North-East Atlantic Ocean.
 \item Implementation of the ROMS model at high-resolution around Cape Ghir and design of process-oriented experiments.
 \item Participation to the CAIBEX cruise onboard \textit{Sarmiento de Gamboa} (summer 2009) off Cape Ghir and processing of the cruise data.
 \end{itemize}
-}
 
-\cventry{2010/08--2010/09\textcolor{white}{--}}{Trainee}{NATO Undersea Research Center}{La Spezia (Italy)}{}{Task: Development of an operational, multivariate processing of satellite data
+
+\subsection{2010/08--2010/09}
+
+\textbf{Trainee}, {NATO Undersea Research Center}{La Spezia (Italy)}
 \begin{itemize}%
+\item Development of an operational, multivariate processing of satellite data
 \item Pre-processing of remote-sensed data (chlorophyll concentration, sea surface temperature).
 \item Empirical orthogonal function analysis.
 \end{itemize}
-}
 
-\cventry{2005/10--2005/12\textcolor{white}{--}\\\includegraphics[width=.9\logowidth]{logo_ulg.png}}{Research Engineer}{}{University of Li\`{e}ge}{}{Modeling of the Coccolithophore bloom in the Bay of Biscay
-using the GOTM model.}
+
+\subsection{2005/10--2005/12}
+
+\raisebox{-1ex}{\includegraphics[width=.9\logowidth]{logo_ulg.png}}~\textbf{Research Engineer}, {University of Li\`{e}ge}\\
+{Modeling of the Coccolithophore bloom in the Bay of Biscay using a 1-dimensional model (GOTM).}
+
+
 
 %\section{Main research interests}
 %
@@ -241,9 +265,9 @@ Version control systems: git, SVN \newline
 Other: Fortran 77, 90, Tcl/Tk, MySQL, PostgreSQL}
 \cvitem{Operating systems}{Linux (Mint, Ubuntu) \sepa Experience with Mac~OS~X Lion, Microsoft Windows}
 %\cvitem{Data formats}{netCDF (ncdump, ncview, Panoply, cdo, nco, OPeNDAP), ODV spreadsheet, HDF, CNV, CSV, JSON}
-\cvitem{Image processing}{GIMP, Inkskape, Darktable, ImageJ, Matlab, Python, ffmpeg, hugin, ImageMagick, gcolor2}
+\cvitem{Image processing}{GIMP, Inkskape, Darktable, ImageJ, Matlab, Python, ffmpeg, hugin, ImageMagick}
 \cvitem{Oceanography software}{Ocean Data View, DIVA (spatial interpolation), DINEOF (spatio-temporal interpolation of satellite images)}
-\cvitem{Other tools}{NX~Client, VPN, LaTeX (BibTex, Beamer, TikZ), freemind, Asana}
+\cvitem{Other tools}{NX~Client, VPN, LaTeX (BibTex, Beamer, TikZ), Asana}
 
 \subsection{Management}
 

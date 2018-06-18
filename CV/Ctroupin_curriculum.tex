@@ -12,6 +12,7 @@
 \usepackage{marvosym}
 \usepackage{ifsym}
 \usepackage[scale=0.92]{geometry}
+\usetikzlibrary{arrows.meta}
 
 % Fonts
 \usepackage{fontspec}
@@ -92,13 +93,13 @@ urlcolor=CVblue}
    	\node (socib) at (.69, .47) {};
    	\node (imedea) at (.69, .47) {};
 
-    \draw [line width=1pt, color1, anchor=south] (n2017) to [out=180, in=0] (liege);
-    \draw [line width=1pt, color1, anchor=south] (n2014) to [out=180, in=0] (socib);
-    \draw [line width=1pt, color1, anchor=south] (n2013) to [out=180, in=0] (imedea);
-    \draw [line width=1pt, color1, anchor=south] (n2010) to [out=180, in=-45] (liege);
-    \draw [line width=1pt, color1, anchor=south] (n2006) to [out=180, in=-90] (liege);
-    \draw [line width=1pt, color1, anchor=south] (n2006) to [out=180, in=0] (ulpgc);
-    \draw [line width=1pt, color1, anchor=south] (n2006) to [out=180, in=-40] (nurc);
+    \draw [{Circle[	]}-,line width=1pt, color1, anchor=south] (n2017) to [out=180, in=0] (liege);
+    \draw [{Circle[]}-,line width=1pt, color1, anchor=south] (n2014) to [out=180, in=0] (socib);
+    \draw [{Circle[]}-,line width=1pt, color1, anchor=south] (n2013) to [out=180, in=0] (imedea);
+    \draw [{Circle[]}-,line width=1pt, color1, anchor=south] (n2010) to [out=180, in=-45] (liege);
+    \draw [{Circle[]}-,line width=1pt, color1, anchor=south] (n2006) to [out=180, in=-90] (liege);
+    \draw [{Circle[]}-,line width=1pt, color1, anchor=south] (n2006) to [out=180, in=0] (ulpgc);
+    \draw [{Circle[]}-,line width=1pt, color1, anchor=south] (n2006) to [out=180, in=-40] (nurc);
     \end{scope}
 \end{tikzpicture}
 

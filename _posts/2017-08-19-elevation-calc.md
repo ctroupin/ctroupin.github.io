@@ -1,6 +1,11 @@
 ---
 layout: post
-title: Computing positive elevation from GPX tracks 
+title: Computing positive elevation from GPX tracks
+modal-id: 3
+date: 2017-08-19
+img: logo_canary.png
+alt: image-alt
+topic: Running, GPX
 ---
 
 After a cool ride this morning I wanted to compare (quickly) the numbers given by different platforms I'm using:
@@ -31,7 +36,7 @@ When the table cell is empty, it simply means that the value is not computed or 
 ### What do we see?
 
 The distance doesn't change a lot, which is probably expected: one only computes the cumulative sum of the distance between pairs of consecutive positions.    
-Concerning the ascent, the values range from around 390 meters (Movescount and QLandkarte) to more than 1070 meters (Strava and Garmin Connect). For these, I was not sure whether that value was the sum of positive and negative elevations, but reading [their documentation](https://support.strava.com/hc/en-us/articles/216917087-Elevation-Gain) I would say that it's the positive elevation, called *Ascent* in Movescount. 
+Concerning the ascent, the values range from around 390 meters (Movescount and QLandkarte) to more than 1070 meters (Strava and Garmin Connect). For these, I was not sure whether that value was the sum of positive and negative elevations, but reading [their documentation](https://support.strava.com/hc/en-us/articles/216917087-Elevation-Gain) I would say that it's the positive elevation, called *Ascent* in Movescount.
 
 ### Why is that?
 
@@ -65,10 +70,4 @@ The distance difference is about 300 meters (1%) between the tools, whereas the 
 
 ### What's next?
 
-The plan will be to register the track on a trail that is totally uphill and see if we see again these discrepancies. 
-
-
-
-
-
-
+The plan will be to register the track on a trail that is totally uphill and see if we see again these discrepancies.

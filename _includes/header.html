@@ -1,0 +1,31 @@
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-text">
+                        <span class="name">{{ site.title }}</span>
+                        <span class="skills">{{ site.skills }}</span>
+                        <span>
+                            <ul class="list-inline">
+                                {% for network in site.social %}
+                                <li>
+                                    <a href="{{ network.url }}" class="btn-social btn-outline"><i class="fas fa-{{ network.title }} "></i></a>
+                                </li>
+    		                        {% endfor %}
+                            </ul>
+                        </span>
+                        <span>
+                            <ul class="list-inline">
+                                {% for network in site.socialpic %}
+                                <li>
+                                    <a href="{{ network.url }}" class="btn-social btn-outline"><i class="fas   fa-{{ network.title }} "></i></a>
+                                </li>
+    		                        {% endfor %}
+                            </ul>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>

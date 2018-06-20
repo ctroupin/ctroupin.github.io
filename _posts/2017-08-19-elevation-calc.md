@@ -3,21 +3,21 @@ layout: post
 title: Computing positive elevation from GPX tracks
 modal-id: 3
 date: 2017-08-19
-img: logo_canary.png
-alt: image-alt
+img: GPX_compare1.png
+alt: From Pépinster to Angleur and Aywaille
 topic: Running, GPX
 ---
 
-After a cool ride this morning I wanted to compare (quickly) the numbers given by different platforms I'm using:
+After a cool ride this morning, I wanted to compare (quickly) the numbers given by different platforms I've been using recently:
 * [Movescount](http://www.movescount.com) (Suunto)
 * [Strava](https://www.strava.com)
 * [Wikiloc](http://wikiloc.com/)
 * [Garmin](https://connect.garmin.com)
 
-![From Pépinster to Angleur and Aywaille]({{ site.url }}/figures/blog/GPX_compare1.png "From Pépinster to Angleur and Aywaille")
-
-In addition we compare with [QLandkarteGT](http://www.qlandkarte.org/), a tool I really like for quick visualisation of GPX tracks and with a personal viewer I'm playing with (total distance and elevation computed in javascript). The same GPX file is used for the comparison, i.e., I did register the track using different devices.    
-Here are the results.
+In addition, I compared with
+* [QLandkarteGT](http://www.qlandkarte.org/), a good tool for the quick visualization of GPX tracks and
+* a personal viewer I'm playing with (total distance and elevation computed in javascript).
+The same GPX file is used for the comparison, i.e., I did register the track using different devices. Here are the results.
 
 | Platform    | Total distance  | Ascent         | Calories      |
 |             | (km)            | (m)            |               |

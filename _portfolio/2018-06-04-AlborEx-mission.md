@@ -1,10 +1,10 @@
 ---
 layout: default
-modal-id: 2
+modal-id: 7
 date: 2014-07-15
 img: AlborexMission_V19.jpg
 title: General map of the AlborEx mission
-alt: image-alt
+alt: General map of the AlborEx mission
 project-name: AlborEx
 tools: Python - matplotlib - basemap
 category: Scientific illustration

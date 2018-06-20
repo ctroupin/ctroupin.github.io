@@ -1,6 +1,6 @@
 ---
 layout: post
-modal-id: 6
+modal-id: 1
 title: Global map of sea level anomalies
 date: 2013-06-01
 img: global_analysis_mesh.jpg

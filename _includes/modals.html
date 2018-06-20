@@ -28,9 +28,14 @@
                                     </li>
                                 {% endif %}
                                 {% if post.tools %}
-                                    <li>Topic:
-                                        <strong>{{ post.topic }}
-                                        </strong>
+                                    <li><strong>Tools:</strong>
+                                        {{ post.tools }}
+
+                                    </li>
+                                {% endif %}
+                                {% if post.topic %}
+                                    <li><strong>Topic:</strong>
+                                        {{ post.topic }}
                                     </li>
                                 {% endif %}
                             </ul>

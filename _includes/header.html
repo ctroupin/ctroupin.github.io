@@ -10,16 +10,19 @@
                             <ul class="list-inline">
                                 {% for network in site.social %}
                                 <li>
-                                    <a href="{{ network.url }}" class="btn-social btn-outline"><i class="fa fa-{{ network.title }} "></i></a>
+                                    <a href="{{ network.url }}" class="btn-social btn-outline"><i class="fab fa-{{ network.title }} fa-2x"></i></a>
                                 </li>
     		                        {% endfor %}
-                            </ul>
-                        </span>
-                        <span>
-                            <ul class="list-inline">
+
                                 {% for network in site.socialpic %}
                                 <li>
-                                    <a href="{{ network.url }}" class="btn-social btn-outline"><i class="fa fa-{{ network.title }} "></i></a>
+                                    <a href="{{ network.url }}" class="btn-social btn-outline"><i class="fab fa-{{ network.title }} fa-2x"></i></a>
+                                </li>
+    		                        {% endfor %}
+
+                                {% for network in site.academic %}
+                                <li>
+                                    <a href="{{ network.url }}" class="btn-social btn-outline" ><i class="ai ai-{{ network.title }} ai-2x" aria-hidden="true"></i></a>
                                 </li>
     		                        {% endfor %}
                             </ul>

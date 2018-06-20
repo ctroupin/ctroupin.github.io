@@ -34,7 +34,9 @@
                                     </li>
                                 {% endif %}
                             </ul>
+                            <center>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                            </center>
                         </div>
                     </div>
                 </div>
@@ -73,6 +75,11 @@
                              {% if post.category %}
                                  <li><strong>Category:</strong>
                                      {{ post.category }}
+                                 </li>
+                             {% endif %}
+                             {% if post.doi %}
+                                 <li><i class="ai ai-doi ai" aria-hidden="true"></i>
+                                     <a href=https://doi.org/{{ post.doi }}>{{ post.doi }}</a>
                                  </li>
                              {% endif %}
                            </ul>

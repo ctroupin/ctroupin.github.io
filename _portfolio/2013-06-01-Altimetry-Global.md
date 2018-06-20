@@ -7,6 +7,7 @@ img: global_analysis_mesh.jpg
 alt: image-alt
 tools: Python (matplotlib, basemap), DIVA (interpolation)
 category: Scientific illustration
+doi: 10.1016/j.ocemod.2012.05.002
 ---
 
 The figure was specifically created for a scientific meeting in Boulder: we were happy to be able to generate such global maps by interpolating more than a million data points using with the [`DIVA`](https://github.com/gher-ulg/DIVA) software tool, in just a few seconds. And we wanted to show it.
@@ -14,6 +15,8 @@ The figure was specifically created for a scientific meeting in Boulder: we were
 ### Concept
 
 The sea level anomaly field obtained with `DIVA` is shown on a sphere, along with the finite-element mesh used in the interpolation process.
+
+The background image is a [geoTiff](geotiff link) file obtained from the NASA [Earth View](https://worldview.earthdata.nasa.gov/) web.
 
 ### Afterthoughts
 

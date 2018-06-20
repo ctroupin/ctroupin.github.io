@@ -4,7 +4,7 @@ modal-id: 3
 title: Flyer for the 48th Liège Colloquium
 date: 2016-05-01
 img: CLQ2016_poster_V14.jpg
-alt: image-alt
+alt: Flyer for the 48th Liège Colloquium
 tools: LaTeX (tikz)
 category: Conference flyer
 ---

@@ -1,11 +1,17 @@
 ---
 layout: post
-title: Compiling netCDF library with intel compiler.
+modal-id: 5
+title: Compiling netCDF library with intel compiler
+date: 2018-03-06
+img: logo_netcdf.jpg
+alt: MEDESS-GIB drifter trajectories
+category: Instructions
+tools: netCDF, Fortran, bash
 ---
 
 This is a really really nice blog post: no picture, just text and code snippets.
-Something I have been doing since 2006: installing and compiling the [netCDF library](https://www.unidata.ucar.edu/software/netcdf/).
-And again today I had to do it, this time with the [intel compiler](https://software.intel.com/en-us/intel-compilers), so enjoy.
+Something I have been doing many times in different machines since 2006: installing and compiling the [netCDF library](https://www.unidata.ucar.edu/software/netcdf/).
+And today I had to do it again, this time with the [intel compiler](https://software.intel.com/en-us/intel-compilers), so enjoy.
 
 ## Resources
 

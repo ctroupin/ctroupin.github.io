@@ -1,10 +1,10 @@
 ---
 layout: post
-modal-id: 4
+modal-id: 3
 title: TransGranCanaria and data analytics
 date: 2017-09-18
-img: TGCheat.png
-alt: image-alt
+img: TGCheat_crop.png
+alt: Training heatmap for the TransGranCanaria
 tools: Python (matplotlib), Leaflet
 category: Trail & running
 ---

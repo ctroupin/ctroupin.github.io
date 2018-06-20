@@ -1,10 +1,15 @@
 ---
 layout: post
-title: Using BibTeX format for bibliography management 
+modal-id: 4
+title: Using BibTeX format for bibliography management
+date: 2017-10-25
+img: bibtex.jpg
+alt: Using BibTeX format for bibliography management
+tools: LaTeX, BibTeX
+topic: Scientific tools
 ---
 
 A typical concern for scientists relates to the papers they publish: how to manage the different repertories, portals, databases in an efficient way? Let's try to do something.
-
 
 ### The problem
 
@@ -16,13 +21,12 @@ Usually once the paper is published, it has to be archived in:
 * ...
 
 Each of them, of course, has its specific format.     
-In my previous job, once a year we (then it became "I") also had to create a list of all the publications and presentations made.   
+In my previous job, once a year, we (then it became "I") also had to create a list of all the publications and presentations made by the group.   
 
 ### The solution
 
-The BibTeX format () is used to describe and process lists of references.    
-Nowadays, many platform can directly process this format and turn it into an entry in a database.
-Below is an example of an entry:
+The `BibTeX` format () is used to describe and process lists of references.    
+Nowadays, many platform can directly process this format and turn it into an entry in a database. Below is an example of an entry:
 
 ```bash
 @Article{TROUPIN2010JMS,
@@ -46,18 +50,17 @@ Obviously, adding the information manually is the first option but probably not 
 
 #### JabRef
 
-[JabRef](http://www.jabref.org/) really helps when it comes to manage different bibliography. Depending on the type of entry (e.g., Article, Book, Conference, ...), the tool indicates the mandatory fields and offers plug-ins to make easier the conversion to other formats. But still, it does not avoid you to type or copy/paste the different fields.
+[JabRef](http://www.jabref.org/) really helps when it comes to manage different bibliographies. Depending on the type of entry (e.g., article, book, conference, ...), the tool indicates the mandatory fields and offers plug-ins to make easier the conversion to other formats. But still, it does not avoid you to type or copy/paste the different fields.
 
-![JabRef]({{ site.url }}/figures/blog/jabref.png "jabref")
-
+<img src="{{ site.url }}/figures/blog/jabref.jpg" class="img-responsive" alt="JabRef">
 
 #### Import from journal web
 
-Most of the journal web pages make available the BibTeX file along with the article itself. See below the example with Journal of Geophysical Research.        
+Most of the journal web pages make available the BibTeX file along with the article itself. See below the example with *Journal of Geophysical Research*.        
 Just download it and copy its content in a reference list managed with JabRef and you're done.
 
-![BibTex export in JGR]({{ site.url }}/figures/blog/jgr_bibtex.png "BibTex export in JGR")
-   
+<img src="{{ site.url }}/figures/blog/jgr_bibtex.png" class="img-responsive" alt="BibTex export in JGR">
+
 Time estimated for an entry: 1 minute.
 
 #### Import from journal web
@@ -72,6 +75,4 @@ Time estimated for an entry: 30 seconds.
 
 ### What's more?
 
-In another post I'll explain how to use BibTeX to create lists of publications in other formats.
-
-
+In another post I'll explain how to use `BibTeX` to create lists of publications in other formats.

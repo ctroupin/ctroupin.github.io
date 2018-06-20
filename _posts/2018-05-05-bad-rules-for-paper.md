@@ -1,6 +1,11 @@
 ---
 layout: post
+modal-id: 8
 title: Bad rules for paper writing
+date: 2018-10-25
+img: wolfgangpauli.jpg
+alt: Publish or perish  
+category: Publications
 ---
 
 When you're working in Science and Research, at least in an academic context,

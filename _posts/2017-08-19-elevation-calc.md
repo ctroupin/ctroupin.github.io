@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Computing positive elevation from GPX tracks
-modal-id: 3
+modal-id: 2
 date: 2017-08-19
-img: GPX_compare1.png
+img: GPX_compare1_crop.png
 alt: From Pépinster to Angleur and Aywaille
 topic: Running, GPX
 ---
@@ -17,6 +17,8 @@ After a cool ride this morning, I wanted to compare (quickly) the numbers given 
 In addition, I compared with
 * [QLandkarteGT](http://www.qlandkarte.org/), a good tool for the quick visualization of GPX tracks and
 * a personal viewer I'm playing with (total distance and elevation computed in javascript).
+
+<img src="{{ site.url }}/figures/blog/GPX_compare1.png" class="img-responsive" alt="From Pépinster to Angleur">
 
 The same GPX file is used for the comparison, i.e., I did register the track using different devices. Here are the results.
 

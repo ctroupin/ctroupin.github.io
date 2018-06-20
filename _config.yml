@@ -55,6 +55,12 @@ socialpic:
   - title: vimeo-square
     url: https://vimeo.com/charlestroupin
 
+academic:
+  - title: orcid
+    url: http://orcid.org/0000-0002-0265-1021
+  - title: researchgate
+    url: https://www.researchgate.net/profile/Charles_Troupin
+
 collections:
   portfolio:
     output: true

@@ -41,6 +41,14 @@ h6 {
     margin: 0 auto;
 }
 
+.imagelogo
+{
+float:left;
+width:75px;
+margin:5px 10px 10px 1px;
+}
+
+
 header {
     text-align: center;
     color: #fff;

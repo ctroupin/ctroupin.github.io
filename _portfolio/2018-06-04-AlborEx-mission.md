@@ -1,6 +1,6 @@
 ---
 layout: post
-modal-id: 6
+modal-id: 8
 date: 2014-07-15
 img: AlborexMission_V19.jpg
 title: General map of the AlborEx mission
@@ -11,7 +11,7 @@ category: Scientific illustration
 doi: 10.3389/fmars.2017.00039
 ---
 
-In May 2014, the *AlborEx* took place with the objective to measure the water properties in a dynamic area of the Mediterranean Sea with a high spatial resolution. The sampling strategy included gliders, drifters, profiling floats...
+In May 2014, the *AlborEx* mission took place with the objective to measure the water properties in a dynamic area of the Mediterranean Sea with a high spatial resolution. The sampling strategy included gliders, drifters, profiling floats...
 
 ### Concept
 

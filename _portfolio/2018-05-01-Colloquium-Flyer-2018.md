@@ -1,6 +1,6 @@
 ---
 layout: post
-modal-id: 4
+modal-id: 6
 title: Flyer for the 50th Liège Colloquium
 date: 2018-05-01
 img: CLQ2018_poster_landscape.jpg

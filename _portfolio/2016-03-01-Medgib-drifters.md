@@ -1,6 +1,6 @@
 ---
 layout: post
-modal-id: 8
+modal-id: 3
 title: MEDESS-GIB drifter trajectories
 date: 2016-03-01
 img: Medgib_drifters_currents_crop.png

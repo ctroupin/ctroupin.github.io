@@ -1,15 +1,26 @@
-### Photography
+---
+layout: biblio
+title: "Photography"
+---
 
-I started photography with a compact camera in 2006 when I was in Gran Canaria during an ERASMUS exchange and my first reflex was in 2008.
+I have not always been thrilled by photography, I remember at school back in 2000 everybody was crazy about taking 100 times the same pictures of the same people. So for me things dates back to 2006 when I bought a small compact camera when I was in Gran Canaria during an ERASMUS exchange. In 2008 I got my first reflex and now I enjoy taking pictures of landscapes, conferences and sport events (when I'm not participating to them).
 
-![alt text](./Tenerife_panoramic.jpg "Tenerife Island at sunset")
+<img src="{{ site.url }}/photography/Australia_1834.png" alt="Magnetic Island (Australia)" class="img-centered">
 
-My feeling is that a good picture is about being at the right place and the right time, not spending minutes (or hours) with the editing software or using the instagram filters.
+A good picture is about being at the right place and at the right time, not spending minutes (or hours) with the editing software or using the *instagram* filters.
 
-![alt text](./calvi_panorama2.jpg "Calvi seen from the Revellata")
+<img src="{{ site.url }}/photography/Valleseco_sunrise.jpg" alt="Early morning in Valleseco" class="img-centered">
 
-Landscape photography is what I enjoy the most, because it allows me to combine it with hiking and sometimes running.
+My Instagram account was recently turned off, first because I was tired of these posts with hundreds of hashtags, then because it belongs to facebook, who is not my friend...
 
-![alt text](./Valleseco_sunrise.jpg "Early morning in Valleseco")
+Anyway, if you want to see more, check my galleries in these social media.
 
-I must admit my Instagram is not updated for several months. I believe Instagram is meant to use with unprocessed pictures taken with a smartphone, so as I don't have a smartphone anymore and don't want to upload other pictures, that one is done!
+<center>
+<ul class="list-inline">
+    {% for network in site.socialpic %}
+    <li>
+        <a href="{{ network.url }}" class="btn-social btn-outline"><i class="fab fa-{{ network.title }} fa-2x"></i></a>
+    </li>
+    {% endfor %}
+</ul>
+</center>

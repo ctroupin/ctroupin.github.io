@@ -52,8 +52,8 @@ socialpic:
     url: https://www.flickr.com/photos/sharlo1982/
   - title: 500px
     url: https://500px.com/charlestroupin
-  - title: vimeo-square
-    url: https://vimeo.com/charlestroupin
+  - title: vimeo
+    url: https://vimeo.com/user40792705
 
 academic:
   - title: orcid
@@ -75,6 +75,18 @@ markdown: kramdown
 permalink: pretty
 
 page_data:
-  - title: "Pub"
-    id: "pub"
-    url: "ctroupin-pub"
+  - title: "Publications"
+    id: "publications"
+    url: "publications"
+
+  - title: "Sport"
+    id: "sports"
+    url: "sports"
+
+  - title: "Leaflet"
+    id: "leaflet"
+    url: "leaflet"
+
+  - title: "Photography"
+    id: "photography"
+    url: "photography"

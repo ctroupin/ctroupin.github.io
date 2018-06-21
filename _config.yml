@@ -73,3 +73,8 @@ collections:
 # Build settings
 markdown: kramdown
 permalink: pretty
+
+page_data:
+  - title: "Pub"
+    id: "pub"
+    url: "ctroupin-pub"

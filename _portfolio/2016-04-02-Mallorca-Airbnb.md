@@ -9,8 +9,7 @@ tools: Leaflet
 category: Map
 ---
 
-While it is interesting to observe the spatial distribution of properties managed by *Airbnb*, the density of properties (i.e. number of properties
-relative to the population of each municipality) can provide some surprises.
+While it is interesting to observe the spatial distribution of properties managed by *Airbnb*, the density of properties (i.e. number of properties relative to the population of each municipality) can provide some surprises.
 
 Most of this work has been prepared in airports, planes and trains... during an intense month of traveling.
 
@@ -18,7 +17,6 @@ Most of this work has been prepared in airports, planes and trains... during an 
 
 The coordinates of each property are extracted from the CSV file provided by Inside Airbnb.
 We combined this information with a geoJSON file storing the municipality limits, to which we added a new properties *roomsPerHabitants*. Once the file is prepared, leaflet can easily use it as a layer and add some control (*mouseover*, *mouseout* and click).
-
 
 ### Data sources
 

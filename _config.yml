@@ -2,10 +2,14 @@
 title: Charles Troupin
 email: charles.troupin@gmail.com
 url: https://www.ctroupin.github.io
-description: "I try to turn data into stories"
+description: "Tryin' to turn ocean data into stories"
 keywords: "data analyst, engineering, oceanography, ocean science, numerical modelling"
 skills: "Engineer in Physics - Data analyst - Oceanographer - Ultra-runner"
-meta_author: Troupin Charlres
+meta_author: Troupin Charles
+
+includes:
+- leaflet
+
 
 # Google webmaster tools
 google_verify:
@@ -90,3 +94,7 @@ page_data:
   - title: "Photography"
     id: "photography"
     url: "photography"
+
+  - title: "Maps"
+    id: "maps"
+    url: "leaflet/maps"

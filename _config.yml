@@ -7,10 +7,6 @@ keywords: "data analyst, engineering, oceanography, ocean science, numerical mod
 skills: "Engineer in Physics - Data analyst - Oceanographer - Ultra-runner"
 meta_author: Troupin Charles
 
-includes:
-- leaflet
-
-
 # Google webmaster tools
 google_verify:
 
@@ -72,6 +68,9 @@ collections:
   posts:
     output: true
     permalink: /posts/:path/
+  leaflet:
+    output: true
+    permalink: /leaflet/:path/
 
 
 # Build settings
@@ -87,14 +86,6 @@ page_data:
     id: "sports"
     url: "sports"
 
-  - title: "Leaflet"
-    id: "leaflet"
-    url: "leaflet"
-
   - title: "Photography"
     id: "photography"
     url: "photography"
-
-  - title: "Maps"
-    id: "maps"
-    url: "leaflet/maps"

@@ -3,7 +3,7 @@ title: Let's go flying (part I)!
 layout: projectmap
 modal-id: 10
 date: 2017-12-12
-img: map-flying.jpg
+img: airport_heatmap.jpg
 alt: Airport density map
 category: Map
 tools: Leaflet, Julia
@@ -23,9 +23,7 @@ of X kilometers. We need to find X and we need to find the place.
 
 I quickly found out a list of airports from [OpenFlights](https://openflights.org),
 from that we can begin the analysis.
-First of all I was curious to see a *heatmap*, here it is:
-
-{% include_relative maps/simplefield.html %}
+First of all I was curious to see a *heatmap*, it's the first image of this post.
 
 What's cool with that map is that you almost don't need coastlines, they appear
 clearly because of the airport locations. Seeing the U.S. and Europe like this is

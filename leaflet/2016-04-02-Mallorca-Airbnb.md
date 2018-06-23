@@ -1,6 +1,6 @@
 ---
 title: Airbnb in Mallorca
-layout: projectmap
+layout: biblio
 modal-id: 9
 date: 2016-04-02
 img: airbnbHeatDark.jpg

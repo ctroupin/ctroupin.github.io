@@ -15,6 +15,7 @@ leaflet/js/rainbowvis.js
 CV/Candidatures/
 .bundle
 vendor
+*.out
 *.bak
 *.swp
 *.log

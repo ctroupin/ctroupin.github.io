@@ -107,7 +107,6 @@
 				hotlinestylecon.outlineWidth = '3';
 
 
-
 				omnivore.gpx(gpxdir + "Theux_18Km.gpx", null, customLayer1).on('ready', function() {
 					badtrack = L.hotline(latlonalt, hotlinestyle).addTo(map);
 					omnivore.gpx(gpxdir + "connexion-Theux-Spa.gpx", null, customLayer2).on('ready', function() {
@@ -118,8 +117,6 @@
 							});
 						});
 				});
-
-
 
 				L.circle([50.510, 5.854], {radius: 300, color: 'red', opacity: .25}).addTo(map);
 

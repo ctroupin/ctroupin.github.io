@@ -1,11 +1,10 @@
 ---
 title: Airbnb in Mallorca
-layout: biblio
-modal-id: 9
+layout: projectmap
 date: 2016-04-02
-img: airbnbHeatDark.jpg
+img: airbnb_choropleth.jpg
 alt: Airbnb in Mallorca
-tools: Leaflet
+tools: Leaflet, Python
 category: Map
 ---
 

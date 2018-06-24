@@ -1,7 +1,6 @@
 ---
 title: Canary Island population
 layout: projectmap
-modal-id: 10
 date: 2017-09-15
 img: radar01.jpg
 alt: Canary Island population

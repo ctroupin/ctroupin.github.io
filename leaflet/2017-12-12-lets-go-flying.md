@@ -1,7 +1,6 @@
 ---
 title: Let's go flying (part I)!
 layout: projectmap
-modal-id: 10
 date: 2017-12-12
 img: airport_heatmap.jpg
 alt: Airport density map

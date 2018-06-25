@@ -48,16 +48,6 @@
 
 				L.marker(origin, {icon: L.AwesomeMarkers.icon({icon: 'home', prefix: 'fa', markerColor: 'red'}) }).addTo(map);
 
-				var Esri_OceanBasemap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
-					attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
-					maxZoom: 13
-				});
-
-				var OpenStreetMap_BlackAndWhite = L.tileLayer('https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
-					maxZoom: 18,
-					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>. Font Awesome by Dave Gandy'
-				});
-
 				map.addLayer(OpenStreetMap_BlackAndWhite)
 
 				var baseMaps = {

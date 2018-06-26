@@ -6,6 +6,10 @@ description: "Tryin' to turn ocean data into stories"
 keywords: "data analyst, engineering, oceanography, ocean science, numerical modelling"
 skills: "Engineer in Physics - Data analyst - Oceanographer - Ultra-runner"
 meta_author: Troupin Charles
+credits: 'Style based on <a href="https://github.com/jeromelachaud/freelancer-theme">Freelancer Jekyll theme</a> by jeromelachaud. Freelancer is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
+address:
+  - line: "Verviers, Liège"
+  - line: "Belgium"
 
 # Google webmaster tools
 google_verify:
@@ -33,10 +37,11 @@ color:
 
 # Footer settings
 footer:
-  copyright: Dr. Charles Troupin
+  copyright: Charles Troupin
   location: Location
   social: Around the Web
   credits: Credits
+
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:

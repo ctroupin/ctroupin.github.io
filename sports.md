@@ -30,7 +30,11 @@ Just a few lines, whenever possible a link to my [non-professional blog](https:/
 
 **[Trail des Lucioles](http://leslucioles.weebly.com/)**, Soiron. De retour au pays après de chouettes vacances, je prends le dossard d'un ami qui a dû laisser sa place pour cause de blessure. Beaucoup de pépins techniques (frontale, lunettes, ...) sur un parcours justement très technique. Au final je ne suis pas fan de ce type de parcours où on cherche le D+ en descendant et remontant par le même endroit, ou quasi. Aussi l'impression que le passage de 600 coureurs va laisser des traces dans le paysage... Points très positifs: l'organisation locale parfaite et les bénéfices au profit d'aides humanitaires à Bandiagara au Mali!
 
-**[Pilancones Tunte Trail](http://pilanconestuntetrail.es/)**, San Bartolomé de Tirajana, Gran Canaria. I always try to participate to new race when I'm there and this one was a good surprise. The track was just amazing with deep ravines and horrible slopes. I remember after a long descent, another told me : "*My legs are dead, I cannot run anymore*". Still, it was strange to run in the mountains in winter.
+**[Pilancones Tunte Trail](http://pilanconestuntetrail.es/)**, San Bartolomé de Tirajana, Gran Canaria. I always try to participate to new race when I'm there and this one was a good surprise. The track was just amazing with deep ravines and horrible slopes. I remember after a long descent, another told me :
+
+> My legs are dead, I cannot run anymore.
+
+Still, it was strange to run in the mountains in winter.
 
 #### 2017
 

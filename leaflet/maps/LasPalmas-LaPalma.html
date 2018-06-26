@@ -1,79 +1,145 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>
-	Palma, La Palma, Las Palmas...
-  </title>
 
-  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
-  <link rel="stylesheet" href="js/leaflet.awesome-markers.css">
-  <link rel="stylesheet" href="css/leaflet-distance-marker.css" media="screen"/>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<head>
+		<meta charset="UTF-8"/>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<script src="../js/leaflet.js"></script>
+		<link rel="stylesheet" href="../css/leaflet.css">
 		<style>
-		#map {height: 800px}
-  </style>
-  <!--[if lte IE 8]>
-      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
-  <![endif]-->
-</head>
-<body>
-  
-	<div id="map"></div>	
-  
-	  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.js"></script>
-	  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
-	  <script src="js/leaflet.awesome-markers.js"></script>
-	  <script src="js/leaflet-distance-marker.js" type="text/javascript"></script>
-	  <script src="js/leaflet.geometryutil.js" type="text/javascript"></script>
-	  <script src="data/ravitaillement.js"></script>	
-	  <script>
-		var map = L.map('map', {fullscreenControl: true}).setView([34.47, -6.13], 6);
+			.info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+			.legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+		</style>
+	</head>
 
-		var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-					maxZoom: 19,
-					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-		});
-		
-		var CartoDB = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
-			maxZoom: 18, 
-			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
-		  }).addTo(map);
 
-		var baseMaps = {
+	<body>
+
+		<div id="map" style="height:800px;"></div>
+    <script type="text/javascript" src="../data/ProvinciaSantaCruz.geojson"></script>
+		<script type="text/javascript" src="../data/ProvinciaLasPalmas.geojson"></script>
+    <script type="text/javascript" src="../data/LaPalma.js"></script>
+    <script type="text/javascript" src="../data/ElHierro.js"></script>
+    <script type="text/javascript" src="../data/LaGomera.js"></script>
+    <script type="text/javascript" src="../data/Tenerife.js"></script>
+		<script src="../js/basemaps.js"></script>
+
+
+		<script>
+
+			/*
+			var map = L.map('map', {
+			  center: [28.02, -15.73],
+			  zoom: 7
+			});
+			*/
+
+			var map = L.map('map', {fullscreenControl: true}).setView([34.47, -6.13], 6);
+
+			var baseMaps = {
 			"CartoDB": CartoDB,
-			"OpenStreetMap": OpenStreetMap_Mapnik
-		};
-		
-		var customLayer = L.geoJson(null, {
-			style: function(feature) {
-				return { 
-					color: 'blue',
-					weight: 3, 
-					opacity: .85
-					};
-			}
-		});
-		
-				
-		var Palma = L.marker([39.566667, 2.65], {icon: L.AwesomeMarkers.icon({icon: 'play', prefix: 'fa', markerColor: 'green', iconColor: 'white'}) });
-		Palma.addTo(map);
-		var LasPalmas = L.marker([28.15, -15.416667], {icon: L.AwesomeMarkers.icon({icon: 'stop', prefix: 'fa', markerColor: 'green', iconColor: 'white'}) });
-		LasPalmas.addTo(map);
-				
-		var overlayers = {
-			"Palma de Mallorca": Palma,
-			"Las Palmas de Gran Canaria": LasPalmas,
-		};
-		
-		L.control.layers(baseMaps, overlayers, {autoZIndex:false, collapsed:false}).addTo(map);	
-		
+			"Stamen Terrain": Stamen_Terrain,
+			"CartoDB Dark": CartoDB_DarkMatter
+			};
 
-			
-	  </script>
+			// control that shows state info on hover
+			var info = L.control();
+
+			info.onAdd = function (map) {
+				this._div = L.DomUtil.create('div', 'info');
+				this.update();
+				return this._div;
+			};
+
+			info.update = function (props) {
+				this._div.innerHTML = (props ?
+					'<h4>' + "Hello" + '</h4>'
+					: 'Select a location');
+			};
+
+			info.addTo(map);
+
+			function highlightFeature(e) {
+				var layer = e.target;
+
+				layer.setStyle({
+					weight: 5,
+					color: '#666',
+					dashArray: '',
+					fillOpacity: 0.4
+				});
+
+				if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+					layer.bringToFront();
+				}
+
+				//info.update(layer.feature.properties);
+			}
+
+			function resetHighlight(e) {
+				console.log(e.target);
+				ProvSantaCruz.resetStyle(e.target);
+
+				//info.update();
+			}
+
+			function zoomToFeature(e) {
+				map.fitBounds(e.target.getBounds());
+			}
+
+			function onEachFeature(feature, layer) {
+				layer.on({
+					mouseover: highlightFeature,
+					mouseout: resetHighlight,
+					click: zoomToFeature
+				});
+			}
+
+			var santaCruzStyle = {
+				"color": "#ff7800",
+				"weight": 2,
+				"opacity": 0.65
+			};
+
+			var lasPalmasStyle = {
+				"color": "#18CA3F",
+				"weight": 2,
+				"opacity": 0.65
+			};
+
+			var laPalmaStyle = {
+				"color": "#332BF9",
+				"weight": 2,
+				"opacity": 1
+			};
+
+			// var ProvSantaCruz = L.geoJson(santacruz, {style: santaCruzStyle, onEachFeature: onEachFeature}).addTo(map);
+			var ProvLasPalmas = L.geoJson(laspalmas, {style: lasPalmasStyle, onEachFeature: onEachFeature}).addTo(map);
+      var LaPalma = L.geoJson(lapalma, {style: laPalmaStyle, onEachFeature: onEachFeature});
+      var ElHierro = L.geoJson(elhierro, {style: laPalmaStyle, onEachFeature: onEachFeature});
+      var LaGomera = L.geoJson(lagomera, {style: laPalmaStyle, onEachFeature: onEachFeature});
+      var Tenerife = L.geoJson(tenerife, {style: laPalmaStyle, onEachFeature: onEachFeature});
+
+      var ProvSantaCruz = L.layerGroup([LaPalma,ElHierro,Tenerife,LaGomera]).addTo(map);
+			var Palma = L.marker([39.566667, 2.65]);
+			Palma.addTo(map);
+			var LasPalmas = L.marker([28.15, -15.416667]);
+			LasPalmas.addTo(map);
+
+
+			var overlayers = {
+				"Palma de Mallorca": Palma,
+				"Las Palmas de Gran Canaria": LasPalmas,
+				"Provincia de Las Palmas": ProvLasPalmas,
+				"Provincia de Santa Cruz": ProvSantaCruz,
+				"Isla de La Palma": LaPalma
+			};
+
+			L.control.layers(baseMaps, overlayers, {autoZIndex:false, collapsed:false}).addTo(map);
+
+
+		</script>
+
 	</body>
 </html>

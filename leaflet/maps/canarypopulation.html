@@ -1,8 +1,10 @@
 <div id="map" style="height:400px;"></div>
-<script type="text/javascript" src="/leaflet/maps/data/CanariasMunicipiosHab.geojson"></script>
+<script type="text/javascript" src="/leaflet/data/CanariasMunicipiosHab.geojson"></script>
 <script>
 
-  var map = L.map('map').setView([28.5, -15.8], 7);
+  var map = L.map('map', {
+    fullscreenControl: true,
+    }).setView([28.5, -15.8], 7);
 
   map.createPane('labels');
   map.getPane('labels').style.zIndex = 650;

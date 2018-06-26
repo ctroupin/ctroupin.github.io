@@ -1,179 +1,142 @@
-	<!DOCTYPE html>
-	<html>
-		<head>
-			<meta charset="UTF-8"/>
+<div id="map"></div>
+<script type="text/javascript" src="/leaflet/js/Leaflet.CountrySelect.js"></script>
+<script type="text/javascript" src="/leaflet/js/Leaflet.Geodesic.js"></script>
+<script type="text/javascript" src="/leaflet/js/basemaps.js"></script>
+<script src="/leaflet/data/contacts.dat"></script>
 
-			<meta name="viewport" content="width=device-width, initial-scale=1" />
-			<title>
-				Contacts for internships abroad
-			</title>
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css"/>
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.6/MarkerCluster.css">
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.6/MarkerCluster.Default.css">
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
-			<style type="text/css">
-				#map { height : 800px; }
-				.info { padding: 10px 20px; font: 20px/22px Arial, Helvetica, sans-serif; background: rgba(255,255,255,0.7);
-					box-shadow: 0 0 15px rgba(0,0,0,0.4); border-radius: 7px; }
-				.info h4 { margin: 0 0 5px; color: #777; }
-				.popupCustom .leaflet-popup-tip,
-				.popupCustom .leaflet-popup-content-wrapper {
-				    background: #e0e0e0;
-				    color: #234c5e;
-				}
-			</style>
-		</head>
-		<body>
+<script>
 
-			<div id="map"></div>
-			<script type="text/javascript" src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script>
-			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
-			<script tupe="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.6/leaflet.markercluster.js"></script>
-			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
-			<script type="text/javascript" src="js/Leaflet.CountrySelect.js"></script>
-			<script type="text/javascript" src="js/Leaflet.Geodesic.js"></script>
-			<script type="text/javascript" src="js/basemaps.js"></script>
-			<script src="data/contacts.dat"></script>
+  //var origin = [50.5887, 5.8699];
+	var origin = L.latLng(50.5887, 5.8699);
+	var map = L.map('map', {
+		fullscreenControl: true,
+	}).setView(origin, 4);
 
-			<script>
+	L.marker(origin, {icon: L.AwesomeMarkers.icon({icon: 'home', prefix: 'fa', markerColor: 'red'}) }).addTo(map);
 
-			  //var origin = [50.5887, 5.8699];
-				var origin = L.latLng(50.5887, 5.8699);
-				var map = L.map('map', {
-					fullscreenControl: true,
-				}).setView(origin, 4);
+	map.addLayer(OpenStreetMap_BlackAndWhite)
 
-				L.marker(origin, {icon: L.AwesomeMarkers.icon({icon: 'home', prefix: 'fa', markerColor: 'red'}) }).addTo(map);
+	var baseMaps = {
+		"OpenStreetMap B&W": OpenStreetMap_BlackAndWhite,
+		"Esri OceanBasemap": Esri_OceanBasemap,
+		"OpenStreetMap": OpenStreetMap_Mapnik,
+		"Stamen Terrain": Stamen_Terrain,
+		"ESRI Dark Grey Canvas": Esri_DarkGreyCanvas,
+	};
 
-				map.addLayer(OpenStreetMap_BlackAndWhite)
+	var select = L.countrySelect({title:'Pick a country!'});
 
-				var baseMaps = {
-					"OpenStreetMap B&W": OpenStreetMap_BlackAndWhite,
-					"Esri OceanBasemap": Esri_OceanBasemap,
-					"OpenStreetMap": OpenStreetMap_Mapnik,
-					"Stamen Terrain": Stamen_Terrain,
-					"ESRI Dark Grey Canvas": Esri_DarkGreyCanvas,
-				};
+	var legend = L.control({position: 'topright'});
+	legend.onAdd = function (map) {
+	    var div = L.DomUtil.create('div', 'info legend');
+	    div.innerHTML = `<select id="selectThematic" onchange=getThematic()>
+			  <option>All disciplines</option>
+				<option>Physical oceanography</option>
+				<option>Chemical oceanography</option>
+				<option>Modelling</option>
+				<option>Remote sensing</option>
+				<option>Morphology</option>
+				</select>`;
+	    div.firstChild.onmousedown = div.firstChild.ondblclick = L.DomEvent.stopPropagation;
+	    return div;
+	};
+	legend.addTo(map);
 
-				var select = L.countrySelect({title:'Pick a country!'});
+	function getThematic(){
+		var e = document.getElementById("selectThematic");
+		var thematic = e.options[e.selectedIndex].value;
+		console.log(thematic);
+		addMarkers(thematic);
+	};
 
-				var legend = L.control({position: 'topright'});
-				legend.onAdd = function (map) {
-				    var div = L.DomUtil.create('div', 'info legend');
-				    div.innerHTML = `<select id="selectThematic" onchange=getThematic()>
-						  <option>All disciplines</option>
-							<option>Physical oceanography</option>
-							<option>Chemical oceanography</option>
-							<option>Modelling</option>
-							<option>Remote sensing</option>
-							<option>Morphology</option>
-							</select>`;
-				    div.firstChild.onmousedown = div.firstChild.ondblclick = L.DomEvent.stopPropagation;
-				    return div;
-				};
-				legend.addTo(map);
+	//info.addTo(map);
 
-				function getThematic(){
-					var e = document.getElementById("selectThematic");
-					var thematic = e.options[e.selectedIndex].value;
-					console.log(thematic);
-					addMarkers(thematic);
-				};
+	function getColor(thematic){
+		return thematic == "Physical oceanography" ? 'red' :
+				 	 thematic == "Chemical oceanography" ? 'orange' :
+				 	 thematic == "Modelling" ? 'green' :
+				 	 thematic == "Remote sensing" ? 'blue' :
+				   thematic == "Morphology" ? 'darkpurple' :
+					 'darkred';
+	}
+	// Possible colors:
+	// 'red', 'darkred', 'orange', 'green', 'darkgreen', 'blue', 'purple', 'darkpurple', 'cadetblue'
 
-				//info.addTo(map);
+	var GeodesicOptions = {
+		weight: 2,
+		opacity: .7,
+		color: 'blue',
+		steps: 40,
+	};
 
-				function getColor(thematic){
-					return thematic == "Physical oceanography" ? 'red' :
-							 	 thematic == "Chemical oceanography" ? 'orange' :
-							 	 thematic == "Modelling" ? 'green' :
-							 	 thematic == "Remote sensing" ? 'blue' :
-							   thematic == "Morphology" ? 'darkpurple' :
-								 'darkred';
-				}
-				// Possible colors:
-				// 'red', 'darkred', 'orange', 'green', 'darkgreen', 'blue', 'purple', 'darkpurple', 'cadetblue'
+	var theLine = {};
+	function onClick(e) {
+		if (theLine != undefined) {
+        map.removeLayer(theLine);
+  	};
+		theLine = L.geodesic([[origin, this.getLatLng()]], GeodesicOptions).addTo(map);
+	}
 
-				var GeodesicOptions = {
-					weight: 2,
-					opacity: .7,
-					color: 'blue',
-					steps: 40,
-				};
+	function formatPopup(contact) {
+		textpopup = "<a href=" + contact[3] + ">" + contact[0] + "</a><br>" + "<i class='fa fa-envelope'></i> " + contact[2];
+		return textpopup;
+	};
 
-				var theLine = {};
-				function onClick(e) {
-					if (theLine != undefined) {
-              map.removeLayer(theLine);
-        	};
-					theLine = L.geodesic([[origin, this.getLatLng()]], GeodesicOptions).addTo(map);
-				}
+	var customOptions =
+    {
+    'maxWidth': '400',
+    'width': '200',
+    'className' : 'popupCustom',
+		'opacity' : .3,
+    }
 
-				function formatPopup(contact) {
-					textpopup = "<a href=" + contact[3] + ">" + contact[0] + "</a><br>" + "<i class='fa fa-envelope'></i> " + contact[2];
-					return textpopup;
-				};
+	var markers = L.markerClusterGroup();
+	var ncontacts = contacts.length;
 
-				var customOptions =
-			    {
-			    'maxWidth': '400',
-			    'width': '200',
-			    'className' : 'popupCustom',
-					'opacity' : .3,
-			    }
+	// Initialise with all the markers
+	getThematic("All disciplines");
 
-				var markers = L.markerClusterGroup();
-				var ncontacts = contacts.length;
+	function addMarkers(thematic){
+		// Remove the previous markers
+		markers.clearLayers();
+		for (var i = 0; i < ncontacts ; i++) {
+			var themeList = contacts[i][4];
+			if (themeList.indexOf(thematic) >= 0 || thematic === "All disciplines"){
+				t = formatPopup(contacts[i]);
+				cc = getColor(themeList[0]);
+				console.log(cc);
+				m = L.marker(contacts[i][1], {
+					icon: L.AwesomeMarkers.icon({
+						icon: 'info',
+						prefix: 'fa',
+						markerColor: cc
+					})
+				}).bindPopup(t, customOptions).on('click', onClick);
+				markers.addLayers(m);
+			}
+		}
+		map.addLayer(markers);
+  }
 
-				// Initialise with all the markers
-				getThematic("All disciplines");
+	// Add country selector (not really useful)
+	select.addTo(map);
 
-				function addMarkers(thematic){
-					// Remove the previous markers
-					markers.clearLayers();
-					for (var i = 0; i < ncontacts ; i++) {
-						var themeList = contacts[i][4];
-						if (themeList.indexOf(thematic) >= 0 || thematic === "All disciplines"){
-							t = formatPopup(contacts[i]);
-							cc = getColor(themeList[0]);
-							console.log(cc);
-							m = L.marker(contacts[i][1], {
-								icon: L.AwesomeMarkers.icon({
-									icon: 'info',
-									prefix: 'fa',
-									markerColor: cc
-								})
-							}).bindPopup(t, customOptions).on('click', onClick);
-							markers.addLayers(m);
-						}
-					}
-					map.addLayer(markers);
-			  }
+	select.on('change', function(e){
+		if (e.feature === undefined){ //Do nothing on title
+			return;
+		}
+		var country = L.geoJson(e.feature);
+		if (this.previousCountry != null){
+			map.removeLayer(this.previousCountry);
+		}
+		this.previousCountry = country;
 
-				// Add country selector (not really useful)
-				select.addTo(map);
+		map.addLayer(country);
+		map.fitBounds(country.getBounds());
 
-				select.on('change', function(e){
-					if (e.feature === undefined){ //Do nothing on title
-						return;
-					}
-					var country = L.geoJson(e.feature);
-					if (this.previousCountry != null){
-						map.removeLayer(this.previousCountry);
-					}
-					this.previousCountry = country;
+	});
 
-					map.addLayer(country);
-					map.fitBounds(country.getBounds());
+	L.control.scale().addTo(map);
+	L.control.layers(baseMaps, null, {autoZIndex:true, collapsed:false}).addTo(map);
 
-				});
-
-				L.control.scale().addTo(map);
-				L.control.layers(baseMaps, null, {autoZIndex:true, collapsed:false}).addTo(map);
-
-			</script>
-
-		</body>
-	</html>
+</script>

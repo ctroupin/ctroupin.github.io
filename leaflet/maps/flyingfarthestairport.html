@@ -1,0 +1,42 @@
+<div id="mapfarthestairports"></div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+<script type="text/javascript" src="../leaflet/js/basemaps.js"></script>
+<script type="text/javascript" src="../leaflet/js/Leaflet.Geodesic.js"></script>
+<script type="text/javascript" src="js/leaflet.awesome-markers.js"></script>
+<link rel="stylesheet" href="js/leaflet.awesome-markers.css">
+<script>
+
+  var map3 = L.map('mapfarthestairports').setView([0, 0.], 1);
+  map3.addLayer(CartoDB)
+
+  var Geodesic = L.geodesic([], {
+  	weight: 7,
+  	opacity: 0.5,
+  	color: 'blue',
+  	steps: 50,
+    wrap: false
+  }).addTo(map3);
+
+  var planeMarker = L.AwesomeMarkers.icon({
+    icon: 'plane',
+    markerColor: 'red'
+  });
+
+  var starMarker = L.AwesomeMarkers.icon({
+    icon: 'star',
+    markerColor: 'blue'
+  });
+
+  var airport1 = new L.LatLng(0.831413984298706,127.38099670410156);
+  var airport1b = new L.LatLng(0.831413984298706,127.38099670410156-360.);
+  var airport2 = new L.LatLng(2.95015,-75.294);
+
+  L.marker(airport1, {icon: planeMarker}).addTo(map3).bindPopup('Sultan Khairun Babullah Airport (Indonesia)');
+  L.marker(airport1b, {icon: planeMarker}).addTo(map3).bindPopup('Sultan Khairun Babullah Airport (Indonesia)');
+  L.marker(airport2, {icon: planeMarker}).addTo(map3).bindPopup('Benito Salas Airport (Colombia)');
+  Geodesic.setLatLngs([[airport1b, airport2], [airport1, airport2]]);
+
+
+</script>

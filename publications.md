@@ -159,4 +159,4 @@ doi:[10.1111/j.1466-8238.2011.00656.x](https://doi.org/10.1111/j.1466-8238.2011.
 
 ### Hidden gems
 
-Sometimes people say "*if it's not published, it doesn't exist*". Here are a few [pieces of work](./publications/unpublished.md) that will maybe never published.
+Sometimes people say "*if it's not published, it doesn't exist*". Here are a few [pieces of work](./publications/unpublished) that will maybe never published.

@@ -28,13 +28,6 @@
 
 		<script>
 
-			/*
-			var map = L.map('map', {
-			  center: [28.02, -15.73],
-			  zoom: 7
-			});
-			*/
-
 			var map = L.map('map', {fullscreenControl: true}).setView([34.47, -6.13], 6);
 
 			var baseMaps = {
@@ -42,6 +35,8 @@
 			"Stamen Terrain": Stamen_Terrain,
 			"CartoDB Dark": CartoDB_DarkMatter
 			};
+
+			var geojson;
 
 			// control that shows state info on hover
 			var info = L.control();
@@ -77,16 +72,18 @@
 				//info.update(layer.feature.properties);
 			}
 
+
+
 			function resetHighlight(e) {
-				console.log(e.target);
-				ProvSantaCruz.resetStyle(e.target);
+				for (var i in allIslands){
+					allIslands[i].resetStyle(e.target);
+				}
+		    //info.update();
+		  }
 
-				//info.update();
-			}
-
-			function zoomToFeature(e) {
-				map.fitBounds(e.target.getBounds());
-			}
+		  function zoomToFeature(e) {
+		    map.fitBounds(e.target.getBounds());
+		  }
 
 			function onEachFeature(feature, layer) {
 				layer.on({
@@ -96,32 +93,20 @@
 				});
 			}
 
-			var santaCruzStyle = {
-				"color": "#ff7800",
-				"weight": 2,
-				"opacity": 0.65
-			};
-
-			var lasPalmasStyle = {
-				"color": "#18CA3F",
-				"weight": 2,
-				"opacity": 0.65
-			};
-
-			var laPalmaStyle = {
-				"color": "#332BF9",
-				"weight": 2,
-				"opacity": 1
-			};
+			var santaCruzStyle = {"color": "#ff7800", "weight": 2, "opacity": 0.65};
+			var lasPalmasStyle = {"color": "#18CA3F", "weight": 2, "opacity": 0.65};
+			var laPalmaStyle = {"color": "#332BF9", "weight": 2, "opacity": 1};
 
 			// var ProvSantaCruz = L.geoJson(santacruz, {style: santaCruzStyle, onEachFeature: onEachFeature}).addTo(map);
 			var ProvLasPalmas = L.geoJson(laspalmas, {style: lasPalmasStyle, onEachFeature: onEachFeature}).addTo(map);
       var LaPalma = L.geoJson(lapalma, {style: laPalmaStyle, onEachFeature: onEachFeature});
-      var ElHierro = L.geoJson(elhierro, {style: laPalmaStyle, onEachFeature: onEachFeature});
-      var LaGomera = L.geoJson(lagomera, {style: laPalmaStyle, onEachFeature: onEachFeature});
-      var Tenerife = L.geoJson(tenerife, {style: laPalmaStyle, onEachFeature: onEachFeature});
+      var ElHierro = L.geoJson(elhierro, {style: santaCruzStyle, onEachFeature: onEachFeature});
+      var LaGomera = L.geoJson(lagomera, {style: santaCruzStyle, onEachFeature: onEachFeature});
+      var Tenerife = L.geoJson(tenerife, {style: santaCruzStyle, onEachFeature: onEachFeature});
 
       var ProvSantaCruz = L.layerGroup([LaPalma,ElHierro,Tenerife,LaGomera]).addTo(map);
+			allIslands = [LaPalma,ElHierro,Tenerife,LaGomera,ProvLasPalmas];
+
 			var Palma = L.marker([39.566667, 2.65]);
 			Palma.addTo(map);
 			var LasPalmas = L.marker([28.15, -15.416667]);

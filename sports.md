@@ -14,7 +14,7 @@ The map below show most of the tracks between 2013 and 2018 (before I had no GPS
 
 After Gran Canaria I ran in the other Canary Islands and now I try to run everywhere I go, either for work or on holiday. Not only can I discover new places and tracks, but also I made several friends that share the same passion for the sport. Here is where we've been running recently around the [Sart Tilman](/leaflet/Running-SartTilman.html) (Liège).
 
-Prior to that, I've been organizing [trekking and running activities in Mallorca](/leaflet/MallorcaActivities) with friend and colleagues, especially in the *Tramuntana*.
+Prior to that, I've been organizing [trekking and running activities in Mallorca](/leaflet/MallorcaActivities.html) with friend and colleagues, especially in the *Tramuntana*.
 
 > We used to say that Mallorca is a closed island, because you could follow a signalized track and perfectly end up in a private property.
 

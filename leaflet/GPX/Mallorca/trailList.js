@@ -35,6 +35,5 @@ var  trail  = [
 	"trail/parc-bit-ses-rotgetes.gpx",
 	"trail/soller-ofre-na-franquesa-sa-rateta-massanela-puig-de-nali-ll.gpx",
 	"trail/palma-sa-teulera-portals-nous-palmanova.gpx",
-	"trail/LaRedoutable_2017_08_26_16_09_27_Trail+running.gpx",
 	"trail/esporles-cami-des-pescador-cami-des-correu-cristo.gpx",
 ]

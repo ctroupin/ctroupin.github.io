@@ -9,7 +9,7 @@ I have not always been thrilled by photography, I remember at school back in 200
 
 A good picture is about being at the right place and at the right time, not spending minutes (or hours) with the editing software or using the *instagram* filters.
 
-<img src="{{ site.url }}/photography/Valleseco_sunrise.jpg" alt="Early morning in Valleseco" class="img-centered">
+<img src="./Valleseco_sunrise.jpg" alt="Early morning in Valleseco" class="img-centered">
 
 My Instagram account was recently turned off, first because I was tired of these posts with hundreds of hashtags, then because it belongs to facebook, who is not my friend...
 

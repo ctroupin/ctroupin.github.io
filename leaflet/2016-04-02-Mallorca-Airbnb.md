@@ -2,7 +2,7 @@
 title: Airbnb in Mallorca
 layout: projectmap
 date: 2016-04-02
-img: airbnb_choropleth.jpg
+img: airbnbHeatDark.jpg
 alt: Airbnb in Mallorca
 tools: Leaflet, Python
 category: Map
@@ -14,8 +14,13 @@ Most of this work has been prepared in airports, planes and trains... during an 
 
 ### Processing
 
-The coordinates of each property are extracted from the CSV file provided by Inside Airbnb.
-We combined this information with a geoJSON file storing the municipality limits, to which we added a new properties *roomsPerHabitants*. Once the file is prepared, leaflet can easily use it as a layer and add some control (*mouseover*, *mouseout* and click).
+The coordinates of each property are extracted from the `CSV` file provided by [Inside Airbnb](http://insideairbnb.com/).
+We combined this information with a `geoJSON` file storing the municipality limits, to which we added a new properties *roomsPerHabitants*. Once the file is prepared, leaflet can easily use it as a layer and add some control (`mouseover`, `mouseout` and `click`).
+
+{% include_relative maps/airbnb.html %}
+
+<br>
+
 
 ### Data sources
 

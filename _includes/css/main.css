@@ -45,7 +45,7 @@ h6 {
 {
 float:left;
 width:75px;
-margin:5px 10px 10px 1px;
+margin:15px 10px 20px 1px;
 }
 
 
@@ -424,4 +424,14 @@ footer .footer-below {
 .modal.fade.in {
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
 }

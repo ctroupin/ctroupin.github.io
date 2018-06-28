@@ -10,7 +10,7 @@ I started *trail-running* in Gran Canaria, and it came naturally: after I explor
 The cool thing about running is that you can see much more in the same amount of time, at the cost of being a little bit more tired at the end of the day.       
 The map below show most of the tracks between 2013 and 2018 (before I had no GPS device). There is still a lot to explore, but I'm working on it!
 
-<img src="/figures/GC_activity.png" class="img-responsive" alt="Running in Gran Canaria">
+<img src="/figures/maps/GC_activity.png" class="img-responsive" alt="Running in Gran Canaria">
 
 After Gran Canaria I ran in the other Canary Islands and now I try to run everywhere I go, either for work or on holiday. Not only can I discover new places and tracks, but also I made several friends that share the same passion for the sport. Here is where we've been running recently around the [Sart Tilman](/leaflet/Running-SartTilman.html) (Liège).
 
@@ -18,7 +18,7 @@ Prior to that, I've been organizing [trekking and running activities in Mallorca
 
 > We used to say that Mallorca is a closed island, because you could follow a signalized track and perfectly end up in a private property.
 
-<img src="/figures/MallorcaActivities.jpg" class="img-responsive" alt="Mallorca running and trekking">
+<img src="/figures/maps/MallorcaActivities.jpg" class="img-responsive" alt="Mallorca running and trekking">
 
 ### Past races
 
@@ -28,7 +28,7 @@ Just a few lines, whenever possible a link to my [non-professional blog](https:/
 
 **[Artenara Trail](https://ctroupin.wordpress.com/2018/06/17/artenara-trail-2018/)**, Gran Canaria again, this time in spring and in the north, for a distance of 30 km. I felt well prepared in terms of training volume, even if I could not have very long sessions this year so far. The first 20 km were OK, but then it was hard to eat so the rest became a calvary. At the end it's only you against yourself, even a small bump can be seen as an Everest. I finished mentally destroyed but happy.
 
-**[Trail des Lucioles](http://leslucioles.weebly.com/)**, Soiron. De retour au pays après de chouettes vacances, je prends le dossard d'un ami qui a dû laisser sa place pour cause de blessure. Beaucoup de pépins techniques (frontale, lunettes, ...) sur un parcours justement très technique. Au final je ne suis pas fan de ce type de parcours où on cherche le D+ en descendant et remontant par le même endroit, ou quasi. Aussi l'impression que le passage de 600 coureurs va laisser des traces dans le paysage... Points très positifs: l'organisation locale parfaite et les bénéfices au profit d'aides humanitaires à Bandiagara au Mali!
+**[Trail des Lucioles](http://leslucioles.weebly.com/)**, Soiron. De retour au pays après de chouettes vacances, je prends le dossard d'un ami qui a dû laisser sa place pour cause de blessure. Beaucoup de pépins techniques (frontale en panne, lunettes couvertes de pluie, ...) sur un parcours justement très technique. Globalement je ne suis pas fan de ce type de parcours où j'ai l'impression qu'on cherche le D+ en descendant et remontant par le même endroit, ou quasi. Aussi l'impression que le passage de 600 coureurs va laisser des traces dans le paysage... Points très positifs: l'organisation locale parfaite et les bénéfices au profit d'aides humanitaires à Bandiagara au Mali.
 
 **[Pilancones Tunte Trail](http://pilanconestuntetrail.es/)**, San Bartolomé de Tirajana, Gran Canaria. I always try to participate to new race when I'm there and this one was a good surprise. The track was just amazing with deep ravines and horrible slopes. I remember after a long descent, another told me :
 

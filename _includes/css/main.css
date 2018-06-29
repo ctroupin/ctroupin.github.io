@@ -17,6 +17,39 @@ p.small {
     font-size: 16px;
 }
 
+ol {
+    font-size: 20px;
+}
+
+code {
+    font-size: 20px;
+}
+
+ul {
+    font-size: 20px;
+    position: relative;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 1.5em;
+}
+
+ul li:before {
+    content: "►";
+    display: block;
+    float: left;
+    width: 1em;
+    color: #FEB300;
+}
+
+ol li:before {
+    color: #FEB300;
+}
+
+.highlight {
+    background:#DEDEDE;
+    font-size: 14px;
+}
+
 a,
 a:hover,
 a:focus,

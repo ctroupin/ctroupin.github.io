@@ -24,6 +24,7 @@ from which we can begin the analysis.
 First of all I was curious to see a *heatmap*, it's the first image of this post.
 
 {% include_relative maps/flying.html %}
+<br>
 
 What comes out of that map is that you almost don't need coastlines, they appear
 clearly because of the airport locations. Seeing the U.S. and Europe like this is

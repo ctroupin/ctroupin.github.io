@@ -5,6 +5,9 @@ leaflet/images/pin*
 leaflet/css/images/
 leaflet/css/leaflet.awesome-markers.css
 leaflet/css/leaflet.label.css
+freelancer-theme-jekyll.gemspec
+leaflet/css/Control.FullScreen.css
+leaflet/css/leaflet.css
 leaflet/data/countries.geo.json
 leaflet/data/voyages.dat
 leaflet/js/GPX.Speed.js
@@ -12,6 +15,11 @@ leaflet/js/GPX.js
 leaflet/js/L.Terminator.js
 leaflet/js/leaflet.label-src.js
 leaflet/js/rainbowvis.js
+leaflet/js/images
+leaflet/js/leaflet-heat.js
+leaflet/js/leaflet.awesome-markers.js
+leaflet/js/leaflet.js
+
 CV/Candidatures/
 .bundle
 vendor

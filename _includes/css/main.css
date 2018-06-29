@@ -89,7 +89,7 @@ header {
 }
 
 header .container {
-    padding-top: 100px;
+    padding-top: 170px;
     padding-bottom: 50px;
 }
 
@@ -112,7 +112,7 @@ header .intro-text .skills {
 
 @media(min-width:768px) {
     header .container {
-        padding-top: 125px;
+        padding-top: 150px;
         padding-bottom: 25px;
     }
 
@@ -141,7 +141,7 @@ header .intro-text .skills {
     }
 
     .navbar-fixed-top.navbar-shrink {
-        padding: 10px 0;
+        padding: 15px 0;
     }
 
     .navbar-fixed-top.navbar-shrink .navbar-brand {
@@ -153,6 +153,7 @@ header .intro-text .skills {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
+    font-size: 1.5em;
 }
 
 .navbar a:focus {
@@ -170,6 +171,10 @@ header .intro-text .skills {
 .navbar-default,
 .navbar-inverse {
     border: 0;
+}
+
+.nav.navbar-nav.navbar-right a {
+    color: #fff;
 }
 
 section {

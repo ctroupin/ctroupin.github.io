@@ -1,10 +1,7 @@
 \documentclass[svgnames]{article}
 \usepackage{pgfgantt}
 \usepackage{xcolor}
-\usepackage{tcolorbox}
-\usepackage{sectsty}
-\usepackage{titlesec}
-\usepackage{chronology}
+\usepackage[skins]{tcolorbox}
 \usepackage{fontawesome}
 \usepackage{academicons}
 \usepackage{hyperref}
@@ -16,6 +13,8 @@
 \usepackage{fontspec}
 \setmainfont{Carlito}
 
+\definecolor{CVblue}{HTML}{1483D3}
+\definecolor{CVorange}{HTML}{FF9900}
 
 \hypersetup{bookmarksopen=true,
 bookmarksnumbered=true,  
@@ -28,11 +27,16 @@ pdfauthor=Charles Troupin,
 pdftitle=List of publications,
 colorlinks=true,%
 breaklinks=true,%
-linkcolor=DeepSkyBlue,anchorcolor=blue,%
-citecolor=blue,filecolor=blue,%
+linkcolor=CVblue,anchorcolor=CVblue,%
+citecolor=CVblue,filecolor=CVblue,%
 menucolor=blue,%
 urlcolor=DarkCyan}
 
+\newtcbox{\doiref}{enhanced,nobeforeafter,tcbox raise base,boxrule=0.4pt,top=0mm,bottom=0mm,
+  right=0mm,left=4mm,arc=1pt,boxsep=2pt,before upper={\vphantom{dlg}},
+  colframe=CVorange,coltext=MidnightBlue,colback=white,
+  overlay={\begin{tcbclipinterior}\fill[MidnightBlue] (frame.south west)
+    rectangle node[text=white,font=\sffamily\footnotesize,rotate= 0] {\aiDoi} ([xshift=4mm]frame.north west);\end{tcbclipinterior}}}
 
 \begin{document}
 

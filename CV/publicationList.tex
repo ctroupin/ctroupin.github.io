@@ -30,7 +30,7 @@ breaklinks=true,%
 linkcolor=CVblue,anchorcolor=CVblue,%
 citecolor=CVblue,filecolor=CVblue,%
 menucolor=blue,%
-urlcolor=DarkCyan}
+urlcolor=CVblue}
 
 \newtcbox{\doiref}{enhanced,nobeforeafter,tcbox raise base,boxrule=0.4pt,top=0mm,bottom=0mm,
   right=0mm,left=4mm,arc=1pt,boxsep=2pt,before upper={\vphantom{dlg}},
@@ -39,6 +39,8 @@ urlcolor=DarkCyan}
     rectangle node[text=white,font=\sffamily\footnotesize,rotate= 0] {\aiDoi} ([xshift=4mm]frame.north west);\end{tcbclipinterior}}}
 
 \begin{document}
+
+\noindent\textcolor{CVblue}{Last compiled:} \today
 
 \nocite{*}
 \bibliographystyle{referencelist}

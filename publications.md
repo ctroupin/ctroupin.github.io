@@ -3,7 +3,7 @@ layout: biblio
 title: "List of publications"
 ---
 
-<a href="/CV/publicationList.pdf">Download the list in pdf <i class="fa fa-download"></i></a><br>
+Download the list in <a href="/CV/publicationList.pdf">pdf <i class="fa fa-download"></i></a> or in <a href="/CV/Troupin_publis_orcid.bib">BibTeX <i class="fa fa-download"></i></a><br>
 
 <img class="imagelogo" src="/figures/publis/logo_dineof.png" alt="DINEOF">
 Alvera-Azcárate, A., C. Troupin, A. Barth, and J.-M. Beckers. 2011.

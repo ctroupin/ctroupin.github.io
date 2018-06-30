@@ -163,4 +163,4 @@ Species Distribution Modeling.” *Global Ecology and Biogeography* 21
 
 ### Hidden gems
 
-Sometimes people say "*if it's not published, it doesn't exist*". Here are a few [pieces of work](./publications/unpublished) that will maybe never published.
+Sometimes people say "*if it's not published, it doesn't exist*". Here are a few [pieces of work](/publications/unpublished) that will maybe never published.

@@ -3,6 +3,7 @@ layout: post
 modal-id: 6
 title: Installing mayavi python module
 date: 2018-03-13
+img: mayavi.jpg
 alt: Installing mayavi
 tools: Python
 topic: Instructions

@@ -24,11 +24,10 @@ Now you will understand why it's so complicated.
 
 **Palma (de Mallorca):** the main city of the Balearic islands (quite far away from the Canary islands).
 
-**Santa Cruz de Tenerife:** capital of *Tenerife*.
+**Santa Cruz de Tenerife:** capital of *Tenerife*. It is also name of the western province of the Canary Islands, made up of *El Hierro*, *La Gomera*, *La Palma* and *Tenerife*.
 
 **Santa Cruz de La Palma:** capital of *La Palma*.
 
-**Santa Cruz** (without "de ..."): name of the western province of the Canary Islands, made up of *El Hierro*, *La Gomera*, *La Palma* and *Tenerife*.
 
 ### The map
 

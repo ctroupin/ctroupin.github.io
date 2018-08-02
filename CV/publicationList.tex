@@ -1,13 +1,10 @@
 \documentclass[svgnames]{article}
-\usepackage{pgfgantt}
 \usepackage{xcolor}
-\usepackage[skins]{tcolorbox}
 \usepackage{fontawesome}
 \usepackage{academicons}
 \usepackage{hyperref}
 \usepackage{doi}
 \usepackage[scale=.85]{geometry}
-\usetikzlibrary{arrows.meta}
 
 % Fonts
 \usepackage{fontspec}
@@ -32,17 +29,11 @@ citecolor=CVblue,filecolor=CVblue,%
 menucolor=blue,%
 urlcolor=CVblue}
 
-\newtcbox{\doiref}{enhanced,nobeforeafter,tcbox raise base,boxrule=0.4pt,top=0mm,bottom=0mm,
-  right=0mm,left=4mm,arc=1pt,boxsep=2pt,before upper={\vphantom{dlg}},
-  colframe=CVorange,coltext=MidnightBlue,colback=white,
-  overlay={\begin{tcbclipinterior}\fill[MidnightBlue] (frame.south west)
-    rectangle node[text=white,font=\sffamily\footnotesize,rotate= 0] {\aiDoi} ([xshift=4mm]frame.north west);\end{tcbclipinterior}}}
-
-\renewcommand\refname{L	ist of peer-reviewed publications}
+\renewcommand\refname{List of peer-reviewed publications}
 
 \begin{document}
 
-\noindent\textcolor{CVblue}{Last compiled:} \today
+\noindent\textcolor{CVblue}{Updated} on \today
 
 \nocite{*}
 \bibliographystyle{referencelist}

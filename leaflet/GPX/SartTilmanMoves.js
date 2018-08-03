@@ -105,4 +105,9 @@ var moves = [
 	"2018/Colonster_Vete_2018_07_20_12_02_39_Running_noextensions_500pts.gpx",
 	"2018/Colonster_Vete_2018_06_05_12_07_32_Running_noextensions_500pts.gpx",
 	"2018/LandeStreupas_Angleur_2018_07_26_12_09_14_Running_noextensions_500pts.gpx",
+	"2018/Guillemins_SartTilman_2018_07_27_08_13_43_Trekking_noextensions_500pts.gpx",
+	"2018/Boncelle_2018_07_30_12_05_47_Running_noextensions_500pts.gpx",
+	"2018/Colonster_2018_07_31_12_06_53_Running_noextensions_500pts.gpx",
+	"2018/Golf_2018_08_02_12_05_53_Running_noextensions_500pts.gpx",
+	"2018/OugreeBois_2018_08_03_15_48_38_Running_noextensions_500pts.gpx",
 ]

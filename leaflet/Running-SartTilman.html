@@ -73,7 +73,7 @@
 					"CartoDB Dark": CartoDB_DarkMatter,
 				};
 
-				/*
+
 				L.control.coordinates({
 					position:"bottomleft",
 					decimals:4,
@@ -81,7 +81,7 @@
 					labelTemplateLat:"Lat: {y}",
 					labelTemplateLng:"Lon: {x}"
 				}).addTo(map);
-				*/
+
 
 				var heatStyle = {
 					gradient : {.7: "white", .8:"#FFFF36", .9:"#FF9D00", .95:"#FF1700", 1.:"black"},
@@ -271,9 +271,11 @@
 				var heatmap = L.heatLayer(latlon, heatStyle);
 				heatlayer = L.layerGroup(heatmap);
 
+				// Hexbin layer
 				var hexLayer = L.hexbinLayer(hexoptions);
 				hexLayer.data(lonlat);
 
+				// Distance circles
 				var startpoint = [50.582, 5.566];
 				var distCircles = []
 				for(count = 1; count < 5; count++){
@@ -284,6 +286,26 @@
 				}
 				circleLayer = L.layerGroup(distCircles);
 
+				// Points of interest
+				var pointsInterest = [[50.582, 5.566, "Start"],
+															[50.552, 5.5502, "Roche aux Faucons"],
+															[50.6024, 5.5957, "Lande de Streupas"],
+															[50.5818, 5.6027, "Rochers du bout du monde"],
+															[50.6006, 5.5504, "Point de vue"],
+														];
+
+				var PI = []
+				for (var i = 0; i<pointsInterest.length ; i++){
+					console.log(pointsInterest[i]);
+					var p = new L.LatLng(pointsInterest[i][0], pointsInterest[i][1]);
+					var c = L.circle(p, {radius: 50, color: 'red', fillOpacity: .5});
+					c.bindTooltip(pointsInterest[i][2], {permanent: true, className: "textlabel", offset: [20, 0]});
+					PI.push(c);
+				};
+				PIlayer = L.layerGroup(PI);
+				PIlayer.setZIndex(1000);
+
+
 
 				var overlayers = {
 					"<img src='images/heatmap_icon.png' alt='heatmap' style='height:24px;'> Heat map": heatmap,
@@ -292,10 +314,11 @@
 					"<img src='images/last_icon.png' alt='last' style='height:24px;'> Last run": moveGpsLast,
 					"<img src='images/circle_icon.png' alt='last' style='height:24px;'> Distance circles": circleLayer,
 					"<img src='images/mean_icon.png' alt='last' style='height:24px;'> Mean positions": meanpositionLayer,
+					"Points of interest": PIlayer
 				};
 
 				L.control.scale().addTo(map);
-				L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);
+				L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:true}).addTo(map);
 
 			</script>
 

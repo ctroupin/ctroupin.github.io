@@ -10,7 +10,7 @@ I started *trail-running* in Gran Canaria, and it came naturally: after I explor
 The cool thing about running is that you can see much more in the same amount of time, at the cost of being a little bit more tired at the end of the day.       
 The map below show most of the tracks between 2013 and 2018 (before I had no GPS device). There is still a lot to explore, but I'm working on it!
 
-<img src="/figures/maps/GC_activity.png" class="img-responsive" alt="Running in Gran Canaria">
+<img src="/figures/maps/GC_activity.jpg" class="img-responsive" alt="Running in Gran Canaria">
 
 After Gran Canaria I ran in the other Canary Islands and now I try to run everywhere I go, either for work or on holiday. Not only can I discover new places and tracks, but also I made several friends that share the same passion for the sport. Here is where we've been running recently around the [Sart Tilman](/leaflet/Running-SartTilman.html) (Liège).
 

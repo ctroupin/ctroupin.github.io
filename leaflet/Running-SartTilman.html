@@ -299,7 +299,7 @@
 					console.log(pointsInterest[i]);
 					var p = new L.LatLng(pointsInterest[i][0], pointsInterest[i][1]);
 					var c = L.circle(p, {radius: 50, color: 'red', fillOpacity: .5});
-					c.bindTooltip(pointsInterest[i][2], {permanent: true, className: "textlabel", offset: [20, 0]});
+					c.bindTooltip(pointsInterest[i][2], {permanent: true, className: "textlabel"});
 					PI.push(c);
 				};
 				PIlayer = L.layerGroup(PI);

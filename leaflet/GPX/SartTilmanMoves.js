@@ -110,4 +110,9 @@ var moves = [
 	"2018/Colonster_2018_07_31_12_06_53_Running_noextensions_500pts.gpx",
 	"2018/Golf_2018_08_02_12_05_53_Running_noextensions_500pts.gpx",
 	"2018/OugreeBois_2018_08_03_15_48_38_Running_noextensions_500pts.gpx",
+	"2018/SciencePark_Renory_2018_08_13_13_33_12_Running_noextensions_500pts.gpx",
+	"2018/SciencePark_2018_08_14_10_06_26_Running_noextensions_500pts.gpx",
+	"2018/RocheFaucons_2018_08_07_12_05_26_Running_noextensions_500pts.gpx",
+	"2018/IntervalesEducPhys_2018_08_09_12_05_35_Running_noextensions_500pts.gpx",
+	"2018/BoucleHomes_2018_08_16_12_07_23_Running_noextensions_500pts.gpx",
 ]

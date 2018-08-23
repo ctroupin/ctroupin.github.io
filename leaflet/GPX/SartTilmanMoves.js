@@ -115,4 +115,6 @@ var moves = [
 	"2018/RocheFaucons_2018_08_07_12_05_26_Running_noextensions_500pts.gpx",
 	"2018/IntervalesEducPhys_2018_08_09_12_05_35_Running_noextensions_500pts.gpx",
 	"2018/BoucleHomes_2018_08_16_12_07_23_Running_noextensions_500pts.gpx",
+	"2018/Cortil_2018_08_21_12_09_05_Running_noextensions_500pts.gpx",
+	"2018/BoucleBotanique_2018_08_23_12_06_25_Running_noextensions_500pts.gpx",
 ]

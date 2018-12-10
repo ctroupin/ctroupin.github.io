@@ -10,10 +10,6 @@
 
 \definecolor{CVblue}{HTML}{1483D3}
 
-\AtBeginDocument{
-    \hypersetup{colorlinks,urlcolor=CVblue}
-}
-
 % character encoding
 %\usepackage[utf8]{inputenc}                  % if you are not using xelatex ou lualatex, replace by the encoding you are using
 % adjust the page margins
@@ -22,6 +18,7 @@
 \usepackage{multicol}
 \usepackage[alpine,weather]{ifsym}
 \usepackage{academicons}
+\usepackage{fontawesome}
 \usepackage{tabularx}
 \usepackage{booktabs}
 
@@ -34,8 +31,10 @@
 %\usepackage{fontspec}
 %\setsansfont{Droid Sans}
 %\setmainfont{Lato-Regular}
-%\usepackage{doi}
+
 \urlstyle{sf}
+\DeclareUrlCommand\doi{\aiDoi\def\UrlLeft##1\UrlRight{\nobreakspace\href{http://dx.doi.org/##1}{##1}}\urlstyle{sf}}
+
 
 \DeclareGraphicsExtensions{.pdf,.png,.PNG,.JPG,.jpg,.jpeg,.gif}
 \graphicspath{
@@ -54,7 +53,7 @@
 % --------------------
 
 \usepackage{multibib}
-\newcites{article,incollection,conference}{{Articles},{Book chapters},{Talks and posters}}
+\newcites{article,incollection,conference}{{\faFilePdfO~Articles},{\faBook~Book chapters},{\faMicrophone~Talks and posters}}
 
 % personal data
 \firstname{Charles}
@@ -76,20 +75,27 @@
 
 \renewcommand{\labelitemi}{$\blackdiamond$} 
 
+
+\AtBeginDocument{
+    \hypersetup{colorlinks,
+    urlcolor=CVblue,
+    pdfauthor={Charles Troupin},
+    pdftitle={Curriculum},
+    pdfsubject={Never forget the metadata!},
+	}
+}
+
 \begin{document}
 \makecvtitle
 
 \section{Contact data}
 
-\begin{tabular}{L{.03\textwidth}L{.375\textwidth}L{.03\textwidth}L{.5\textwidth}}
-\faEnvelope	& charles.troupin@gmail.com 	& \faSkype 			& charles.troupin1\\
-\faMobile$^{1}$		& +32~498~155~998 (BE)	 	& \faMobile$^{2}$	& +34~638~054~012 (ES)\\
-\end{tabular}
+\faEnvelope~charles.troupin@gmail.com 	\hspace{1cm} \faSkype~charles.troupin1 \hspace{1cm} \faMobile~+32~498~155~998
 
 \subsection{Social media}
 
 \begin{tabular}{L{.03\textwidth}L{.375\textwidth}L{.03\textwidth}L{.5\textwidth}}
-\faLinkedinSquare 	& \url{www.linkedin.com/in/charlestroupin}		& \faGithubSquare	& \url{https://github.com/ctroupin/} \\
+\faLinkedinSquare 	& \url{https://www.linkedin.com/in/charlestroupin/}		& \faGithubSquare	& \url{https://github.com/ctroupin/} \\
 \aiOrcidSquare 		& \url{http://orcid.org/0000-0002-0265-1021} 	& \aiResearchGateSquare &\url{https://www.researchgate.net/profile/Charles_Troupin}\\
 \faTwitterSquare	& \url{https://twitter.com/CharlesTroupin}		&  	& \\
 \end{tabular}
@@ -318,7 +324,7 @@ Other: Fortran 77, 90, Tcl/Tk, MySQL, PostgreSQL}
 
 \subsection{European projects}
 
-\cventryf{2018--ongoing}{EOSC-Hub}{}{Development of a data analytics platform for marine data}
+\cventryf{2018--ongoing}{EOSC-Hub}{}{Development of a data analytics platform for marine data}{}{}
 
 \cventryf{2017--ongoing}{EMODnet Biology}{}{Creation of gridded field for biological variables}{}{}
 
@@ -403,7 +409,7 @@ management}{}{}{
 
 \nocitearticle{*}
 \bibliographystylearticle{referencelist}
-\bibliographyarticle{ctroupin_publis.bib}
+\bibliographyarticle{Troupin_publi.bib}
 
 \nociteincollection{*}
 \bibliographystyleincollection{referencelist}

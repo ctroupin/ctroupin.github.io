@@ -23,7 +23,7 @@ For the temperature scatter plot, a diverging color-map is selected to highlight
 
 The Western and Eastern Atlantic Gyres (WAG and EAG) are represented as circle in projected coordinates. The arrows are added as a small segment of the circle annotated with a specific arrow style.
 
-<img src="{{ site.url }}/figures/portfolio/Medgib_drifters_currents.png" class="img-responsive" alt="Temperature measured by the MEDGIB drifters">
+<img src="{{ site.url }}/figures/portfolio/Medgib_drifters_currents.png" class="img-responsive" alt="{{ post.alt }}">
 
 The Atlantic Jet are designed in 2 steps:
 1. with a *click-and-save* technique: the coordinates of a series of points are captured and stored in an intermediate file;

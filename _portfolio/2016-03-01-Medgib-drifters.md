@@ -21,7 +21,7 @@ In addition to the trajectories, the sea water temperature measured by the drift
 
 For the temperature scatter plot, a diverging color-map is selected to highlight the contrast between the cool Atlantic Water and the warmer Mediterranean Water.
 
-The Western and Eastern Atlantic Gyres (WAG and EAG) are represented as circle in projected coordinates. The arrows are added as a small segment of the circle annotated with a specific arrow style.
+The Western and Eastern Atlantic Gyres (names WAG and EAG) are represented as circle in projected coordinates. The arrows are added as a small segment of the circle annotated with a specific arrow style.
 
 <img src="{{ site.url }}/figures/portfolio/Medgib_drifters_currents.png" class="img-responsive" alt="{{ post.alt }}">
 

@@ -29,7 +29,7 @@ ul {
     font-size: 20px;
     position: relative;
     list-style: none;
-    margin-left: 0;
+    margin-left: 5px;
     padding-left: 1.5em;
 }
 
@@ -37,7 +37,7 @@ ul li:before {
     content: "►";
     display: block;
     float: left;
-    width: 1em;
+    width: 1.25em;
     color: #FEB300;
 }
 
@@ -68,6 +68,10 @@ h6 {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     text-align: left;
+}
+
+h4 {
+    display: inline-block;
 }
 
 .img-centered {
@@ -472,4 +476,18 @@ footer .footer-below {
     content: "";
     clear: both;
     display: table;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  padding: 2em 2em 1em 11em;
+  border-spacing: 10em 4em;
+  border: 2px dashed orange;
+}
+
+td {
+  height: 1.5em;
+  background: #DEDEDE;
+  vertical-align: middle;
 }

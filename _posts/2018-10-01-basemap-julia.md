@@ -1,7 +1,7 @@
 ---
 layout: post
 modal-id: 12
-title: Using Basemap with Julia
+title: Installing and using Basemap with Julia
 date: 2018-10-01
 img: julia-basemap.png
 alt: Using Basemap with Julia

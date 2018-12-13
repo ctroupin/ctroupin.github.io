@@ -14,5 +14,5 @@ ${BIBTEX} incollection.aux
 ${XELATEX} ${input}
 
 ${XELATEX} ${inputref}
-${BIBTEX} ${inputref}
+${BIBTEX} $(basename "${inputref}" ".tex")".aux"
 ${XELATEX} ${inputref}

@@ -6,9 +6,13 @@ XELATEX='/usr/local/texlive/2017/bin/x86_64-linux/xelatex'
 PDFLATEX='/usr/bin/pdflatex'
 BIBTEX='/usr/bin/bibtex'
 input='Ctroupin_CVacademic.tex'
+inputref="publicationList.tex"
 ${XELATEX} ${input}
 ${BIBTEX} article.aux
 ${BIBTEX} conference.aux
 ${BIBTEX} incollection.aux
 ${XELATEX} ${input}
 
+${XELATEX} ${inputref}
+${BIBTEX} ${inputref}
+${XELATEX} ${inputref}

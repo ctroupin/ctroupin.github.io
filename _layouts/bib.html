@@ -1,0 +1,19 @@
+---
+---
+
+
+<div class="image-txt-container">
+
+    <p>
+    {{ reference }}
+    {% if entry.doi %}
+    <br>
+    <a href="http://dx.doi.org/{{entry.doi}}"><i class="ai ai-doi ai" aria-hidden="true"></i>&nbsp;{{entry.doi}}</a>
+    {% endif %}
+    </p>
+
+
+
+    <img src="{{ site.url }}/figures/publis/{{ entry.key }}.png" style="height:70px;" alt="" hspace="20">
+
+</div>

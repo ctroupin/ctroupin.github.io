@@ -82,6 +82,9 @@ collections:
 markdown: kramdown
 permalink: pretty
 
+plugins:
+  - jekyll-scholar
+
 page_data:
   - title: "Publications"
     id: "publications"
@@ -94,3 +97,21 @@ page_data:
   - title: "Photography"
     id: "photography"
     url: "photography"
+
+scholar:
+  style: _layouts/copernicus-publications
+  locale: en
+
+  sort_by: 'year'
+  order: ascending
+
+  source: ./CV
+  bibliography: ./CV/Troupin_publi.bib
+  bibliography_template: bib
+
+  replace_strings: true
+  join_strings:    true
+
+  query: "@*"
+
+  bibtex_filters: latex

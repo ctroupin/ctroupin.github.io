@@ -85,6 +85,12 @@ width:75px;
 margin:15px 10px 20px 1px;
 }
 
+.image-txt-container {
+  display:flex;
+  align-items:center;
+  flex-direction: row;
+}
+
 
 header {
     text-align: center;

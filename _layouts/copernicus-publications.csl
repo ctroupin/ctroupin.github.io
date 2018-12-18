@@ -134,11 +134,11 @@
     <group delimiter=", ">
       <group delimiter=" ">
         <text term="in"/>
-        <text variable="container-title"/>
+        <text variable="container-title" font-style="italic"/>
       </group>
       <group delimiter=" ">
         <text term="volume" form="short"/>
-        <text variable="volume"/>
+        <text variable="volume" font-weight="bold"/>
       </group>
       <text macro="editor"/>
     </group>
@@ -206,15 +206,15 @@
             <text macro="editor"/>
           </group>
           <group prefix=" ">
-            <text variable="container-title" form="short"/>
+            <text variable="container-title" font-style="italic" form="short"/>
             <group prefix=", " delimiter=", ">
               <group>
-                <text variable="volume"/>
+                <text variable="volume" font-weight="bold"/>
                 <text variable="issue" prefix="(" suffix=")"/>
                 <text macro="published-date"/>
               </group>
               <text macro="pages"/>
-            
+
             </group>
           </group>
         </else>

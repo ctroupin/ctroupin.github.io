@@ -7,7 +7,8 @@
     <p>
     {{ reference }}
     {% if entry.doi %}
-    <i class="ai ai-doi ai" aria-hidden="true"></i><a href="http://dx.doi.org/{{entry.doi}}">{{entry.doi}}</a>
+    <br>
+    <a href="http://dx.doi.org/{{entry.doi}}"><i class="ai ai-doi ai" aria-hidden="true"></i>&nbsp;{{entry.doi}}</a>
     {% endif %}
     </p>
 

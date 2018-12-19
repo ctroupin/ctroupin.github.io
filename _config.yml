@@ -82,7 +82,7 @@ collections:
 markdown: kramdown
 permalink: pretty
 
-plugins:
+plugins_dir:
   - jekyll-scholar
 
 page_data:
@@ -97,6 +97,9 @@ page_data:
   - title: "Photography"
     id: "photography"
     url: "photography"
+
+
+gems: ['jekyll/scholar']
 
 scholar:
   style: _layouts/copernicus-publications

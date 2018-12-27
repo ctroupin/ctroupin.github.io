@@ -1,0 +1,2081 @@
+% This file was created with JabRef 2.10.
+% Encoding: UTF-8
+
+
+@Conference{TROUPIN2010EGU1,
+  Title                    = {{Comparison between in situ and satellite surface temperature in the Western Mediterranean Sea}},
+  Author                   = {Aida Alvera-Azc\'{a}rate and Alexander Barth and Charles Troupin and Jean-Marie Beckers},
+  Booktitle                = {7th European Geosciences Union General Assembly},
+  Year                     = {2010},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {May 6},
+  Note                     = {Presentation},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/91805}}
+}
+
+@Conference{TROUPIN2010ILCOD,
+  Title                    = {{Error assessment of sea surface temperature satellite data relative to in situ data: effect of spatial and temporal coverage}},
+  Author                   = {Aida Alvera-Azc\'{a}rate and Alexander Barth and Charles Troupin and Jean-Marie Beckers},
+  Booktitle                = {42nd International Liège Colloquium on Ocean Dynamics},
+  Year                     = {2010},
+
+  Address                  = {Liège, Belgium},
+  Month                    = {30 April},
+  Note                     = {Presentation},
+  Organization             = {GHER},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/91802}}
+}
+
+@Conference{ALVERA12,
+  Title                    = {{An EOF-based technique to compute merged high resolution sea surface temperature fields}},
+  Author                   = {Aida Alvera-Azc\'{a}rate and Charles Troupin and Alexander Barth and Jean-Marie Beckers},
+  Booktitle                = {44th International Liège Colloquium on Ocean Dynamics},
+  Year                     = {2012},
+
+  Address                  = {Liège, Belgium},
+  Month                    = {10 May},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.05.21}
+}
+
+@Conference{PASCUAL14PERSEUS,
+  Title                    = {{ALBOREX: a major intensive multi-platform and multidisciplinary experiment in the Alboran Sea}},
+  Author                   = {{Ananda Pascual and Benjam\'{i}n Casas and Allen, John T. and Marc Torner and Antonio Olita and Sim\'{o}n Ruiz and Charles Troupin and Evan Mason and Marga Palmer and Félix Margirier and Carlos Castilla and Pau Balaguer and Irene Lizar\'{a}n and Giulio Notarstefano and Ana Massanet and Kristian Sebasti\'{a}n and Beltran, Joan Pau and Mélanie Juza and Antonio Tovar and Pedro V\'{e}lez and Temel Oguz and Amala Mahadevan and Poulain, Pierre-Marie and Tintoré, Joaqu\'{i}n}},
+  Booktitle                = {3rd PERSEUS General Assembly \& Scientific Workshop},
+  Year                     = {2014},
+
+  Address                  = {Marrakesh, Morocco},
+  Month                    = {1-4 December},
+  Note                     = {Presentation},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.11.24}
+}
+
+@Conference{BARTH08SESAME,
+  Title                    = {{Introduction to Optimal Interpolation and Variational Analysis}},
+  Author                   = {Alexander Barth and Aida {Alvera Azc\'{a}rate} and Pascal Joassin and Jean-Marie Beckers and Charles Troupin},
+  Booktitle                = {SESAME Summer School},
+  Year                     = {2008},
+
+  Address                  = {Varna, Bulgaria},
+  Month                    = {21 July-7 August},
+  Organization             = {SESAME},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.05.21}
+}
+
+@Conference{TROUPIN2010ICMDIS,
+  Title                    = {{A web interface for gridding and visualizing oceanographic data sets}},
+  Author                   = {Alexander Barth and Aida Alvera-Azc\'{a}rate and Damien Sirjacobs and Charles Troupin and Mohamed Ouberdous and Jean-Marie Beckers},
+  Booktitle                = {International Conference on Marine Data and Information Systems (IMDIS)},
+  Year                     = {2010},
+
+  Address                  = {Paris, France},
+  Month                    = {March},
+  Note                     = {Presentation},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/91863}}
+}
+
+@Conference{BARTH11,
+  Title                    = {Data Assimilation at {ULg}},
+  Author                   = {Alexander Barth and Aida Alvera-Azc\'{a}rate and Charles Troupin and Mohamed Ouberdous and Jean-Marie Beckers},
+  Booktitle                = {Sangoma Kick-Off meeting},
+  Year                     = {2011},
+
+  Address                  = {Liège, Belgium},
+  Month                    = {25 November},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.05.21}
+}
+
+@Conference{BARTH09,
+  Title                    = {{A web interface for griding arbitrarily distributed in situ data based on Data-Interpolating Variational Analysis (Diva)}},
+  Author                   = {Alexander Barth and A Alvera-Azc\'{a}rate and Charles Troupin and Mohamed Ouberdous and Jean-Marie Beckers},
+  Booktitle                = {6th European Geosciences Union General Assembly},
+  Year                     = {2009},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {19-24 April},
+  Note                     = {Presentation},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {http://hdl.handle.net/2268/33456}
+}
+
+@Conference{TROUPIN2013IMDIS1,
+  Title                    = {{Variational data analysis for generating ocean climatologies (Diva) and web-based distribution of data products (OceanBrowser)}},
+  Author                   = {Barth, Alexander and Troupin, Charles and {Alvera Azc\'{a}rate}, Aida and Beckers, Jean-Marie},
+  Booktitle                = {International Conference on Marine Data and Information Systems (IMDIS)},
+  Year                     = {2013},
+
+  Address                  = {Lucca, Italy},
+  Month                    = {25 September},
+  Note                     = {Presentation},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16}
+}
+
+@Conference{TROUPIN2017EMODnet1,
+  Title                    = {{OceanBrowser}},
+  Author                   = {Alexander Barth and Charles Troupin and Sylvain Watelet and Aida {Alvera Azc\'{a}rate} and Giorgio Santinelli and Gerrit Hendriksen and Jean-Marie Beckers},
+  Booktitle                = {{EMODnet Chemistry 3 Technical Working Group}},
+  Year                     = {2017},
+
+  Address                  = {Venice, Italy},
+  Month                    = {5 April},
+  Note                     = {Oral},
+  Organization             = {OGS},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2017.05.18}
+}
+
+@InProceedings{TROUPIN2018IMDIS2,
+  Title                    = {Generating ocean climatologies from in situ observations},
+  Author                   = {Alexander Barth and Charles Troupin and Sylvain Watelet and Aida Alvera-Azc\'{a}rate and Jean-Marie Beckers},
+  Booktitle                = {IMDIS 2018 International Conference on Marine Data and Information Systems},
+  Year                     = {2018},
+
+  Address                  = {Barcelona, Spain},
+  Month                    = {November 6},
+  Note                     = {Poster},
+  Organization             = {UTM - CSIC},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2018.11.12},
+  Url                      = {http://hdl.handle.net/2268/229998}
+}
+
+@Conference{TROUPIN2017SDN1,
+  Title                    = {{Status of Diva online as VRE application}},
+  Author                   = {Alexander Barth and Charles Troupin and Sylvain Watelet and Jean-Marie Beckers},
+  Booktitle                = {{SeaDataCloud 1st Plenary meeting}},
+  Year                     = {2017},
+
+  Address                  = {Athens, Greece},
+  Month                    = {18-19 October},
+  Organization             = {HCMR},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2017.10.21},
+  Url                      = {http://hdl.handle.net/2268/215273}
+}
+
+@Conference{TROUPIN2017SDN2,
+  Title                    = {{New DIVA capabilities for climatologies}},
+  Author                   = {Alexander Barth and Charles Troupin and Sylvain Watelet and Jean-Marie Beckers},
+  Booktitle                = {{SeaDataCloud Product meeting}},
+  Year                     = {2017},
+
+  Address                  = {Athens, Greece},
+  Month                    = {17 October},
+  Organization             = {HCMR},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2017.10.21},
+  Url                      = {http://hdl.handle.net/2268/215269}
+}
+
+@Conference{TROUPIN2017SDN3,
+  Title                    = {{Progress with analysis of DIVA as cloud service}},
+  Author                   = {Alexander Barth and Charles Troupin and Sylvain Watelet and Jean-Marie Beckers},
+  Booktitle                = {{SeaDataCloud Side Technical Meeting}},
+  Year                     = {2017},
+
+  Address                  = {Athens, Greece},
+  Month                    = {18-19 October},
+  Organization             = {HCMR},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2017.10.21},
+  Url                      = {http://hdl.handle.net/2268/215272}
+}
+
+@Conference{BARTH2016IMDIS1,
+  Title                    = {{OceanBrowser: on-line visualization of gridded ocean data and in situ observations}},
+  Author                   = {Alexander Barth and Sylvain Watelet and Charles Troupin, Aida Alvera-Azc\'{a}rate and Giorgio Santinelli and Gerrit Hendriksen and Alessandra Giorgetti and Jean-Marie Beckers},
+  Booktitle                = {International Conference on Marine Data and Information Systems (IMDIS)},
+  Year                     = {2016},
+
+  Address                  = {Gdansk, Poland},
+  Month                    = {11 October},
+  Note                     = {Oral},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2016.10.12}
+}
+
+@Conference{BARTH2016EGU,
+  Title                    = {{Analysis of ocean in situ observations and web-based visualization}},
+  Author                   = {Alexander Barth and Sylvain Watelet and Charles Troupin and Aida Alvera Azcarate and Giorgio Santinelli and Gerrit Hendriksen and Alessandra Giorgetti and Jean-Marie Beckers},
+  Booktitle                = {13th European Geosciences Union General Assembly},
+  Year                     = {2016},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {17-22 April},
+  Note                     = {Presentation or poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2016.01.18}
+}
+
+@Conference{BARTH2015EGU1,
+  Title                    = {{Web-based visualization of gridded dataset usings OceanBrowser}},
+  Author                   = {Alexander Barth and Sylvain Watelet and Charles Troupin and Jean-Marie Beckers},
+  Booktitle                = {12th European Geosciences Union General Assembly},
+  Year                     = {2015},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {12-17 April},
+  Note                     = {Presentation},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.04.20},
+  Url                      = {http://meetingorganizer.copernicus.org/EGU2015/EGU2015-5792.pdf}
+}
+
+@Conference{BARTH2015SDN,
+  Title                    = {DIVA and OceanBrowser},
+  Author                   = {Alexander Barth and Sylvain Watelet and Charles Troupin and Jean-Marie Beckers},
+  Booktitle                = {SeaDataNet 2 Final Meeting},
+  Year                     = {2015},
+
+  Address                  = {Brest, France},
+  Month                    = {16-17 September},
+  Note                     = {Presentation},
+  Organization             = {Ifremer},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.10.01},
+  Url                      = {http://www.seadatanet.org/content/download/26353/180036/file/SDN2_WP8_WP9_DIVA_Oceanbrowser_Barth.pdf}
+}
+
+@Conference{Beckers2010,
+  Title                    = {{Climatological analysis of irregularly distributed data using Data Interpolating Variational Analysis Diva}},
+  Author                   = {Jean-Marie Beckers and Aida Alvera-Azc\'{a}rate and Alexander Barth and Charles Troupin},
+  Booktitle                = {Ocean Science Meeting},
+  Year                     = {2010},
+
+  Address                  = {Portland (OR), United States},
+  Month                    = {22 February},
+  Note                     = {Poster},
+  Organization             = {American Geophysical Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/113145}}
+}
+
+@Conference{TROUPIN2009SDN,
+  Title                    = {{Diva: new features}},
+  Author                   = {Jean-Marie Beckers and Aida Alvera-Azc\'{a}rate and Alexander Barth and Charles Troupin and Damien Sirjacobs and Mohamed Ouberdous},
+  Booktitle                = {4th SeaDataNet Diva User workshop},
+  Year                     = {2009},
+
+  Address                  = {Calvi, France},
+  Month                    = {23 October},
+  Note                     = {Presentation},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/113148}}
+}
+
+@Conference{TROUPIN2010SDN,
+  Title                    = {{Synthesis of regional product activities JRA4-JRA9}},
+  Author                   = {Jean-Marie Beckers and Aida Alvera-Azc\'{a}rate and Alexander Barth and Luc Vandenbulcke and Charles Troupin and Damien Sirjacobs and Mohamed Ouberdous},
+  Booktitle                = {SeaDataNet 4th Plenary Meeting},
+  Year                     = {2010},
+
+  Address                  = {Paris, France},
+  Month                    = {1 April},
+  Note                     = {Presentation},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/113105}}
+}
+
+@Conference{BECKERS08CALVI,
+  Title                    = {{Variational Inverse Method for data interpolation}},
+  Author                   = {Jean-Marie Beckers and Mohamed Ouberdous and Damien Sirjacobs and Charles Troupin},
+  Booktitle                = {Conseil des Recteurs des universit\'{e}s francophones de Belgique},
+  Year                     = {2008},
+
+  Address                  = {Calvi, France},
+  Month                    = {May},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {http://hdl.handle.net/2268/114009}
+}
+
+@Conference{BELTRAN2015EGU1,
+  Title                    = {{SOCIB Glider toolbox: from sensor to data repository}},
+  Author                   = {Joan Pau Beltran and Emma Heslop and Sim\'{o}n Ruiz and Charles Troupin and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {12th European Geosciences Union General Assembly},
+  Year                     = {2015},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {12-17 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.04.20},
+  Url                      = {http://meetingorganizer.copernicus.org/EGU2015/EGU2015-11719.pdf}
+}
+
+@Conference{BELTRAN2015ILCOD,
+  Title                    = {{SOCIB Glider toolbox: from sensor to data repository}},
+  Author                   = {Joan Pau Beltran and Emma Heslop and Sim\'{o}n Ruiz and Charles Troupin and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {47th International Liège Colloquium on Ocean Dynamics},
+  Year                     = {2015},
+
+  Address                  = {Liège, Belgium},
+  Month                    = {4-8 May},
+  Note                     = {Poster},
+  Organization             = {GHER},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.04.20}
+}
+
+@Conference{CAPET2015EGU1,
+  Title                    = {{Eddy-Driven Offshore Transport in the Eastern Boundary Upwelling Systems: Implications of Refined Altimetry}},
+  Author                   = {Arthur Capet and Evan Mason and Vincent Rossi and Charles Troupin and Yannice Faug\`{e}re and Isabelle Pujol and Ananda Pascual},
+  Booktitle                = {12th European Geosciences Union General Assembly},
+  Year                     = {2015},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {12-17 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.04.20},
+  Url                      = {http://meetingorganizer.copernicus.org/EGU2015/EGU2015-15282.pdf}
+}
+
+@Conference{CAPET2014MYOSD,
+  Title                    = {{Enhanced Measurements of Mesoscale Activity in the Eastern Boundary Upwelling Systems}},
+  Author                   = {Arthur Capet and Evan Mason and Charles Troupin and Yannice Faug\`{e}re and Isabelle Pujol and Ananda Pascual},
+  Booktitle                = {MyOcean Science Days},
+  Year                     = {2014},
+
+  Address                  = {Toulouse, France},
+  Month                    = {22-24 September},
+  Note                     = {Presentation},
+  Organization             = {MyOcean and M\'{e}t\'{e}o France},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.11.24},
+  Url                      = {http://www.myocean.eu/web/16-news-events.php?item=1669}
+}
+
+@Conference{TROUPIN2013TAPAS,
+  Title                    = {{Two steps mapping for HR maps including bathymetry constraints}},
+  Author                   = {Escudier, Romain and Bouffard, J\'{e}rôme. and Troupin, Charles and Pascual, Ananda},
+  Booktitle                = {TAPAS Workshop},
+  Year                     = {2013},
+
+  Address                  = {Toulouse, France},
+  Month                    = {12 June},
+  Note                     = {Presentation},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16}
+}
+
+@Conference{HESLOP16,
+  Title                    = {{SOCIB HF radar : a key contribution to multi-platform ocean observation}},
+  Author                   = {Heslop, Emma E. and Baptiste Mourre and Mélanie Juzal and Charles Troupin and Romain Escudier and Marc Torner and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {{Ocean Sciences Meeting}},
+  Year                     = {2016},
+
+  Address                  = {New Orleans (LA) United States},
+  Month                    = {23 February},
+  Note                     = {Poster},
+  Organization             = {{AGU, ASLO, and TOS}},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2016.01.18}
+}
+
+@Conference{JORDA2014,
+  Title                    = {{A new hydrographic gridded product for the Mediterranean Sea. Impact of XBT correction on heat content estimates}},
+  Author                   = {Gabriel. Jord\`{a} and Lo\"{i}c Houpert and Damià Gomis and Antoni Bosse and Pierre Testor and Josep Llasses and Charles Troupin},
+  Booktitle                = {{4th XBT workshop on "XBT Science and the Way Forward"}},
+  Year                     = {2014},
+
+  Address                  = {Beijing, China},
+  Month                    = {11-13 November},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.11.24},
+  Url                      = {http://2014xbtworkshop.csp.escience.cn/dct/page/1}
+}
+
+@Conference{LANA2015EGU1,
+  Title                    = {{Validation of HF Radar ocean surface currents in the Ibiza Channel using lagrangian drifters, moored current meter and underwater gliders}},
+  Author                   = {Arancha Lana and Vicente Fern\'{a}ndez and Alejandro Orfila and Charles Troupin and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {12th European Geosciences Union General Assembly},
+  Year                     = {2015},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {12-17 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.04.20},
+  Url                      = {http://meetingorganizer.copernicus.org/EGU2015/EGU2015-2780-1.pdf}
+}
+
+@Conference{LANA2014EGU1,
+  Title                    = {{Surface current patterns in the Ibiza Channel with the use of High Frequency (HF) Radar system}},
+  Author                   = {Arancha Lana and Vicente Fern\'{a}ndez and Charles Troupin and Ananda Pascual and Alejandro Orfila and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {11th European Geosciences Union General Assembly},
+  Year                     = {2014},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {30 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Keywords                 = {HF Radar, Mediterranean Sea},
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.02.20},
+  Url                      = {http://meetingorganizer.copernicus.org/EGU2014/EGU2014-12293.pdf}
+}
+
+@Conference{TROUPIN2012IESOCOL,
+  Title                    = {{Stable isotope composition spatial variability at the microhabitat the scale of macrofauna inhabiting a tropical freshwater stream (P\'{e}rou River, Guadeloupe)}},
+  Author                   = {Lepoint, Gilles and Marichal, Nicolas and Troupin, Charles and Monti, Daniel},
+  Booktitle                = {ISOECOL 2012 (Application of stable isotopes in Ecology)},
+  Year                     = {2012},
+
+  Address                  = {Brest, France},
+  Month                    = {2012},
+  Note                     = {Poster},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {{http://hdl.handle.net/2268/131579}}
+}
+
+@Conference{Licer2017EGU,
+  Title                    = {{ Numerical Study of Balearic Meteotsunami Generation and Propagation under Synthetic Gravity Wave Forcing}},
+  Author                   = {Matjaz Licer and Baptiste Mourre and Charles Troupin and Andreas Krietemeyer and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {14th European Geosciences Union General Assembly},
+  Year                     = {2017},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {23-28 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.04.20},
+  Url                      = {http://meetingorganizer.copernicus.org/EGU2015/EGU2015-875-1.pdf}
+}
+
+@Conference{LORA2015EGU1,
+  Title                    = {{Oceanographic data at your fingertips: the SOCIB App for smartphones}},
+  Author                   = {Sebastian Lora and Kristian Sebasti\'{a}n and Charles Troupin and Joan Pau Beltran and Biel Frontera and Sonia G\'{o}mara and Joaquin Tintor\'{e}},
+  Booktitle                = {12th European Geosciences Union General Assembly},
+  Year                     = {2015},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {12-17 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.04.20},
+  Url                      = {http://meetingorganizer.copernicus.org/EGU2015/EGU2015-2823.pdf}
+}
+
+@Conference{LORA2015ILCOD,
+  Title                    = {{Oceanographic data at your fingertips: the SOCIB App for smartphones}},
+  Author                   = {Sebastian Lora and Kristian Sebasti\'{a}n and Charles Troupin and Joan Pau Beltran and Biel Frontera and Sonia G\'{o}mara and Joaquin Tintor\'{e}},
+  Booktitle                = {47th International Liège Colloquium on Ocean Dynamics},
+  Year                     = {2015},
+
+  Address                  = {Liège, Belgium},
+  Month                    = {4-8 May},
+  Note                     = {Poster},
+  Organization             = {GHER},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.04.20},
+  Url                      = {http://meetingorganizer.copernicus.org/EGU2015/EGU2015-2823.pdf}
+}
+
+@Conference{MARMAIN16,
+  Title                    = {{SOCIB HF radar : a key contribution to multi-platform ocean observation}},
+  Author                   = {Julien Marmain and Emma Heslop and Arancha Lana and Vicente Fern\'{a}ndez and Baptiste Mourre and Mélanie Juza and Charles Troupin and A. Orfila and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {{Ocean Sciences Meeting}},
+  Year                     = {2016},
+
+  Address                  = {New Orleans (LA) United States},
+  Month                    = {25 February},
+  Note                     = {Poster},
+  Organization             = {{AGU, ASLO, and TOS}},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2016.01.18}
+}
+
+@Conference{MOURRE2016,
+  Title                    = {{Balearic Rissaga Forecasting System: studying meteotsunami propagation under synthetic gravity wave forcing and revisiting the 2006 event}},
+  Author                   = {Baptiste Mourre and Matjaz Licer and Charles Troupin and Andreas Krietemeyer and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {{XXXII Trobades Cient\'{i}fiques de la Mediterr\`{a}nia - Josep Miquel Vidal - Planeta Oc\'{e}ano}},
+  Year                     = {2016},
+
+  Address                  = {Ma\'{o}, Spain},
+  Month                    = {6 October},
+  Note                     = {Oral},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2016.10.12}
+}
+
+@Conference{NOTARIO2018,
+  Title                    = {{The data life cycle management at SOCIB: responding to science and societal needs}},
+  Author                   = {Xisco Notario and Munoz Mas, Cristian and Inmaculada Ruíz and Miguel Charcos and Rújula, Miquel Àngel and Paz Rotllán and Sonia Gómara and Miquel Gomila and Charles Troupin and Fernández, Juan Gabriel and Joaquín Tintoré},
+  Booktitle                = {IMDIS 2018 International Conference on Marine Data and Information Systems},
+  Year                     = {2018},
+
+  Address                  = {Barcelona, Spain},
+  Month                    = {6 November},
+  Note                     = {Poster},
+  Organization             = {UTM - CSIC},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2018.12.27},
+  Url                      = {http://hdl.handle.net/2268/230514}
+}
+
+@Conference{TROUPIN2012EGU2,
+  Title                    = {{Data-Interpolating Variational Analysis (Diva) software, a tool for European regional seas and Ocean climatologies production}},
+  Author                   = {Ouberdous, Mohamed and Troupin, Charles and Barth, Alexander and Alvera-Azc\'{a}rate, Aida and Beckers, Jean-Marie},
+  Booktitle                = {9th European Geosciences Union General Assembly},
+  Year                     = {2012},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {24 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {{http://hdl.handle.net/2268/126585}}
+}
+
+@Conference{TROUPIN2013OSTST2,
+  Title                    = {{Innovative Approaches for Altimetry Mapping in the Coastal Band. Applications to the North-western Mediterranean Sea}},
+  Author                   = {Ananda Pascual and Romain Escudier and Charles Troupin},
+  Booktitle                = {{Ocean Surface Topography Science Team Meeting}},
+  Year                     = {2013},
+
+  Address                  = {{Boulder (CO), United States}},
+  Month                    = {8-11 October},
+  Note                     = {Presentation},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16}
+}
+
+@Conference{PASCUAL2015EGU1,
+  Title                    = {{Assessing SARAL/AltiKa delayed-time Ssalto/Duacs data in the coastal zone: comparisons with HF radar observations in the Ibiza Channel}},
+  Author                   = {Ananda Pascual and Arancha Lana and Charles Troupin and Sim\'{o}n Ruiz and Yannice Faug\`{e}re and Romain Escudier and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {12th European Geosciences Union General Assembly},
+  Year                     = {2015},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {12-17 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.04.20},
+  Url                      = {http://meetingorganizer.copernicus.org/EGU2015/EGU2015-11164.pdf}
+}
+
+@Conference{PASCUAL2015ILCOD,
+  Title                    = {{Assessing SARAL/AltiKa data in the coastal zone with HF radar observations}},
+  Author                   = {Ananda Pascual and Arancha Lana and Charles Troupin and Sim\'{o}n Ruiz and Yannice Faug\`{e}re and Romain Escudier and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {47th International Liège Colloquium on Ocean Dynamics},
+  Year                     = {2015},
+
+  Address                  = {Liège, Belgium},
+  Month                    = {4-8 May},
+  Note                     = {Poster},
+  Organization             = {GHER},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.04.20},
+  Url                      = {http://meetingorganizer.copernicus.org/EGU2015/EGU2015-11719.pdf}
+}
+
+@Conference{PASCUAL2014OSTST,
+  Title                    = {{Assessing SARAL/AltiKa near-real time data in the coastal zone: comparisons with HF radar}},
+  Author                   = {Ananda Pascual and Arancha Lana and Charles Troupin and Sim\'{o}n Ruiz and Yannice Faug\`{e}re and Romain Escudier and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {SARAL/AltiKa Workshop},
+  Year                     = {2014},
+
+  Address                  = {Lake Constance, Germany},
+  Month                    = {27 October},
+  Note                     = {Poster},
+  Organization             = {EUMETSAT and CNES},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.11.24},
+  Url                      = {http://www.ostst-altimetry-2014.com/authors/saralaltika/}
+}
+
+@Conference{PETIT2016IMDIS1,
+  Title                    = {{Copernicus Marine Environment Monitoring Service In Situ TAC: an operational data provision system for operational oceanography}},
+  Author                   = {Lo\"{i}c {Petit de La Villeon} and Sylvie Pouliquen and Henning Wehde and Joaqu\'{i}n Tintor\'{e} and Thierry Carval and Ringeim, Lid Sjur and Susanne Tamm and St\'{e}phane Tarot, V. Marinova, Lionidas Perivolotis and Marta {Alonso-Mu\~{n}oyerro} and Thomas Hammarklint and Fernando {Manzano Mu\~{n}oz} and Charles Troupin and Kevin Balem and Corentin Guyot},
+  Booktitle                = {International Conference on Marine Data and Information Systems (IMDIS)},
+  Year                     = {2016},
+
+  Address                  = {Gdansk, Poland},
+  Month                    = {12 October},
+  Note                     = {Oral},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2016.10.12}
+}
+
+@Conference{PRIETO2015PERSEUS,
+  Title                    = {{A new website platform for uploading data from a systematic jellyfish monitoring system in the Balearic Islands: a joint science society approach}},
+  Author                   = {Laura Prieto and Biel Frontera and Guillermo Vizoso and Aguil\'{o}, Josep Maria and Pujol, Joan Pol and Charles Troupin and Antonio Grau and Javier Ruiz and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {PERSEUS International Workshop on Jellyfish},
+  Year                     = {2015},
+
+  Address                  = {Cadiz Spain},
+  Month                    = {2-3 March},
+  Organization             = {{CSIC, IOC-UNESCO, CEIMAR}},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.04.20}
+}
+
+@Conference{RUIZ2016OSM,
+  Title                    = {{Observational and numerical evidence for ocean frontogenesis inducing submesoscale processes and impacting biochemistry}},
+  Author                   = {Sim\'{o}n Ruiz and Mariona Claret and Ananda Pascual and Antonio Olita and Amala Mahadevan and Antonio Tovar and Charles Troupin and Joaqu\'{i}n Tintor\'{e} and Arthur Capet},
+  Booktitle                = {Ocean Sciences Meeting},
+  Year                     = {2016},
+
+  Address                  = {New Orleans (LA) United States},
+  Month                    = {{21-26 February}},
+  Note                     = {Poster},
+  Organization             = {{AGU, ASLO, and TOS}},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2016.02.18}
+}
+
+@Conference{RUIZ2015ILCOD,
+  Title                    = {{Assessing SARAL/AltiKa data in the coastal zone with HF radar observations}},
+  Author                   = {Ruiz, Sim\'{o}n and Pascual, Ananda and Allen, John and Olita, Antonio and Tovar, Antonio and Mahadevan, Amala and Claret, Mariona and Troupin, Charles and Poulain, Pierre and Oguz, Temel and Tintor\'{e}, Joaqu\'{i}n},
+  Booktitle                = {47th International Liège Colloquium on Ocean Dynamics},
+  Year                     = {2015},
+
+  Address                  = {Liège, Belgium},
+  Month                    = {4-8 May},
+  Note                     = {Poster},
+  Organization             = {GHER},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.04.20},
+  Url                      = {http://meetingorganizer.copernicus.org/EGU2015/EGU2015-11719.pdf}
+}
+
+@Conference{TROUPIN2010OS2,
+  Title                    = {{Poleward front of upwelling filaments generates subsurface anticyclonic eddies (FEDDY): a CAIBEX Project contribution}},
+  Author                   = {Pablo Sangr\`{a} and Javier Ar\'{i}stegui and Charles Troupin and {Eric Desmond} Barton},
+  Booktitle                = {Ocean Science Meeting},
+  Year                     = {2010},
+
+  Address                  = {Portland (OR), United States},
+  Month                    = {25 February},
+  Note                     = {Poster},
+  Organization             = {American Geophysical Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/125226}}
+}
+
+@Conference{TROUPIN2009EGU3,
+  Title                    = {{S,T-climatologies of the North Sea using the Variational Inverse Method}},
+  Author                   = {Serge Scory and Mohamed Ouberdous and Charles Troupin and Jean-Marie Beckers},
+  Booktitle                = {6th European Geosciences Union General Assembly},
+  Year                     = {2009},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {19 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/113248}}
+}
+
+@Conference{TROUPIN2016INSTAC2,
+  Title                    = {{Indicators and monitoring tool: the INSTAC Dashboard}},
+  Author                   = {Inma Serra and Charles Troupin and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {2nd CMEMS INSTAC Plenary Meeting},
+  Year                     = {2016},
+
+  Address                  = {Hamburg, Germany},
+  Month                    = {18-20 May},
+  Organization             = {BSH},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.10.01}
+}
+
+@Conference{TROUPIN2009ASLO,
+  Title                    = {{Weekly satellite sea surface temperature around Corsica, a DINEOF analysis of AVHRR data (1998), foreseeing comparison with interpolated and modelled fields}},
+  Author                   = {Damien Sirjacobs and Fabian Lenartz and Charles Troupin and Aida Alvera-Azc\'{a}rate and Alexander Barth and Mohamed Ouberdous and Luc Vandenbulcke and Jean-Marie Beckers},
+  Booktitle                = {ASLO aquatic sciences meeting 2009},
+  Year                     = {2009},
+
+  Address                  = {Nice, France},
+  Month                    = {January},
+  Note                     = {Poster},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/33595}}
+}
+
+@Conference{TINTORE2015ILCOD,
+  Title                    = {{Paradigm change in ocean studies: multi-platform observing and forecasting integrated approach in response to science and society}},
+  Author                   = {Tintor\'{e}, Joaqu\'{i}n and Heslop, Emma and Mourre, Baptiste and Juza, M\'{e}lanie and Troupin, Charles and Casas, Benjam\'{i}n and Torner, Marc and Lana, Ar\'{a}nzazu and Fern\'{a}ndez, Vicente and Marmain, Julien and Pascual, Ananda and Orfila, Alejandro and Ruiz, Sim\'{o}n and Oguz, Temel and Massanet, Ana and Alou, Eva and \'{A}lvarez, Diego and Escudier, Romain and March, David and G\'{o}mez-Pujol, Llu\'{i}s and \'{A}lvarez-Ellacuria, Amaya and G\'{o}mara, Sonia and Sebasti\'{a}n, Kristian and Lora, Sebasti\'{a}n and Beltran, Joan Pau and Frontera, Biel and Castilla, Carlos and Balaguer, Pau and Roque, David and Lizar\'{a}n, Irene and Ca\~{n}ellas, Tomeu and Garau, Angels and Rodriguez, Rosa and Gomila, Miquel and Conti, Daniel and Capo, Esther and Sayol, Juan Manuel and Mason, Evan and John Allen},
+  Booktitle                = {47th International Liège Colloquium on Ocean Dynamics},
+  Year                     = {2015},
+
+  Address                  = {Liège, Belgium},
+  Month                    = {4 May},
+  Note                     = {Presentation (keynote)},
+  Organization             = {GHER},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16}
+}
+
+@Conference{TROUPIN2018COST,
+  Title                    = {{Notebooks, reproducibility and other topics in ocean sciences}},
+  Author                   = {Charles Troupin},
+  Booktitle                = {{Copernicus Marine Data in Ocean Models and Operational Applications}},
+  Year                     = {2018},
+
+  Address                  = {Hamburg, Germany},
+  Month                    = {5-9 February},
+  Organization             = {EOS COST, EUMETSAT and BSH},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2018.02.15},
+  Url                      = {http://hdl.handle.net/2268/220053}
+}
+
+@Conference{TROUPIN2018Focus,
+  Title                    = {{What about making our research (more) reproducible?}},
+  Author                   = {Charles Troupin},
+  Booktitle                = {FOCUS Young Scientists Day},
+  Year                     = {2018},
+
+  Address                  = {Liège, Belgium},
+  Month                    = {26 April},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2018.07.13},
+  Url                      = {http://hdl.handle.net/2268/222876}
+}
+
+@Conference{TROUPIN2018NIB,
+  Title                    = {{Data interpolation using DIVAnd}},
+  Author                   = {Charles Troupin},
+  Year                     = {2018},
+
+  Address                  = {Piran, Slovenia},
+  Month                    = {16 September},
+  Note                     = {Seminar at the National Institute of Biology},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2018.11.12},
+  Url                      = {http://hdl.handle.net/2268/229041}
+}
+
+@Conference{TROUPIN2018NIB2,
+  Title                    = {{Oceanographic data interpolation}},
+  Author                   = {Charles Troupin},
+  Year                     = {2018},
+
+  Address                  = {Piran, Slovenia},
+  Month                    = {16 September},
+  Note                     = {Seminar at the National Institute of Biology},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2018.11.12},
+  Url                      = {http://hdl.handle.net/2268/229102}
+}
+
+@Conference{TROUPIN15UFM,
+  Title                    = {{Towards a Roadmap for Blue Investment and Jobs in the Mediterranean}},
+  Author                   = {Charles Troupin},
+  Booktitle                = {Union for the Mediterranean Stakeholder Conference},
+  Year                     = {2015},
+
+  Address                  = {Athens, Greece},
+  Month                    = {27 May},
+  Organization             = {Union for the Mediterranean},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.06.04}
+}
+
+@Conference{TROUPIN2016RUTWb,
+  Title                    = {Coastal observatories and integrated coastal zone management systems},
+  Author                   = {Charles Troupin},
+  Booktitle                = {{CMEMS Regional User and Training Workshop dedicated to the Mediterranean Sea (RUTW/MED)}},
+  Year                     = {2015},
+
+  Address                  = {{La Spezia, Italy}},
+  Month                    = {{3 December}},
+  Organization             = {{Copernicus Marine Environment Monitoring Service}},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2016.02.07}
+}
+
+@Conference{TROUPIN08MARE,
+  Title                    = {{Modelling the Cape Ghir Upwelling Filament}},
+  Author                   = {Charles Troupin},
+  Booktitle                = {MARE General Assembly},
+  Year                     = {2008},
+
+  Address                  = {Liège, Belgium},
+  Month                    = {12 December},
+  Note                     = {Presentation},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {http://hdl.handle.net/2268/113237}
+}
+
+@Conference{TROUPIN2012EOF3,
+  Title                    = {{How to remove clouds in a time series of SST images? Application to the Canary Island - Madeira Region}},
+  Author                   = {Troupin, Charles and {Alvera Azc\'{a}rate}, Aida and Barth, Alexander and Beckers, Jean-Marie},
+  Booktitle                = {II Encuentro de la Oceanograf\'{i}a F\'{i}sica Espa\~{n}ola},
+  Year                     = {2012},
+
+  Address                  = {Madrid, Spain},
+  Month                    = {16 November},
+  Note                     = {Presentation},
+  Organization             = {Puertos del Estado},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {{http://hdl.handle.net/2268/134309}}
+}
+
+@Conference{TROUPIN2012EGU3,
+  Title                    = {{Reconstruction and analysis of QuikSCAT wind measurements with an EOF-based technique}},
+  Author                   = {Charles Troupin and Aida {Alvera Azc\'{a}rate} and Jean-Marie Beckers},
+  Booktitle                = {9th European Geosciences Union General Assembly},
+  Year                     = {2012},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {24 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {{http://hdl.handle.net/2268/126585}}
+}
+
+@Conference{TROUPIN2011EGU4,
+  Title                    = {{EOF analysis of Sea Surface Temperature in the Canary Island - Madeira region}},
+  Author                   = {Troupin, Charles and Alvera-Azc\'{a}rate, Aida and Barth, Alexander and Beckers, Jean-Marie},
+  Booktitle                = {8th European Geosciences Union General Assembly},
+  Year                     = {2011},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {5 April},
+  Note                     = {Presentation},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {{http://hdl.handle.net/2268/89787}}
+}
+
+@Conference{TROUPIN2009VLIZYS,
+  Title                    = {{Modeling and observation of an upwelling filament off Cape Ghir (NW Africa) during the CAIBEX campaign}},
+  Author                   = {Charles Troupin and Javier Ar\'{i}stegui and Barton, {Eric Desmond} and Pablo Sangr\`{a} and Jean-Marie Beckers},
+  Booktitle                = {VLIZ Young Scientist Day},
+  Year                     = {2009},
+
+  Address                  = {Oostende, Belgium},
+  Month                    = {27 November},
+  Note                     = {Poster},
+  Organization             = {Vlaams Instituut voor de Zee},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/113146}}
+}
+
+@Conference{TROUPIN2009VLIZ,
+  Title                    = {{Upwelling filaments: a view through 3 different eyes}},
+  Author                   = {Charles Troupin and Javier Ar\'{i}stegui and Barton, Eric Desmond and Pablo Sangr\`{a} and Jean-Marie Beckers},
+  Booktitle                = {VLIZ Young Scientist Day},
+  Year                     = {2009},
+
+  Address                  = {Oostende, Belgium},
+  Month                    = {27 November},
+  Note                     = {Presentation},
+  Organization             = {Vlaams Instituut voor de Zee},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/113147}}
+}
+
+@Conference{TROUPIN2012YMSD,
+  Title                    = {{Viewing through the clouds in satellite images}},
+  Author                   = {Troupin, Charles and Barth, Alexander and Alvera-Azc\'{a}rate, Aida and Sirjacobs, Damien and Beckers, Jean-Marie},
+  Booktitle                = {VLIZ Young Scientist Day},
+  Year                     = {2012},
+
+  Address                  = {Brugge, Belgium},
+  Month                    = {24 February},
+  Note                     = {Poster},
+  Organization             = {Vlaams Instituut voor de Zee},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {{http://hdl.handle.net/2268/113058}}
+}
+
+@Conference{TROUPIN2014EGU2,
+  Title                    = {{New developments in spatial interpolation methods of Sea-Level Anomalies in the Mediterranean Sea}},
+  Author                   = {Charles Troupin and Alexander Barth and Jean-Marie Beckers and Ananda Pascual},
+  Booktitle                = {11th European Geosciences Union General Assembly},
+  Year                     = {2014},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {2 May},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Keywords                 = {DIVA, Mediterranean Sea, Interpolation, Altimetry},
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.02.20},
+  Url                      = {http://meetingorganizer.copernicus.org/EGU2014/EGU2014-11423.pdf}
+}
+
+@Conference{TROUPIN2013CAW,
+  Title                    = {{Spatial interpolation of SLA along-track measurements using Diva: Application to the coastal area of the NW Mediterranean Sea}},
+  Author                   = {Troupin, Charles and Barth, Alexander and Beckers, Jean-Marie and Pascual, Ananda},
+  Booktitle                = {7th Coastal Altimetry Workshop},
+  Year                     = {2013},
+
+  Address                  = {Boulder (CO), United States},
+  Month                    = {7-8 October},
+  Note                     = {Poster},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16}
+}
+
+@Conference{TROUPIN2013IMDIS2,
+  Title                    = {{An innovative and efficient method for interpolation of sea-level anomaly: the Data-Interpolating Variational Analysis (DIVA). Application to the Mediterranean Sea}},
+  Author                   = {Troupin, Charles and Alexander Barth and Jean-Marie Beckers and Ananda Pascual},
+  Booktitle                = {International Conference on Marine Data and Information Systems (IMDIS)},
+  Year                     = {2013},
+
+  Address                  = {Lucca, Italy},
+  Month                    = {25 September},
+  Note                     = {Poster},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16}
+}
+
+@Conference{TROUPIN2017ODIP2,
+  Title                    = {{Notebooks for documenting work-flows}},
+  Author                   = {Charles Troupin and Alexander Barth and Cristian Mu\~{n}oz and Sylvain Watelet and Jean-Marie Beckers},
+  Booktitle                = {4th ODIP II Workshop},
+  Year                     = {2017},
+
+  Address                  = {Galway, Ireland},
+  Month                    = {2-5 October},
+  Organization             = {Marine Institute},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2017.10.21},
+  Url                      = {http://hdl.handle.net/2268/214918}
+}
+
+@Conference{TROUPIN2013SDN2,
+  Title                    = {{WP8 and WP9 developments: Data-Interpolating Variational Analysis (Diva) developments}},
+  Author                   = {Troupin, Charles and Barth, Alexander and Ouberdous, Mohamed and Aida {Alvera-Azc\'{a}rate} and Beckers, Jean-Marie},
+  Booktitle                = {SeaDataNet~2 2nd Plenary Meeting},
+  Year                     = {2013},
+
+  Address                  = {Lucca, Italy},
+  Month                    = {26-27 September},
+  Note                     = {Presentation},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16}
+}
+
+@Conference{TROUPIN2018EGU1,
+  Title                    = {{Notebooks to document workflow: a possible component in Virtual Research Environments}},
+  Author                   = {Charles Troupin and Alexander Barth and Sylvain Watelet and Jean-Marie Beckers},
+  Booktitle                = {15th European Geosciences Union General Assembly},
+  Year                     = {2018},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {8-13 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2018.07.13},
+  Url                      = {http://hdl.handle.net/2268/223555}
+}
+
+@Conference{TROUPIN2018EGU2,
+  Title                    = {{pydiva2d: a python interface to the DIVA interpolation software}},
+  Author                   = {Charles Troupin and Alexander Barth and Sylvain Watelet and Jean-Marie Beckers},
+  Booktitle                = {15th European Geosciences Union General Assembly},
+  Year                     = {2018},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {8-13 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2016.01.18},
+  Url                      = {http://hdl.handle.net/2268/223556}
+}
+
+@Conference{TROUPIN2018EGU3,
+  Title                    = {{Software citation in ocean sciences: towards the reproducibility of results}},
+  Author                   = {Charles Troupin and Alexander Barth and Sylvain Watelet and Jean-Marie Beckers},
+  Booktitle                = {15th European Geosciences Union General Assembly},
+  Year                     = {2018},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {8-13 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Keywords                 = {Oceanography, Data analysis, Data citation, Reproducibility, SeaDataCloud, ODIP, Python, Jupyter, GitHub, Zenodo, orcID},
+  Owner                    = {ctroupin},
+  Timestamp                = {2018.07.13},
+  Url                      = {http://hdl.handle.net/2268/223557}
+}
+
+@Conference{TROUPIN2018EUDAT,
+  Title                    = {{DIVA software and the cloud}},
+  Author                   = {Charles Troupin and Alexander Barth and Sylvain Watelet and Jean-Marie Beckers},
+  Booktitle                = {EUDAT Conference "Putting the EOSC vision into practice"},
+  Year                     = {2018},
+
+  Address                  = {Porto, Portugal},
+  Month                    = {22-25 January},
+  Organization             = {EUDAT},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2017.10.21},
+  Url                      = {http://hdl.handle.net/2268/220051}
+}
+
+@Conference{TROUPIN2010CLQ,
+  Title                    = {{High-resolution measurements and modelling of the Cape Ghir upwelling filament during the CAIBEX cruise}},
+  Author                   = {Charles Troupin and Jean-Marie Beckers and Pablo Sangr\`{a} and Aida Alvera-Azc\'{a}rate and Alexander Barth and Francisco Mach\'{i}n and Evan Mason and Fabian Lenartz and Mohamed Ouberdous and Damien Sirjacobs},
+  Booktitle                = {42nd International Liège Colloquium on Ocean Dynamics},
+  Year                     = {2010},
+
+  Address                  = {Liège, Belgium},
+  Month                    = {26 April},
+  Note                     = {Presentation and poster},
+  Organization             = {GHER},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/113132}}
+}
+
+@Conference{TROUPIN2016IMDIS1,
+  Title                    = {{Data processing and visualization at the Balearic Islands Coastal Observing and Forecasting System (SOCIB)}},
+  Author                   = {Charles Troupin and Beltran, Joan Pau and Biel Frontera and Sonia G\'{o}mara and Miquel Gomila and Andreas Krietemeyer and Cristian {Mu\~{n}oz} and R\'{u}jula, Miquel \`{A}ngel and Inma Serra and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {International Conference on Marine Data and Information Systems (IMDIS)},
+  Year                     = {2016},
+
+  Address                  = {Gdansk, Poland},
+  Month                    = {11 October},
+  Note                     = {Oral},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2016.10.12}
+}
+
+@Conference{TROUPIN2015EGU1,
+  Title                    = {{SOCIB applications for oceanographic data management}},
+  Author                   = {Charles Troupin and Joan Pau Beltran and Biel Frontera and Sonia G\'{o}mara and Sebastian Lora and David March and Kristian Sebasti\'{a}n and Joaquin Tintor\'{e}},
+  Booktitle                = {12th European Geosciences Union General Assembly},
+  Year                     = {2015},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {12-17 April},
+  Note                     = {Presentation},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.04.20},
+  Url                      = {http://meetingorganizer.copernicus.org/EGU2015/EGU2015-875-1.pdf}
+}
+
+@Conference{TROUPIN2015ILCOD,
+  Title                    = {{Data management and applications at SOCIB data centre}},
+  Author                   = {Troupin, Charles and Beltran, J. P. and Frontera, B. and G\'{o}mara, Sonia and Lora, Sebastián. and March, David and Sebasti\'{a}n, Kristian and Tintor\'{e}, Joaqu\'{i}n},
+  Booktitle                = {47th International Liège Colloquium on Ocean Dynamics},
+  Year                     = {2015},
+
+  Address                  = {Liège, Belgium},
+  Month                    = {4-8 May},
+  Note                     = {Presentation and poster},
+  Organization             = {GHER},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16}
+}
+
+@Conference{TROUPIN2014EOF2,
+  Title                    = {{Oceanographic Data Management at SOCIB}},
+  Author                   = {Charles Troupin and Beltran, Joan Pau and Biel Frontera and Sonia G\'{o}mara and Sebastián Lora and David March and Kristian Sebasti\'{a}n and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {III Encuentro de la Oceanograf\'{i}a F\'{i}sica Espa\~{n}ola},
+  Year                     = {2014},
+
+  Address                  = {Las Palmas de Gran Canaria, Spain},
+  Month                    = {11-13 June},
+  Note                     = {Presentation},
+  Organization             = {ULPGC},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {http://ivcongresoccm.ulpgc.es/}
+}
+
+@Conference{TROUPIN2014EUROGOOS1,
+  Title                    = {{Oceanographic Data management at SOCIB}},
+  Author                   = {Charles Troupin and Beltran, Joan Pau and B.~Frontera and Sonia G\'{o}mara and Sebasti\'{a}n Lora and David March and Kristian Sebasti\'{a}n and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {7th EuroGOOS Conference: HF Radar Meeting},
+  Year                     = {2014},
+
+  Address                  = {Lisboa, Portugal},
+  Month                    = {28-30 October},
+  Note                     = {Presentation},
+  Organization             = {EuroGOOS and Hidrogr\'{a}fico Portugal},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {http://eurogoos2014.hidrografico.pt/}
+}
+
+@Conference{TROUPIN2016EGOGLIDER,
+  Title                    = {SOCIB Glider toolbox: from sensor to data repository},
+  Author                   = {Charles Troupin and Beltran, Joan Pau and Andreas Krietemeyer and Emma Heslop and Sim\'{o}n Ruiz and Frédéric Cyr},
+  Booktitle                = {{7th EGO conference on autonomous ocean gliders and their applications}},
+  Year                     = {2016},
+
+  Address                  = {Southampton, United Kingdom},
+  Month                    = {26-29 September},
+  Note                     = {Poster},
+  Organization             = {UK National Oceanography Centre},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2016.10.12}
+}
+
+@Conference{TROUPIN2014MYOSD,
+  Title                    = {{Interpolating of Sea-Level Anomaly in the Mediterranean and the Black Sea using the Data-Interpolating Variational Analysis}},
+  Author                   = {Charles Troupin and Arthur Capet and Alexander Barth and Jean-Marie Beckers and Ananda Pascual},
+  Booktitle                = {MyOcean Science Days},
+  Year                     = {2014},
+
+  Address                  = {Toulouse, France},
+  Month                    = {22-24 September},
+  Note                     = {Poster},
+  Organization             = {MyOcean and M\'{e}t\'{e}o France},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.11.24},
+  Url                      = {http://www.myocean.eu/web/16-news-events.php?item=1669}
+}
+
+@Conference{TROUPIN2016RUTW,
+  Title                    = {{In Situ TAC training}},
+  Author                   = {Charles Troupin and Antonis Chalkiopoulos},
+  Booktitle                = {{CMEMS Regional User and Training Workshop dedicated to the Mediterranean Sea (RUTW/MED)}},
+  Year                     = {2015},
+
+  Address                  = {{La Spezia, Italy}},
+  Month                    = {4 December},
+  Organization             = {Copernicus Marine Environment Monitoring Service},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2016.02.07}
+}
+
+@Conference{TROUPIN2016INSTAC3,
+  Title                    = {{Communication \& training activities}},
+  Author                   = {Charles Troupin and Antonis Chalkiopoulos and Fernando Manzano},
+  Booktitle                = {2nd CMEMS INSTAC Plenary Meeting},
+  Year                     = {2016},
+
+  Address                  = {Hamburg, Germany},
+  Month                    = {18-20 May},
+  Organization             = {BSH},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.10.01}
+}
+
+@Conference{TROUPIN2016IMDIS2,
+  Title                    = {{Medclic: the Mediterranean in one click}},
+  Author                   = {Charles Troupin and Biel Frontera and Beltran, Joan Pau and Andreas Krietemeyer and Kristian Sebasti\'{a}n and Sonia G\'{o}mara and Miquel Gomila and Romain Escudier and Mélanie Juza and Baptiste Mourre and \`{A}ngels Garau and Tomeu {Ca\~{n}ellas} and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {International Conference on Marine Data and Information Systems (IMDIS)},
+  Year                     = {2016},
+
+  Address                  = {Gdansk, Poland},
+  Month                    = {11 October},
+  Note                     = {Poster},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2016.10.12}
+}
+
+@Conference{TROUPIN2016EGU,
+  Title                    = {Medclic: the Mediterranean in one click},
+  Author                   = {Charles Troupin and Biel Frontera and Kristian Sebasti\'{a}n and {Joan Pau} Beltran and Andreas Krietemeyer and Sonia G\'{o}mara and Miquel Gomila and Romain Escudier and Mélanie Juza and Baptiste Mourre and \`{A}ngels Garau and Tomeu {Ca{\~{n}}ellas} and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {13th European Geosciences Union General Assembly},
+  Year                     = {2016},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {17-22 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2016.01.18}
+}
+
+@Conference{TROUPIN14ONC,
+  Title                    = {{Multi-platform observing and forecasting systems. New eyes to understand ocean state and variability: "the quiet revolution"}},
+  Author                   = {Charles Troupin and Emma Heslop and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {Ocean Seminar},
+  Year                     = {2014},
+
+  Address                  = {Barcelona, Spain},
+  Month                    = {24 November},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.11.24}
+}
+
+@Conference{TROUPIN2014EUROGOOS2,
+  Title                    = {{SOCIB HF Radar system: Applications and validation}},
+  Author                   = {Charles Troupin and Arancha Lana and Vicente Fern\'{a}ndez and {Joan Pau} Beltran and Biel Frontera and Sonia G\'{o}mara and Sebasti\'{a}n Lora and Kristian Sebasti\'{a}n and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {7th EuroGOOS Conference},
+  Year                     = {2014},
+
+  Address                  = {Lisboa, Portugal},
+  Month                    = {28-30 October},
+  Note                     = {Presentation},
+  Organization             = {EuroGOOS and Hidrogr\'{a}fico Portugal},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {http://eurogoos2014.hidrografico.pt/}
+}
+
+@Conference{TROUPIN2013OSTST,
+  Title                    = {{Interpolation of SLA using Diva: Near-real time application during a multi-sensor experiment in the Ibiza Channel}},
+  Author                   = {Troupin, Charles and Lana, Arancha and Pujol, Marie-Isabelle and Pascual, Ananda},
+  Booktitle                = {Ocean Surface Topography Science Team Meeting},
+  Year                     = {2013},
+
+  Address                  = {Boulder (CO), United States},
+  Month                    = {8-11 October},
+  Note                     = {Poster},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16}
+}
+
+@Conference{TROUPIN08MEDCLIVAR,
+  Title                    = {{The Western Mediterranean sea surface temperature dynamics seen through complementary in situ, satellite and modeling approaches over the 1985-1995 period}},
+  Author                   = {Charles Troupin and Fabian Lenartz and Damien Sirjacobs},
+  Booktitle                = {3rd MedCLIVAR-ESF Workshop},
+  Year                     = {2008},
+
+  Address                  = {Rhodes, Greece},
+  Month                    = {30 September},
+  Note                     = {Presentation},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {http://hdl.handle.net/2268/113374}
+}
+
+@Conference{TROUPIN2009EGU2,
+  Title                    = {{Evolution of Western Mediterranean Sea Surface Temperature between 1985 and 2005}},
+  Author                   = {Charles Troupin and Fabian Lenartz and Damien Sirjacobs and Aida Alvera-Azc\'{a}rate and Alexander Barth and Mohamed Ouberdous and Jean-Marie Beckers},
+  Booktitle                = {6th European Geosciences Union General Assembly},
+  Year                     = {2009},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {20 April},
+  Note                     = {Presentation},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/115796}}
+}
+
+@Conference{TROUPIN2012EGU,
+  Title                    = {{Negative wind anomalies generated a diminution of productivity in the North Atlantic in 2010}},
+  Author                   = {Troupin, Charles and Mach\'{i}n, Francisco},
+  Booktitle                = {9th European Geosciences Union General Assembly},
+  Year                     = {2012},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {27 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {{http://hdl.handle.net/2268/123991}}
+}
+
+@Conference{TROUPIN2012EOF2,
+  Title                    = {{Negative wind anomalies generated a diminution of productivity of in the North Atlantic in 2010}},
+  Author                   = {Troupin, Charles and Mach\'{i}n, Francisco},
+  Booktitle                = {II Encuentro de la Oceanograf\'{i}a F\'{i}sica Espa\~{n}ola},
+  Year                     = {2012},
+
+  Address                  = {Madrid, Spain},
+  Month                    = {14 November},
+  Note                     = {Poster},
+  Organization             = {Puertos del Estado},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {{http://hdl.handle.net/2268/134288}}
+}
+
+@Conference{TROUPIN2011EGU,
+  Title                    = {{Evidence of wind-induced temperature anomalies in the tropical and subtropical North Atlantic Ocean in winter-spring 2010}},
+  Author                   = {Troupin, Charles and Mach\'{i}n, Francisco},
+  Booktitle                = {8th European Geosciences Union General Assembly},
+  Year                     = {2011},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {3-8 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {{http://hdl.handle.net/2268/89790}}
+}
+
+@Conference{TROUPIN08SDN,
+  Title                    = {{Diva-4.2.1: presentation of the new features}},
+  Author                   = {Charles Troupin and Francisco Mach\'{i}n and Mohamed Ouberdous and Michel Rixen and Damien Sirjacobs and Jean-Marie Beckers},
+  Booktitle                = {SeaDataNet 2nd Plenary Meeting},
+  Year                     = {2008},
+
+  Address                  = {Athens, Greece},
+  Month                    = {3 April},
+  Note                     = {Poster},
+  Organization             = {HCMR},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16}
+}
+
+@Conference{TROUPIN08EBUS,
+  Title                    = {{Climatology and circulation of the Azores-Canary region by Data-Interpolation Variational Analysis}},
+  Author                   = {Charles Troupin and Francisco Mach\'{i}n and Mohamed Ouberdous and Pablo Sangr\`{a} and Jean-Marie Beckers},
+  Booktitle                = {International Symposium on Eastern Boundary Upwelling Ecosystems},
+  Year                     = {2008},
+
+  Address                  = {Las Palmas de Gran Canaria, Spain},
+  Month                    = {2 June},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {http://hdl.handle.net/2268/114033}
+}
+
+@Conference{TROUPIN2009EGU,
+  Title                    = {{High-resolution Climatology of the North-East Atlantic using Data-Interpolating Variational Analysis}},
+  Author                   = {Charles Troupin and Francisco Mach\'{i}n and Mohamed Ouberdous and Damien Sirjacobs and Jean-Marie Beckers},
+  Booktitle                = {6th European Geosciences Union General Assembly},
+  Year                     = {2009},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {21 April},
+  Note                     = {Presentation},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/113163}}
+}
+
+@Conference{TROUPIN2009SICM,
+  Title                    = {{A new mechanism of upwelling generated filaments based on potential vorticity balance}},
+  Author                   = {Charles Troupin and Evan Mason and Jean-Marie Beckers and Mc Williams, Jim C. and Pablo Sangr\`{a}},
+  Booktitle                = {II Simposio Internacional de Ciencias del Mar},
+  Year                     = {2009},
+
+  Address                  = {Vigo, Spain},
+  Month                    = {27 April},
+  Note                     = {Presentation},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/113149}}
+}
+
+@Conference{TROUPIN2009EGU4,
+  Title                    = {{A new mechanism of upwelling generated filaments based on potential vorticity balance}},
+  Author                   = {Charles Troupin and Evan Mason and Jean-Marie Beckers and Pablo Sangr\`{a}},
+  Booktitle                = {6th European Geosciences Union General Assembly},
+  Year                     = {2009},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {19 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/113239}}
+}
+
+@Conference{TROUPIN08ROMS,
+  Title                    = {{Vorticity balance in the Northwestern African Upwelling}},
+  Author                   = {Charles Troupin and Evan Mason and Sangr\`{a}},
+  Booktitle                = {ROMS/TOMS European Workshop},
+  Year                     = {2008},
+
+  Address                  = {Grenoble, France},
+  Month                    = {6 October},
+  Note                     = {Poster},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {http://hdl.handle.net/2268/113664}
+}
+
+@Conference{TROUPIN08EBUS2,
+  Title                    = {{Vorticity balance in the Northwestern African Upwelling}},
+  Author                   = {Charles Troupin and Evan Mason and Pablo Sangr\`{a}},
+  Booktitle                = {International Symposium on Eastern Boundary Upwelling Ecosystems},
+  Year                     = {2008},
+
+  Address                  = {Las Palmas de Gran Canaria, Spain},
+  Month                    = {2 June},
+  Note                     = {Poster},
+  Organization             = {ULPGC},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {http://hdl.handle.net/2268/113238}
+}
+
+@Conference{TROUPIN2018IMDIS1,
+  Title                    = {Scientific results traceability: software citation using GitHub and Zenodo},
+  Author                   = {Charles Troupin and Cristian Muñoz and Fern\'{a}ndez, Juan Gabriel and R\'{u}jula, Miquel \`{A}ngel},
+  Booktitle                = {IMDIS 2018 International Conference on Marine Data and Information Systems},
+  Year                     = {2018},
+
+  Address                  = {Barcelona, Spain},
+  Month                    = {6 November},
+  Note                     = {Poster},
+  Organization             = {UTM - CSIC},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2018.11.12},
+  Url                      = {http://hdl.handle.net/2268/230513}
+}
+
+@Conference{TROUPIN2017ODIP3,
+  Title                    = {{Software citation and process traceability}},
+  Author                   = {Charles Troupin and Cristian Muñoz and R\'{u}jula, Miquel \`{A}ngel and J.G. Fern\'{a}ndez and Sylvain Watelet and Alexander Barth and Jean-Marie Beckers},
+  Booktitle                = {4th ODIP II Workshop},
+  Year                     = {2017},
+
+  Address                  = {Galway, Ireland},
+  Month                    = {2-5 October},
+  Organization             = {Marine Institute},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2017.10.21},
+  Url                      = {http://hdl.handle.net/2268/214973}
+}
+
+@Conference{TROUPIN2012EOF4,
+  Title                    = {{Generation of analysis and consistent error fields using the Data Interpolating Variational Analysis (Diva)}},
+  Author                   = {Troupin, Charles and Ouberdous, Mohamed and Barth, Alexander and {Alvera Azc\'{a}rate}, Aida and Sirjacobs, Damien and Beckers, Jean-Marie},
+  Booktitle                = {II Encuentro de la Oceanograf\'{i}a F\'{i}sica Espa\~{n}ola},
+  Year                     = {2012},
+
+  Address                  = {Madrid, Spain},
+  Month                    = {15 November},
+  Note                     = {Poster},
+  Organization             = {Puertos del Estado},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {{http://hdl.handle.net/2268/134309}}
+}
+
+@Conference{TROUPIN2012EGU4,
+  Title                    = {{Comparison between Optimal Interpolation (OI) and Data-Interpolating Variational Analysis (Diva) for the generation of analysis and error gridded fields}},
+  Author                   = {Troupin, Charles and Ouberdous, Mohamed and Barth, Alexander and Alvera-Azc\'{a}rate, A. and Sirjacobs, Damien and Beckers, Jean-Marie},
+  Booktitle                = {9th European Geosciences Union General Assembly},
+  Year                     = {2012},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {24 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {{http://hdl.handle.net/2268/126586}}
+}
+
+@Conference{TROUPIN2010IMDIS2,
+  Title                    = {{SeaDataNet regional climatologies: an overview}},
+  Author                   = {Charles Troupin and Mohamed Ouberdous and Alexander Barth and Marc Bassompierre and Christine Coatanoan and Alessandro Grandi and Lind Johansen, Sigrid and Oivind Ostensen and Helge Sagen and Serge Scory and Marina Tonani and Toussaint, Marie-\^{E}ve and Cristina Tronconi and Jean-Marie Beckers},
+  Booktitle                = {International Conference on Marine Data and Information Systems (IMDIS)},
+  Year                     = {2010},
+
+  Address                  = {Paris, France},
+  Month                    = {29 March},
+  Note                     = {Poster},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/113108}}
+}
+
+@Conference{TROUPIN2013EGU,
+  Title                    = {{Development of the Diva tool for the interpolation of oceanic data}},
+  Author                   = {Charles Troupin and Mohamed Ouberdous and Alexander Barth and Jean-Marie Beckers},
+  Booktitle                = {10th European Geosciences Union General Assembly},
+  Year                     = {2013},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {30 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.02.20},
+  Url                      = {http://meetingorganizer.copernicus.org/EGU2013/EGU2013-6300.pdf}
+}
+
+@Conference{TROUPIN2011EGU2,
+  Title                    = {{Overview and progresses of the SeaDataNet regional climatologies}},
+  Author                   = {Charles Troupin and Mohamed Ouberdous and Alexander Barth and Jean-Marie Beckers and {the SeaDataNet-Diva team}},
+  Booktitle                = {8th European Geosciences Union General Assembly},
+  Year                     = {2011},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {7 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {{http://hdl.handle.net/2268/89813}}
+}
+
+@Conference{TROUPIN2010IMDIS,
+  Title                    = {{Godiva: a 4-dimension implementation of Diva}},
+  Author                   = {Charles Troupin and Mohamed Ouberdous and Jean-Marie Beckers},
+  Booktitle                = {International Conference on Marine Data and Information Systems (IMDIS)},
+  Year                     = {2010},
+
+  Address                  = {Paris, France},
+  Month                    = {29 March},
+  Note                     = {Poster},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/113111}}
+}
+
+@Conference{TROUPIN08DIVA,
+  Title                    = {{Using Diva on large datasets: applications and tips}},
+  Author                   = {Charles Troupin and Mohamed Ouberdous and Fabian Lenartz and Damien Sirjacobs and Jean-Marie Beckers},
+  Booktitle                = {3rd SeaDataNet Diva User workshop},
+  Year                     = {2008},
+
+  Address                  = {Calvi, France},
+  Month                    = {16 October},
+  Note                     = {Presentation},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {http://hdl.handle.net/2268/113247}
+}
+
+@Conference{TROUPIN08EGU,
+  Title                    = {{Three-dimensional analysis of oceanographic data with the software Diva}},
+  Author                   = {Charles Troupin and Mohamed Ouberdous and Francisco Mach\'{i}n and Michel Rixen and Damien Sirjacobs and Jean-Marie Beckers},
+  Booktitle                = {5th European Geosciences Union General Assembly},
+  Year                     = {2008},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {13 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {http://hdl.handle.net/2268/114101}
+}
+
+@Conference{TROUPIN08IMDIS,
+  Title                    = {{Implementation of hydrostatic constraint in the software Diva: Theory and applications}},
+  Author                   = {Charles Troupin and Mohamed Ouberdous and Michel Rixen and Damien Sirjacobs and Jean-Marie Beckers},
+  Booktitle                = {International Conference on Marine Data and Information Systems (IMDIS)},
+  Year                     = {2008},
+
+  Address                  = {Athens, Greece},
+  Month                    = {31 March},
+  Note                     = {Poster},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {http://hdl.handle.net/2268/114102}
+}
+
+@Conference{TROUPIN2014EOF1,
+  Title                    = {{Combined use of glider, radar and altimetry data to study a coastal current in the Western Mediterranean Sea}},
+  Author                   = {Charles Troupin and Ananda Pascual and Arancha Lana and Guillaume Valladeau and Pujol, Marie-Isabelle and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {III Encuentro de la Oceanograf\'{i}a F\'{i}sica Espa\~{n}ola},
+  Year                     = {2014},
+
+  Address                  = {Las Palmas de Gran Canaria, Spain},
+  Month                    = {12 June},
+  Note                     = {Poster},
+  Organization             = {ULPGC},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {http://ivcongresoccm.ulpgc.es/}
+}
+
+@Conference{TROUPIN2014EGO,
+  Title                    = {{Use of SARAL/AltiKa data in a multi-sensor approach: Application to the study of a coastal current in the Balearic Sea}},
+  Author                   = {Charles Troupin and Ananda Pascual and Guillaume Valladeau and Arancha Lana and Emma Heslop and Sim\'{o}n Ruiz and Marc Torner and Nicolas Picot and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {{6th EGO Meeting}},
+  Year                     = {2014},
+
+  Address                  = {Kiel, Germany},
+  Month                    = {17 June},
+  Note                     = {Poster},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16}
+}
+
+@Conference{TROUPIN2014EGU1,
+  Title                    = {{Combined use of glider, radar and altimetry data to study a coastal current in the western Mediterranean Sea}},
+  Author                   = {Troupin, Charles and Pascual, Ananda and Valladeau, Guillaume and Arancha Lana and Pujol, Marie-Isabelle and Heslop, Emma and Torner, Marc and Nicolas Picot and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {11th European Geosciences Union General Assembly},
+  Year                     = {2014},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {30 April},
+  Note                     = {Presentation},
+  Organization             = {European Geosciences Union},
+
+  Keywords                 = {DIVA, Mediterranean Sea, Interpolation},
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.02.20},
+  Url                      = {http://meetingorganizer.copernicus.org/EGU2014/EGU2014-3762.pdf}
+}
+
+@Conference{TROUPIN2018CLQ1,
+  Title                    = {{History of the participation to the Colloquium: spatial analysis and time series}},
+  Author                   = {Charles Troupin and Charlotte Peelen and {Alvera Azc\'{a}rate}, Aida and Alexander Barth and Sylvain Watelet and Jean-Marie Beckers},
+  Booktitle                = {{50th International Colloquium on Ocean Dynamics}},
+  Year                     = {2018},
+
+  Address                  = {Liège, Belgium},
+  Month                    = {1 June},
+  Note                     = {Presentation and poster},
+  Organization             = {GHER},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2018.07.13},
+  Url                      = {http://hdl.handle.net/2268/224217}
+}
+
+@Conference{TROUPIN07SDN,
+  Title                    = {{Diva: a Data Analysis Software with Generalized-Cross Validation and Quality Control}},
+  Author                   = {Charles Troupin and Michel Rixen and Damien Sirjacobs and Jean-Marie Beckers},
+  Booktitle                = {SeaDataNet 1st Plenary Meeting},
+  Year                     = {2007},
+
+  Address                  = {Trieste, Italy},
+  Month                    = {19-20 March},
+  Note                     = {Poster},
+  Organization             = {OGS},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {http://hdl.handle.net/2268/114402}
+}
+
+@Conference{TROUPIN2016INSTAC4,
+  Title                    = {{Dashboard, Communication and Training activities}},
+  Author                   = {Charles Troupin and Paz Rotllan and Inmaculada Serra and Biel Frontera},
+  Booktitle                = {3rd CMEMS INSTAC Plenary Meeting},
+  Year                     = {2016},
+
+  Address                  = {Sophia-Antipolis, France},
+  Month                    = {26-27 October},
+  Organization             = {ACRI},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2016.10.10}
+}
+
+@Conference{TROUPIN2011CW,
+  Title                    = {{Mesoscale experiments and modelling - Cape Ghir}},
+  Author                   = {Charles Troupin and Pablo Sangr\`{a} and Javier Ar\'{i}stegui},
+  Booktitle                = {CAIBEX workshop},
+  Year                     = {2011},
+
+  Address                  = {Vigo, Spain},
+  Month                    = {29 November},
+  Note                     = {Presentation},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/113007}}
+}
+
+@Conference{TROUPIN07Grasmesh,
+  Title                    = {{Simulation of annual cycles of phytoplankton, zooplankton and nutrients to the South of Gran Canaria}},
+  Author                   = {Charles Troupin and Pablo Sangr\`{a} and Javier Ar\'{i}stegui},
+  Booktitle                = {GraSMech Poster Day},
+  Year                     = {2007},
+
+  Address                  = {Louvain-la-Neuve, Belgium},
+  Month                    = {11 May},
+  Note                     = {Poster},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {http://hdl.handle.net/2268/114196}
+}
+
+@Conference{TROUPIN07IMBER,
+  Title                    = {{Simulation of annual cycles of phytoplankton, zooplankton and nutrients to the South of Gran Canaria}},
+  Author                   = {Charles Troupin and Pablo Sangr\`{a} and Javier Ar\'{i}stegui},
+  Booktitle                = {Simposio GLOBEC-IMBER},
+  Year                     = {2007},
+
+  Address                  = {Valencia, Spain},
+  Month                    = {28 March},
+  Note                     = {Presentation},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {http://hdl.handle.net/2268/114198}
+}
+
+@Conference{TROUPIN2012EOF1,
+  Title                    = {{Upwelling, filament and eddies in the Canary Current upwelling system during the CAIBEX cruise (Summer 2009)}},
+  Author                   = {Troupin, Charles and Sangr\`{a}, Pablo and Ar\'{i}stegui, Javier and Barreiro Gonz\'{a}lez, Beatriz and Barton, {Eric Desmond}},
+  Booktitle                = {II Encuentro de la Oceanograf\'{i}a F\'{i}sica Espa\~{n}ola},
+  Year                     = {2012},
+
+  Address                  = {Madrid, Spain},
+  Month                    = {15 November},
+  Note                     = {Poster},
+  Organization             = {Puertos del Estado},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {{http://hdl.handle.net/2268/134295}}
+}
+
+@Conference{TROUPIN2012ILCOD,
+  Title                    = {{High-resolution measurements of an upwelling filament during the CAIBEX survey}},
+  Author                   = {Troupin, Charles and Sangr\`{a}, P. and Ar\'{i}stegui, Javier and Beckers, Jean-Marie and Barton, E. D.},
+  Booktitle                = {43rd International Liège Colloquium on Ocean Dynamics},
+  Year                     = {2012},
+
+  Address                  = {Liège, Belgium},
+  Month                    = {2 May},
+  Note                     = {Poster},
+  Organization             = {GHER},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {{http://hdl.handle.net/2268/112589}}
+}
+
+@Conference{TROUPIN2010OS,
+  Title                    = {{Modeling and observation of an upwelling filament off Cape Ghir (NW Africa) during the CAIBEX survey}},
+  Author                   = {Charles Troupin and Pablo Sangr\`{a} and Javier Ar\'{i}stegui and Jean-Marie Beckers and Barton, Eric Desmond},
+  Booktitle                = {Ocean Science Meeting},
+  Year                     = {2010},
+
+  Address                  = {Portland (OR), United States},
+  Month                    = {22 February},
+  Note                     = {Poster},
+  Organization             = {American Geophysical Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.17},
+  Url                      = {{http://hdl.handle.net/2268/113144}}
+}
+
+@Conference{TROUPIN2017EMODnet,
+  Title                    = {Improving the performance of visualization services},
+  Author                   = {Charles Troupin and Giorgio Santinelli and Gerrit Hendriksen and Alexander Barth},
+  Booktitle                = {EMODnet Chemistry 3 Kickoff meeting},
+  Year                     = {2017},
+
+  Address                  = {Trieste, Italy},
+  Month                    = {17 May},
+  Note                     = {Oral},
+  Organization             = {OGS},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2017.05.18}
+}
+
+@Conference{TROUPIN2016INSTAC1,
+  Title                    = {{Preparation for the future CMEMS Training Activities}},
+  Author                   = {Charles Troupin and Inmaculada Serra and Joaqu\'{i}n Tintor\'{e}},
+  Booktitle                = {2nd CMEMS INSTAC Plenary Meeting},
+  Year                     = {2016},
+
+  Address                  = {Hamburg, Germany},
+  Month                    = {18-20 May},
+  Organization             = {BSH},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.10.01}
+}
+
+@Conference{TROUPIN06diva,
+  Title                    = {{Diva Graphical User Interface}},
+  Author                   = {Charles Troupin and Damien Sirjacobs and Jean-Marie Beckers},
+  Booktitle                = {1st SeaDataNet Diva User workshop},
+  Year                     = {2006},
+
+  Address                  = {Liège, Belgium},
+  Month                    = {13 November},
+  Note                     = {Presentation},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {hdl.handle.net/2268/114401}
+}
+
+@Conference{TROUPIN2011EGU3,
+  Title                    = {{Advanced Data Interpolating Variational Analysis. Application to climatological data}},
+  Author                   = {Charles Troupin and Damien Sirjacobs and Michel Rixen and Pierre Brasseur and Jean-Michel Brankart and Aida Alvera-Azc\'{a}rate and Alexander Barth and Arthur Capet and Mohamed Ouberdous and Fabian Lenartz and Marie-\^{E}ve Toussaint and Jean-Marie Beckers},
+  Booktitle                = {8th European Geosciences Union General Assembly},
+  Year                     = {2011},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {7 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {{http://hdl.handle.net/2268/89795}}
+}
+
+@Conference{TROUPIN2011IODE,
+  Title                    = {{Advanced Data Interpolating Variational Analysis. Application to climatological data}},
+  Author                   = {Charles Troupin and Damien Sirjacobs and Michel Rixen and Pierre Brasseur and Jean-Michel Brankart and Alexander Barth and Aida Alvera-Azc\'{a}rate and Arthur Capet and Mohamed Ouberdous and Fabian Lenartz and M.-E. Toussaint and Jean-Marie Beckers},
+  Booktitle                = {IODE 50th Anniversary International Conference},
+  Year                     = {2011},
+
+  Address                  = {Liège, Belgium},
+  Month                    = {21 March},
+  Note                     = {Poster},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.01.16},
+  Url                      = {{http://hdl.handle.net/2268/125254}}
+}
+
+@Conference{TROUPIN2015INSTAC1,
+  Title                    = {Task 4.4 : Communication},
+  Author                   = {Charles Troupin and Joaqu\'{i}n Tintor\'{e} and {SOCIB Team}},
+  Booktitle                = {1st CMEMS INSTAC Plenary Meeting},
+  Year                     = {2015},
+
+  Address                  = {Bruxelles, Belgium},
+  Month                    = {23-24 September},
+  Organization             = {EuroGOOS},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.10.01}
+}
+
+@Conference{TROUPIN2015INSTAC2,
+  Title                    = {Task 4.5 : Training},
+  Author                   = {Charles Troupin and Joaqu\'{i}n Tintor\'{e} and {SOCIB Team}},
+  Booktitle                = {1st CMEMS INSTAC Plenary Meeting},
+  Year                     = {2015},
+
+  Address                  = {Bruxelles, Belgium},
+  Month                    = {23-24 September},
+  Organization             = {EuroGOOS},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2015.10.01}
+}
+
+@Conference{TROUPIN2017OSL,
+  Title                    = {{Working with Diva gridded fields}},
+  Author                   = {Charles Troupin and Matteo Vinci},
+  Booktitle                = {{Open Sea Lab Bootcamp Hackathon}},
+  Year                     = {2017},
+
+  Address                  = {Antwerp, Belgium},
+  Month                    = {15-17 November},
+  Organization             = {EMODnet Secretariat},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2017.10.21},
+  Url                      = {http://hdl.handle.net/2268/219960}
+}
+
+@Conference{TROUPIN2017ODIP1,
+  Title                    = {{Experiences with using netCDF 4}},
+  Author                   = {Charles Troupin and Sylvain Watelet and Alexander Barth and Jean-Marie Beckers},
+  Booktitle                = {4th ODIP II Workshop},
+  Year                     = {2017},
+
+  Address                  = {Galway, Ireland},
+  Month                    = {2-5 October},
+  Organization             = {Marine Institute},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2017.10.21},
+  Url                      = {http://hdl.handle.net/2268/214917}
+}
+
+@Conference{PRIETO14PERSEUS,
+  Title                    = {{GRUMERS: Web-site platform to upload jellyfish observations by workers involved in coastal services in the Balearic Sea}},
+  Author                   = {Guillermo Vizoso and Charles Troupin and Joaqu\'{i}n Tintor\'{e} and Laura Prieto},
+  Booktitle                = {3rd PERSEUS General Assembly \& Scientific Workshop},
+  Year                     = {2014},
+
+  Address                  = {Marrakesh, Morocco},
+  Month                    = {1-4 December},
+  Note                     = {Presentation},
+
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.11.24}
+}
+
+@Conference{WATELET2014EGU1,
+  Title                    = {{Data-Interpolating Variational Analysis (DIVA) software : recent development and application}},
+  Author                   = {Sylvain Watelet and Alexander Barth and Charles Troupin and Mohamed Ouberdous and Jean-Marie Beckers},
+  Booktitle                = {11th European Geosciences Union General Assembly},
+  Year                     = {2014},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {29 April},
+  Note                     = {Poster},
+  Organization             = {European Geosciences Union},
+
+  Keywords                 = {DIVA, Mediterranean Sea, Interpolation, Altimetry},
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.02.20},
+  Url                      = {http://meetingorganizer.copernicus.org/EGU2014/EGU2014-8555.pdf}
+}
+
+@Conference{WATELET2014EGU2,
+  Title                    = {{Reconstruction of the Gulf Stream since 1900 and correlation with the North Atlantic Oscillation}},
+  Author                   = {Sylvain Watelet and Jean-Marie Beckers and Alexander Barth and Mohamed Ouberdous and Charles Troupin},
+  Booktitle                = {11th European Geosciences Union General Assembly},
+  Year                     = {2014},
+
+  Address                  = {Vienna, Austria},
+  Month                    = {28 April},
+  Note                     = {Presentation},
+  Organization             = {European Geosciences Union},
+
+  Keywords                 = {DIVA, Mediterranean Sea, Interpolation, Gulf Stream, NAO},
+  Owner                    = {ctroupin},
+  Timestamp                = {2014.02.20},
+  Url                      = {http://meetingorganizer.copernicus.org/EGU2014/EGU2014-8469.pdf}
+}
+
+@comment{jabref-meta: selector_keywords:}
+
+@comment{jabref-meta: selector_journal:}
+
+@comment{jabref-meta: selector_publisher:}
+
+@comment{jabref-meta: selector_author:}
+

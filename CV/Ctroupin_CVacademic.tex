@@ -1,0 +1,519 @@
+\documentclass[11pt,a4paper,sans,svgnames]{moderncv}
+
+% moderncv themes
+\moderncvstyle{casual}                        % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{ctroupin}                          % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\rmdefault}    % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+
+\cfoot{Page \thepage}
+
+\definecolor{CVblue}{HTML}{1483D3}
+
+% character encoding
+%\usepackage[utf8]{inputenc}                  % if you are not using xelatex ou lualatex, replace by the encoding you are using
+% adjust the page margins
+\usepackage[scale=0.875]{geometry}
+\usepackage{mathabx}
+\usepackage{multicol}
+\usepackage[alpine,weather]{ifsym}
+\usepackage{academicons}
+\usepackage{fontawesome}
+\usepackage{tabularx}
+\usepackage{booktabs}
+
+
+\setlength{\hintscolumnwidth}{2.5cm}           % if you want to change the width of the column with the dates
+\newlength{\logowidth}
+\setlength{\logowidth}{1.5cm} 
+%\setlength{\makecvtitlenamewidth}{10cm}      % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+\newcommand{\sepa}{$\cdot$~}
+%\usepackage{fontspec}
+%\setsansfont{Droid Sans}
+%\setmainfont{Lato-Regular}
+
+\urlstyle{sf}
+\DeclareUrlCommand\doi{\aiDoi\def\UrlLeft##1\UrlRight{\nobreakspace\href{http://dx.doi.org/##1}{##1}}\urlstyle{sf}}
+
+
+\DeclareGraphicsExtensions{.pdf,.png,.PNG,.JPG,.jpg,.jpeg,.gif}
+\graphicspath{
+{/home/ctroupin/Presentations/figures4presentations/logo/},
+{./figures/}
+}
+
+\newcommand{\cventryf}[1]{\cventry{\footnotesize{#1}}}
+\newcommand{\cvitemf}[1]{\cvitem{\footnotesize{#1}}}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% for the bibliography
+% --------------------
+
+\usepackage{multibib}
+\newcites{article,incollection,conference}{{\faFilePdfO~Articles},{\faBook~Book chapters},{\faMicrophone~Talks and posters}}
+
+% personal data
+\firstname{Charles}
+\familyname{Troupin}
+\title{Engineer in Physics -- Doctor in Oceanography}               % optional, remove the line if not wanted
+%\address{SOCIB -- Balearic Islands Coastal Ocean Observing and Forecasting System}{Parc Bit, Naorte, Bloc A 2nd Floor, Door 3  -- Palma de Mallorca 07121 -- SPAIN}  % optional, remove the line if not wanted
+
+
+\homepage{http://ctroupin.github.io}                    
+
+\extrainfo{\thepage}            
+%\photo[64pt][0.4pt]{photocha.png}                  % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file; optional, remove the line if not wanted
+%\quote{ }                 % optional, remove the line if not wanted
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+
+\renewcommand{\labelitemi}{$\blackdiamond$} 
+
+
+\AtBeginDocument{
+    \hypersetup{colorlinks,
+    urlcolor=CVblue,
+    pdfauthor={Charles Troupin},
+    pdftitle={Curriculum},
+    pdfsubject={Never forget the metadata!},
+	}
+}
+
+\begin{document}
+\makecvtitle
+
+
+\section{Contact data}
+
+\faEnvelope~charles.troupin@gmail.com 	\hspace{1cm} \faSkype~charles.troupin1 \hspace{1cm} \faMobile~+32~498~155~998
+
+\subsection{Social media}
+
+\begin{tabular}{L{.03\textwidth}L{.42\textwidth}L{.03\textwidth}L{.5\textwidth}}
+\faLinkedinSquare 	& \url{https://www.linkedin.com/in/charlestroupin/}		& \faGithubSquare	& \url{https://github.com/ctroupin/} \\
+\aiOrcidSquare 		& \url{http://orcid.org/0000-0002-0265-1021} 	& \aiResearchGateSquare &\url{https://www.researchgate.net/profile/Charles_Troupin}\\
+\faTwitterSquare	& \url{https://twitter.com/CharlesTroupin}		&  	& \\
+\end{tabular}
+
+\section{Experience}
+
+\subsection{2017/01--present}
+\raisebox{-1ex}{\includegraphics[width=\logowidth]{logo_uliege}}\textbf{Post-doctoral researcher}\\
+GeoHydrodynamics and Environment Research (\href{http://modb.oce.ulg.ac.be/}{GHER})
+\begin{itemize}%
+\item Improvement of the DIVA and DIVAnd interpolation software tools.
+\item Development of a user interface for DIVA in a Virtual Research Environment.
+\item User support and training, documentation writing.
+\item Participation to international project meetings.
+\end{itemize}
+
+
+\subsection{2014/03--2017/01}
+
+\raisebox{-1ex}{\includegraphics[width=\logowidth]{logo_socib}}\textbf{Head of the Data Centre Facility}, Balearic Islands Coastal Ocean Observing and Forecasting System%(\href{http//www.socib.eu}{SOCIB})
+\begin{itemize}%
+\item Management of the projects and staff of the Date Centre.
+\item Relations with external users (national and European), data providers and other facilities.
+\item Project writing and follow-up.
+\end{itemize}
+Data analytics:
+\begin{itemize}%
+\item Development of applications for the access and visualisation of oceanographic data.
+\item Forecasting of extreme sea level events (\textit{rissaga}) using time series.
+\item Acquisition and processing of satellite, remote-sensing data\\(wind, salinity sea surface temperature, chlorophyll concentration).
+\item Analysis and interpretation of multi-platform observations\\(HF radar, satellite, stations, mobile platforms).
+\end{itemize}
+
+
+\subsection{2013/03--2014/03}
+
+\raisebox{-1ex}{\includegraphics[width=\logowidth]{logo_imedea.png}}~\textbf{Post-doctoral researcher}, Mediterranean Institute for Advanced Studies (\href{http://imedea.uib-csic.es/}{IMEDEA})
+
+\begin{itemize}%
+\item Preparation of high-resolution altimetry products in the Mediterranean Sea (MyOcean~2 project).
+\item Analysis of in situ and remote-sensed data in the Balearic Sea.
+\item Processing (interpolation, filtering) and interpretation of multi-sensor measurements\\(High-frequency radar, underwater glider, altimeter).
+\item Operational production of regional altimetry maps (satellite imagery).
+\end{itemize}
+
+
+\subsection{2010/10--2013/02}
+
+\raisebox{-1ex}{\includegraphics[width=.95\logowidth]{logo_ulg.png}}~\textbf{Research assistant}, \href{www.ulg.ac.be}{University of Li\`{e}ge}
+\begin{itemize}%
+\item Supervisor of the laboratory "\textit{Microscopes}" for undergraduate students\\ (laboratory sessions for 60-80 students, evaluation).
+\item Presentation of new interpolation techniques in European projects.
+\end{itemize}
+Research:
+\begin{itemize}%
+\item Analysis of total-suspended matter images on the North Sea.
+\item Spatio-temporal interpolation of satellite wind data.
+\item Improvement and testing of DIVA interpolation software tool.
+\end{itemize}
+
+
+\subsection{2006/10--2010/09}
+
+\raisebox{-1ex}{\includegraphics[width=.85\logowidth]{logo_fnrs.png}}~\raisebox{-1ex}{\includegraphics[width=.85\logowidth]{logo_ulg.png}}~{\textbf{PhD Candidate}}, {Fund for Research Training in Industry and Agriculture (National Fund for Scientific Research, Belgium)}, {GeoHydrodynamics and Environment Research (\href{http://modb.oce.ulg.ac.be/}{GHER}), University of Li\`{e}ge}
+
+Study of the upwelling filament off Cape Ghir (Northwest Africa)
+\begin{itemize}%
+\item Creation of an hydrographic climatology for the North-East Atlantic Ocean.
+\item Implementation of the ROMS model at high-resolution around Cape Ghir and design of process-oriented experiments.
+\item Participation to the CAIBEX cruise onboard \textit{Sarmiento de Gamboa} (summer 2009) off Cape Ghir and processing of the cruise data.
+\end{itemize}
+
+
+\subsection{2010/08--2010/09}
+
+\textbf{Trainee}, {NATO Undersea Research Center}{La Spezia (Italy)}
+\begin{itemize}%
+\item Development of an operational, multivariate processing of satellite data
+\item Pre-processing of remote-sensed data (chlorophyll concentration, sea surface temperature).
+\item Empirical orthogonal function analysis.
+\end{itemize}
+
+
+\subsection{2005/10--2005/12}
+
+\raisebox{-1ex}{\includegraphics[width=.9\logowidth]{logo_ulg.png}}~\textbf{Research Engineer}, {University of Li\`{e}ge}\\
+{Modeling of the Coccolithophore bloom in the Bay of Biscay using a 1-dimensional model (GOTM).}
+
+
+
+%\section{Main research interests}
+%
+%\cvlistitem{Data visualisation in environmental sciences}
+%\cvlistitem{Spatial interpolation techniques applied to geophysical data}
+%\cvlistitem{Processing and analysis of satellite images}
+%\cvlistitem{High-resolution numerical modelling in coastal areas}
+%\cvlistitem{Air-sea interactions and influence of physical processes on biology}
+
+%\newpage
+%-------------------
+\section{Education}
+%-------------------
+
+\subsection{PhD in Sciences -- Oceanography}
+
+
+\cventryf{2006--2011}{University of Li\`{e}ge and University of Las Palmas de Gran Canaria}{Title: \emph{Study of the Cape Ghir upwelling filament using variational data analysis and regional numerical model}}{(\href{http://hdl.handle.net/2268/105400}{http://hdl.handle.net/2268/105400})}{}{}  
+
+%\cvitem{Supervisors}{J.-M.~Beckers (ULg) and P.~Sangr\`{a} (ULPGC)}
+%\cvitem{Lecture date}{15 September 2011}
+%\cvitem{Language}{English}
+%\cvitem{Page number}{224}
+%\cvitem{Link}{\url{http://hdl.handle.net/2268/105400}}
+
+\subsection{Advanced Master in Modelling of the Marine Environment}
+
+\cventryf{2005--2006}{University of Li\`{e}ge and University of Las Palmas de Gran Canaria}{Las Palmas de Gran Canaria}{\textit{Grade:~Highest Honours}}{Final project: \emph{Simulation of annual cycles of phytoplankton, zooplankton and nutrients using a mixed layer model coupled with a biological model}}{(\href{http://hdl.handle.net/2268/112587}{http://hdl.handle.net/2268/112587})}  
+%\cvitem{Supervisors}{P.~Sangr\`{a} (ULPGC)}
+%\cvitem{Language}{English}
+%\cvitem{Page number}{124}
+%\cvitem{Link}{\url{http://hdl.handle.net/2268/112587}}
+
+\subsection{Civil Engineer in Physics}
+\cventryf{2000--2005}{University of Li\`{e}ge}{Li\`{e}ge}{\textit{Grade:~High Honours}}{Final project: \emph{Structuring in granular media}}{(\href{http://hdl.handle.net/2268/112588}{http://hdl.handle.net/2268/112588})}	
+
+%\cvitem{Supervisors}{P.~Dauby and N.~Vandewalle (ULg)}
+%\cvitem{Language}{French}
+%\cvitem{Page number}{156}
+%\cvitem{Link}{\url{http://hdl.handle.net/2268/112588}}
+
+\subsection{Training}
+
+%\cvitem{June 2016}{\href{https://www.codecademy.com/learn/learn-java}{\textit{Learn Java}}, 4 hours, 
+%Code Academy}
+\cvitemf{2018/01/21}{Managing an international research team, ULiège (3h), I.~Halleux}
+\cvitemf{2016/07}{\href{https://www.futurelearn.com/courses/big-data-visualisation}{\textit{Big Data: Data Visualisation}}, 2~weeks / 2~hours per week, Queensland University of Technology}
+\cvitemf{2016/06}{\href{https://www.codecademy.com/learn/sql-table-transformation}{\textit{SQL: Table Transformation}}, Code Academy}
+\cvitemf{2016/06}{\href{https://www.codecademy.com/learn/learn-sql}{\textit{Learn SQL}}, Code Academy}
+\cvitemf{2016/01}{\href{https://www.meted.ucar.edu/training_module.php?id=993}{\textit{Tropical Mesoscale Convective Systems}}, 1.5 hour, Comet MedEd}
+\cvitemf{2016/01}{\href{https://www.meted.ucar.edu/training_module.php?id=1093}{\textit{Using Scatterometer Wind and Altimeter Wave Estimates in Marine Forecasting}}, 2 hours, Comet MedEd}
+\cvitemf{2015/12}{\href{https://www.futurelearn.com/courses/climate-from-space}{\textit{Monitoring Climate from Space}}, 5~weeks / 3~hours per week, European Space Agency}
+\cvitemf{December 2015}{\href{https://developers.google.com/edu/python/?hl=en}{\textit{Google's Python Class}}, 2 days, Google for Education}
+\cvitemf{2012/11/06}{\textit{Interview in English}, Gembloux (1~day), J.-P. Hermann}
+\cvitemf{2012/10/26}{\textit{Understanding the factors of success and failure in the first year of university}, ULg (1/2~day), L.~Leduc et B.~M\'{e}renne}
+\cvitemf{2012/10/24}{\textit{Keys and main principles of team management}, ULg  (1/2 day), L. Mar\'{e}chal}
+\cvitemf{2012/05/10}{\textit{Efficient slides and graphics}, ULg (2h), J.-L. Doumont (Principi\ae)}
+
+\cvitemf{2011}{\textit{Structuring written documents}, ULg (2h), J.-L. Doumont (Principi\ae)}
+
+\newpage
+
+%--------------------------------------
+\section{Skills and Competencies}
+%--------------------------------------
+
+\subsection{Technical skills}
+
+\cvitem{Data analytics}{Quality control \sepa Singular events \sepa Filtering \sepa Data mining \sepa Statistics \sepa Predictive modelling}
+
+\cvitem{Engineering}{Fluid mechanics \sepa Aerodynamics \sepa Finite-Element Method \sepa Atmospheric Physics \sepa Numerical simulations \sepa Numerical analysis \sepa Signal processing \sepa Optimization \sepa High-performance computing}
+
+\cvitem{Physical Oceanography}{Spatial interpolation \sepa Time-Series Analysis \sepa Principal Component Analysis \sepa Numerical Modelling \sepa Data Processing \sepa Database Management \sepa Satellite Image Processing}
+
+\subsection{IT skills}
+
+\cvitem{Programming}{Python: numpy, scipy, geopy, pandas, logging, unittest, json, geoip, netCDF4\newline
+Julia: data reading/writing (CSV, netCDF, images), numerical analysis, logging\newline
+MATLAB/Octave: netCDF, easykrig, m$\_$map, ROMS tools \newline
+Bash scripting: awk, cronjob, wget, ssh, ncftp\newline
+Web: HTML, CSS, JavaScript, Jekyll, D3, Angular, Markdown, Wordpress, Dokuwiki, Mediawiki\newline
+Visualisation: bokeh, matplotlib, folium, plotly, leaflet\newline
+Version control systems: git, SVN \newline
+Other: Fortran 77, 90, Tcl/Tk, MySQL, PostgreSQL}
+\cvitem{Operating systems}{Linux (Mint, Ubuntu) \sepa Experience with Mac~OS~X Lion, Microsoft Windows}
+%\cvitem{Data formats}{netCDF (ncdump, ncview, Panoply, cdo, nco, OPeNDAP), ODV spreadsheet, HDF, CNV, CSV, JSON}
+\cvitem{Image processing}{GIMP, Inkskape, Darktable, ImageJ, Matlab, Python, ffmpeg, hugin, ImageMagick}
+\cvitem{Oceanography software}{Ocean Data View, DIVA (spatial interpolation), DINEOF (spatio-temporal interpolation of satellite images)}
+\cvitem{Other tools}{NX~Client, VPN, LaTeX (BibTex, Beamer, TikZ), Asana}
+
+\subsection{Management}
+
+\subsection{Organisation and Communication}
+
+\cvitem{Projects and management}{Planning and monitoring, scientific and technical report writing, teamwork, adhering to deadlines, writing specification documents, applications for grants and supports.}
+
+\cvitem{Communication}{Oral presentations at international conferences (in English, Spanish or French), social networking, management of group accounts on twitter (\symbol{64}SOCIB\_data, \symbol{64}GHER\_ULg).}
+
+\cvitem{Conference organisation}{Main organiser of several editions of the Diva workshop (10 participants from European research centres on average) and member of the organising committee of the 48th International Li\`{e}ge Colloquium on Ocean Dynamics (200 participants from 40 countries).}
+
+\subsection{Languages}
+\cvitem{\textbf{Summary}}{In my current working environment I use Spanish, English and Catalan to communicate with my colleagues and mostly English for the communication with the external users and partners as well as for the writing of technical document.}
+\cvitem{French}{Native speaker.}
+\cvitem{Spanish}{Highly proficient in spoken and written Spanish.}
+\cvitem{English}{Highly proficient in spoken and written English.}
+\cvitem{Catalan}{Limited working proficiency.}
+\cvitem{German}{Limited working proficiency.}
+\cvitem{Italian}{Elementary proficiency.}
+\cvitem{Dutch}{Elementary proficiency (basic course for beginners).}
+
+\subsection{Teaching and Training}
+
+\cvitem{\textbf{General}}{My experience of training at the University is complemented by several training courses given in the frame of European projects or invited lectures.}
+
+\cventryf{2017/11/15--17}{Open Sea Lab Workshop}{De Serre, Antwerp}{Coaching the participants for the data access and usage}{}{}
+
+\cventryf{2017/04}{University of Li\`{e}ge}{Facult\'{e} des Sciences}{"Geophysical Fluid Dynanamics" lessons to Master students}{}{}
+
+\cventryf{2016/01/27--29}{University of C\'{a}diz}{Facultad de Ciencias del Mar y Ambientales}{Introduction to scientific Python. Application to Oceanography}{Graduate students, researchers and professors}{}
+
+\cventryf{2015/12/10--11}{Lisbon, Portugal}{CMEMS Regional User Training Workshop dedicated to the Atlantic European South West Shelf Ocean}{In Situ Thematic Assembly Center (INSTAC)}{}{}
+\cventryf{2015/12/03--04}{La Spezia, Italy}{CMEMS Regional User and Training Workshop dedicated to the Mediterranean Sea}{In Situ Thematic Assembly Center (INSTAC)}{}{
+\begin{itemize}
+\item Manipulation of netCDF files.
+\item Discovery and access to data.
+\item Use of Python and Ocean Data View to process oceanographic data.
+\end{itemize}
+}
+\cventryf{2010/10--2013/02}{University of Li\`{e}ge}{Faculty of Medicine and Faculty of Veterinary Medicine}{Physics laboratory (optics)}{undergraduate students}{}
+\cventryf{2007--2013}{University of Li\`{e}ge}{Faculty of Sciences}{Physical Oceanography, Risk Management, Marine Meteorology (assistant)}{undergraduate students}{}
+
+%----------------------------------
+\section{Projects and services}
+%----------------------------------
+
+\cvitem{\textbf{Summary}}{In the last 10 years I have been involved in several internal, national and European projects dealing with data analysis and management, operational oceanography or numerical modelling. I contributed to the project proposals, the preparation of the deliverables, the support the external users and was participating to the meetings of the technical task group and steering committee.}
+
+\subsection{European projects}
+
+\cventryf{2018--ongoing}{EOSC-Hub}{}{Development of a data analytics platform for marine data}{}{}
+
+\cventryf{2017--ongoing}{EMODnet Biology}{}{Creation of gridded field for biological variables}{}{}
+
+\cventryf{2017--ongoing}{EMODnet Chemistry}{}{}{}{\begin{itemize}
+\item Creation of gridded field for chemical variables 
+\item Visualisation of the products using the OceanBrowser tool
+\end{itemize}}
+
+\cventryf{2017--ongoing}{EMODnet Data Ingestion}{}{Development on new gridded products using the data obtained in the frame of the project}{}{}
+
+\cventryf{2017--ongoing}{SeaDataCloud (H2020)}{Further developing the pan-European infrastructure for marine and ocean data
+management}{}{}{
+\begin{itemize}
+\item Improvement of the Diva software tool
+\item Development of a user interface for Diva on a Virtual Research Environment
+\end{itemize}
+}
+
+\cventryf{2015--2017}{JERICO-NEXT (H2020)}{Joint European Research Infrastructure Network For Coastal Observatories}{Data management best practices ; glider data processing and calibration}{}{}
+\cventryf{2015--2017}{ODIP~2}{Ocean Data Interoperability portal}{}{}{
+\begin{itemize}
+\item Test of new standards in data and metadata management 
+\item Data visualisation tools
+\end{itemize}
+}
+\cventryf{2015--2017}{Copernicus Marine Environment Monitoring Service}{In Situ Thematic Assembly}{}{}{
+\begin{itemize}
+\item Elaboration to the Ocean State Report.
+\item Coordinator for outreach, training and communication activities.
+\item Preparation and participation to the regional user training workshops.
+\end{itemize}
+}
+\cventryf{2013--2014}{MyOcean~2}{Ocean monitoring and forecasting infrastructure}{}{}{
+\begin{itemize}
+\item Preparation of high-resolution altimetry products in the Mediterranean Sea.
+\item Data analysis during a multi-platform experiment in the Ibiza Channel.
+\end{itemize}
+}
+\cventryf{2012--2013}{ODIP}{Ocean Data Interoperability portal}{Definition of standards}{}{}
+\cventryf{2011--2015}{PERSEUS}{Policy-oriented marine Environmental Research for the Southern European Seas}{Processing of glider and campaign data}{}{}
+\cventryf{2009--2013}{EMODNET -- Chemistry}{Pilot component for a final operational European Marine Observation and Data Network}{}{}{
+\begin{itemize}
+\item Contribution to the project proposal.
+\item Improvement to the Diva tool.
+\item Development of the Diva web-interface.
+\end{itemize}
+}
+\cventryf{2009--2013}{SeaDataNet~2}{Infrastructure for ocean and marine data exchange}{Same tasks as for SeaDataNet}{}{}
+\cventryf{2008--2009}{CAIBEX}{Study of the Exchanges between continental shelf and ocean in the Canaries-Iberian marine ecosystem}{}{}{
+\begin{itemize}
+\item Implementation of a high-resolution numerical model in the Cape Ghir region.
+\item Participation to the CAIBEX-Cape Ghir cruise (August 2009).
+\end{itemize}
+}
+\cventryf{2006--2011}{SeaDataNet}{Infrastructure for ocean and marine data exchange}{}{}{
+\begin{itemize}
+\item Contribution to the project proposal.
+\item Development, documentation and testing of Diva software tool.
+\item Organization of the user workshops.
+\item Participation to the Annual Meetings, Steering Committees and Technical Task Group meetings.
+\end{itemize}
+}
+
+\subsection{Other projects}
+
+\cventryf{2014--2017}{BlueFin Tuna}{}{}{}{}
+\cventryf{2014--2017}{Grumers}{Database for jellyfish observations around the Balearic Islands}{}{}{}
+\cventryf{2014--2017}{Medclic}{SOCIB data at one click}{Providing access to SOCIB sensors data}{}{}{}
+\cventryf{2014--2015}{SeaTurtle}{Development of a viewer showing turtle trajectories in real-time}{Project management}{}{}
+\cventryf{2011--2013}{HiSea}{High-resolution merged satellite Sea surface temperature fields}{EOF analysis of satellite images improved with numerical model outputs.}{}{}
+\cventryf{2010/08}{REP10}{Recognized Environmental Picture}{Analysis and reconstruction of incomplete satellite images on the Ligurian Sea}{}{}
+
+\section{Scientific contributions}
+%%---------------------------------
+
+\cvitem{\textbf{Summary}}{During my PhD and in the frame of international projects and collaborations, I authored or co-authored several works published in peer-reviewed journal and mainly focused on data analysis and tools. Complete lists are available on request.}
+\cvitem{Publications}{More than 20 publications on data analysis, numerical modelling and engineering in peer reviewed journals.}{}
+\cvitem{Conferences}{More than 100 contributions (talk or poster) to conferences on data management, processing and oceanography.}{}
+
+%\newpage
+
+
+\nocitearticle{*}
+\bibliographystylearticle{referencelist}
+\bibliographyarticle{Troupin_publi.bib}
+
+\nociteincollection{*}
+\bibliographystyleincollection{referencelist}
+\bibliographyincollection{Troupin_book.bib}
+ 
+\nociteconference{*}
+\bibliographystyleconference{referencelist}
+\bibliographyconference{Troupin_conferences.bib}
+
+\begin{center}
+\includegraphics[width=.75\textwidth]{ConferenceMap.png}
+\end{center}
+
+\subsection{Invited Editor}
+
+\cvitem{}{Ocean Dynamics: Special Issue for the 48th Li\`{e}ge Colloquium on Ocean Dynamics}
+
+\subsection{Reviewer}
+
+\cvitem{}{Ocean Science}
+\cvitem{}{Ocean Dynamics}
+\cvitem{}{Ocean Engineering}
+\cvitem{}{Journal of Marine Systems}
+
+\subsection{Doctoral thesis tribunal}
+
+\cventryf{2017/09/25}{Bàrbara Barceló-Llull}{Universidad de Las Palmas de Gran Canaria}{\newline "Shedding light into mesoscale dynamics and vertical motion through synthetic and in situ observations"}{}{}
+
+\cventryf{2017/09/16}{Yeray Santana Falc\'{o}n}{Universidad de Las Palmas de Gran Canaria}{\newline "Transport, Respiration, and Sequestration of Organic Carbon in the Canary Current Ecosystem: Relevance within the Global Carbon Cycle"}{}{}
+
+\subsection{Undergraduate student training}
+\cventryf{2012/05/12--2012/05/19}{Joaquim Pereira Bento}{Uni-Kiel (Germany)}{\newline In situ and satellite data interpolation}{}{}
+\cventryf{2011/09--2011/11}{Nikolaos Zarokanellos}{HCMR (Greece)}{\newline Data interpolation for the Eastern Mediterranean Sea}{}{}
+\cventryf{2009/01--2009/05}{Marc Piedeleu}{ULPGC (Spain)}{\newline Analysis of in situ observations south of the Canary Islands}{}{}
+\cventryf{2008/11--2008/12}{Anna Rabitti}{OGS (Italy)}{\newline Spatial interpolation of in situ data in the Adriatic Sea}{}{}
+
+\subsection{Organisation of conferences}
+
+\cvitem{\textbf{Summary}}{From 2006 on I have organised several editions of a training workshop about an interpolation software tool (DIVA) and helped in the organisation or the International Li\`{e}ge Colloquium on Ocean Dynamics. In 2016, I was one of the 5 main organisers of the Colloquium, which gathered over 200 scientists from 40 countries.}
+
+\cventryf{2016/05/23--27}{48th International Li\`{e}ge Colloquium on Ocean Dynamics}{\textit{Submesoscale Processes: Mechanisms, Implications and new Frontiers}"}{Li\`{e}ge (Belgium)}{Organising Committee}{
+\begin{itemize}
+\item Invitation of keynote speakers.
+\item Applications for sponsorship.
+\item Preparation of the scientific program.
+\item Design of the conference flyer.
+\item Organisation of social events.
+\end{itemize}
+}
+\cventryf{2012/10/08--12}{6th Diva workshop}{}{Roumaillac (France)}{}{
+\begin{itemize}
+\item Scientific content.
+\item Invitation of the participants.
+\item Logistic: meeting venue, transportation from/to the airport.
+\end{itemize}
+}
+
+\cventryf{2010/11/03--06}{5th Diva workshop}{}{STARESO, Calvi (France)}{Main organiser}{}
+\cventryf{2009/10/23--26}{4th Diva workshop}{}{STARESO}{Main organiser}{}
+\cventryf{2008/10/15--17}{3rd Diva workshop}{}{STARESO}{Main organiser}{}
+\cventryf{2007/11/04--06}{2nd Diva workshop}{}{STARESO}{Main organiser}{}
+\cventryf{2012/05/07--11}{44th International Li\`{e}ge Colloquium on Ocean Dynamics}{\textit{Remote sensing of colour, temperature and salinity -- new challenges and opportunities}}{Li\`{e}ge (Belgium)}{}{}
+\cventryf{2010/04/26--30}{42nd International Li\`{e}ge Colloquium on Ocean Dynamic}{"\textit{Multiparametric observation and analysis of the Sea}"}{Li\`{e}ge (Belgium)}{}{}
+\cventryf{2006/11/13--15}{1st Diva workshop}{}{University of Li\`{e}ge, Li\`{e}ge (Belgium)}{Co-organiser}{
+\begin{itemize}
+\item Workshop program.
+\item General logistics. 
+\end{itemize}
+}
+
+\vfill
+
+\section{Misc}
+
+\subsection{Grants and funding}
+
+\cvitemf{2011/04, 2015/04}{EGU Young Scientist's Travel Award}
+\cvitemf{2008/05--2008/09}{Travel grant\newline (French Community of Belgium).}
+\cvitemf{2006/10--2010/09}{Fund for Research Training in Industry and Agriculture\newline (National Fund for Scientific Research, Belgium).}
+\cvitemf{2006/02--2006/09}{\textit{Erasmus} travel grant\newline (European Commission).}
+\cvitemf{2005/09--2005/12}{\textit{Pisart} supervision grant: creation of the presentation support for the course \textit{Thermodynamics of continuous media} in latex}% (Prof.~J.-P. Ponthot).}
+\cvitemf{2004/02--2004/06}{State grant: writing of the course notes for the course \textit{Further Study of Digital Analysis (Equations with Partial Derivatives)}}% (Prof.~J.-A.~Essers).}
+
+\subsection{Representation}
+\cventryf{2015--2016}{Member of the Monitoring Committee of the Framework Agreement between AEMET and SOCIB}{}{}{}{}
+\cventryf{2003--2005}{Student delegate of the "Continuous media" section}{University of Li\`{e}ge}{}{}{}
+\cventryf{2011--2014}{Delegate at the Department Council}{Astrophysics, Geophysics and Oceanography}{University of Li\`{e}ge}{}{}
+
+\subsection{Memberships}
+\cvitem{}{European Geosciences Union (EGU)}{}
+\cvitem{}{American Geophysical Union (AGU)}{}
+\cvitem{}{Cloud Appreciation Society}{}
+
+
+\subsection{Personal interests}
+
+\cvitem{}{\href{http://www.wikiloc.com/wikiloc/user.do?id=458033}{Running}: trails, mountain races, track}
+\cvitem{\href{https://500px.com/charlestroupin}{\faicon{500px}}~\href{https://www.flickr.com/photos/sharlo1982/}{\faFlickr}}{Photography: landscape, portraits, time-lapse, astro-photography}
+\cvitem{\faWordpress}{Travel blogging}
+\cvitem{\faBicycle}{Road cycling}
+\cvitem{}{Weather observation \& forecast}
+
+\vspace{2cm}
+
+\end{document}
+

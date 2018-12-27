@@ -1,0 +1,119 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Tryin' to turn ocean data into stories">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="http://localhost:4000/posts/2018-07-19-julia-kernel-notebook/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Charles Troupin by </title>
+
+	<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-6 col-lg-offset-3">
+			<center>
+				<h2> Creating Julia kernels for Jupyter </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					
+						<h4><i class="far fa-calendar-alt"></i></h4> 19 July 2018 &nbsp;
+					
+					
+						<h4><i class="fas fa-wrench"></i></h4> Julia, Python, Jupyter &nbsp;
+					
+					
+						<h4><i class="fas fa-tags"></i></h4> Instructions &nbsp;
+					
+					
+				</div>
+				<p>I’m using the <em>notebooks</em> almost everyday as I think it’s great to develop a code in this environment
+before doing something for production.</p>
+
+<p>Here I explain how to do it with <code class="highlighter-rouge">Julia</code> language.</p>
+
+<h3 id="install-a-new-julia-version">Install a new Julia version</h3>
+
+<p>Julia is changing a lot these weeks and the probability you’ll need to upgrade your
+installation is hight. Recently I installed version <code class="highlighter-rouge">0.6.4</code> and I must admit it took me… about 3 minutes. So definitively not a big deal.</p>
+
+<p>The different version are available from https://julialang.org/downloads/, for my machine I installed the <em>64-bit, Generic Linux Binaries for x86</em>, about 65 MB. Then I just extracted the archive and I’m done.</p>
+
+<p>As the version <code class="highlighter-rouge">0.7.0-beta2</code> was also there, so I decided to give it a try.</p>
+
+<h3 id="what-about-the-packages">What about the packages?</h3>
+
+<p>If you have a version <code class="highlighter-rouge">0.6.something</code> and upgrade to <code class="highlighter-rouge">0.6.somethingElse</code>, then the installed packages are still available, no need to re-install everything.</p>
+
+<p>If you install for example version 0.7, then in this case an installation is required.</p>
+
+<h3 id="get-the-new-kernel-for-jupyter">Get the new kernel for Jupyter</h3>
+
+<p>You have to install <a href="https://github.com/JuliaLang/IJulia.jl">IJulia</a>, the Julia kernel for Jupyter and build the package:</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="x">(</span><span class="s">"IJulia"</span><span class="x">)</span>
+<span class="n">Pkg</span><span class="o">.</span><span class="n">build</span><span class="x">(</span><span class="s">"IJulia"</span><span class="x">)</span>
+</code></pre></div></div>
+<p>This last command will create the new kernel. On my machine, the Jupyter kernels can be found in the directory <code class="highlighter-rouge">~/.local/share/jupyter/kernels/</code>.</p>
+
+<p>Now when run a Jupyter session, you have access to a variety of languages, including the different versions of <code class="highlighter-rouge">Julia</code>.</p>
+
+<h3 id="change-the-kernel-of-a-notebook">Change the kernel of a notebook</h3>
+
+<p>Image you already have the notebook and you just need to modify the Kernel. That’s straightforward using the Kernel tab.</p>
+
+<p><img src="http://localhost:4000/figures/blog/changeKernel.jpg" class="img-responsive" alt="Changing Jupyter kernel" /></p>
+
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+
+</body>
+</html>

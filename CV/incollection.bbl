@@ -1,0 +1,20 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem{BARTH2017Book}
+A.~Barth, S.~Watelet, C.~Troupin, A.~Alvera-Azc\'{a}rate, and J.-M. Beckers,
+  2017.
+\newblock {Analysis of Ocean In Situ Observations and Web-Based Visualization:
+  From Individual Measurements to an Integrated View}.
+\newblock In \emph{{Oceanographic and Marine Cross­Domain Data Management for
+  Sustainable Development}}, chapter~15, page {27 pp.} {IGI Global}.
+\newblock \doi{10.4018/978-1-5225-0700-0.ch015}.
+\newblock
+  \urlprefix\url{http://www.igi-global.com/chapter/analysis-of-ocean-in-situ-observations-and-web-based-visualization/166848}.
+
+\end{thebibliography}

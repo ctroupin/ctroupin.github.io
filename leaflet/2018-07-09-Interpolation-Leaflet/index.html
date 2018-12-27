@@ -1,0 +1,413 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Tryin' to turn ocean data into stories">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="http://localhost:4000/leaflet/2018-07-09-Interpolation-Leaflet/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<!-- Navigation -->
+ <nav class="navbar navbar-default navbar-fixed-top">
+     <div class="container">
+         <!-- Brand and toggle get grouped for better mobile display -->
+         <div class="navbar-header page-scroll">
+             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                 <span class="sr-only">Toggle navigation</span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+             </button>
+             <a class="navbar-brand" href="http://localhost:4000">Charles Troupin</a>
+         </div>
+     </div>
+     <!-- /.container-fluid -->
+ </nav>
+
+ <!-- Header -->
+ <header>
+     <div class="container">
+      <h2>Maps</h2>
+     </div>
+ </header>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Charles Troupin</title>
+
+    <meta name="viewport" content="width=device-width">
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.3.0/MarkerCluster.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.3.0/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/togeojson/0.16.0/togeojson.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.6/leaflet.markercluster.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <script type="text/javascript" src="/leaflet/js/Leaflet.Geodesic.js"></script>
+    <script type="text/javascript" src="/leaflet/js/basemaps.js"></script>
+    <link rel="stylesheet" href="/leaflet/css/ionicons.min.css">
+    <style type="text/css">
+      #map {
+        width:100%;
+        height:450px;
+      }
+      #map2points {
+        width:100%;
+        height:450px;
+      }
+      #mapfarthestairports {
+        width:100%;
+        height:450px;
+      }
+      .awesome-marker i {
+          font-size: 18px;
+          margin-top: 5px;
+      }
+      .info { padding: 6px 8px; font: 18px/20px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+      .legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+      .popupCustom .leaflet-popup-tip,
+      .popupCustom .leaflet-popup-content-wrapper {
+          background: #e0e0e0;
+          color: #234c5e;
+      }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+
+<body>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <h3> Data interpolation </h3>
+              <p>The idea came for a conference in which we had to present a spatial interpolation technique to a
+public not very familiar with the topic. As usual, putting a lot of equations was discarded.</p>
+
+<p>We decided to come up with a map with different layers, each layer corresponding to
+ a step in the interpolation process.</p>
+
+<h3 id="the-storyline">The storyline</h3>
+
+<p>We start by a question: given the sea water temperature in Porto (the meeting place) and
+in Malta, what is the temperature near Ibiza (halfay)?</p>
+
+<p><img src="/figures/maps/map_distance.jpg" class="img-responsive" alt="What is the temperature at the question mark?" /></p>
+
+<p>The easy answer is the mean value, but of course it is not as simple:</p>
+<ul>
+  <li>there are uncertainties and <em>noise</em> on the measurements,</li>
+  <li>the different places are separated by land, so the problem is anysotropic,</li>
+  <li>there are currents and other processes in the ocean that make things even more complex.</li>
+</ul>
+
+<p><img src="/figures/maps/map_results.jpg" class="img-responsive" alt="Gridded field of temperature" /></p>
+
+<h3 id="the-interactive-map">The interactive map</h3>
+
+<p>Just play with it!</p>
+<div id="map"></div>
+<script type="text/javascript" src="/leaflet/data/medsea_coast.js"></script>
+
+<script type="text/javascript" src="/leaflet/data/medsea_mesh.js"></script>
+
+<script type="text/javascript" src="/leaflet/data/medsea_dataposition20.dat"></script>
+
+<script type="text/javascript" src="/leaflet/data/medsea_grid.js"></script>
+
+<script type="text/javascript" src="/leaflet/data/medsea_grid2.js"></script>
+
+<script type="text/javascript" src="/leaflet/data/medsea_temperature.js"></script>
+
+<script>
+
+	var map = L.map('map',{fullscreenControl: true,})
+
+	map.addLayer(CartoDB)
+
+	var NASAGIBS_ViirsEarthAtNight2012 = L.tileLayer('https://map1.vis.earthdata.nasa.gov/wmts-webmerc/VIIRS_CityLights_2012/default/{time}/{tilematrixset}{maxZoom}/{z}/{y}/{x}.{format}', {
+		attribution: 'Imagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href="https://earthdata.nasa.gov">ESDIS</a>) with funding provided by NASA/HQ.',
+		bounds: [[-85.0511287776, -179.999999975], [85.0511287776, 179.999999975]],
+		minZoom: 1,
+		maxZoom: 8,
+		format: 'jpg',
+		time: '',
+		tilematrixset: 'GoogleMapsCompatible_Level'
+	});
+
+
+	var baseMaps = {
+		"CartoDB": CartoDB,
+		"OpenStreetMap": OpenStreetMap_Mapnik,
+		"Stamen Terrain": Stamen_Terrain,
+		"CartoDB Dark": CartoDB_DarkMatter,
+		"ESRI World Imagery": Esri_WorldImagery,
+		"Earth at Night": NASAGIBS_ViirsEarthAtNight2012,
+	};
+
+	var heatStyle = {
+		gradient : {.65: "white", .75:"#FFFF36", .85:"#FF9D00", .9:"#FF1700", .95:"#900000", 1:"black"},
+		minOpacity: 0.25,
+            radius: 5,
+            blur: 5,
+	};
+
+	var dataStyle = {
+			radius: 1,
+			fillColor: 'red',
+			weight: 1,
+			opacity: 1,
+			color: 'black',
+			fillOpacity: 0.7
+	}
+
+	var meshStyle = {
+		weight: 0.5,
+		opacity: .7,
+		color : 'black',
+		fillOpacity: 0.
+	}
+
+	var contourStyle = {
+		weight: 3,
+		opacity: 1,
+		color : 'black',
+		fillOpacity: 0.
+	}
+
+	var heatStyle = {
+    gradient : {.5: "white", .65:"#FFFF36", .85:"#FF9D00", .9:"#FF1700", .95:"#900000", 1:"black"},
+    minOpacity: 0.75, radius: 2, blur: 2,
+  };
+
+	/*
+	function getFieldColor(d) {
+    return d > 23  ? '#a50026' :
+           d > 22  ? '#d73027' :
+           d > 21  ? '#f46d43' :
+           d > 20  ? '#fdae61' :
+           d > 19  ? '#fee090' :
+           d > 18  ? '#ffffbf' :
+           d > 17  ? '#e0f3f8' :
+					 d > 16  ? '#abd9e9' :
+					 d > 15  ? '#74add1' :
+					 d > 14  ? '#4575b4' :
+					 d > 13  ? '#313695' :
+                     '#FFEDA0';
+	}
+	*/
+
+	function getFieldColor(d) {
+    return d > 22  ? '#ffffd9' :
+           d > 21  ? '#edf8b1' :
+	 		     d > 20  ? '#c7e9b4' :
+	 		     d > 19  ? '#7fcdbb' :
+	 		     d > 18  ? '#41b6c4' :
+	 		     d > 17  ? '#1d91c0' :
+	 		     d > 16  ? '#225ea8' :
+	 		      				 '#0c2c84' ;
+
+	}
+
+	function fieldStyle(feature) {
+      return {
+					radius: 5,
+          fillColor: getFieldColor(feature.properties.field),
+          color: 'k',
+          weight: 2,
+          opacity: 0.9,
+          fillOpacity: 0.8
+      };
+  }
+
+	latlon = [];
+
+	//var porto = new L.LatLng(); // 14.4
+	var porto = new L.LatLng(41.162142, -8.92195)
+	var malta = new L.LatLng(36.7,13.2);
+	var midpoint = new L.LatLng(38.931, 2.139);
+
+	var portoCircle = L.circle(porto, {radius: 30000, color: 'red', fillOpacity: .5});
+	var maltaCircle = L.circle(malta, {radius: 30000, color: 'blue', fillOpacity: .5});
+	var midpointCircle = L.circle(midpoint, {radius: 30000, color: 'black', fillOpacity: .5});
+	var cities = L.layerGroup([portoCircle, maltaCircle, midpointCircle]);
+
+
+	portoCircle.bindTooltip("14.4°C", {permanent: true, className: "textlabel", offset: [20, 0] });
+	portoCircle.addTo(map);
+
+	maltaCircle.bindTooltip("16.2°C", {permanent: true, className: "textlabel", offset: [-20, 0] });
+	maltaCircle.addTo(map);
+
+	midpointCircle.bindTooltip("<b>?</b>", {permanent: true, className: "textlabel", offset: [20, 0] });
+	midpointCircle.addTo(map);
+
+	// midpointCircle.bindTooltip("<b>15.7°C</b>", {permanent: true, className: "textlabel", offset: [20, 0] });
+
+	var linePorto = L.polyline([porto, midpoint], {color: 'red'});
+	var lineMalta = L.polyline([malta, midpoint], {color: 'blue'});
+	var lines = L.layerGroup([linePorto, lineMalta]);
+
+	var bathymetry = L.tileLayer.wms('http://ows.emodnet-bathymetry.eu/wms', {
+	    layers: 'emodnet:mean_atlas_land,coastlines,world:sea_names'
+	}).addTo(map);
+
+	var heatmap = L.heatLayer(datapoints, heatStyle);
+	var divacontours = new L.GeoJSON(contours, {style: contourStyle});
+	var divamesh = new L.GeoJSON(medmesh, {style: meshStyle});
+	var divafield = new L.GeoJSON(temperature5m, {style: fieldStyle});
+
+	markerlist = []
+	for (var i = 0; i < grid.length; i++) {
+		marker = new L.circleMarker([grid[i][0],grid[i][1]],
+			{color: "k", radius: 3, opacity: 1, fillOpacity:.9});
+		markerlist.push(marker);
+	}
+	var coarsegrid = L.layerGroup(markerlist);
+	// coarsegrid.addTo(map);
+
+	markerlist = []
+	for (var i = 0; i < finegrid.length; i++) {
+		marker = new L.circleMarker([finegrid[i][0], finegrid[i][1]],
+			{color: "k", radius: 2, opacity: 1, fillOpacity:.9});
+		markerlist.push(marker);
+	}
+	var finegrid = L.layerGroup(markerlist);
+
+
+	var overlayers = {
+		"bathymetry": bathymetry,
+		"Locations": cities,
+		"Lines": lines,
+		"Contours": divacontours,
+		"Finite-element mesh": divamesh,
+		"Data heat map": heatmap,
+		"Coarse grid": coarsegrid,
+		"Fine grid": finegrid,
+		"Interpolated field": divafield,
+	};
+
+
+	map.setView([40,3], 5);
+	L.control.scale().addTo(map);
+
+	L.control.layers(baseMaps, overlayers,
+		{autoZIndex:true, collapsed:true}).addTo(map);
+
+
+</script>
+
+<p><br /></p>
+
+<h3 id="afterthoughts">Afterthoughts</h3>
+
+<p>Ideally I would have presented the map directly, but I that time I was not sure it was
+going to work so instead I prepared screen-shots of the different layers.</p>
+
+<p><img src="/figures/maps/map_conclusion.jpg" class="img-responsive" alt="Conclusions..." /></p>
+
+          </div>
+      </div>
+  </div>
+</body>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-3">
+                        <h3>Location</h3>
+                        <p>
+                            
+                                Verviers, Liège <br>
+		                    
+                                Belgium <br>
+		                    
+                        </p>
+                    </div>
+                    <div class="footer-col col-md-9">
+                        <h3>Credits</h3>
+                        <p>Style based on <a href="https://github.com/jeromelachaud/freelancer-theme">Freelancer Jekyll theme</a> by jeromelachaud. Freelancer is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Charles Troupin 2018
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visible-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+ <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/js/jqBootstrapValidation.js"></script>
+    
+    <script src="/js/contact_me_static.js"></script>
+    
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/freelancer.js"></script>
+
+</body>

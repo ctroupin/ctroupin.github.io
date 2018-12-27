@@ -1,0 +1,271 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem{BARTH18}
+A.~Barth, A.~Mahadevan, A.~Pascual, S.~Ruiz, and C.~Troupin, 2018.
+\newblock {The 48th Liege colloquium: submesoscale processes: mechanisms,
+  implications, and new frontiers}.
+\newblock \emph{Ocean Dynamics}, pages 1--3.
+\newblock \doi{10.1007/s10236-018-1173-5}.
+\newblock
+  \urlprefix\url{https://link.springer.com/article/10.1007/s10236-018-1173-5}.
+
+\bibitem{IONA2018}
+A.~Iona, A.~Theodorou, S.~Watelet, C.~Troupin, and J.-M. Beckers, Feb 2018.
+\newblock {Mediterranean Sea Hydrographic Atlas: towards optimal data analysis
+  by including time-dependent statistical parameters}.
+\newblock \emph{{Earth System Science Data Discussions}}, {}({}):1--29.
+\newblock ISSN 1866-3591.
+\newblock \doi{10.5194/essd-2018-9}.
+\newblock
+  \urlprefix\url{https://www.earth-syst-sci-data-discuss.net/essd-2018-9/}.
+
+\bibitem{LENARTZ2017}
+F.~Lenartz, C.~Troupin, and W.~Lefebvre, Sep 2017.
+\newblock Data interpolating variational analysis for the generation of
+  atmospheric pollution maps at various scales.
+\newblock In \emph{{International Technical Meeting on Air Pollution Modelling
+  and its Application}}, pages 231--235. Springer International Publishing.
+\newblock ISBN 9783319576459.
+\newblock ISSN 2213-8692.
+\newblock \doi{10.1007/978-3-319-57645-9_37}.
+\newblock
+  \urlprefix\url{https://link.springer.com/chapter/10.1007%2F978-3-319-57645-9_37}.
+
+\bibitem{LICER2017}
+M.~Licer, B.~Mourre, C.~Troupin, A.~Krietemeyer, A.~Jans\'{a}, and
+  J.~Tintor\'{e}, Mar 2017.
+\newblock Numerical study of balearic meteotsunami generation and propagation
+  under synthetic gravity wave forcing.
+\newblock \emph{Ocean Modelling}, 111:38--45.
+\newblock ISSN 1463-5003.
+\newblock \doi{10.1016/j.ocemod.2017.02.001}.
+\newblock
+  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/S1463500317300136}.
+
+\bibitem{PASCUAL2017}
+A.~Pascual, S.~Ruiz, A.~Olita, C.~Troupin, M.~Claret, B.~Casas, B.~Mourre,
+  P.-M. Poulain, A.~Tovar-Sanchez, A.~Capet, E.~Mason, J.~Allen, A.~Mahadevan,
+  and J.~Tintor\'{e}, 2017.
+\newblock {A multiplatform experiment to unravel meso- and submesoscale
+  processes in an intense front (AlborEx)}.
+\newblock \emph{Frontiers in Marine Science}, 4(39):1--16.
+\newblock \doi{10.3389/fmars.2017.00039}.
+\newblock
+  \urlprefix\url{http://journal.frontiersin.org/article/10.3389/fmars.2017.00039/full}.
+
+\bibitem{JUZA2016ASR}
+M.~Juza, R.~Escudier, A.~Pascual, M.-I. Pujol, G.~Taburet, C.~Troupin,
+  B.~Mourre, and J.~Tintor\'{e}, 2016.
+\newblock {Impacts of reprocessed altimetry on the surface circulation and
+  variability of the Western Alboran Gyre}.
+\newblock \emph{Advances in Space Research}, 58(3):277--288.
+\newblock \doi{10.1016/j.asr.2016.05.026}.
+\newblock
+  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/S0273117716302125}.
+
+\bibitem{JUZA2016}
+M.~Juza, B.~Mourre, L.~Renault, S.~G\'{o}mara, K.~Sebasti\'{a}n, S.~Lora, J.~P.
+  Beltran, B.~Frontera, B.~Garau, C.~Troupin, M.~Torner, E.~Heslop, B.~Casas,
+  R.~Escudier, G.~Vizoso, and J.~Tintor\'{e}, 2016.
+\newblock {SOCIB operational ocean forecasting system and multi-platform
+  validation in the Western Mediterranean Sea}.
+\newblock \emph{Journal of Operational Oceanography}, 9(sup1):s155--s166.
+\newblock \doi{10.1080/1755876X.2015.1117764}.
+\newblock
+  \urlprefix\url{http://www.tandfonline.com/doi/full/10.1080/1755876X.2015.1117764#.V4M5xP7HjGc}.
+
+\bibitem{SOTILLO2016}
+M.~Sotillo, E.~Garcia-Ladona, A.~Orfila, P.~Rodr\'{i}guez-Rubio, J.~C. Maraver,
+  D.~Conti, E.~Padorno, J.~Jim\'{e}nez, E.~Cap\'{o}, F.~P\'{e}rez, J.~Sayol,
+  F.~J. {de los Santos}, A.~Amo, A.~Rietz, C.~Troupin, J.~Tintor\'{e}, and
+  E.~\'{A}lvarez Fanjul, 2016.
+\newblock {The MEDESS-GIB database: Tracking the Atlantic water inflow}.
+\newblock \emph{Earth System Science Data}, 8:141--149.
+\newblock \doi{10.5194/essd-8-141-2016}.
+\newblock \urlprefix\url{http://www.earth-syst-sci-data.net/8/141/2016/}.
+
+\bibitem{PASCUAL2014}
+A.~Pascual, A.~Lana, C.~Troupin, S.~Ruiz, Y.~Faug\`{e}re, R.~Escudier, and
+  J.~Tintor\'{e}, 2015.
+\newblock {Assessing SARAL/AltiKa near-real time data in the coastal zone:
+  comparisons with HF radar and Jason-2 observations}.
+\newblock \emph{Marine Geodesy}, 38({Supplement 1}):260--276.
+\newblock \doi{10.1080/01490419.2015.1019656}.
+\newblock
+  \urlprefix\url{http://www.tandfonline.com/doi/full/10.1080/01490419.2015.1019656}.
+
+\bibitem{SANGRA15}
+P.~Sangr\`{a}, C.~Troupin, B.~Barreiro-Gonz\'{a}lez, E.~D. Barton, A.~Orbi, and
+  J.~Ar\'{i}stegui, May 2015.
+\newblock {The Cape Ghir filament system in August 2009 (NW Africa)}.
+\newblock \emph{Journal of Geophysical Research}, 120(6):4516--4533.
+\newblock ISSN 2169-9275.
+\newblock \doi{10.1002/2014jc010514}.
+\newblock
+  \urlprefix\url{http://onlinelibrary.wiley.com/doi/10.1002/2014JC010514/full}.
+
+\bibitem{TROUPIN16}
+C.~Troupin, J.~Beltran, E.~Heslop, M.~Torner, B.~Garau, J.~Allen, S.~Ruiz, and
+  J.~Tintor\'{e}, 2015.
+\newblock {A toolbox for glider data processing and management}.
+\newblock \emph{Methods in Oceanography}, {13-14}:13--23.
+\newblock \doi{10.1016/j.mio.2016.01.001}.
+\newblock
+  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/S2211122015300207}.
+
+\bibitem{TROUPIN2015}
+C.~Troupin, A.~Pascual, G.~Valladeau, I.~Pujol, A.~Lana, E.~Heslop, S.~Ruiz,
+  M.~Torner, N.~Picot, and J.~Tintor\'{e}, 2015.
+\newblock {Illustration of the emerging capabilities of SARAL/AltiKa in the
+  coastal zone using a multi-platform approach}.
+\newblock \emph{Advances in Space Research}, 55(1):51--59.
+\newblock \doi{10.1016/j.asr.2014.09.011}.
+\newblock
+  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/S0273117714005754}.
+
+\bibitem{BARTH14}
+A.~Barth, J.-M. Beckers, C.~Troupin, A.~Alvera-Azc\'{a}rate, and
+  L.~Vandenbulcke, 2014.
+\newblock divand-1.0: n-dimensional variational data analysis for ocean
+  observations.
+\newblock \emph{Geoscientific Model Development}, 7:225--241.
+\newblock \doi{10.5194/gmd-7-225-2014}.
+\newblock
+  \urlprefix\url{http://www.geosci-model-dev.net/7/225/2014/gmd-7-225-2014.html}.
+
+\bibitem{BECKERS14}
+J.-M. Beckers, A.~Barth, C.~Troupin, and A.~Alvera-Azc\'{a}rate, February 2014.
+\newblock {Some approximate and efficient methods to assess error fields in
+  spatial gridding with DIVA (Data Interpolating Variational Analysis)}.
+\newblock \emph{Journal of Atmospheric and Oceanic Technology}, 31(2):515--530.
+\newblock \doi{10.1175/JTECH-D-13-00130.1}.
+\newblock
+  \urlprefix\url{http://journals.ametsoc.org/doi/abs/10.1175/JTECH-D-13-00130.1}.
+
+\bibitem{CAPET2014}
+A.~Capet, E.~Mason, V.~Rossi, C.~Troupin, Y.~Faug\`{e}re, I.~Pujol, and
+  A.~Pascual, 2014.
+\newblock {Implications of refined altimetry on estimates of mesoscale activity
+  and eddy-driven offshore transport in the Eastern Boundary Upwelling
+  Systems}.
+\newblock \emph{Geophysical Research Letters}, 41(21):7602--7610.
+\newblock \doi{10.1002/2014GL061770}.
+\newblock
+  \urlprefix\url{http://onlinelibrary.wiley.com/doi/10.1002/2014GL061770/abstract}.
+
+\bibitem{CAPET14}
+A.~Capet, C.~Troupin, J.~Carstensen, M.~Gr\'{e}goire, and J.-M. Beckers,
+  January 2014.
+\newblock {Untangling spatial and temporal trends in the variability of the
+  Black Sea Cold Intermediate Layer and mixed Layer Depth using the DIVA
+  detrending procedure}.
+\newblock \emph{Ocean Dynamics}, 64(3):315--324.
+\newblock \doi{10.1007/s10236-013-0683-4}.
+\newblock
+  \urlprefix\url{http://link.springer.com/article/10.1007%2Fs10236-013-0683-4}.
+
+\bibitem{BENAVIDES13}
+M.~Benavides, J.~Ar\'{i}stegui, N.~S.~R. Agawin, X.~A. \'{A}lvarez Salgado,
+  M.~\'{A}lvarez, and C.~Troupin, 2013.
+\newblock {Low contribution of N$_2$ fixation to new production and excess
+  nitrogen in the subtropical northeast Atlantic margin}.
+\newblock \emph{Deep-Sea Research I}, 81(0):36--48.
+\newblock ISSN 0967-0637.
+\newblock \doi{10.1016/j.dsr.2013.07.004}.
+\newblock
+  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/S0967063713001386}.
+
+\bibitem{TROUPIN2012OM}
+C.~Troupin, E.~Mason, J.-M. Beckers, and P.~Sangr\`{a}, 2012.
+\newblock Generation of the {C}ape {G}hir upwelling filament: a numerical
+  study.
+\newblock \emph{Ocean Modelling}, 41:1--15.
+\newblock \doi{10.1016/j.ocemod.2011.09.001}.
+\newblock
+  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/S1463500311001557}.
+
+\bibitem{TROUPIN2012bOM}
+C.~Troupin, D.~Sirjacobs, M.~Rixen, P.~Brasseur, J.-M. Brankart, A.~Barth,
+  A.~Alvera-Azc\'{a}rate, A.~Capet, M.~Ouberdous, F.~Lenartz, M.-E. Toussaint,
+  and J.-M. Beckers, 2012.
+\newblock {Generation of analysis and consistent error fields using the Data
+  Interpolating Variational Analysis (Diva)}.
+\newblock \emph{Ocean Modelling}, 52-53:90--101.
+\newblock \doi{10.1016/j.ocemod.2012.05.002}.
+\newblock
+  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/S1463500312000790}.
+
+\bibitem{TYBERGHEIN2011GEB}
+L.~Tyberghein, H.~Verbruggen, K.~Pauly, C.~Troupin, F.~Mineur, and
+  O.~{De~Clerck}, 2012.
+\newblock {ORACLE}: a global environmental dataset for marine species
+  distribution modeling.
+\newblock \emph{Global Ecology and Biogeography}, 21(2):272--281.
+\newblock \doi{10.1111/j.1466-8238.2011.00656.x}.
+\newblock
+  \urlprefix\url{http://onlinelibrary.wiley.com/doi/10.1111/j.1466-8238.2011.00656.x/pdf}.
+
+\bibitem{ALVERA2011OD}
+A.~Alvera-Azc\'{a}rate, C.~Troupin, A.~Barth, and J.-M. Beckers, 2011.
+\newblock Comparison between satellite and in situ sea surface temperature data
+  in the {W}estern {M}editerranean {S}ea.
+\newblock \emph{Ocean Dynamics}, 61:767--778.
+\newblock ISSN 1616-7341.
+\newblock \doi{10.1007/s10236-011-0403-x}.
+\newblock
+  \urlprefix\url{http://www.springerlink.com/content/r5784271357u5400/}.
+
+\bibitem{MASON2010JGR}
+E.~Mason, F.~Colas, J.~Molemaker, A.~F. Shchepetkin, C.~Troupin, J.~C.
+  McWilliams, and P.~Sangr\`{a}, 2011.
+\newblock Seasonal variability of the {C}anary {C}urrent: a numerical study.
+\newblock \emph{Journal of Geophysical Research}, 116(C6):C06001.
+\newblock \doi{10.1029/2010JC006665}.
+\newblock
+  \urlprefix\url{http://onlinelibrary.wiley.com/doi/10.1029/2010JC006665/abstract}.
+
+\bibitem{BARTH2010AG}
+A.~Barth, A.~Alvera-Azc\'{a}rate, C.~Troupin, M.~Ouberdous, and J.-M. Beckers,
+  2010.
+\newblock {A web interface for griding arbitrarily distributed in situ data
+  based on Data-Interpolating Variational Analysis (DIVA)}.
+\newblock \emph{Advances in Geosciences}, 28:29--37.
+\newblock \doi{10.5194/adgeo-28-29-2010}.
+\newblock \urlprefix\url{www.adv-geosci.net/28/29/2010/}.
+
+\bibitem{LENARTZ2010OS}
+F.~Lenartz, J.-M. Beckers, J.~Chiggiato, B.~Mourre, C.~Troupin,
+  L.~Vandenbulcke, and M.~Rixen, 2010.
+\newblock Super-ensemble techniques applied to wave forecast: performance and
+  limitations.
+\newblock \emph{Ocean Science}, 6(2):595--604.
+\newblock \doi{10.5194/os-6-595-2010}.
+\newblock
+  \urlprefix\url{http://www.ocean-sci.net/6/595/2010/os-6-595-2010.html}.
+
+\bibitem{TROUPIN2010JGR}
+C.~Troupin, F.~Mach\'{i}n, M.~Ouberdous, D.~Sirjacobs, A.~Barth, and J.-M.
+  Beckers, 2010.
+\newblock High-resolution climatology of the north-east {A}tlantic using
+  {D}ata-{I}nterpolating {V}ariational {A}nalysis (\textsf{Diva}).
+\newblock \emph{Journal of Geophysical Research}, 115(C8):C08005.
+\newblock \doi{10.1029/2009JC005512}.
+\newblock
+  \urlprefix\url{http://onlinelibrary.wiley.com/doi/10.1029/2009JC005512/epdf}.
+
+\bibitem{TROUPIN2010JMS}
+C.~Troupin, P.~Sangr\`{a}, and J.~Ar\'{i}stegui, 2010.
+\newblock {Seasonal variability of the oceanic upper layer and its modulation
+  of biological cycles in the Canary Island region}.
+\newblock \emph{Journal of Marine Systems}, 80(3-4):172--183.
+\newblock \doi{10.1016/j.jmarsys.2009.10.007}.
+\newblock
+  \urlprefix\url{http://www.sciencedirect.com/science/article/B6VF5-4XMKB67-1/2/326bcf54e891969eb6191ec534805d35}.
+
+\end{thebibliography}

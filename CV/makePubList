@@ -1,0 +1,3 @@
+#!/bin/bash
+pandoc -t markdown-citations -r latex --filter pandoc-citeproc Ctroupin_publication.tex --bibliography Troupin_publis_orcid.bib -o ../ctroupin_publications.md 
+sed -i.bak '/div/d' ../ctroupin_publications.md

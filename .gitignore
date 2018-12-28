@@ -1,5 +1,8 @@
 *Hugo*
 .ipynb_checkpoints
+figures/global_analysis_mesh2.png
+figures/altim_global3.png
+figures/publis/logo*
 leaflet/images/markers*
 leaflet/images/pin*
 leaflet/css/images/
@@ -32,7 +35,9 @@ vendor
 *.synctex.gz
 Gemfile*
 leaflet/lib
+leaflet/GPX/
 leaflet/GPX/Piran/
 leaflet/GPX/Verviers/
+leaflet/GPX/Extratrail/
 animations/
 Troupin2005TFE.pdf

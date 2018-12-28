@@ -32,5 +32,7 @@ vendor
 *.synctex.gz
 Gemfile*
 leaflet/lib
+leaflet/GPX/Piran/
+leaflet/GPX/Verviers/
 animations/
 Troupin2005TFE.pdf

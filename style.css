@@ -30,6 +30,8 @@ ol {
 
 code {
     font-size: 20px;
+    color: #1483d3;
+    background: #F2F1F1;
 }
 
 ul {
@@ -53,8 +55,8 @@ ol li:before {
 }
 
 .highlight {
-    background:#DEDEDE;
-    font-size: 14px;
+    background:#F2F1F1;
+    font-size: 16px;
 }
 
 a,
@@ -247,12 +249,12 @@ section.success {
 
 #portfolio .portfolio-item .portfolio-link .caption .caption-content {
     position: absolute;
-    top: 50%;
+    top: 20%;
     width: 100%;
     height: 20px;
-    margin-top: -12px;
+    margin-top: 0px;
     text-align: left;
-    font-size: 20px;
+    font-size: 18px;
     color: #fff;
 }
 

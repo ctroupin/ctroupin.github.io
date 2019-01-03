@@ -293,6 +293,17 @@
             <div class="row">
                 
                     <div class="col-sm-2 portfolio-item">
+                        <a href="/posts/2019-01-03-conference-map/" class="portfolio-link">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    Conference participation map
+                                </div>
+                            </div>
+                            <img src="figures/blog/ConferenceMapEurope2_crop.png" class="img-responsive" alt="Conference participation map">
+                        </a>
+                    </div>
+                
+                    <div class="col-sm-2 portfolio-item">
                         <a href="/posts/2018-10-01-basemap-julia/" class="portfolio-link">
                             <div class="caption">
                                 <div class="caption-content">
@@ -431,6 +442,79 @@
 
      <!-- Portfolio Modals -->
  
+    <div class="portfolio-modal modal fade" id="postModal-" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Conference participation map</h2>
+                            <p></p>
+                            <img src="figures/blog/ConferenceMapEurope2_crop.png" class="img-responsive img-centered" alt="Conference participation map">
+                            
+                            
+                              <p><p>Not so long ago I had to update and check my list of publications and conferences (everything is stored in <em>BibTex</em> format and versioned using GitHub), and I had to idea to turn that information into a simple map. The good thing is that the procedure is really to repeat with other <em>BibTex</em> files, provided the information concerning the place of the conferences (town, country) is provided.</p>
+
+<p><img src="http://localhost:4000/figures/blog/ConferenceMapEurope2.png" class="img-responsive" alt="Conference participation map" /></p>
+
+<h3 id="tools">Tools</h3>
+
+<ol>
+  <li>For the data parsing, it was easy to find the <a href="https://bibtexparser.readthedocs.io/en/master/"><code class="highlighter-rouge">bibtexparser</code></a>.</li>
+  <li>To get the coordinates from the address (town + country), we use <a href="https://geopy.readthedocs.io/en/stable/"><code class="highlighter-rouge">geopy</code></a></li>
+  <li>For the visualisation, <a href="http://matplotlib.org/"><code class="highlighter-rouge">matplotlib</code></a> + <a href="https://matplotlib.org/basemap/"><code class="highlighter-rouge">Basemap</code></a> is the right combo.</li>
+</ol>
+
+<h3 id="code">Code</h3>
+
+<p>Again, nothing fancy: we open the file storing the conference info and read its content:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">bibtex_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">bib_database</span> <span class="o">=</span> <span class="n">bibtexparser</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">bibtex_file</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Then we can loop on the reference and get the address field:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">conf</span> <span class="ow">in</span> <span class="n">bib_database</span><span class="o">.</span><span class="n">entries</span><span class="p">:</span>
+    <span class="n">address</span> <span class="o">=</span> <span class="n">conf</span><span class="p">[</span><span class="s">"address"</span><span class="p">]</span>
+    <span class="o">...</span>
+</code></pre></div></div>
+<p>and from the address we can get the coordinates for the plot:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">geopy.geocoders</span> <span class="kn">import</span> <span class="n">Nominatim</span>
+<span class="n">geolocator</span> <span class="o">=</span> <span class="n">Nominatim</span><span class="p">()</span>
+<span class="n">location</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div></div>
+<p>For the plot it was slightly tricky to get the <em>fontawesome</em> icons correctly and to have the desired colorbar, but at the end it worked as expect: the markers are colored according to the number of times a conference was attended in a given place.</p>
+
+<h3 id="source">Source</h3>
+<p>A jupyter notebook showing the whole code available: <a href="http://localhost:4000/CV/python/conference_map.ipynb">conference_map.ipynb</a>.</p>
+</p>
+                            
+                            <ul class="list-inline item-details">
+                                
+                                
+                                    <li><strong>Tools:</strong>
+                                        Python - Basemap - fontawesome
+
+                                    </li>
+                                
+                                
+                            </ul>
+                            <center>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="portfolio-modal modal fade" id="postModal-12" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -2304,7 +2388,7 @@ Finally, on each side of the title we added oscillating curves that recall the w
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Charles Troupin 2018
+                        Copyright &copy; Charles Troupin 2019
                     </div>
                 </div>
             </div>

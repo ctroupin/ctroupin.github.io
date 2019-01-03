@@ -27,6 +27,7 @@ leaflet/js/leaflet.js
 CV/Candidatures/
 .bundle
 vendor
+*.bak
 *.out
 *.bak
 *.swp

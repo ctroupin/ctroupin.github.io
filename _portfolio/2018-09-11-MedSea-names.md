@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2018-09-11
-img: medsea_names06.png
+img: medsea_names05_crop.png
 alt: Mediterranean Sea
 project-name: SeaDataCloud
 tools: Python - matplotlib - basemap

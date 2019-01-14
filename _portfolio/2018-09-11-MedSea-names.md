@@ -41,5 +41,5 @@ The country boundaries are also visible, though this is not always necessary. I 
 
 ## Final version
 
-I called it *final* because that's the last one I've prepared, but not the one we selected for the paper. Here to highlight the bathymetry we have 2 different colormaps, one for the land (grey tones) and one for the ocean (blue-yellow). The result is clean, as we wanted, the grey colors for the relief don't take too much the addition, while still adding some information.
+I called it *final* because that's the last one I've prepared, but not the one we selected for [the paper](https://www.earth-syst-sci-data.net/10/1829/2018/essd-10-1829-2018.pdf). Here to highlight the bathymetry we have 2 different colormaps, one for the land (grey tones) and one for the ocean (blue-yellow). The result is clean, as we wanted, the grey colors for the relief don't take too much the addition, while still adding some information.
 <img src="{{ site.url }}/figures/portfolio/medsea_names06.png" class="img-responsive" alt="Mediterranean Sea regions">

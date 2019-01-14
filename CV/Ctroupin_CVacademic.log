@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.1.31)  27 DEC 2018 20:28
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.1.31)  9 JAN 2019 13:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -988,11 +988,14 @@ Package: multibib 2008/12/10 v1.4 Multiple bibliographies for one document.
 \openout4 = `incollection.aux'.
 
 \@auxoutconference=\write5
- (./conference.aux)
+ (./conference.aux
+
+LaTeX Warning: Label `TROUPIN2016IMDIS2' multiply defined.
+
+)
 \openout5 = `conference.aux'.
 
-
-(/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/hyperref.sty
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2017/03/14 v6.85a Hypertext links for LaTeX
 
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
@@ -1113,31 +1116,31 @@ tly
 )
 \Hy@SectionHShift=\skip86
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 87.
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 87.
+Package hyperref Info: Option `breaklinks' set `true' on input line 88.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 88.
 
 (./Ctroupin_CVacademic.aux)
 \openout1 = `Ctroupin_CVacademic.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Info: Redefining \microtypecontext on input line 87.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Info: Redefining \microtypecontext on input line 88.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
@@ -1191,9 +1194,9 @@ Package microtype Info: Loading generic protrusion settings for font family
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Option `colorlinks' set `true' on input line 87.
+Package hyperref Info: Option `colorlinks' set `true' on input line 88.
 \AtBeginShipoutBox=\box74
-Package hyperref Info: Link coloring ON on input line 87.
+Package hyperref Info: Link coloring ON on input line 88.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -1202,9 +1205,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count287
 )
-LaTeX Info: Redefining \ref on input line 87.
-LaTeX Info: Redefining \pageref on input line 87.
-LaTeX Info: Redefining \nameref on input line 87.
+LaTeX Info: Redefining \ref on input line 88.
+LaTeX Info: Redefining \pageref on input line 88.
+LaTeX Info: Redefining \nameref on input line 88.
 
 (./Ctroupin_CVacademic.out) (./Ctroupin_CVacademic.out)
 \@outlinefile=\write6
@@ -1214,37 +1217,37 @@ LaTeX Info: Redefining \nameref on input line 87.
 \makecvheadpicturewidth=\skip87
 \makecvheadnamebox=\box76
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--88
+Underfull \hbox (badness 10000) in paragraph at lines 89--89
 
  []
 
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 91.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 92.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 91.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 92.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 91.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 92.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 91.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 92.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 91.
+(Font)              <10.95> on input line 92.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 91.
+(Font)              <8> on input line 92.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 91.
+(Font)              <6> on input line 92.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `FontAwesome' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
@@ -1581,7 +1584,7 @@ File: /home/ctroupin/Presentations/figures4presentations/logo/logo_socib.pdf Gr
 aphic file (type pdf)
 <use /home/ctroupin/Presentations/figures4presentations/logo/logo_socib.pdf>
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 127.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 128.
 File: /home/ctroupin/Presentations/figures4presentations/logo/logo_imedea.png G
 raphic file (type bmp)
 </home/ctroupin/Presentations/figures4presentations/logo/logo_imedea.png>
@@ -1591,7 +1594,7 @@ hic file (type bmp)
 
 
 LaTeX Font Warning: Font shape `TU/FontAwesome(0)/m/sl' undefined
-(Font)              using `TU/FontAwesome(0)/m/n' instead on input line 154.
+(Font)              using `TU/FontAwesome(0)/m/n' instead on input line 155.
 
 Package microtype Info: Character `A' is missing
 (microtype)             in font `\TU/FontAwesome(0)/m/n/10'.
@@ -1923,18 +1926,18 @@ Package microtype Info: Character `\textgreater ' is missing
 (microtype)             in font `\TU/FontAwesome(0)/m/sl/10'.
 (microtype)             Ignoring protrusion settings for this character.
  [2] [3]
-Overfull \hbox (0.503pt too wide) in paragraph at lines 284--284
+Overfull \hbox (0.503pt too wide) in paragraph at lines 285--285
  []|[]\TU/lmss/m/n/10.95 Communication[]|
  []
 
 [4]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 315.
+(Font)              <10> on input line 316.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 315.
+(Font)              <7> on input line 316.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 315.
- [5] (./article.bbl
+(Font)              <5> on input line 316.
+ [5] [6] (./article.bbl
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\char' on input line 1.
@@ -2098,13 +2101,13 @@ Package microtype Info: Character `\textless ' is missing
 Package microtype Info: Character `\textgreater ' is missing
 (microtype)             in font `\TU/FontAwesome(0)/m/n/12'.
 (microtype)             Ignoring protrusion settings for this character.
-[6] [7]
+[7] [8]
 Underfull \hbox (badness 1014) in paragraph at lines 214--224
 \TU/lmss/m/n/10.95 and G. Nolan, editors, \TU/lmss/m/sl/10.95 Proceedings of th
 e Seventh EuroGOOS International Conference\TU/lmss/m/n/10.95 ,
  []
 
-[8] [9]) (./incollection.bbl
+[9]) (./incollection.bbl
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\char' on input line 1.
@@ -2149,26 +2152,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 303--309
  []
 
 [13] [14] [15] [16] [17] [18] [19] [20])
-File: ConferenceMap.png Graphic file (type bmp)
-<ConferenceMap.png>
+File: ./figures/ConferenceMap.png Graphic file (type bmp)
+<./figures/ConferenceMap.png>
  [21] [22]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 517.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 534.
  [23]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 517.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 534.
 
 (./Ctroupin_CVacademic.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 517.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 517.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 534.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 534.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 24074 strings out of 493005
- 441693 string characters out of 6134587
- 587385 words of memory out of 5000000
- 27763 multiletter control sequences out of 15000+600000
+ 24088 strings out of 493005
+ 442063 string characters out of 6134587
+ 586563 words of memory out of 5000000
+ 27768 multiletter control sequences out of 15000+600000
  561898 words of font info for 85 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  57i,13n,63p,10371b,549s stack positions out of 5000i,500n,10000p,200000b,80000s

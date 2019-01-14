@@ -2,13 +2,16 @@
 title: Airbnb in Mallorca
 layout: projectmap
 date: 2016-04-02
-img: airbnbHeatDark.jpg
+img: mallorca-airbnb.png
 alt: Airbnb in Mallorca
 tools: Leaflet, Python
 category: Map
 ---
 
 While it is interesting to observe the spatial distribution of properties managed by *Airbnb*, the density of properties (i.e. number of properties relative to the population of each municipality) can provide some surprises.
+
+<img src="{{ site.url }}/figures/blog/mallorca-heat.png" class="img-responsive" alt="Mallorca heatmap">
+
 
 Most of this work has been prepared in airports, planes and trains... during an intense month of traveling.
 

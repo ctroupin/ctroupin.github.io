@@ -4,6 +4,7 @@ layout: projectmap
 date: 2017-04-02
 img: mallorca-airbnb.png
 alt: Airbnb in Mallorca
+github: Mallorca-Airbnb-Maps
 tools: Leaflet, Python
 category: Map
 ---
@@ -31,12 +32,14 @@ For me the most striking feature I see here is the high density in Búger, a sma
 1. Deyá
 2. Banyalbufar
 3. Búger
-all of them with more than 1 property for 10 habitants. The first two are located in the Tramuntana, but not far from the coast, with amazing views on the sea. 
+
+all of them with more than 1 property for 10 habitants. The first two are located in the Tramuntana, but not far from the coast, with amazing views on the sea.
 
 #### Least *popular* places
 1. Marratxí
 2. Consell
 3. Inca
+
 Marratxí is located very near to Palma, and some friends used to call it "a dormitory town", a place where people live to save money on the loan, but that has not a lot of services and activities to offer. I must admit I don't know if it's true.     
 Number 3, Inca, is in fact one of the largest town of the Balearic Islands, it has a lot of shops, restaurants, even an hospital, and it is not far from the Tramuntana, but tourists don't seem to like it to stay for a long time.
 
@@ -53,5 +56,5 @@ We combined this information with a `geoJSON` file storing the municipality limi
 
 #### Code
 
-It is available on GitHub: []().     
+It is available on GitHub: [https://github.com/ctroupin/Mallorca-Airbnb-Maps](Mallorca-Airbnb-Maps).     
 With some time I would like to do the same for different years (2016, 2017, 2018), unfortunately there are more urgent topics at the moment.

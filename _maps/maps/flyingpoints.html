@@ -1,0 +1,46 @@
+<div id="map2points"></div>
+<script>
+
+  var map2 = L.map('map2points').setView([0, 0.], 1);
+  map2.addLayer(CartoDB)
+  var Geodesic = L.geodesic([], {
+  	weight: 7,
+  	opacity: 0.5,
+  	color: 'blue',
+  	steps: 50
+  }).addTo(map2);
+
+  var planeMarker = L.AwesomeMarkers.icon({
+    icon: 'plane',
+    markerColor: 'red'
+  });
+
+  var starMarker = L.AwesomeMarkers.icon({
+    icon: 'star',
+    markerColor: 'blue'
+  });
+
+  var arrowMarker = L.AwesomeMarkers.icon({
+    icon: 'check',
+    markerColor: 'blue'
+  });
+
+  var liege = new L.LatLng(50.640996, 5.447525);
+  var denver = new L.LatLng(39.856401, -104.675036);
+
+  L.marker(liege, {icon: planeMarker}).addTo(map2).bindPopup('Liège <b>(LGG)</b>');
+  L.marker(denver, {icon: planeMarker}).addTo(map2).bindPopup('Denver <b>(DEN)</b>');
+
+  var pathproperties = Geodesic._vincenty_inverse(liege, denver);
+  var halfway_distance = pathproperties.distance * 0.5;
+  var halfway_position = Geodesic._vincenty_direct(liege, pathproperties.initialBearing, halfway_distance);
+  L.marker(halfway_position, {icon: arrowMarker}).addTo(map2);
+  var antipode = new L.LatLng(halfway_position.lat * -1, 180. + halfway_position.lng);
+  console.log(halfway_position)
+  Geodesic.setLatLngs([[liege, denver]]);
+
+  L.marker(antipode, {icon: starMarker}).addTo(map2);
+
+
+
+</script>

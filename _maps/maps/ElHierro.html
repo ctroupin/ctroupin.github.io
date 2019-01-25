@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>
+			El Hierro holiday map
+		</title>
+		<script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/ionicons.min.css">
+		<link rel="stylesheet" href="../css/L.Icon.FontAwesome.css">
+		<style type="text/css">
+			#map { height : 800px; }
+		</style>
+	</head>
+	<body>
+
+		<div id="map"></div>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/togeojson/0.16.0/togeojson.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+		<script type="text/javascript" src="../js/L.Icon.FontAwesome.js"></script>
+		<script type="text/javascript" src="../js/basemaps.js"></script>
+
+
+		<script>
+
+			var map = L.map('map', {
+			  fullscreenControl: true,
+			  center: [27.734001, -17.993342],
+			  zoom: 12
+			});
+
+			var baseMaps = {
+				"Stamen Terrain": Stamen_Terrain,
+				"Open Street Map": OpenStreetMap_Mapnik
+			};
+
+			var places = [
+				{name: "Pico de Malpaso", coords:[27.72924, -18.04046], color: "red", icon: "camera-retro"},
+				{name: "Hoya del Morcillo", coords: [27.714158, -17.996677], color: '#348C45', icon: "tree"},
+				{name: "Mocanal", coords: [27.82136, -17.94529], color: "red", icon: "home"},
+				{name: "Garoe", coords: [27.795975, -17.941980], color: '#348C45', icon: "tree"},
+				{name: "Verodal", coords: [27.747967, -18.151591], color: '#FCCC1E', icon: "life-ring"},
+				{name: "Sabinar", coords: [27.749392, -18.127263], color: '#348C45', icon: "tree"},
+			  {name: "Aeropuerto", coords: [27.813863, -17.886468], color: '#FFFC1E', icon: "plane"},
+			  {name: "Charco Azul", coords: [27.761919, -18.039811], color: '#FCCC1E', icon: "life-ring"},
+				{name: "Punta Grande", coords: [27.797125, -17.991762], color: 'red', icon: "bed"},
+				{name: "Faro de Orchilla", coords: [27.706612, -18.147458], color: 'red', icon: "camera-retro"}
+			];
+
+			for (var i = 0; i < places.length; i++) {
+				p = places[i];
+				console.log(p);
+				L.marker(p.coords, {
+					icon: L.icon.fontAwesome({
+						iconClasses: 'fa fa-' + p.icon,
+						markerColor: p.color,
+						iconColor: '555555'
+					})
+				}).bindTooltip(p.name,
+			    {
+			        permanent: true,
+			        direction: 'right'
+			    }
+				).addTo(map);
+			};
+
+			var customLayer = L.geoJson(null, {
+				style: function(feature) {
+					return {
+						color: 'red',
+						weight: 8,
+						opacity: .5,
+						};
+				}
+			});
+
+			var moveGps = omnivore.gpx('./GPX/vuelta-por-el-hierro.gpx', null, customLayer).on('ready', function() {
+				map.addLayer(moveGps);
+			});
+
+			map.addLayer(Stamen_Terrain)
+
+			L.control.layers(baseMaps, ).addTo(map);
+
+			</script>
+
+</body>
+</html>

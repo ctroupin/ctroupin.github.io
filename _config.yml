@@ -73,6 +73,9 @@ collections:
   posts:
     output: true
     permalink: /posts/:path/
+  maps:
+    output: true
+    permalink: /maps/:path/
   leaflet:
     output: true
     permalink: /leaflet/:path/

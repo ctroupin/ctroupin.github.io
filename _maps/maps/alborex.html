@@ -1,0 +1,133 @@
+<div id="map"></div>
+<script type="text/javascript" src="../data/alborex/CTD1.js"></script>
+<script type="text/javascript" src="../data/alborex/CTD2.js"></script>
+<script type="text/javascript" src="../data/alborex/Glider1.js"></script>
+<script type="text/javascript" src="../data/alborex/Glider2.js"></script>
+<script type="text/javascript" src="../data/alborex/drifters.js"></script>
+<script type="text/javascript" src="../data/alborex/profilers.js"></script>
+<script>
+
+
+  var map = L.map('map', {
+    fullscreenControl: true,
+    }).setView([36.9, -0.5], 7);
+
+  var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+    attribution: '©OpenStreetMap, ©CartoDB',
+    zIndex: 100
+  });
+
+  var Esri_OceanBasemap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
+    maxZoom: 13
+  }).addTo(map);
+
+
+  var baseMaps = {
+    "Positron": positron,
+    "Ocean Base map": Esri_OceanBasemap,
+  };
+
+  // define rectangle geographical bounds
+  var bounds = [[36.65, -1.], [37.25, 0.25]];
+  var area = L.rectangle(bounds, {
+    color: "#ff7800",
+    weight: 1,
+    fillColor: "#FFFFB3",
+    fillOpacity: 0.1
+    }
+    ).addTo(map);
+
+  // CTD positions
+
+  var nCTD1 = CTD1list.length;
+  CTD1 = []
+  CTD1layer = L.layerGroup();
+  for (var i = 0; i < nCTD1; i++) {
+    CT1circle = L.circleMarker(CTD1list[i], {radius: 3}).addTo(map);
+    CTD1.push(CT1circle);
+    CTD1layer.addLayer(CT1circle);
+  }
+  CTD1layer.addTo(map);
+
+  var nCTD2 = CTD2list.length;
+  CTD2 = []
+  CTD2layer = L.layerGroup();
+  for (var i = 0; i < nCTD2; i++) {
+    CT2circle = L.circleMarker(CTD2list[i], {radius: 3, color: 'red'});
+    CTD2.push(CT2circle);
+    CTD2layer.addLayer(CT2circle);
+  }
+  //CTD2layer = L.layerGroup(CTD2)
+  CTD2layer.addTo(map);
+
+  // Glider trajectories
+
+  var glider1Style = {
+    "color": "#4A4A4A",
+    "weight": 4,
+    "opacity": 1.,
+    "dashArray": '2,4',
+  };
+
+  var glider2Style = {
+    "color": "black",
+    "weight": 4,
+    "opacity": .9,
+  };
+
+  var drifterStyle = {
+    "color": "black",
+    "weight": .5,
+    "opacity": .9,
+  };
+
+  var profilerStyle = {
+    "color": "#959595",
+    "weight": 1.5,
+    "opacity": .9,
+  };
+
+  var Glider1 = new L.geoJson(glider1, {
+    style: glider1Style
+  }).addTo(map);
+
+  var Glider2 = new L.geoJson(glider2, {
+    style: glider2Style
+  }).addTo(map);
+
+  var Drifter = new L.geoJson(drifters, {
+    style: drifterStyle
+  }).addTo(map);
+
+  var Profiler = new L.geoJson(profilers, {
+    style: profilerStyle
+  }).addTo(map);
+
+  var Layer = L.geoJson(null, {
+    style: function(feature) {
+      return { color: 'blue' , weight: 3};
+    }
+  });
+
+  var imageUrl = '../images/A2014145125000_L2_LAC_SST.png',
+  imageBounds = [[34.75, -6.75], [40., 3.001]];
+  SST = L.imageOverlay(imageUrl, imageBounds, {opacity: 1., zIndex: 1}).addTo(map);
+  //SST.bringToFront()
+
+
+  var overlayers = {
+    "Experiment area" : area,
+    "CTD first leg" : CTD1layer,
+    "CTD second leg" : CTD2layer,
+    "Coastal glider": Glider1,
+    "Deep glider": Glider2,
+    "Drifters": Drifter,
+    "Profilers": Profiler,
+    "SST": SST,
+  };
+
+  L.control.layers(baseMaps, overlayers, {collapsed:false}).addTo(map);
+
+
+</script>

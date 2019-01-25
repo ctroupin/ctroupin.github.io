@@ -41,6 +41,9 @@
                     {% if page.topic %}
                     <h4><i class="fas fa-tags"></i></h4> {{ page.topic }} &nbsp;
                     {% endif %}
+                    {% if page.github %}
+                    <h4><i class="fab fa-github"></i></h4> <a href=http://github.com/{{ page.github }}> {{ page.github }} </a> &nbsp;
+                    {% endif %}
                     {% if page.doi %}
                     <h4><i class="ai ai-doi ai" aria-hidden="true"></i></h4> <a href=https://doi.org/{{ page.doi }}> {{ page.doi }} </a> &nbsp;
                     {% endif %}

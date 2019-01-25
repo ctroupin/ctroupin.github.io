@@ -115,12 +115,12 @@
 			info.update = function (props, d, dp, dm, last) {
 			this._div.innerHTML = (props ?
 				'<b>' + props.name + '</b><br/> <i class="fa fa-calendar" aria-hidden="true"></i> ' + props.time.substring(0, 10) +
-				'&emsp; <img src="images/runner-.png" alt="Running" style="height:20px;"> ' + d.toFixed(2) + ' km' +
+				'&emsp; <img src="../images/runner-.png" alt="Running" style="height:20px;"> ' + d.toFixed(2) + ' km' +
 				'<br/> <b><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></b> ' + dp.toFixed(1) + ' m' +
 				'&emsp; <b><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></b> ' + dm.toFixed(1) + ' m'
 				: '<b>Last track: </b>' + last["name"] +
 				'<br/> <i class="fa fa-calendar" aria-hidden="true"></i> ' + last["date"] +
-				'&emsp; <img src="images/runner-.png" alt="Running" style="height:20px;">' + last["length"] + ' km' +
+				'&emsp; <img src="../images/runner-.png" alt="Running" style="height:20px;">' + last["length"] + ' km' +
 				'<br/> <b><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></b> '  + last["dplus"] + ' m' +
 				'&emsp; <b><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></b> ' + last["dminus"] + ' m'
 				);
@@ -308,12 +308,12 @@
 
 
 			var overlayers = {
-				"<img src='images/heatmap_icon.png' alt='heatmap' style='height:24px;'> Heat map": heatmap,
-				"<img src='images/hexbin_icon.png' alt='hexbin' style='height:24px;'> Hexbin": hexLayer,
-				"<img src='images/previous_icon.png' alt='previous' style='height:24px;'> Previous tracks": moveGps,
-				"<img src='images/last_icon.png' alt='last' style='height:24px;'> Last run": moveGpsLast,
-				"<img src='images/circle_icon.png' alt='last' style='height:24px;'> Distance circles": circleLayer,
-				"<img src='images/mean_icon.png' alt='last' style='height:24px;'> Mean positions": meanpositionLayer,
+				"<img src='../images/heatmap_icon.png' alt='heatmap' style='height:24px;'> Heat map": heatmap,
+				"<img src='../images/hexbin_icon.png' alt='hexbin' style='height:24px;'> Hexbin": hexLayer,
+				"<img src='../images/previous_icon.png' alt='previous' style='height:24px;'> Previous tracks": moveGps,
+				"<img src='../images/last_icon.png' alt='last' style='height:24px;'> Last run": moveGpsLast,
+				"<img src='../images/circle_icon.png' alt='last' style='height:24px;'> Distance circles": circleLayer,
+				"<img src='../images/mean_icon.png' alt='last' style='height:24px;'> Mean positions": meanpositionLayer,
 				"Points of interest": PIlayer
 			};
 

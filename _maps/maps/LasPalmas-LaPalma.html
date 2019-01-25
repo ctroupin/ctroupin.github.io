@@ -1,12 +1,11 @@
 <div id="map"></div>
-<script type="text/javascript" src="/leaflet/data/ProvinciaSantaCruz.geojson"></script>
-<script type="text/javascript" src="/leaflet/data/ProvinciaLasPalmas.geojson"></script>
-<script type="text/javascript" src="/leaflet/data/LaPalma.js"></script>
-<script type="text/javascript" src="/leaflet/data/ElHierro.js"></script>
-<script type="text/javascript" src="/leaflet/data/LaGomera.js"></script>
-<script type="text/javascript" src="/leaflet/data/Tenerife.js"></script>
-<script src="/leaflet/js/basemaps.js"></script>
-
+<script type="text/javascript" src="/leaflet/data/canary/ProvinciaSantaCruz.geojson"></script>
+<script type="text/javascript" src="/leaflet/data/canary/ProvinciaLasPalmas.geojson"></script>
+<script type="text/javascript" src="/leaflet/data/canary/LaPalma.js"></script>
+<script type="text/javascript" src="/leaflet/data/canary/ElHierro.js"></script>
+<script type="text/javascript" src="/leaflet/data/canary/LaGomera.js"></script>
+<script type="text/javascript" src="/leaflet/data/canary/Tenerife.js"></script>
+<script src="../js/basemaps.js"></script>
 
 <script>
 
@@ -15,8 +14,8 @@
 	map.addLayer(CartoDB)
 
 	var baseMaps = {
-	"OpenStreetMap": OpenStreetMap_Mapnik,
-	"CartoDB": CartoDB,
+		"OpenStreetMap": OpenStreetMap_Mapnik,
+		"CartoDB": CartoDB,
 	};
 
 	var geojson;
@@ -32,8 +31,8 @@
 
 	info.update = function (props) {
 		this._div.innerHTML = (props ?
-			'<h4>' + "Hello" + '</h4>'
-			: 'Select a location');
+		'<h4>' + "Hello" + '</h4>'
+		: 'Select a location');
 	};
 
 	info.addTo(map);
@@ -59,12 +58,12 @@
 		for (var i in allIslands){
 			allIslands[i].resetStyle(e.target);
 		}
-    //info.update();
-  }
+		//info.update();
+	}
 
-  function zoomToFeature(e) {
-    map.fitBounds(e.target.getBounds());
-  }
+	function zoomToFeature(e) {
+		map.fitBounds(e.target.getBounds());
+	}
 
 	function onEachFeature(feature, layer) {
 		layer.on({
@@ -80,12 +79,12 @@
 
 	// var ProvSantaCruz = L.geoJson(santacruz, {style: santaCruzStyle, onEachFeature: onEachFeature}).addTo(map);
 	var ProvLasPalmas = L.geoJson(laspalmas, {style: lasPalmasStyle, onEachFeature: onEachFeature}).addTo(map);
-  var LaPalma = L.geoJson(lapalma, {style: laPalmaStyle, onEachFeature: onEachFeature});
-  var ElHierro = L.geoJson(elhierro, {style: santaCruzStyle, onEachFeature: onEachFeature});
-  var LaGomera = L.geoJson(lagomera, {style: santaCruzStyle, onEachFeature: onEachFeature});
-  var Tenerife = L.geoJson(tenerife, {style: santaCruzStyle, onEachFeature: onEachFeature});
+	var LaPalma = L.geoJson(lapalma, {style: laPalmaStyle, onEachFeature: onEachFeature});
+	var ElHierro = L.geoJson(elhierro, {style: santaCruzStyle, onEachFeature: onEachFeature});
+	var LaGomera = L.geoJson(lagomera, {style: santaCruzStyle, onEachFeature: onEachFeature});
+	var Tenerife = L.geoJson(tenerife, {style: santaCruzStyle, onEachFeature: onEachFeature});
 
-  var ProvSantaCruz = L.layerGroup([LaPalma,ElHierro,Tenerife,LaGomera]).addTo(map);
+	var ProvSantaCruz = L.layerGroup([LaPalma,ElHierro,Tenerife,LaGomera]).addTo(map);
 	allIslands = [LaPalma,ElHierro,Tenerife,LaGomera,ProvLasPalmas];
 
 	var Palma = L.marker([39.566667, 2.65]);
@@ -94,29 +93,19 @@
 	LasPalmas.addTo(map);
 
 
-	var overlayers = {
-		"Palma de Mallorca": Palma,
-		"Las Palmas de Gran Canaria": LasPalmas,
-		"Provincia de Las Palmas": ProvLasPalmas,
-		"Provincia de Santa Cruz de Tenerife": ProvSantaCruz,
-		"Isla de La Palma": LaPalma
-	};
-
 	var groupedOverlays = {
-	  "Cities": {
+		"Cities": {
 			"Palma de Mallorca": Palma,
 			"Las Palmas de Gran Canaria": LasPalmas
-	  },
-	  "Provinces": {
+		},
+		"Provinces": {
 			"Las Palmas": ProvLasPalmas,
 			"Santa Cruz de Tenerife": ProvSantaCruz
-	  },
+		},
 		"Islands": {
 			"La Palma": LaPalma
 		}
 	};
-L.control.groupedLayers(baseMaps, groupedOverlays).addTo(map);
-
-//L.control.layers(baseMaps, overlayers, {autoZIndex:false, collapsed:true}).addTo(map);
+	L.control.groupedLayers(baseMaps, groupedOverlays).addTo(map);
 
 </script>

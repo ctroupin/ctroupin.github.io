@@ -13,8 +13,8 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/leaflet/css/ionicons.min.css">
-		<link rel="stylesheet" href="/leaflet/css/L.Icon.FontAwesome.css">
+		<link rel="stylesheet" href="../css/ionicons.min.css">
+		<link rel="stylesheet" href="../css/L.Icon.FontAwesome.css">
 		<style type="text/css">
 			#map { height : 800px; }
 		</style>
@@ -85,7 +85,7 @@
 				}
 			});
 
-			var moveGps = omnivore.gpx('../GPX/vuelta-por-el-hierro.gpx', null, customLayer).on('ready', function() {
+			var moveGps = omnivore.gpx('./GPX/vuelta-por-el-hierro.gpx', null, customLayer).on('ready', function() {
 				map.addLayer(moveGps);
 			});
 

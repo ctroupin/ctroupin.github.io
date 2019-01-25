@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>
+		Balades dans Verviers
+	</title>
+	<script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+	#map { height : 800px; }
+	.info { padding: 10px 20px; font: 20px/22px Arial, Helvetica, sans-serif; background: rgba(255,255,255,0.7);
+		box-shadow: 0 0 15px rgba(0,0,0,0.4); border-radius: 7px; }
+		.info h4 { margin: 0 0 5px; color: #777; }
+		.legend { text-align: left; line-height: 18px; color: #555; }
+		.legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+
+		</style>
+	</head>
+	<body>
+
+		<div id="map"></div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/gpx.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
+		<script type="text/javascript" src="js/basemaps.js"></script>
+		<script type="text/javascript" src="GPX/Verviers/limites3.geojson"></script>
+		<script type="text/javascript" src="GPX/Verviers/foret1.geojson"></script>
+		<script>
+
+		var verviersStyle = {"color": "#FF9700", fillColor: "",
+			"weight": 3, "opacity": 1, fillOpacity: 0.};
+		var forestStyle = {"color": "#3CA651", "weight": 5};
+		var gpxLayer = L.geoJson(null, {style: function(feature) {
+			return { color: '#f00' };
+		}
+	});
+
+	datadir="leaflet/GPX/Verviers/"
+	var map = L.map('map',{fullscreenControl: true,})
+	map.setView([50.583333, 5.85], 13);
+	L.control.scale().addTo(map);
+	map.addLayer(OpenStreetMap_Mapnik)
+
+	var baseMaps = {
+		"CartoDB": CartoDB,
+		"OpenStreetMap": OpenStreetMap_Mapnik,
+		"ERSI World Imagery": Esri_WorldImagery
+	};
+
+	verviers = L.geoJSON(verviersLimits, {style: verviersStyle}).addTo(map);
+	forets = L.geoJSON(foret1, {style: forestStyle}).addTo(map);
+
+	var marker_options =  {
+    startIconUrl: null,
+    endIconUrl: null,
+    shadowUrl: null
+  }
+
+	var gpxStyle = {
+    color: 'red',
+    opacity: 0.75,
+    weight: 3
+  };
+
+	// GPX
+  var GR573 = new L.GPX("GPX/Verviers/GR573.gpx", {async: true,
+		marker_options: marker_options,
+		polyline_options: gpxStyle
+	}).addTo(map);
+	var GR563573 = new L.GPX("GPX/Verviers/GR563-573.gpx", {async: true,
+		marker_options: marker_options,
+		polyline_options: gpxStyle
+  }).addTo(map);
+
+
+	var overlayers = {
+		"Limites de la commune": verviers,
+		"Forêts": forets,
+		"GR-573": GR573,
+		"Liaison GR-563 et GR-573": GR563573
+	}
+	L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);
+
+	</script>
+
+</body>
+</html>

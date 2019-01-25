@@ -10,12 +10,13 @@
 
 <script>
 
-	var map = L.map('map', {fullscreenControl: true}).setView([34.47, -6.13], 6);
+	var map = L.map('map', {fullscreenControl: true}).setView([34.47, -6.13], 5);
+
+	map.addLayer(CartoDB)
 
 	var baseMaps = {
+	"OpenStreetMap": OpenStreetMap_Mapnik,
 	"CartoDB": CartoDB,
-	"Stamen Terrain": Stamen_Terrain,
-	"CartoDB Dark": CartoDB_DarkMatter
 	};
 
 	var geojson;
@@ -101,6 +102,21 @@
 		"Isla de La Palma": LaPalma
 	};
 
-	L.control.layers(baseMaps, overlayers, {autoZIndex:false, collapsed:false}).addTo(map);
+	var groupedOverlays = {
+	  "Cities": {
+			"Palma de Mallorca": Palma,
+			"Las Palmas de Gran Canaria": LasPalmas
+	  },
+	  "Provinces": {
+			"Las Palmas": ProvLasPalmas,
+			"Santa Cruz de Tenerife": ProvSantaCruz
+	  },
+		"Islands": {
+			"La Palma": LaPalma
+		}
+	};
+L.control.groupedLayers(baseMaps, groupedOverlays).addTo(map);
+
+//L.control.layers(baseMaps, overlayers, {autoZIndex:false, collapsed:true}).addTo(map);
 
 </script>

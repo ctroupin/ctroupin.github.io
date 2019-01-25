@@ -1,11 +1,10 @@
 <div id="map"></div>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.js"></script>
-<script type="text/javascript" src="data/alborex/CTD1.js"></script>
-<script type="text/javascript" src="data/alborex/CTD2.js"></script>
-<script type="text/javascript" src="data/alborex/Glider1.js"></script>
-<script type="text/javascript" src="data/alborex/Glider2.js"></script>
-<script type="text/javascript" src="data/alborex/drifters.js"></script>
-<script type="text/javascript" src="data/alborex/profilers.js"></script>
+<script type="text/javascript" src="../data/alborex/CTD1.js"></script>
+<script type="text/javascript" src="../data/alborex/CTD2.js"></script>
+<script type="text/javascript" src="../data/alborex/Glider1.js"></script>
+<script type="text/javascript" src="../data/alborex/Glider2.js"></script>
+<script type="text/javascript" src="../data/alborex/drifters.js"></script>
+<script type="text/javascript" src="../data/alborex/profilers.js"></script>
 <script>
 
 
@@ -16,31 +15,18 @@
   var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
     attribution: '©OpenStreetMap, ©CartoDB',
     zIndex: 100
-  }).addTo(map);
+  });
 
   var Esri_OceanBasemap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
     attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
     maxZoom: 13
-  });
+  }).addTo(map);
 
 
   var baseMaps = {
     "Positron": positron,
     "Ocean Base map": Esri_OceanBasemap,
   };
-
-  //baseMaps.addTo(map);
-  //baseMaps.bringToBack();
-
-
-  L.control.coordinates({
-    position:"bottomleft",
-    decimals:3,
-    decimalSeperator:".",
-    labelTemplateLat:"Lat: {y}",
-    labelTemplateLng:"Lon: {x}"
-  }).addTo(map);
-
 
   // define rectangle geographical bounds
   var bounds = [[36.65, -1.], [37.25, 0.25]];
@@ -124,7 +110,7 @@
     }
   });
 
-  var imageUrl = 'images/alborex/A2014145125000_L2_LAC_SST.png',
+  var imageUrl = '../images/A2014145125000_L2_LAC_SST.png',
   imageBounds = [[34.75, -6.75], [40., 3.001]];
   SST = L.imageOverlay(imageUrl, imageBounds, {opacity: 1., zIndex: 1}).addTo(map);
   //SST.bringToFront()

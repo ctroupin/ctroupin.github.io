@@ -1,15 +1,15 @@
 <div id="map"></div>
 <script type="text/javascript" src="/leaflet/js/Leaflet.Coordinates-0.1.5.min.js"></script>
-<script type="text/javascript" src="../data/MLD1.geojson"></script>
-<script type="text/javascript" src="../data/contour.geojson"></script>
-<script type="text/javascript" src="../data/BSmeshL3.geojson"></script>
-<script type="text/javascript" src="../data/BSresult.js"></script>
+<script type="text/javascript" src="../data/BS_MLD.js"></script>
+<script type="text/javascript" src="../data/BS_contour.js"></script>
+<script type="text/javascript" src="../data/BS_mesh.js"></script>
+<script type="text/javascript" src="../data/BS_field.js"></script>
 <script>
 
 	var map = L.map('map', {
 	  fullscreenControl: true,
 	  center: [43., 35.],
-	  zoom: 6
+	  zoom: 5
 	});
 
 	map.createPane('labels');

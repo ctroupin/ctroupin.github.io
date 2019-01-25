@@ -1,5 +1,5 @@
 ---
-title: DIVA inputs and outputs
+title: DIVA inputs/outputs in the Black Sea
 layout: projectmap
 date: 2017-02-01
 img: leaflet_blacksea.png

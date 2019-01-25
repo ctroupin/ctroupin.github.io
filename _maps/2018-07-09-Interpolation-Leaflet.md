@@ -2,9 +2,9 @@
 title: Data interpolation
 layout: projectmap
 date: 2018-07-09
-img: airbnbHeatDark.jpg
+img: map_conclusion_crop.jpg
 alt: Data interpolation
-tools: Leaflet, DIVA
+tools: Leaflet, DIVA, LaTeX
 category: Map
 ---
 
@@ -41,3 +41,5 @@ Ideally I would have presented the map directly, but I that time I was not sure 
 going to work so instead I prepared screen-shots of the different layers.
 
 <img src="/figures/maps/map_conclusion.jpg" class="img-responsive" alt="Conclusions...">
+
+<br>

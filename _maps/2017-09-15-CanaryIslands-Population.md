@@ -2,7 +2,7 @@
 title: Canary Island population
 layout: projectmap
 date: 2017-09-15
-img: radar01.jpg
+img: canarypop.jpg
 alt: Canary Island population
 tools: Python - Leaflet
 category: Map

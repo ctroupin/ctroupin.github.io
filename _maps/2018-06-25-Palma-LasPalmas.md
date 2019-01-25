@@ -2,7 +2,7 @@
 title: Palma, Las Palmas, La Palma...
 layout: projectmap
 date: 2018-06-25
-img:
+img: laspalmas.jpg
 alt: "[La(s)] Palma(s)"
 category: Map
 tools: Leaflet
@@ -31,6 +31,7 @@ Now you will understand why it's so complicated.
 
 ### The map
 
-Hopefully the map makes all this more explicit. Basically we represent the different entities (cities, provinces, islands) using `geoJSON` files. The plugin `...` is nice to have different categories in the layer menu.
-
+Better use the *FullScreen* button...
 {% include_relative maps/LasPalmas-LaPalma.html %}
+
+Hopefully the map makes all this more explicit. Basically we represent the different entities (cities, provinces, islands) using `geoJSON` files. The plugin [groupedlayercontrol](https://github.com/ismyrnow/leaflet-groupedlayercontrol) is nice to have different categories (cities, provinces, ...) in the layer menu.

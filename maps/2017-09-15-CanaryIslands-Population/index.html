@@ -1,0 +1,342 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Tryin' to turn ocean data into stories">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="http://localhost:4000/maps/2017-09-15-CanaryIslands-Population/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://localhost:4000">Charles Troupin</a>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<!-- Header -->
+<header>
+    <div class="container">
+        <h2>Maps</h2>
+    </div>
+</header>
+
+<head>
+    <meta charset="utf-8">
+
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.3.0/MarkerCluster.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.3.0/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/togeojson/0.16.0/togeojson.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.6/leaflet.markercluster.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.js"></script>
+    <script type="text/javascript" src="/leaflet/js/Leaflet.Geodesic.js"></script>
+    <script type="text/javascript" src="/leaflet/js/basemaps.js"></script>
+    <link rel="stylesheet" href="/leaflet/css/ionicons.min.css">
+    <style type="text/css">
+      #map {
+        width:100%;
+        height:450px;
+      }
+      #map2points {
+        width:100%;
+        height:450px;
+      }
+      #mapfarthestairports {
+        width:100%;
+        height:450px;
+      }
+      .awesome-marker i {
+          font-size: 18px;
+          margin-top: 5px;
+      }
+      .info { padding: 6px 8px; font: 18px/20px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+      .legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+      .popupCustom .leaflet-popup-tip,
+      .popupCustom .leaflet-popup-content-wrapper {
+          background: #e0e0e0;
+          color: #234c5e;
+      }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h3> Canary Island population </h3>
+                <div style="text-align:left; vertical-align: middle; ">
+                    
+                    <h4><i class="far fa-calendar-alt"></i></h4> 15 September 2017 &nbsp;
+                    
+                    
+                    <h4><i class="fas fa-wrench"></i></h4> Python - Leaflet &nbsp;
+                    
+                    
+                    
+                    
+                </div>
+                <p>The other day with some friends, we were asking ourselves about the population of
+the various municipalities in Gran Canaria, then in the rest of Canary Islands.
+It was not too difficult to find the answer but we needed something more visual and also
+a quicker way to find the population of a given place.</p>
+
+<div id="map" style="height:400px;"></div>
+<script type="text/javascript" src="../data/CanariasMunicipiosHab.geojson"></script>
+
+<script>
+
+  var map = L.map('map', {
+    fullscreenControl: true,
+    }).setView([28.5, -15.8], 7);
+
+  map.createPane('labels');
+  map.getPane('labels').style.zIndex = 650;
+  map.getPane('labels').style.pointerEvents = 'none';
+
+  var dataattribution = ' | Population data: <a href="http://www.ine.es/">Instituto National de Estadística</a>,' +
+              ' | Municipalities limits: <a href="http://centrodedescargas.cnig.es">Centro National de Información Geográfica</a>'
+
+  var Esri_OceanBasemap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri' + dataattribution,
+    maxZoom: 13
+  }).addTo(map);
+
+  // control that shows state info on hover
+  var info = L.control();
+
+  info.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'info');
+    this.update();
+    return this._div;
+  };
+
+  info.update = function (props) {
+    this._div.innerHTML = (props ?
+      '<h4>' + props.NAMEUNIT + '</h4> ' + props.hab + ' habitants'
+      : '<h4> Select a location </h4>' + 'Total habitants: 2101924');
+  };
+
+  info.addTo(map);
+
+  var geojson;
+
+  function getColor(d) {
+    return d > 100000 ? '#0868ac' :
+         d > 50000  ? '#43a2ca' :
+         d > 20000  ? '#7bccc4' :
+         d > 10000  ? '#a8ddb5' :
+         d > 5000   ? '#ccebc5' :
+                '#f0f9e8' ;
+  }
+
+  function style(feature) {
+    return {
+      fillColor: getColor(feature.properties.hab),
+      weight: .5,
+      opacity: 1,
+      color: 'black',
+      dashArray: '0',
+      fillOpacity: 0.6
+    };
+  }
+
+  function highlightFeature(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+      weight: 5,
+      color: '#666',
+      dashArray: '',
+      fillOpacity: 0.2
+    });
+
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+      layer.bringToFront();
+    }
+
+    info.update(layer.feature.properties);
+  }
+
+  function resetHighlight(e) {
+    geojson.resetStyle(e.target);
+    info.update();
+  }
+
+  function zoomToFeature(e) {
+    map.fitBounds(e.target.getBounds());
+  }
+
+
+  function onEachFeature(feature, layer) {
+    layer.on({
+      mouseover: highlightFeature,
+      mouseout: resetHighlight,
+      click: zoomToFeature
+    });
+  }
+
+  geojson = L.geoJson(municipios, {
+    style: style,
+    onEachFeature: onEachFeature
+  }).addTo(map);
+
+
+  var legend = L.control({position: 'bottomright'});
+  legend.onAdd = function (map) {
+
+    var div = L.DomUtil.create('div', 'info legend'),
+      grades = [0, 5000, 10000, 20000, 50000, 100000],
+      labels = [],
+      from, to;
+
+    //for (var i = 0; i < grades.length; i++) {
+    for (var i = grades.length-1; i >= 0; i--) {
+      from = grades[i];
+      to = grades[i + 1];
+
+      labels.push(
+        '<i style="background:' + getColor(from + 1) + '"></i> ' +
+        from + (to ? '&ndash;' + to : '+'));
+    }
+
+    div.innerHTML = labels.join('<br>');
+    return div;
+  };
+
+  legend.addTo(map);
+
+</script>
+
+<p><br /></p>
+
+<p><strong>Solution?</strong> Create a <a href="https://en.wikipedia.org/wiki/Choropleth_map">choropleth</a> map using <a href="http://leafletjs.com/">Leaflet</a> library. To do so, we just had to combine the
+population data obtained from the <a href="http://www.ine.es/">Instituto National de Estadística</a> and the municipality geographical limits from the <a href="http://centrodedescargas.cnig.es">Centro National de Información Geográfica</a>. The result is a <a href="http://geojson.org/"><code class="highlighter-rouge">geoJSON</code></a> file
+in which each feature (i.e. each municipality) has a <em>habitants</em> property that is used
+to style the choropleth map.</p>
+
+<p><strong>Just for fun:</strong> <a href="https://www.aytobetancuria.org/en/">Betancuria</a> (Fuerteventura) is the least populated municipality in the Canary Islands, with around 700 people.</p>
+
+<p align="center">
+  <img src="/figures/photography/betancuria.jpg" alt="Betancuria" height="50%" />
+</p>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-3">
+                        <h3>Location</h3>
+                        <p>
+                            
+                                Verviers, Liège <br>
+		                    
+                                Belgium <br>
+		                    
+                        </p>
+                    </div>
+                    <div class="footer-col col-md-9">
+                        <h3>Credits</h3>
+                        <p>Style based on <a href="https://github.com/jeromelachaud/freelancer-theme">Freelancer Jekyll theme</a> by jeromelachaud. Freelancer is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Charles Troupin 2019
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visible-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+ <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/js/jqBootstrapValidation.js"></script>
+    
+    <script src="/js/contact_me_static.js"></script>
+    
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/freelancer.js"></script>
+
+</body>

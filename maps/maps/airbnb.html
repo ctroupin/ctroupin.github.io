@@ -1,0 +1,149 @@
+<div id="map"></div>
+<script type="text/javascript" src="../data/MallorcaHabitantsRooms.geojson"></script>
+<script type="text/javascript" src="../data/airbnbMallorca20170315.js"></script>
+<script>
+
+	var map = L.map('map',
+						{
+						fullscreenControl: true,
+						}
+					).setView([39.6, 2.93], 9);
+
+	OpenStreetMap_Mapnik.addTo(map);
+
+	var baseMaps = {
+		"CartoDB": CartoDB,
+		"CartoDB Dark": CartoDB_DarkMatter,
+		"OpenStreetMap": OpenStreetMap_Mapnik,
+	};
+
+	// control that shows state info on hover
+	var info = L.control();
+
+	info.onAdd = function (map) {
+		this._div = L.DomUtil.create('div', 'info');
+		this.update();
+		return this._div;
+	};
+
+	info.update = function (props) {
+		this._div.innerHTML = (props ?
+			'<h4>' + props.NAME_4 + ':</h4> ' + props.habitants + ' habitants<br/>' + props.rooms + ' properties<br/>' + props.roomsPerHabitants + ' properties per 1000 hab.<br/>'
+			: 'Select a location');
+	};
+
+	info.addTo(map);
+
+	var geojson;
+
+	function getColor(d) {
+		return d > 100 ? '#E30002' :
+			   d > 75  ? '#FC4E2A' :
+			   d > 50  ? '#FD8D3C' :
+			   d > 25  ? '#FEB24C' :
+			   d > 10  ? '#FED976' :
+						 '#FFF2BA';
+	}
+
+	function getColor(d) {
+		return d > 100 ? '#253494' :
+			   d > 75  ? '#2c7fb8' :
+			   d > 50  ? '#41b6c4' :
+			   d > 25  ? '#7fcdbb' :
+			   d > 10  ? '#c7e9b4' :
+						 '#ffffcc';
+	}
+
+	var heatStyle = {
+		gradient : {.65: "white", .75:"#FFFF36", .85:"#FF9D00", .9:"#FF1700", .95:"#900000", 1:"black"},
+		minOpacity: 0.75,
+						radius: 7,
+						blur: 7,
+	};
+
+
+	function style(feature) {
+		return {
+			fillColor: getColor(feature.properties.roomsPerHabitants),
+			weight: 1,
+			opacity: 1,
+			color: 'black',
+			dashArray: '2',
+			fillOpacity: 0.7
+		};
+	}
+
+	function highlightFeature(e) {
+		var layer = e.target;
+
+		layer.setStyle({
+			weight: 5,
+			color: '#666',
+			dashArray: '',
+			fillOpacity: 0.4
+		});
+
+		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+			layer.bringToFront();
+		}
+
+		info.update(layer.feature.properties);
+	}
+
+	function resetHighlight(e) {
+		geojson.resetStyle(e.target);
+		info.update();
+	}
+
+	function zoomToFeature(e) {
+		map.fitBounds(e.target.getBounds());
+	}
+
+
+	function onEachFeature(feature, layer) {
+		layer.on({
+			mouseover: highlightFeature,
+			mouseout: resetHighlight,
+			click: zoomToFeature
+		});
+	}
+
+	geojson = L.geoJson(municipios, {
+		style: style,
+		onEachFeature: onEachFeature
+	}).addTo(map);
+
+	var heatmap = L.heatLayer(points.coordinates, heatStyle);
+
+	var legend = L.control({position: 'bottomright'});
+	legend.onAdd = function (map) {
+
+		var div = L.DomUtil.create('div', 'info legend'),
+			grades = [10, 25, 50, 75, 100],
+			labels = [],
+			from, to;
+
+		//for (var i = 0; i < grades.length; i++) {
+		for (var i = grades.length-1; i >= 0; i--) {
+			from = grades[i];
+			to = grades[i + 1];
+
+			labels.push(
+				'<i style="background:' + getColor(from + 1) + '"></i> ' +
+				from + (to ? '&ndash;' + to : '+'));
+		}
+
+		div.innerHTML = labels.join('<br>');
+		return div;
+	};
+
+	legend.addTo(map);
+
+	var overlayers = {
+		"Choropleth" : geojson,
+		"Heatmap": heatmap
+	};
+
+	L.control.layers(baseMaps, overlayers).addTo(map);
+
+</script>

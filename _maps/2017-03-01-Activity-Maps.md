@@ -40,6 +40,6 @@ Another solution could be to derive the type of sport from the data, for example
 
 Just click on the image below.
 
-<a href="../maps/MallorcaActivities.html"> <img src="/figures/maps/mallorcaActivities2.jp" class="img-responsive" alt="Sport activities in Mallorca"></a>
+<a href="../maps/MallorcaActivities.html"> <img src="/figures/maps/mallorcaActivities2.jpg" class="img-responsive" alt="Sport activities in Mallorca"></a>
 
 Every time I look at it, I think: there is still a lot to explore!

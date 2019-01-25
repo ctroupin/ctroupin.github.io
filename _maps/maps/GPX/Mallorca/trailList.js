@@ -36,4 +36,5 @@ var  trail  = [
 	"trail/soller-ofre-na-franquesa-sa-rateta-massanela-puig-de-nali-ll.gpx",
 	"trail/palma-sa-teulera-portals-nous-palmanova.gpx",
 	"trail/esporles-cami-des-pescador-cami-des-correu-cristo.gpx",
+	"trail/ultra-trail-serra-tramontana.gpx"
 ]

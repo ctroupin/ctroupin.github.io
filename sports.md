@@ -7,14 +7,13 @@ title: Trail running
 I started *trail-running* in Gran Canaria, and it came naturally: after I explored part of the island walking, one day I though:
 >Let's do the same, but running!
 
-The cool thing about running is that you can see much more in the same amount of time, at the cost of being a little bit more tired at the end of the day.       
-The map below show most of the tracks between 2013 and 2018 (before I had no GPS device). There is still a lot to explore, but I'm working on it!
+The cool thing about running is that you can see much more in the same amount of time, at the cost of being a little bit more tired at the end of the day. The map below show most of the tracks between 2013 and 2018 (before I had no GPS device). There is still a lot to explore, but I'm working on it!
 
-<img src="/figures/maps/GC_activity.jpg" class="img-responsive" alt="Running in Gran Canaria">
+<a href="{{ site.url }}/maps/maps/Running-GranCanaria.html"> <img src="{{ site.url }}/figures/maps/GC_activity.jpg" class="img-responsive" alt="Running in Gran Canaria"> </a>
 
-After Gran Canaria I ran in the other Canary Islands and now I try to run everywhere I go, either for work or on holiday. Not only can I discover new places and tracks, but also I made several friends that share the same passion for the sport. Here is where we've been running recently around the [Sart Tilman](/leaflet/Running-SartTilman.html) (Liège).
+After Gran Canaria I ran in the other Canary Islands and now I try to run everywhere I go, either for work or on holiday. Not only can I discover new places and tracks, but also I made several friends that share the same passion for the sport. Here is where we've been running recently around the [Sart Tilman](/maps/maps/Running-SartTilman.html) (Liège).
 
-Prior to that, I've been organizing [trekking and running activities in Mallorca](/leaflet/MallorcaActivities.html) with friend and colleagues, especially in the *Tramuntana*.
+Prior to that, I've been organizing [trekking and running activities in Mallorca](/maps/maps/MallorcaActivities.html) with friend and colleagues, especially in the *Tramuntana*.
 
 > We used to say that Mallorca is a closed island, because you could follow a signalized track and perfectly end up in a private property.
 
@@ -24,7 +23,13 @@ Prior to that, I've been organizing [trekking and running activities in Mallorca
 
 Just a few lines, whenever possible a link to my [non-professional blog](https://ctroupin.wordpress.com) is provided.
 
+#### 2019
+
+**[Trèfle à 4 feuilles](https://www.courirpourleplaisir.be/nos-joggings/le-trefle-a-4-feuilles/)**, Olne. 42 km in the form of four loops (12, 11, 10 and 9 km), allowing everybody to select the distance according to the mood or the fitness.
+
 #### 2018
+
+**[Parelelo 28](https://ctroupin.wordpress.com/2018/12/04/trail-entre-montanas-paralelo-28/)**, La Aldra, Gran Canaria. Just being in La Aldea is not frequent, hence having a race there is even better.
 
 **[Artenara Trail](https://ctroupin.wordpress.com/2018/06/17/artenara-trail-2018/)**, Gran Canaria again, this time in spring and in the north, for a distance of 30 km. I felt well prepared in terms of training volume, even if I could not have very long sessions this year so far. The first 20 km were OK, but then it was hard to eat so the rest became a calvary. At the end it's only you against yourself, even a small bump can be seen as an Everest. I finished mentally destroyed but happy.
 

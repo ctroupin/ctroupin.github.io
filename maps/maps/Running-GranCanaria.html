@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="lib/leaflet/leaflet.elevation-0.0.4.css"/>
+    <link rel="stylesheet" href="../lib/leaflet/leaflet.elevation-0.0.4.css"/>
     <style type="text/css">
       #map { height : 800px; }
       .info { padding: 10px 20px; font: 20px/22px Arial, Helvetica, sans-serif; background: rgba(255,255,255,0.7);
@@ -39,17 +39,17 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
-    <script type="text/javascript" src="js/gpxcompute.js"></script>
-    <script type="text/javascript" src="js/basemaps.js"></script>
+    <script type="text/javascript" src="../js/gpxcompute.js"></script>
+    <script type="text/javascript" src="../js/basemaps.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/d3-hexbin.v0.2.min.js"></script>
-    <script src="js/leaflet-d3.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="js/Leaflet.Coordinates-0.1.5.min.js"></script>
+    <script src="../js/leaflet-d3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../js/Leaflet.Coordinates-0.1.5.min.js"></script>
     <script src="./GPX/GranCanaria/GCmoves.js"></script>
 
     <script>
 
-      var gpxdir = 'GPX/GranCanaria/'
+      var gpxdir = './GPX/GranCanaria/'
       var currentTime = new Date()
       var thisyear = currentTime.getFullYear()
       var latlonmeanlist = [];
@@ -115,12 +115,12 @@
       info.update = function (props, d, dp, dm, last) {
       this._div.innerHTML = (props ?
         '<b>' + props.name + '</b><br/> <i class="fa fa-calendar" aria-hidden="true"></i> ' + props.time.substring(0, 10) +
-        '&emsp; <img src="images/runner-.png" alt="Running" style="height:20px;"> ' + d.toFixed(2) + ' km' +
+        '&emsp; <img src="../images/runner-.png" alt="Running" style="height:20px;"> ' + d.toFixed(2) + ' km' +
         '<br/> <b><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></b> ' + dp.toFixed(1) + ' m' +
         '&emsp; <b><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></b> ' + dm.toFixed(1) + ' m'
         : '<b>Last track: </b>' + last["name"] +
         '<br/> <i class="fa fa-calendar" aria-hidden="true"></i> ' + last["date"] +
-        '&emsp; <img src="images/runner-.png" alt="Running" style="height:20px;">' + last["length"] + ' km' +
+        '&emsp; <img src="../images/runner-.png" alt="Running" style="height:20px;">' + last["length"] + ' km' +
         '<br/> <b><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></b> '  + last["dplus"] + ' m' +
         '&emsp; <b><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></b> ' + last["dminus"] + ' m'
         );
@@ -300,11 +300,11 @@
       hexLayer.data(lonlat);
 
       var overlayers = {
-        "<img src='images/heatmap_icon.png' alt='heatmap' style='height:24px;'> Heat map": heatmap,
-        "<img src='images/hexbin_icon.png' alt='hexbin' style='height:24px;'> Hexbin": hexLayer,
-        "<img src='images/previous_icon.png' alt='previous' style='height:24px;'> Previous tracks": moveGps,
-        "<img src='images/last_icon.png' alt='last' style='height:24px;'> Last run": moveGpsLast,
-        "<img src='images/mean_icon.png' alt='last' style='height:24px;'> Mean positions": meanpositionLayer,
+        "<img src='../images/heatmap_icon.png' alt='heatmap' style='height:24px;'> Heat map": heatmap,
+        "<img src='../images/hexbin_icon.png' alt='hexbin' style='height:24px;'> Hexbin": hexLayer,
+        "<img src='../images/previous_icon.png' alt='previous' style='height:24px;'> Previous tracks": moveGps,
+        "<img src='../images/last_icon.png' alt='last' style='height:24px;'> Last run": moveGpsLast,
+        "<img src='../images/mean_icon.png' alt='last' style='height:24px;'> Mean positions": meanpositionLayer,
       };
 
       L.control.scale().addTo(map);

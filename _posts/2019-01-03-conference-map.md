@@ -9,7 +9,7 @@ img: ConferenceMapEurope2_crop.png
 img2: ConferenceMapEurope2.png
 ---
 
-Not so long ago I had to update and check my list of publications and conferences (everything is stored in *BibTex* format and versioned using GitHub), and I had to idea to turn that information into a simple map. The good thing is that the procedure is really to repeat with other *BibTex* files, provided the information concerning the place of the conferences (town, country) is provided.
+Not so long ago I had to update and check my list of publications and conferences (everything is stored in *BibTex* format and versioned using GitHub), and I had to idea to turn that information into a simple map. The good thing is that the procedure is really to repeat with other *BibTeX* files, provided the information concerning the place of the conferences (town, country) is provided.
 
 <img src="{{ site.url }}/figures/blog/{{ page.img2 }}" class="img-responsive" alt="{{ page.alt }}">
 
@@ -40,7 +40,7 @@ from geopy.geocoders import Nominatim
 geolocator = Nominatim()
 location = geolocator.geocode(address, timeout=20)
 ```
-For the plot it was slightly tricky to get the *fontawesome* icons correctly and to have the desired colorbar, but at the end it worked as expect: the markers are colored according to the number of times a conference was attended in a given place.
+For the plot it was slightly tricky to get the *fontawesome* icons correctly and to have the desired colorbar, but at the end it worked as expected: the markers are colored according to the number of times a conference was attended in a given place.
 
 ### Source
 A jupyter notebook showing the whole code available: [conference_map.ipynb]({{ site.url }}/CV/python/conference_map.ipynb).

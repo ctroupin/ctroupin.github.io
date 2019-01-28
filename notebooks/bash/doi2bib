@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Generate a bibtex entry from a DOI number
+# and write it into a text file.
+#
+# Example:
+# doi2bib 10.1007/978-3-319-57645-9_37 myref.bib
+
+usage ()
+{
+  echo "Usage : `basename $0` doi bib-file"  
+  echo '  '
+  echo 'If bib-file is not provided, bibtex entry is written to ./ref.bib'
+  exit 1
+}
+
+doi="${1}"
+target=${2:-'./ref.bib'}
+
+if [ "$#" -eq "0" ]; then
+  usage
+fi
+
+echo "Written into file ${target}"
+curl -LH "Accept: text/bibliography; style=bibtex" http://dx.doi.org/"${doi}" >> ${target}

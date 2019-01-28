@@ -4,7 +4,7 @@ date: 2019-01-28
 title: From a publication to Orbi repository
 alt: Conference participation map
 tools: LaTeX - BibTeX - bash
-img: ConferenceMapEurope2_crop.png
+img: myorbi05.png
 ---
 
 It's not a surprise, but I am a big fan of the BibTeX format. It works fine for the scientific publication, but also for this blog, as the <a href="{{ site.url }}/publications">Publications</a> section and the [CV](CV/Ctroupin_CVacademic.pdf) are both created from the same BibTeX file.

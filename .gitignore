@@ -34,6 +34,7 @@ vendor
 *.log
 */test*
 *.blg
+*.bbl
 *.aux
 *.synctex.gz
 Gemfile*

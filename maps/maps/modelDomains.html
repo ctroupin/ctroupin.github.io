@@ -36,7 +36,7 @@
 						{
 						fullscreenControl: true,
 						}
-					).setView([39.6, 2.93], 4);
+					).setView([39.6, 2.93], 3);
 
 	Esri_OceanBasemap.addTo(map);
 
@@ -66,6 +66,7 @@
 	info.addTo(map);
 
 	var geojson;
+	var mk;
 
 	function getColor(d) {
 		return d > 100 ? '#253494' :
@@ -88,6 +89,7 @@
 		};
 	}
 
+
 	function highlightFeature(e) {
 		var layer = e.target;
 
@@ -103,6 +105,14 @@
 		}
 
 		info.update(layer.feature.properties);
+		var coords = layer.feature.properties.coords;
+		console.log(mk);
+		// Remove if already exists
+	  if (mk != undefined) {
+	        map.removeLayer(mk);
+	  };
+		mk = L.marker(coords, {opacity: 1});
+		mk.addTo(map);
 	}
 
 	function resetHighlight(e) {
@@ -114,15 +124,16 @@
 		map.fitBounds(e.target.getBounds());
 	}
 
-	function onEachFeature(feature, layer) {
+	function onEachFeature(feature, layer, mk) {
 		layer.on({
 			mouseover: highlightFeature,
 			mouseout: resetHighlight,
 			click: zoomToFeature
 		});
 		var coords = feature.properties.coords;
-		console.log(coords);
-		L.marker(coords).addTo(map);
+		//console.log(coords);
+		mk = L.marker(coords, {opacity: 0.3});
+		mk.addTo(map);
 	}
 
 	geojson = L.geoJson(domain, {

@@ -1,0 +1,31 @@
+var domain = [{
+    "type": "Feature",
+    "properties": {"Institute": "SOCIB", "name": "WMOP",
+        "coords": [39.635741, 2.631927],
+        "logo": "logo_socib.png"},
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+            [-5.8, 34.9],
+            [9.2,  34.9],
+            [9.2,  44.71292],
+            [-5.8, 44.71292],
+            [-5.8, 34.9]
+        ]]
+    }
+}, {
+    "type": "Feature",
+    "properties": {"Institute": "Puertos del Estado", "name": "Gibraltar",
+        "coords": [38.635741, 0.631927],
+        "logo": "Logo_puertoestado.jpeg"},
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+            [-7.4167, 35.0],
+            [-2.9945025, 35.0],
+            [-2.9945025, 37.19984],
+            [-7.4167, 37.19984],
+            [-7.4167, 35.0]
+        ]]
+    }
+}];

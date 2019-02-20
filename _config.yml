@@ -85,6 +85,20 @@ collections:
 markdown: kramdown
 permalink: pretty
 
+kramdown:
+  syntax_highlighter: rouge
+  # Rouge Highlighter in Kramdown › http://kramdown.gettalong.org/syntax_highlighter/rouge.html
+  # span, block element options fall back to global
+  syntax_highlighter_opts:
+    # Rouge Options › https://github.com/jneen/rouge#full-options
+    css_class: 'trac'
+
+
+highlighter: rouge
+
+plugins:
+  - rouge
+
 plugins_dir:
   - jekyll-scholar
 

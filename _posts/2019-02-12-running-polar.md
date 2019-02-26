@@ -3,7 +3,7 @@ layout: post
 date: 2019-02-12
 title: Where are we running?
 alt: Running density map
-tools: Python - matplotlib - gpxpy
+tools: Python - matplotlib - GPSbabel - gpxpy
 img: polar_pcolor_crop.png
 ---
 
@@ -18,12 +18,17 @@ I have tracks since 2013, though most of the tracks around Sart Tilman are conce
 in 2017-2018. The total is about 150 files.
 
 ### Processing
+
+The GPX files are slightly edited:
+1. The *extensions* tags are removed, as they don't store information we need.
+2. The trajectories are sub-sampled to 500 points.  
+
 We will compute:
 * the distance to a central point, located close to our offices, using the `Vincenty` distance function available in th [`geopy`](https://github.com/geopy/geopy) module,
 * the direction with (e.g. northward, southward, eastward, ...) with respect to the starting point, using the `bearing` function from the [`geo-py`](https://github.com/gojuno/geo-py) module
 * the altitude, directly read from the file.
 
-The loop takes 15-20 seconds.
+The code is not optimised and takes a dozen of seconds to run on all the files.
 
 ## Figures
 
@@ -58,7 +63,6 @@ Same as the previous one, but now the dots are colored according to the altitude
 The lowest parts (dark blue) are the valleys of the *Meuse* and the *Ourthe* rivers.
 
 <img src="{{ site.url }}/figures/blog/polar_scatter_altitude_zoom.jpg" class="img-responsive" alt="GPX histogram">
-
 
 ## Final results: the pseudo-color plot
 

@@ -1,0 +1,143 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Tryin' to turn ocean data into stories">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="https://ctroupin.github.io/posts/2019-02-18-airbnb-revisited/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Charles Troupin by </title>
+
+	<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-6 col-lg-offset-3">
+			<center>
+				<h2> Mallorca Airbnb revisited </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					
+						<h4><i class="far fa-calendar-alt"></i></h4> 18 February 2019 &nbsp;
+					
+					
+						<h4><i class="fas fa-wrench"></i></h4> Python - Leaflet - javascript &nbsp;
+					
+					
+					
+				</div>
+				<p>Not so long ago I was thinking about the Airbnb story in Mallorca: in summary, (some) people were buying houses and apartments to later rent them to tourists on Airbnb. As a result, prices were rising and the locals, i.e., the people living there for longer periods, could not afford to rent a flat.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/airbnb2017.png" class="img-responsive" alt="Airnbn Mallorca 2017" /></p>
+
+<p>What’s funny here is that most of the people and travelers I know think that Airbnb is the coolest way to spend a few nights somewhere, because they can get to know local people and live in a real house. My experience is rather limited for the reasons mentioned before, but I could say that Airbnb is a mix of different situations (simplifying…):</p>
+<ol>
+  <li>the owner is a cool person that helps you a lot and takes care of the details, usually he or she has only one property, and that contributes to reach the end of the month.</li>
+  <li>the owner replies to emails and phone calls, but you never manage to see them. Maybe too busy with their many clients.</li>
+</ol>
+
+<p>Anyway, we make our own decision based on the information we have, and having no information about a topic may be itself a decision. Well, all that to explain that I wanted to see how the number of properties offered by Airbnb evolved in the different municipalities of the island, as already shown in a previous post.</p>
+
+<h2 id="getting-the-data">Getting the data</h2>
+
+<p>The best source is Inside-Airbnb, which provides csv files with all the information one might wish to perform analysis. I ended up with the files named <code class="highlighter-rouge">listings20170315.csv</code> and <code class="highlighter-rouge">listings20181108.csv</code>.   <br />
+The file content looks like this:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="trac"><code>id,name,host_id,host_name,neighbourhood_group,neighbourhood,latitude,longitude,room_type,price,minimum_nights,number_of_reviews,last_review,reviews_per_month,calculated_host_listings_count,availability_365
+11547,My home at the beach,42942,Daniel,,Calvià,39.51888263030777,2.481824204366587,Entire home/apt,70,6,83,2018-11-01,0.94,1,211
+100831,HOUSE IN MALLORCA - WiFi(ET-3045),529151,Miguel,,Santa Margalida,39.76346803718038,3.162551245945415,Entire home/apt,160,7,17,2018-09-20,0.19,1,312
+105891,VILLAGE HOUSE WITH POOL: IDEAL FOR FAMILIES,549192,Bartomeu,,Maria de la Salut,39.66043828082695,3.0716464000735644,Entire home/apt,90,7,10,2018-09-02,0.13,2,260
+...
+</code></pre></div></div>
+<p>Out of that I’m particularly interested in the latitudes and longitudes or, equivalently, the neighborhood.</p>
+
+<p>I must also say that having the data in such a format is rather cool, it means it’s not necessary to start writing parsing functions and playing with exceptions, which is quite common with the field I’m working.</p>
+
+<h2 id="processing">Processing</h2>
+
+<p>There is not a lot to say: we start with a geoJSON file containing all the municipalities of the island and for each municipality, we add a <em>property</em> storing the relative increase of rooms available. One field of the geoJSON can be similar to this:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"FeatureCollection"</span><span class="p">,</span>
+  <span class="s2">"features"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"Feature"</span><span class="p">,</span> <span class="s2">"id"</span><span class="p">:</span> <span class="mi">7604</span><span class="p">,</span>
+    <span class="s2">"properties"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"ID_0"</span><span class="p">:</span> <span class="mi">215</span><span class="p">,</span> <span class="s2">"ISO"</span><span class="p">:</span> <span class="s2">"ESP"</span><span class="p">,</span> <span class="s2">"NAME_0"</span><span class="p">:</span> <span class="s2">"Spain"</span><span class="p">,</span> <span class="s2">"ID_1"</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s2">"NAME_1"</span><span class="p">:</span> <span class="s2">"Islas Baleares"</span><span class="p">,</span> <span class="s2">"ID_2"</span><span class="p">:</span> <span class="mi">44</span><span class="p">,</span> <span class="s2">"NAME_2"</span><span class="p">:</span> <span class="s2">"Baleares"</span><span class="p">,</span> <span class="s2">"ID_3"</span><span class="p">:</span> <span class="mi">324</span><span class="p">,</span> <span class="s2">"NAME_3"</span><span class="p">:</span> <span class="s2">"n.a. (54)"</span><span class="p">,</span> <span class="s2">"ID_4"</span><span class="p">:</span> <span class="mi">7605</span><span class="p">,</span> <span class="s2">"NAME_4"</span><span class="p">:</span> <span class="s2">"Art</span><span class="err">\</span><span class="s2">u00e0"</span><span class="p">,</span> <span class="s2">"VARNAME_4"</span><span class="p">:</span> <span class="s2">"Art</span><span class="err">\</span><span class="s2">u00e1"</span><span class="p">,</span> <span class="s2">"CCN_4"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"CCA_4"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">"TYPE_4"</span><span class="p">:</span> <span class="s2">"Municipality"</span><span class="p">,</span> <span class="s2">"ENGTYPE_4"</span><span class="p">:</span> <span class="s2">"Municipality"</span><span class="p">,</span> <span class="s2">"habitants"</span><span class="p">:</span> <span class="mf">7448.0</span><span class="p">,</span> <span class="s2">"rooms"</span><span class="p">:</span> <span class="mi">302</span><span class="p">,</span> <span class="s2">"increase"</span><span class="p">:</span> <span class="mf">0.12582781456953643</span><span class="p">,</span> <span class="s2">"rooms2016"</span><span class="p">:</span> <span class="mi">302</span><span class="p">,</span> <span class="s2">"rooms2018"</span><span class="p">:</span> <span class="mi">340</span><span class="p">,</span> <span class="s2">"roomsPerHabitants"</span><span class="p">:</span> <span class="mf">40.55</span><span class="p">},</span>
+    <span class="s2">"geometry"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"Polygon"</span><span class="p">,</span>
+      <span class="s2">"coordinates"</span><span class="p">:</span> <span class="p">[[[</span><span class="mf">3.420972108840999</span><span class="p">,</span> <span class="mf">39.75159072875988</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.419806957244987</span><span class="p">,</span> <span class="mf">39.750217437744254</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.415091037750244</span><span class="p">,</span> <span class="mf">39.74511337280285</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.413971900939998</span><span class="p">,</span> <span class="mf">39.731700897216854</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.409914970398063</span><span class="p">,</span> <span class="mf">39.72647094726574</span><span class="p">]]]}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>At this stage there is not a lot more left to do, except using <code class="highlighter-rouge">Leaflet</code> and creating a style function to assign a color to each municipality according to the selected property.</p>
+
+<h2 id="results">Results</h2>
+
+<p>The interactive map is available <a href="https://ctroupin.github.io/maps/maps/airbnb_time.html">here</a>.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/airbnb2019.png" class="img-responsive" alt="Airnbn Mallorca" /></p>
+
+<p>Interesting features are:</p>
+<ul>
+  <li>the decrease of available rooms around Palma (Esporles, Valldemossa, Llucmajor). Keep into account that at the scale of the island, the decrease taking place in Palma has a large influence.</li>
+  <li>overall, most of the municipalities underwent an increase, even for some of them it means only a few properties more.</li>
+  <li>6 municipalities have seen their Airbnb properties increase for more than 50%: Campanet, Búger, Costix, Maria de la Salut, Ariany and Petra, with a tremendous increase of 104.8%.</li>
+</ul>
+
+<p>The question is: why in these places? My 2-cent answer would be a combination of 2 factors:</p>
+<ol>
+  <li>some villages have many empty houses because people prefer to live closer to Palma or Inca, so it’s easier and cheaper to prepare the houses and rent rooms there.</li>
+  <li>their is a large community of cyclists from northern Europe coming to ride in Mallorca, not only in summer but already from March on. A lot of bars and restaurants are <em>bike friendly</em>, with specific menus (maybe) and structures to attach the bikes to.</li>
+</ol>
+
+<h2 id="future-work">Future work</h2>
+
+<p>Here the analysis is really limited to the decrease/increase by municipality but one can be tempted to have a look at another scale (neighbourhood of Palma for example) and also the check if there is a <em>creation/destruction</em> process of Airbnb accommodations across the island.</p>
+
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+
+</body>
+</html>

@@ -78,7 +78,7 @@
 
 <p>Working with a virtual environment is always a good idea. The pythono <em>virtual environment wrapper</em> is particularly helpful.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mkvirtualenv</span> <span class="n">mayavi</span><span class="o">-</span><span class="n">plots</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">mkvirtualenv</span> <span class="n">mayavi</span><span class="o">-</span><span class="n">plots</span>
 </code></pre></div></div>
 
 <h3 id="install-prerequisites">Install prerequisites</h3>
@@ -90,7 +90,7 @@
 <a href="http://pyqt.sourceforge.net/Docs/PyQt4/installation.html#downloading-pyqt4">http://pyqt.sourceforge.net/Docs/PyQt4/installation.html#downloading-pyqt4</a></p>
 
 <p>Go into the directory where you have downloaded the <code class="highlighter-rouge">sip</code> and <code class="highlighter-rouge">PyQt</code>:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar </span>xvf sip-4.19.8.tar.gz
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">tar </span>xvf sip-4.19.8.tar.gz
 <span class="nb">cd </span>sip-4.19.8
 python configure.py
 make
@@ -98,12 +98,12 @@ make
 </code></pre></div></div>
 <p>Note that the <code class="highlighter-rouge">python</code> that runs <code class="highlighter-rouge">configure.py</code> is that of the virtual environment), as we can see from the next command:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>which python
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>which python
 /home/ctroupin/Software/PythonEnvs/mayavi/bin/python
 </code></pre></div></div>
 
 <p>Process in a similar way for <code class="highlighter-rouge">PyQt</code> (the compilation can take a few minutes):</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar </span>xvf PyQt4_gpl_x11-4.12.1.tar.gz
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">tar </span>xvf PyQt4_gpl_x11-4.12.1.tar.gz
 <span class="nb">cd </span>PyQt4_gpl_x11-4.12.1
 python configure-ng.py
 make
@@ -114,11 +114,11 @@ make <span class="nb">install</span>
 <h3 id="install-the-module">Install the module</h3>
 
 <p>With the version installed with <code class="highlighter-rouge">pip</code>,</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>mayavi
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>pip <span class="nb">install </span>mayavi
 </code></pre></div></div>
 <p>I got the issue related to <a href="https://github.com/enthought/mayavi/issues/615">undefined ‘magnification’ attribute of a ‘WindowToImageFilter’</a>, so I made the installation using <code class="highlighter-rouge">setup.py</code>:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip_uninstall mayavi
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>pip_uninstall mayavi
 git clone git@github.com:enthought/mayavi.git
 python setup.py <span class="nb">install</span>
 </code></pre></div></div>
@@ -127,7 +127,7 @@ python setup.py <span class="nb">install</span>
 
 <p>Jupyter notebook 5.0 has an iopub.data_rate set to 10^7   <br />
 <strong>Solution:</strong> in bash, run</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jupyter-notebook <span class="nt">--NotebookApp</span>.iopub_data_rate_limit<span class="o">=</span>1.0e10
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>jupyter-notebook <span class="nt">--NotebookApp</span>.iopub_data_rate_limit<span class="o">=</span>1.0e10
 </code></pre></div></div>
 
 			</blogsection>

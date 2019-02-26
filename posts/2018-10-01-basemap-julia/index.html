@@ -77,20 +77,20 @@ to others.</p>
 
 <h3 id="download-package">Download package</h3>
 <p>Get the most recent (and stable) version of Basemap:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://github.com/matplotlib/basemap/archive/v1.1.0.zip
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>wget https://github.com/matplotlib/basemap/archive/v1.1.0.zip
 unzip basemap-1.1.0.zip
 </code></pre></div></div>
 
 <h3 id="install-package">Install package</h3>
 <p>Create a directory where the installation will be performed, for example:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> ~/Software/Geos
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">mkdir</span> ~/Software/Geos
 </code></pre></div></div>
 <p>Go into the <code class="highlighter-rouge">geos</code> directory:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>basemap-1.1.0/
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">cd </span>basemap-1.1.0/
 <span class="nb">cd </span>geos-3.3.3/
 </code></pre></div></div>
 <p>and start the installation of Basemap:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">GEOS_DIR</span><span class="o">=</span><span class="s2">"/home/ctroupin/Software/Geos"</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">export </span><span class="nv">GEOS_DIR</span><span class="o">=</span><span class="s2">"/home/ctroupin/Software/Geos"</span>
 ./configure <span class="nt">--prefix</span><span class="o">=</span><span class="nv">$GEOS_DIR</span>
 make
 make <span class="nb">install</span>
@@ -102,12 +102,12 @@ make <span class="nb">install</span>
 corresponding to your version of Julia to run the installation scripts.</p>
 
 <p>For Julia-0.6 I had:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/.julia/v0.6/Conda/deps/usr/bin/pip <span class="nb">install </span>pyproj
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>~/.julia/v0.6/Conda/deps/usr/bin/pip <span class="nb">install </span>pyproj
 ~/.julia/v0.6/Conda/deps/usr/bin/python setup.py <span class="nb">install</span>
 </code></pre></div></div>
 
 <p>For Julia-1.0.0, I found 3 installed <code class="highlighter-rouge">pip</code>:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/.julia/packages/Conda/m7vem/deps/usr/bin/pip
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>~/.julia/packages/Conda/m7vem/deps/usr/bin/pip
 ~/.julia/packages/Conda/hsaaN/deps/usr/bin/pip
 ~/.julia/packages/Conda/a196m/deps/usr/bin/pip
 </code></pre></div></div>
@@ -124,7 +124,7 @@ Pkg.build("PyCall")
 <pre><code class="language-julia-repl">ENV["PYTHON"]="~/.julia/packages/Conda/hsaaN/deps/usr/bin/python"
 </code></pre>
 <p>and then in the package REPL:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pkg&gt; build PyCall
+<div class="highlighter-rouge"><div class="highlight"><pre class="trac"><code>pkg&gt; build PyCall
 </code></pre></div></div>
 
 <h3 id="use-it">Use it</h3>

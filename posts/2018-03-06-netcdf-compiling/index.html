@@ -98,15 +98,15 @@ https://github.com/Unidata/netcdf-fortran</p>
 <h2 id="compiling">Compiling</h2>
 
 <p>In the directory where you have download the archives:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip netcdf-c-4.6.0.zip
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>unzip netcdf-c-4.6.0.zip
 <span class="nb">cd </span>netcdf-c-4.6.0
 </code></pre></div></div>
 
 <p>Then following the instructions from the <a href="https://software.intel.com/en-us/articles/performance-tools-for-software-developers-building-netcdf-with-the-intel-compilers">intel post</a></p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> /opt/intel/bin/compilervars.sh intel64
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">source</span> /opt/intel/bin/compilervars.sh intel64
 </code></pre></div></div>
 <p>Export the environment variables:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">CC</span><span class="o">=</span>icc
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">export </span><span class="nv">CC</span><span class="o">=</span>icc
 <span class="nb">export </span><span class="nv">CXX</span><span class="o">=</span>icpc
 <span class="nb">export </span><span class="nv">CFLAGS</span><span class="o">=</span><span class="s1">'-O3 -xHost -ip -no-prec-div -static-intel'</span>
 <span class="nb">export </span><span class="nv">CXXFLAGS</span><span class="o">=</span><span class="s1">'-O3 -xHost -ip -no-prec-div -static-intel'</span>
@@ -120,7 +120,7 @@ https://github.com/Unidata/netcdf-fortran</p>
 
 <h3 id="c-library">C library</h3>
 <p>And finally compile the netCDF library, indicating the path to the HDF5 lib and include directory:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">NCDIR</span><span class="o">=</span>/home/ctroupin/Software/netCDF/
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nv">NCDIR</span><span class="o">=</span>/home/ctroupin/Software/netCDF/
 <span class="nv">CPPFLAGS</span><span class="o">=</span><span class="nt">-I</span>/home/ctroupin/Software/netCDF/hdf5/include <span class="nv">LDFLAGS</span><span class="o">=</span><span class="nt">-L</span>/home/ctroupin/Software/netCDF/hdf5/lib  ./configure <span class="nt">--prefix</span><span class="o">=</span><span class="k">${</span><span class="nv">NCDIR</span><span class="k">}</span>
 make check
 make <span class="nb">install</span>
@@ -130,14 +130,14 @@ make <span class="nb">install</span>
 
 <p>Once the C library has been properly installed, we can install the Fortran one in
 a similar fashion. We assume we want to install everything in the same directory:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">NCDIR</span><span class="o">=</span>/home/ctroupin/Software/netCDF/
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nv">NCDIR</span><span class="o">=</span>/home/ctroupin/Software/netCDF/
 <span class="nv">NFDIR</span><span class="o">=</span>/home/ctroupin/Software/netCDF/
 </code></pre></div></div>
 <p>If is also necessary to update the LD_LIBRARY_PATH variable:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">NCDIR</span><span class="k">}</span>/lib:<span class="k">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="k">}</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">NCDIR</span><span class="k">}</span>/lib:<span class="k">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="k">}</span>
 </code></pre></div></div>
 <p>Then we proceed to the configuration and installation:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">CPPFLAGS</span><span class="o">=</span><span class="nt">-I</span><span class="k">${</span><span class="nv">NCDIR</span><span class="k">}</span>/include <span class="nv">LDFLAGS</span><span class="o">=</span><span class="nt">-L</span><span class="k">${</span><span class="nv">NCDIR</span><span class="k">}</span>/lib <span class="se">\</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nv">CPPFLAGS</span><span class="o">=</span><span class="nt">-I</span><span class="k">${</span><span class="nv">NCDIR</span><span class="k">}</span>/include <span class="nv">LDFLAGS</span><span class="o">=</span><span class="nt">-L</span><span class="k">${</span><span class="nv">NCDIR</span><span class="k">}</span>/lib <span class="se">\</span>
 ./configure <span class="nt">--prefix</span><span class="o">=</span><span class="k">${</span><span class="nv">NFDIR</span><span class="k">}</span>
 make
 make check

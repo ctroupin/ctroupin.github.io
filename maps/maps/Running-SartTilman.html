@@ -50,7 +50,7 @@
 
 			var gpxdir = 'GPX/'
 			var currentTime = new Date()
-			var thisyear = currentTime.getFullYear() -1
+			var thisyear = currentTime.getFullYear();
 			var latlonmeanlist = [];
 			var	meanpositionLayer = L.layerGroup([]);
 			var last = {
@@ -69,8 +69,7 @@
 				"CartoDB": CartoDB,
 				"OpenStreetMap": OpenStreetMap_Mapnik,
 				"Stamen Terrain": Stamen_Terrain,
-				"CartoDB Dark": CartoDB_DarkMatter,
-				"ESRI DarkGreyCanvas": Esri_DarkGreyCanvas
+				"CartoDB Dark": CartoDB_DarkMatter
 			};
 
 
@@ -241,7 +240,7 @@
 			function done(totaldist, markerMean) {
         summary.onAdd = function (map) {
             this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-            this._div.innerHTML = '<b>Total 2018:</b>  <br> Distance: ' + totaldist.toFixed(2) + ' km <br>' +
+            this._div.innerHTML = '<b>Total 2019:</b>  <br> Distance: ' + totaldist.toFixed(2) + ' km <br>' +
             'Number of tracks: ' + ntrackyear;
             return this._div;
         };

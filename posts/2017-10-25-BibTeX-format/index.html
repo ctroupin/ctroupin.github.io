@@ -93,7 +93,7 @@ In my previous job, once a year, we (then it became “I”) also had to create 
 <p>The <code class="highlighter-rouge">BibTeX</code> format () is used to describe and process lists of references.  <br />
 Nowadays, many platform can directly process this format and turn it into an entry in a database. Below is an example of an entry:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@Article<span class="o">{</span>TROUPIN2010JMS,
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>@Article<span class="o">{</span>TROUPIN2010JMS,
   Title <span class="o">=</span> <span class="o">{</span>Seasonal variability of the oceanic upper layer and its modulation of biological cycles <span class="k">in </span>the Canary Island region<span class="o">}</span>,
   Author <span class="o">=</span> <span class="o">{</span>C. Troupin and P. Sangrà and J. Arístegui<span class="o">}</span>,
   Journal <span class="o">=</span> <span class="o">{</span>Journal of Marine Systems<span class="o">}</span>,
@@ -130,7 +130,7 @@ Just download it and copy its content in a reference list managed with JabRef an
 
 <p>Another cool solution consists in using the Digital Object Identifier (DOI) to generate the BibTex.  <br />
 If you run the following command in a terminal:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-LH</span> <span class="s2">"Accept: text/bibliography; style=bibtex"</span> http://dx.doi.org/10.1029/2009JC005512
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>curl <span class="nt">-LH</span> <span class="s2">"Accept: text/bibliography; style=bibtex"</span> http://dx.doi.org/10.1029/2009JC005512
 </code></pre></div></div>
 <p>you will quickly obtained the desired entry. It is then easy to redirect it to an existing reference list or to copy/paste its content wherever needed.  <br />
 Time estimated for an entry: 30 seconds.</p>

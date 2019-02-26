@@ -78,11 +78,11 @@
 
 <p>The <a href="https://virtualenvwrapper.readthedocs.io/en/latest/">wrapper</a> is installed
 using <code class="highlighter-rouge">pip</code>:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>virtualenvwrapper
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>pip <span class="nb">install </span>virtualenvwrapper
 </code></pre></div></div>
 <p>The configuration is done by setting up the environment directory and
 sourcing <code class="highlighter-rouge">virtualenvwrapper.sh</code>:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">WORKON_HOME</span><span class="o">=</span>~/Envs
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">export </span><span class="nv">WORKON_HOME</span><span class="o">=</span>~/Envs
 <span class="nb">mkdir</span> <span class="nt">-p</span> <span class="nv">$WORKON_HOME</span>
 <span class="nb">source</span> /usr/local/bin/virtualenvwrapper.sh
 </code></pre></div></div>
@@ -90,18 +90,18 @@ sourcing <code class="highlighter-rouge">virtualenvwrapper.sh</code>:</p>
 
 <h3 id="create-the-new-virtual-environment">Create the new virtual environment</h3>
 <p>Note that the python version used in the virtualenv is specified using the <code class="highlighter-rouge">--python</code> option:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkvirtualenv <span class="nt">--python</span><span class="o">=</span>/usr/local/bin/python3.6 3Dplot
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>mkvirtualenv <span class="nt">--python</span><span class="o">=</span>/usr/local/bin/python3.6 3Dplot
 </code></pre></div></div>
 
 <h3 id="create-the-new-kernel">Create the new kernel</h3>
 <p>The instructions are found in the <a href="http://ipython.readthedocs.io/en/stable/install/kernel_install.html">ipython documentation</a>.   <br />
 Both the environment and the display names (visible in the notebook interface) can be specified:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>ipykernel
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>pip <span class="nb">install </span>ipykernel
 python <span class="nt">-m</span> ipykernel <span class="nb">install</span> <span class="nt">--user</span> <span class="nt">--name</span> 3Dplot <span class="nt">--display-name</span> <span class="s2">"3D plotting"</span>
 </code></pre></div></div>
 
 <h3 id="open-jupyter-notebook-and-select-the-kernel">Open jupyter-notebook and select the kernel</h3>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jupyter-notebook
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>jupyter-notebook
 </code></pre></div></div>
 <p>When you create a new notebook, a drop-down allows you to select the <em>kernel</em> or <em>virtualenv</em> of your choice.   <br />
 From an existing notebook window, you can also modify the kernel by clicking on <code class="highlighter-rouge">Kernel / Change kernel</code>.</p>

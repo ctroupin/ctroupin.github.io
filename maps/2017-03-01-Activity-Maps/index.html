@@ -142,7 +142,7 @@
 <h3 id="implementation">Implementation</h3>
 
 <p>The list of GPX files is stored in a simple file like this:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var run = [
+<div class="highlighter-rouge"><div class="highlight"><pre class="trac"><code>var run = [
   "run/es-molinar-son-espanyol.gpx",
   "run/es-molinar-palma.gpx",
   ...
@@ -151,7 +151,7 @@
 
 <p>When we need to add a new activity, we just have to update the list and add the corresponding file.   <br />
 The line color depends on the type of sport: hiking, cycling, running… this information is not explicitly present in the GPX files so we simply add it as a <em>keywords</em> tag, for example:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;keywords&gt;Hike&lt;/keywords&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="trac"><code>&lt;keywords&gt;Hike&lt;/keywords&gt;
 </code></pre></div></div>
 <p>Another solution could be to derive the type of sport from the data, for example computing the mean velocity, the distance, … but we prefer to keep it simple, especially considering that some running tracks have very long distances that could mislead the classification. Well, in other words: I didn’t want to implement that.</p>
 

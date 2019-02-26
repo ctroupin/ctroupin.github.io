@@ -96,7 +96,7 @@ installation is hight. Recently I installed version <code class="highlighter-rou
 
 <p>You have to install <a href="https://github.com/JuliaLang/IJulia.jl">IJulia</a>, the Julia kernel for Jupyter and build the package:</p>
 
-<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="x">(</span><span class="s">"IJulia"</span><span class="x">)</span>
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="x">(</span><span class="s">"IJulia"</span><span class="x">)</span>
 <span class="n">Pkg</span><span class="o">.</span><span class="n">build</span><span class="x">(</span><span class="s">"IJulia"</span><span class="x">)</span>
 </code></pre></div></div>
 <p>This last command will create the new kernel. On my machine, the Jupyter kernels can be found in the directory <code class="highlighter-rouge">~/.local/share/jupyter/kernels/</code>.</p>

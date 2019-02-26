@@ -65,7 +65,7 @@
 						<h4><i class="far fa-calendar-alt"></i></h4> 12 February 2019 &nbsp;
 					
 					
-						<h4><i class="fas fa-wrench"></i></h4> Python - matplotlib - gpxpy &nbsp;
+						<h4><i class="fas fa-wrench"></i></h4> Python - matplotlib - GPSbabel - gpxpy &nbsp;
 					
 					
 					
@@ -81,6 +81,13 @@ Here I try to explore other possibilities.</p>
 in 2017-2018. The total is about 150 files.</p>
 
 <h3 id="processing">Processing</h3>
+
+<p>The GPX files are slightly edited:</p>
+<ol>
+  <li>The <em>extensions</em> tags are removed, as they don’t store information we need.</li>
+  <li>The trajectories are sub-sampled to 500 points.</li>
+</ol>
+
 <p>We will compute:</p>
 <ul>
   <li>the distance to a central point, located close to our offices, using the <code class="highlighter-rouge">Vincenty</code> distance function available in th <a href="https://github.com/geopy/geopy"><code class="highlighter-rouge">geopy</code></a> module,</li>
@@ -88,7 +95,7 @@ in 2017-2018. The total is about 150 files.</p>
   <li>the altitude, directly read from the file.</li>
 </ul>
 
-<p>The loop takes 15-20 seconds.</p>
+<p>The code is not optimised and takes a dozen of seconds to run on all the files.</p>
 
 <h2 id="figures">Figures</h2>
 
@@ -106,7 +113,7 @@ in 2017-2018. The total is about 150 files.</p>
 <h3 id="positions-in-polar-coordinates">Positions in polar coordinates</h3>
 <p>In this figure we simply plot the different tracks in the new coordinate system with some points of interest (red dots) that we use to visit, helping me to check if everything is correct.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pointsInterest</span> <span class="o">=</span> <span class="p">[</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">pointsInterest</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">[</span><span class="mf">50.552</span><span class="p">,</span> <span class="mf">5.5502</span><span class="p">,</span> <span class="s">"Roche aux Faucons"</span><span class="p">],</span>
     <span class="p">[</span><span class="mf">50.6024</span><span class="p">,</span> <span class="mf">5.5957</span><span class="p">,</span> <span class="s">"Lande de Streupas"</span><span class="p">],</span>
     <span class="p">[</span><span class="mf">50.5818</span><span class="p">,</span> <span class="mf">5.6027</span><span class="p">,</span> <span class="s">"Rochers du bout du monde"</span><span class="p">],</span>
@@ -127,7 +134,7 @@ The lowest parts (dark blue) are the valleys of the <em>Meuse</em> and the <em>O
 
 <p>Final one: the goal is to count count how many times we’ve been in different subregions delimited by angles and distances. I won’t write the whole code here, just the lines that allows us to count quite easily.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">r_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">6.01</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">r_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">6.01</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 <span class="n">theta_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">ntheta</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">16.</span>
 <span class="n">H</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span> <span class="n">angles</span><span class="p">,</span> <span class="p">[</span><span class="n">r_edges</span><span class="p">,</span> <span class="n">theta_edges</span><span class="p">])</span>
 </code></pre></div></div>

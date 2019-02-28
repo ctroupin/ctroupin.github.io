@@ -1,6 +1,5 @@
 ---
 layout: post
-modal-id: 5
 title: Velocity field from high-frequency radar
 date: 2017-10-01
 img: radar05.jpg

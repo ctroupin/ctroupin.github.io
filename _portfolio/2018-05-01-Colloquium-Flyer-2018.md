@@ -1,6 +1,5 @@
 ---
 layout: post
-modal-id: 6
 title: Flyer for the 50th Liège Colloquium
 date: 2018-05-01
 img: CLQ2018_poster_landscape.jpg
@@ -10,6 +9,8 @@ category: Conference flyer
 ---
 
 For the 50th Anniversary of the Colloquium, we needed a flyer that combined the new and the old, as the topic was *"Long Term Studies in Oceanography"*.
+
+<img src="{{ site.url }}/figures/portfolio/CLQ2018_poster_landscape.jpg" class="img-responsive" alt="{{ page.title }}>
 
 ### Concept
 

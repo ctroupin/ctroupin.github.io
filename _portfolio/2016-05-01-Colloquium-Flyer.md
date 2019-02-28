@@ -7,9 +7,13 @@ img: CLQ2016_poster_V14.jpg
 alt: Flyer for the 48th Liège Colloquium
 tools: LaTeX (tikz)
 category: Conference flyer
+doi: 10.1007/s10236-018-1173-5
 ---
 
 The objective was to create a clean and modern flyer for the 48th Edition of the Liège Colloquium focused on the *Submesoscale Processes* (that I was co-organizing).
+
+<img src="{{ site.url }}/figures/portfolio/{{ page.img }}" class="img-responsive" alt="{{ page.title }}">
+
 
 We really wanted to be independent from an external designer, otherwise we would have had to request them a change every time we got a new sponsor or when the conference deadlines changed.
 

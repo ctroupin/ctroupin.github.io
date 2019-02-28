@@ -3,7 +3,6 @@ layout: post
 date: 2018-12-11
 img: AlborexMission_V19.jpg
 title: Careers in Oceanography
-alt: Careers in Oceanography
 tools: Python - LaTeX (tikz, tcolorbox) - Basemap
 category: Scientific illustration
 img: Career_Oceano_cropped.jpg
@@ -20,7 +19,7 @@ We wanted to show the diversity of careers in oceanography and at the same time 
 
 ### Realisation
 
-<img src="{{ site.url }}/figures/portfolio/{{ page.img2 }}" class="img-responsive" alt="{{ page.alt }}">
+<img src="{{ site.url }}/figures/portfolio/{{ page.img2 }}" class="img-responsive" alt="{{ page.title }}">
 
 #### Background
 

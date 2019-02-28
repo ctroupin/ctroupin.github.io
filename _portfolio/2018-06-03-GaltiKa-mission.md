@@ -1,6 +1,5 @@
 ---
 layout: post
-modal-id: 7
 date: 2014-07-18
 img: 1-ibiza_channel_bathy.png
 alt: Ibiza Channel

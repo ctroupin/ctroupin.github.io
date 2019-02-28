@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Computing positive elevation from GPX tracks
-modal-id: 2
 date: 2017-08-19
 img: GPX_compare1_crop.png
 alt: From Pépinster to Angleur and Aywaille

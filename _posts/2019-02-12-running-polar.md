@@ -77,3 +77,8 @@ H, _, _ = np.histogram2d(distances, angles, [r_edges, theta_edges])
 <img src="{{ site.url }}/figures/blog/polar_pcolor.png" class="img-responsive" alt="GPX histogram">
 
 I think it's a nice starting point for other fancier versions. I like to see that some we're often running in the same areas, for example the western sector (north of *Boncelles*) is almost void.
+
+## Source code
+
+I've put the code into the [trail-running](https://github.com/ctroupin/trail-running-maps) repository.
+In particular the final plot is prepared using [GPX2dist_angle_histogram.py](https://github.com/ctroupin/trail-running-maps/blob/master/notebooks/GPX2dist_angle_histogram.py).

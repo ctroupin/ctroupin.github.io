@@ -160,4 +160,9 @@ var moves = [
 	'2019/sarttilman_2019-02-14T11:08:09Z_500pts.gpx',
 	'2019/sarttilman_2019-02-18T14:59:42Z_500pts.gpx',
 	'2019/sarttilman_2019-02-19T11:04:26Z_500pts.gpx',
+  '2019/sarttilman_2019-02-21T15:04:24Z_500pts.gpx',
+  '2019/sarttilman_2019-02-22T06:59:19Z_500pts.gpx',
+  '2019/sarttilman_2019-02-25T15:05:59Z_500pts.gpx',
+  '2019/sarttilman_2019-02-26T11:04:34Z_500pts.gpx',
+  '2019/sarttilman_2019-02-28T11:02:16Z_500pts.gpx',
 ]

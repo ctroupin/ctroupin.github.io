@@ -176,14 +176,12 @@
 
 	L.marker(origin, {icon: L.AwesomeMarkers.icon({icon: 'home', prefix: 'fa', markerColor: 'red'}) }).addTo(map);
 
-	map.addLayer(OpenStreetMap_BlackAndWhite)
+	map.addLayer(OpenStreetMap_Mapnik)
 
 	var baseMaps = {
-		"OpenStreetMap B&W": OpenStreetMap_BlackAndWhite,
 		"Esri OceanBasemap": Esri_OceanBasemap,
 		"OpenStreetMap": OpenStreetMap_Mapnik,
 		"Stamen Terrain": Stamen_Terrain,
-		"ESRI Dark Grey Canvas": Esri_DarkGreyCanvas,
 	};
 
 	var select = L.countrySelect({title:'Pick a country!'});

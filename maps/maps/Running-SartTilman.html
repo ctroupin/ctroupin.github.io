@@ -69,7 +69,9 @@
 				"CartoDB": CartoDB,
 				"OpenStreetMap": OpenStreetMap_Mapnik,
 				"Stamen Terrain": Stamen_Terrain,
-				"CartoDB Dark": CartoDB_DarkMatter
+				"CartoDB Dark": CartoDB_DarkMatter,
+				"Thunderforest_Outdoors": Thunderforest_Outdoors,
+				"CartoDB_VoyagerLabelsUnder": CartoDB_VoyagerLabelsUnder,
 			};
 
 
@@ -81,13 +83,22 @@
 				labelTemplateLng:"Lon: {x}"
 			}).addTo(map);
 
-
+			var mygrad = {.6:'#2c7bb6', .7:'#abd9e9',.8:'#F9ED55',.9:'#fdae61',1:'#d7191c'};
+			//var mygrad = {.2:'#ffffb2', .4:'#fecc5c',.6:'#fd8d3c',.8:'#f03b20',1:'#bd0026'};
+			//var mygrad = {0.5: '#2c7bb6',
+			//							0.75: '#420a68',
+			//							0.8: '#932667',
+			//							0.85: '#dd513a',
+			//							0.95: '#fca50a',
+			//							1.0: '#fcffa4',
+			//						}
 			var heatStyle = {
-				gradient : {.7: "white", .8:"#FFFF36", .9:"#FF9D00", .95:"#FF1700", 1.:"black"},
+				gradient : mygrad,
 				minOpacity: 0.75,
-				radius: 7,
-				blur: 7,
+				radius: 4,
+				blur: 4,
 			};
+
 
 			var hexoptions = {
 				radius : 12,
@@ -217,9 +228,9 @@
 			var customLayer = L.geoJson(null, {
 				style: function(feature) {
 					return {
-						color: randomColor(),
-						weight: 2,
-						opacity: .8,
+						color: '#FF612B',
+						weight: 1,
+						opacity: .6,
 						};
 				},
 				onEachFeature: onEachFeature

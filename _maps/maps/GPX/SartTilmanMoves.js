@@ -154,8 +154,8 @@ var moves = [
   '2019/sarttilman_2019-02-05T11:06:04Z_500pts.gpx',
   '2019/sarttilman_2019-02-07T11:04:14Z_500pts.gpx',
   '2019/sarttilman_2019-02-08T20:30:57Z_500pts.gpx',
-	'2019/sarttilman_2019-02-11T15:00:36Z_500pts.gpx',
-	'2019/sarttilman_2019-02-11T16:35:17Z_500pts.gpx',
+  '2019/sarttilman_2019-02-11T15:00:36Z_500pts.gpx',
+  '2019/sarttilman_2019-02-11T16:35:17Z_500pts.gpx',
 	'2019/sarttilman_2019-02-12T11:05:53Z_500pts.gpx',
 	'2019/sarttilman_2019-02-14T11:08:09Z_500pts.gpx',
 	'2019/sarttilman_2019-02-18T14:59:42Z_500pts.gpx',
@@ -185,4 +185,6 @@ var moves = [
   '2019/sarttilman_2019-05-05T07:01:35Z_500pts.gpx',
   '2019/sarttilman_2019-05-05T09:17:02Z_500pts.gpx',
   '2019/sarttilman_2019-05-13T10:12:04Z_500pts.gpx',
+  '2019/sarttilman_2019-05-21T10:10:21Z_500pts.gpx',
+  '2019/sarttilman_2019-05-22T10:56:18Z_500pts.gpx',
 ]

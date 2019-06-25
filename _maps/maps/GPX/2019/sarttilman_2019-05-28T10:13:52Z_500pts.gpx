@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="GPSBabel - http://www.gpsbabel.org" xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxdata="http://www.cluetrust.com/XML/GPXDATA/1/0" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1">
+  <metadata>
+    <time>2019-06-25T14:19:58.572Z</time>
+    <bounds minlat="50.598851000" minlon="5.574813000" maxlat="50.598884000" maxlon="5.574859000"/>
+  </metadata>
+  <trk>
+    <name>Move</name>
+    <trkseg>
+      <trkpt lat="50.598851000" lon="5.574813000">
+        <ele>234.000000</ele>
+        <time>2019-05-28T08:13:52Z</time>
+      </trkpt>
+      <trkpt lat="50.598860000" lon="5.574817000">
+        <ele>234.000000</ele>
+        <time>2019-05-28T08:13:54Z</time>
+      </trkpt>
+      <trkpt lat="50.598879000" lon="5.574822000">
+        <ele>231.000000</ele>
+        <time>2019-05-28T08:14:26Z</time>
+      </trkpt>
+      <trkpt lat="50.598865000" lon="5.574848000">
+        <ele>231.000000</ele>
+        <time>2019-05-28T08:14:56Z</time>
+      </trkpt>
+      <trkpt lat="50.598884000" lon="5.574841000">
+        <ele>230.000000</ele>
+        <time>2019-05-28T08:15:23Z</time>
+      </trkpt>
+      <trkpt lat="50.598879000" lon="5.574859000">
+        <ele>230.000000</ele>
+        <time>2019-05-28T08:15:56Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>

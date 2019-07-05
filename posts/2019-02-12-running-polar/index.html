@@ -7,7 +7,7 @@
     <meta name="description" content="Tryin' to turn ocean data into stories">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
-    <link rel="canonical" href="https://ctroupin.github.io/posts/2019-02-12-running-polar/">
+    <link rel="canonical" href="http://localhost:4000/posts/2019-02-12-running-polar/">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
 
     <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
@@ -102,11 +102,11 @@ in 2017-2018. The total is about 150 files.</p>
 <h3 id="direction-histogram">Direction histogram</h3>
 <p>We start with an histogram to display the most frequent zone with respect to the starting point.</p>
 
-<p><img src="https://ctroupin.github.io/figures/blog/gpx_histogram01.png" class="img-responsive" alt="GPX histogram" /></p>
+<p><img src="http://localhost:4000/figures/blog/gpx_histogram01.png" class="img-responsive" alt="GPX histogram" /></p>
 
 <p>We directly see that we spend more time in the southeast sector, which makes sense knowing that the sport facilities and the track are located there.</p>
 
-<p><img src="https://ctroupin.github.io/figures/blog/gpx_histogram02.png" class="img-responsive" alt="GPX histogram" /></p>
+<p><img src="http://localhost:4000/figures/blog/gpx_histogram02.png" class="img-responsive" alt="GPX histogram" /></p>
 
 <p>I did not compute anything here but it’s clear from the plot that we stay almost always within 4 km from our starting point. In fact the locations at more than 8 km from <em>Sart Tilman</em> come from a race done in <em>Esneux</em> and training sessions in Liège center, which I might remove from the database.</p>
 
@@ -121,14 +121,14 @@ in 2017-2018. The total is about 150 files.</p>
     <span class="p">];</span>
 </code></pre></div></div>
 
-<p><img src="https://ctroupin.github.io/figures/blog/polar_trajectories_poi.png" class="img-responsive" alt="GPX histogram" /></p>
+<p><img src="http://localhost:4000/figures/blog/polar_trajectories_poi.png" class="img-responsive" alt="GPX histogram" /></p>
 
 <h3 id="positions-and-altitude">Positions and altitude</h3>
 
 <p>Same as the previous one, but now the dots are colored according to the altitude measured by the device.
 The lowest parts (dark blue) are the valleys of the <em>Meuse</em> and the <em>Ourthe</em> rivers.</p>
 
-<p><img src="https://ctroupin.github.io/figures/blog/polar_scatter_altitude_zoom.jpg" class="img-responsive" alt="GPX histogram" /></p>
+<p><img src="http://localhost:4000/figures/blog/polar_scatter_altitude_zoom.jpg" class="img-responsive" alt="GPX histogram" /></p>
 
 <h2 id="final-results-the-pseudo-color-plot">Final results: the pseudo-color plot</h2>
 
@@ -139,7 +139,7 @@ The lowest parts (dark blue) are the valleys of the <em>Meuse</em> and the <em>O
 <span class="n">H</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span> <span class="n">angles</span><span class="p">,</span> <span class="p">[</span><span class="n">r_edges</span><span class="p">,</span> <span class="n">theta_edges</span><span class="p">])</span>
 </code></pre></div></div>
 
-<p><img src="https://ctroupin.github.io/figures/blog/polar_pcolor.png" class="img-responsive" alt="GPX histogram" /></p>
+<p><img src="http://localhost:4000/figures/blog/polar_pcolor.png" class="img-responsive" alt="GPX histogram" /></p>
 
 <p>I think it’s a nice starting point for other fancier versions. I like to see that some we’re often running in the same areas, for example the western sector (north of <em>Boncelles</em>) is almost void.</p>
 

@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../lib/leaflet/leaflet.elevation-0.0.4.css"/>
     <style type="text/css">
       #map { height : 800px; }
       .info { padding: 10px 20px; font: 20px/22px Arial, Helvetica, sans-serif; background: rgba(255,255,255,0.7);
@@ -207,6 +206,7 @@
 					   y == '2016' ? '#8EEECC' :
 					   y == '2017' ? '#6C5FBA' :
 						 y == '2018' ? '#20BD00' :
+             y == '2019' ? '#F61D1D' :
 								'grey';
 			}
 
@@ -214,7 +214,7 @@
 
 			legend.onAdd = function (map) {
 				var div = L.DomUtil.create('div', 'info legend'),
-					grades = [2013, 2014, 2015, 2016, 2017, 2018],
+					grades = [2013, 2014, 2015, 2016, 2017, 2018, 2019],
 					labels = [];
 				div.innerHTML += '<b>Year</b><br>'
 				for (var i = 0; i < grades.length; i++) {
@@ -307,7 +307,7 @@
         "<img src='../images/mean_icon.png' alt='last' style='height:24px;'> Mean positions": meanpositionLayer,
       };
 
-      L.control.scale().addTo(map);body
+      L.control.scale().addTo(map);
       L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);
 
     </script>

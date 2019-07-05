@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>
+    Running in Piran
+  </title>
+  <script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.5/Control.FullScreen.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style type="text/css">
+  #map { height : 800px; }
+  .info { padding: 10px 20px; font: 20px/22px Arial, Helvetica, sans-serif; background: rgba(255,255,255,0.7);
+    box-shadow: 0 0 15px rgba(0,0,0,0.4); border-radius: 7px; }
+    .info h4 { margin: 0 0 5px; color: #777; }
+    .legend { text-align: left; line-height: 18px; color: #555; }
+    .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+    </style>
+  </head>
+  <body>
+
+    <div id="map"></div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.5/Control.FullScreen.min.js"></script>
+    <script type="text/javascript" src="../js/basemaps.js"></script>
+    <script>
+
+    var origin = [50.515, 5.6];
+    var gpxdir = 'GPX/'
+    var map = L.map('map', {
+      fullscreenControl: true,
+    }).setView(origin, 3);
+
+    map.addLayer(CartoDB_DarkMatter)
+
+    var baseMaps = {
+      "OpenTopoMap": OpenTopoMap,
+      "OpenStreetMap": OpenStreetMap_Mapnik,
+      "Stamen Terrain": Stamen_Terrain,
+      "ESRI Dark Grey Canvas": Esri_DarkGreyCanvas,
+      "CartoDB_DarkMatter": CartoDB_DarkMatter
+    };
+
+    var hexoptions = {
+      radius : 12,
+      opacity: 0.65	,
+      duration: 200,
+      colorScaleExtent: [ 1, 500 ],
+      radiusScaleExtent: [ 1, undefined ],
+      colorRange: [ '#EDEDED', "#ffffb2", "#fecc5c", "#fd8d3c", "#f03b20", "#bd0026"],
+      colorValue: function(d) { return log(d.length); },
+      radiusRange: [ 4, 12 ],
+    };
+
+
+
+
+
+
+    var overlayers = {
+      "All tracks": L.layerGroup(OldTracks),
+      "Hexbin": hexLayer,
+    };
+
+    L.control.scale().addTo(map);
+    L.control.layers(baseMaps, null, {autoZIndex:true, collapsed:false}).addTo(map);
+
+    </script>
+
+  </body>
+  </html>

@@ -188,4 +188,10 @@ var moves = [
   "2019/grancanaria_2019-03-24T15:52:02Z_500pts.gpx",
   "2019/grancanaria_2019-03-24T18:19:06Z_500pts.gpx",
   "2019/grancanaria_2019-03-25T09:49:05Z_500pts.gpx",
+  "2019/grancanaria_2019-06-28T17:01:48Z_500pts.gpx",
+	"2019/grancanaria_2019-06-29T08:16:08Z_500pts.gpx",
+	"2019/grancanaria_2019-06-29T17:16:20Z_500pts.gpx",
+	"2019/grancanaria_2019-06-30T18:40:54Z_500pts.gpx",
+	"2019/grancanaria_2019-07-01T08:03:21Z_500pts.gpx",
+	"2019/grancanaria_2019-07-01T16:40:52Z_500pts.gpx",
 	];

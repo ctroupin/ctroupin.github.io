@@ -196,12 +196,15 @@ var moves = [
 	'2019/sarttilman_2019-06-07T09:15:35Z_500pts.gpx',
 	'2019/sarttilman_2019-06-11T10:02:51Z_500pts.gpx',
 	'2019/sarttilman_2019-06-18T10:05:51Z_500pts.gpx',
-	'2019/sarttilman_2019-06-18T10:05:51Z_500pts.gpx',
-	'2019/sarttilman_2019-07-04T10:05:14Z_500pts.gpx',
-	'2019/sarttilman_2019-07-05_10-22-18_500pts.gpx',
-	'2019/sarttilman_2019-07-06_08-18-26_500pts.gpx',
-	'2019/sarttilman_2019-07-08_14-08-55_500pts.gpx',
-	'2019/sarttilman_2019-07-09_10-07-35_500pts.gpx',
-	'2019/sarttilman_2019-07-11_10-07-53_500pts.gpx',
-	'2019/sarttilman_2019-07-12_05-23-18_500pts.gpx',
+'2019/sarttilman_2019-07-04_10-05-16_500pts.gpx',
+'2019/sarttilman_2019-07-05_10-22-18_500pts.gpx',
+'2019/sarttilman_2019-07-06_08-18-26_500pts.gpx',
+'2019/sarttilman_2019-07-08_14-08-55_500pts.gpx',
+'2019/sarttilman_2019-07-09_10-07-35_500pts.gpx',
+'2019/sarttilman_2019-07-11_10-07-53_500pts.gpx',
+'2019/sarttilman_2019-07-12_05-23-18_500pts.gpx',
+'2019/sarttilman_2019-07-15_12-11-11_500pts.gpx',
+'2019/sarttilman_2019-07-16_10-07-38_500pts.gpx',
+'2019/sarttilman_2019-07-18_15-07-36_500pts.gpx'
+
 ]

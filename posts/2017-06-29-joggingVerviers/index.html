@@ -6,7 +6,7 @@
     <meta name="description" content="Tryin' to turn ocean data into stories">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
-    <link rel="canonical" href="https://ctroupin.github.io/maps/2018-07-09-Interpolation-Leaflet/">
+    <link rel="canonical" href="https://ctroupin.github.io/posts/2017-06-29-joggingVerviers/">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
 
     <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
@@ -117,244 +117,48 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h3> Data interpolation </h3>
+                <h3> Grand Jogging de Verviers </h3>
                 <div style="text-align:left; vertical-align: middle; ">
                     
-                    <h4><i class="far fa-calendar-alt"></i></h4> 09 July 2018 &nbsp;
+                    <h4><i class="far fa-calendar-alt"></i></h4> 30 June 2017 &nbsp;
                     
                     
-                    <h4><i class="fas fa-wrench"></i></h4> Leaflet, DIVA, LaTeX &nbsp;
+                    <h4><i class="fas fa-wrench"></i></h4> Leaflet &nbsp;
                     
                     
                     
                     
                 </div>
-                <p>The idea came for a conference in which we had to present a spatial interpolation technique to a
-public not very familiar with the topic. As usual, putting a lot of equations was discarded.</p>
+                <h3 id="grand-jogging-de-verviers">Grand Jogging de Verviers</h3>
 
-<p>We decided to come up with a map with different layers, each layer corresponding to
- a step in the interpolation process.</p>
+<p>The Jogging is probably the most popular sport event in the area, hence (maybe)
+it deserves a modern, interactive map with the location of the supplying stops. Or you might prefer the <a href="http://www.verviers.be/loisirs/sport/jogging-de-verviers/plan-parcours-13km-.pdf">old-school map</a>.</p>
 
-<h3 id="the-storyline">The storyline</h3>
+<p><img src="https://ctroupin.github.io/figures/blog/joggverviers2.jpg" class="img-responsive" alt="Jogging de Verviers" /></p>
 
-<p>We start by a question: given the sea water temperature in Porto (the meeting place) and
-in Malta, what is the temperature near Ibiza (halfay)?</p>
+<p>Here is how we prepare it.</p>
 
-<p><img src="/figures/maps/map_distance.jpg" class="img-responsive" alt="What is the temperature at the question mark?" /></p>
+<h4 id="modules">Modules</h4>
 
-<p>The easy answer is the mean value, but of course it is not as simple:</p>
 <ul>
-  <li>there are uncertainties and <em>noise</em> on the measurements,</li>
-  <li>the different places are separated by land, so the problem is anysotropic,</li>
-  <li>there are currents and other processes in the ocean that make things even more complex.</li>
+  <li><a href="https://github.com/mapbox/leaflet-omnivore">leaflet-omnivore</a>
+to parse the coordinates from the GPX file,</li>
+  <li><a href="https://github.com/adoroszlai/leaflet-distance-markers">leaflet-distance-marker</a>
+to add markers every kilometer,</li>
+  <li><a href="https://github.com/lvoogdt/Leaflet.awesome-markers">leaflet.awesome-markers</a>-
+for the start and finish locations.</li>
 </ul>
 
-<p><img src="/figures/maps/map_results.jpg" class="img-responsive" alt="Gridded field of temperature" /></p>
+<h4 id="data-source">Data source</h4>
 
-<h3 id="the-interactive-map">The interactive map</h3>
+<p>The track has been acquired by a Suntoo Ambit 3 device on June 18, 2017 (the day of the race).
+The file has been exported from <a href="http://www.movescount.com">Movescount</a> interface in GPX format.
+The total distance measured was slightly under 13 km.</p>
 
-<p>Just play with it!</p>
-<div id="map"></div>
-<script type="text/javascript" src="../data/medsea/medsea_coast.js"></script>
+<h4 id="processing">Processing</h4>
 
-<script type="text/javascript" src="../data/medsea/medsea_mesh.js"></script>
-
-<script type="text/javascript" src="../data/medsea/medsea_dataposition20.dat"></script>
-
-<script type="text/javascript" src="../data/medsea/medsea_grid.js"></script>
-
-<script type="text/javascript" src="../data/medsea/medsea_grid2.js"></script>
-
-<script type="text/javascript" src="../data/medsea/medsea_temperature.js"></script>
-
-<script>
-
-	var map = L.map('map',{fullscreenControl: true,})
-
-	map.addLayer(CartoDB)
-
-	var NASAGIBS_ViirsEarthAtNight2012 = L.tileLayer('https://map1.vis.earthdata.nasa.gov/wmts-webmerc/VIIRS_CityLights_2012/default/{time}/{tilematrixset}{maxZoom}/{z}/{y}/{x}.{format}', {
-		attribution: 'Imagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href="https://earthdata.nasa.gov">ESDIS</a>) with funding provided by NASA/HQ.',
-		bounds: [[-85.0511287776, -179.999999975], [85.0511287776, 179.999999975]],
-		minZoom: 1,
-		maxZoom: 8,
-		format: 'jpg',
-		time: '',
-		tilematrixset: 'GoogleMapsCompatible_Level'
-	});
-
-
-	var baseMaps = {
-		"CartoDB": CartoDB,
-		"OpenStreetMap": OpenStreetMap_Mapnik,
-		"Stamen Terrain": Stamen_Terrain,
-		"CartoDB Dark": CartoDB_DarkMatter,
-		"ESRI World Imagery": Esri_WorldImagery,
-		"Earth at Night": NASAGIBS_ViirsEarthAtNight2012,
-	};
-
-	var heatStyle = {
-		gradient : {.65: "white", .75:"#FFFF36", .85:"#FF9D00", .9:"#FF1700", .95:"#900000", 1:"black"},
-		minOpacity: 0.25,
-            radius: 5,
-            blur: 5,
-	};
-
-	var dataStyle = {
-			radius: 1,
-			fillColor: 'red',
-			weight: 1,
-			opacity: 1,
-			color: 'black',
-			fillOpacity: 0.7
-	}
-
-	var meshStyle = {
-		weight: 0.5,
-		opacity: .7,
-		color : 'black',
-		fillOpacity: 0.
-	}
-
-	var contourStyle = {
-		weight: 3,
-		opacity: 1,
-		color : 'black',
-		fillOpacity: 0.
-	}
-
-	var heatStyle = {
-    gradient : {.5: "white", .65:"#FFFF36", .85:"#FF9D00", .9:"#FF1700", .95:"#900000", 1:"black"},
-    minOpacity: 0.75, radius: 2, blur: 2,
-  };
-
-	/*
-	function getFieldColor(d) {
-    return d > 23  ? '#a50026' :
-           d > 22  ? '#d73027' :
-           d > 21  ? '#f46d43' :
-           d > 20  ? '#fdae61' :
-           d > 19  ? '#fee090' :
-           d > 18  ? '#ffffbf' :
-           d > 17  ? '#e0f3f8' :
-					 d > 16  ? '#abd9e9' :
-					 d > 15  ? '#74add1' :
-					 d > 14  ? '#4575b4' :
-					 d > 13  ? '#313695' :
-                     '#FFEDA0';
-	}
-	*/
-
-	function getFieldColor(d) {
-    return d > 22  ? '#ffffd9' :
-           d > 21  ? '#edf8b1' :
-	 		     d > 20  ? '#c7e9b4' :
-	 		     d > 19  ? '#7fcdbb' :
-	 		     d > 18  ? '#41b6c4' :
-	 		     d > 17  ? '#1d91c0' :
-	 		     d > 16  ? '#225ea8' :
-	 		      				 '#0c2c84' ;
-
-	}
-
-	function fieldStyle(feature) {
-      return {
-					radius: 5,
-          fillColor: getFieldColor(feature.properties.field),
-          color: 'k',
-          weight: 2,
-          opacity: 0.9,
-          fillOpacity: 0.8
-      };
-  }
-
-	latlon = [];
-
-	//var porto = new L.LatLng(); // 14.4
-	var porto = new L.LatLng(41.162142, -8.92195)
-	var malta = new L.LatLng(36.7,13.2);
-	var midpoint = new L.LatLng(38.931, 2.139);
-
-	var portoCircle = L.circle(porto, {radius: 30000, color: 'red', fillOpacity: .5});
-	var maltaCircle = L.circle(malta, {radius: 30000, color: 'blue', fillOpacity: .5});
-	var midpointCircle = L.circle(midpoint, {radius: 30000, color: 'black', fillOpacity: .5});
-	var cities = L.layerGroup([portoCircle, maltaCircle, midpointCircle]);
-
-
-	portoCircle.bindTooltip("14.4°C", {permanent: true, className: "textlabel", offset: [20, 0] });
-	portoCircle.addTo(map);
-
-	maltaCircle.bindTooltip("16.2°C", {permanent: true, className: "textlabel", offset: [-20, 0] });
-	maltaCircle.addTo(map);
-
-	midpointCircle.bindTooltip("<b>?</b>", {permanent: true, className: "textlabel", offset: [20, 0] });
-	midpointCircle.addTo(map);
-
-	// midpointCircle.bindTooltip("<b>15.7°C</b>", {permanent: true, className: "textlabel", offset: [20, 0] });
-
-	var linePorto = L.polyline([porto, midpoint], {color: 'red'});
-	var lineMalta = L.polyline([malta, midpoint], {color: 'blue'});
-	var lines = L.layerGroup([linePorto, lineMalta]);
-
-	var bathymetry = L.tileLayer.wms('http://ows.emodnet-bathymetry.eu/wms', {
-	    layers: 'emodnet:mean_atlas_land,coastlines,world:sea_names'
-	}).addTo(map);
-
-	var heatmap = L.heatLayer(datapoints, heatStyle);
-	var divacontours = new L.GeoJSON(contours, {style: contourStyle});
-	var divamesh = new L.GeoJSON(medmesh, {style: meshStyle});
-	var divafield = new L.GeoJSON(temperature5m, {style: fieldStyle});
-
-	markerlist = []
-	for (var i = 0; i < grid.length; i++) {
-		marker = new L.circleMarker([grid[i][0],grid[i][1]],
-			{color: "k", radius: 3, opacity: 1, fillOpacity:.9});
-		markerlist.push(marker);
-	}
-	var coarsegrid = L.layerGroup(markerlist);
-	// coarsegrid.addTo(map);
-
-	markerlist = []
-	for (var i = 0; i < finegrid.length; i++) {
-		marker = new L.circleMarker([finegrid[i][0], finegrid[i][1]],
-			{color: "k", radius: 2, opacity: 1, fillOpacity:.9});
-		markerlist.push(marker);
-	}
-	var finegrid = L.layerGroup(markerlist);
-
-
-	var overlayers = {
-		"bathymetry": bathymetry,
-		"Locations": cities,
-		"Lines": lines,
-		"Contours": divacontours,
-		"Finite-element mesh": divamesh,
-		"Data heat map": heatmap,
-		"Coarse grid": coarsegrid,
-		"Fine grid": finegrid,
-		"Interpolated field": divafield,
-	};
-
-
-	map.setView([40,3], 5);
-	L.control.scale().addTo(map);
-
-	L.control.layers(baseMaps, overlayers,
-		{autoZIndex:true, collapsed:true}).addTo(map);
-
-
-</script>
-
-<p><br /></p>
-
-<h3 id="afterthoughts">Afterthoughts</h3>
-
-<p>Ideally I would have presented the map directly, but I that time I was not sure it was
-going to work so instead I prepared screen-shots of the different layers.</p>
-
-<p><img src="/figures/maps/map_conclusion.jpg" class="img-responsive" alt="Conclusions..." /></p>
-
-<p><br /></p>
+<p>No processing was applied to the coordinates. An auxiliary track was created with only the coordinates corresponding to the <em>Grand Prix de la Montagne</em> (GPM) and
+then overlapped on the complete track.</p>
 
             </div>
         </div>

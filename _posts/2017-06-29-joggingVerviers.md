@@ -1,6 +1,11 @@
 ---
 title: Grand Jogging de Verviers
 layout: projectmap
+date: 2017-06-30
+img: joggverviers2.jpg
+alt: Jogging de Verviers
+tools: Leaflet
+category: Map
 ---
 
 ### Grand Jogging de Verviers
@@ -8,9 +13,8 @@ layout: projectmap
 The Jogging is probably the most popular sport event in the area, hence (maybe)
 it deserves a modern, interactive map with the location of the supplying stops. Or you might prefer the [old-school map](http://www.verviers.be/loisirs/sport/jogging-de-verviers/plan-parcours-13km-.pdf).
 
-{% include_relative maps/JoggingVerviers.html %}
+<img src="{{ site.url }}/figures/blog/{{ page.img }}" class="img-responsive" alt="{{ page.alt }}">
 
-<br>
 Here is how we prepare it.
 
 #### Modules

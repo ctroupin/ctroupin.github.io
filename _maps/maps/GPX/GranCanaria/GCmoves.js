@@ -84,6 +84,7 @@ var moves = [
 	"2016/miradores-de-las-palmas-de-canaria_500pts.gpx",
 	"2016/valleseco-los-naranjos-teror-talayon-de-arinez_500pts.gpx",
 	"2016/Valleseco_LaLaguna_2016_12_31_12_03_15_Running_500pts.gpx",
+	"2017/TGC-2017_500pts.gpx",
 	"2017/cc-las-arenas-el-rincon-los-giles_500pts.gpx",
 	"2017/agaete-tamadaba-tirma-artenara-valleseco_500pts.gpx",
 	"2017/valleseco-calderetas-cruz-chica-cuevecillas_500pts.gpx",

@@ -63,7 +63,7 @@
 				fullscreenControl: true,
 				}).setView([50.58,5.57], 13);
 
-			map.addLayer(CartoDB)
+			map.addLayer(CartoDB_DarkMatter)
 
 			var baseMaps = {
 				"CartoDB": CartoDB,
@@ -84,14 +84,8 @@
 			}).addTo(map);
 
 			var mygrad = {.6:'#2c7bb6', .7:'#abd9e9',.8:'#F9ED55',.9:'#fdae61',1:'#d7191c'};
-			//var mygrad = {.2:'#ffffb2', .4:'#fecc5c',.6:'#fd8d3c',.8:'#f03b20',1:'#bd0026'};
-			//var mygrad = {0.5: '#2c7bb6',
-			//							0.75: '#420a68',
-			//							0.8: '#932667',
-			//							0.85: '#dd513a',
-			//							0.95: '#fca50a',
-			//							1.0: '#fcffa4',
-			//						}
+			var mygrad = {.5:'#FCFCFC', .7:'#FFE104',.8:'#FFAB1B', .9:'#FF040C', 1:'#000000'};
+
 			var heatStyle = {
 				gradient : mygrad,
 				minOpacity: 0.75,
@@ -239,11 +233,7 @@
 
 			var customLayerLast = L.geoJson(null, {
 				style: function(feature) {
-					return {
-						color: '#FF9612',
-						weight: 6,
-						opacity: 1
-						};
+					return {color: '#FFC812', weight: 6, opacity: 1};
 				},
 				onEachFeature: onEachFeatureLast
 			});
@@ -280,6 +270,7 @@
 
 			var heatmap = L.heatLayer(latlon, heatStyle);
 			heatlayer = L.layerGroup(heatmap);
+			heatlayer.addTo(map);
 
 			// Hexbin layer
 			var hexLayer = L.hexbinLayer(hexoptions);
@@ -318,17 +309,17 @@
 
 
 			var overlayers = {
-				"<img src='../images/heatmap_icon.png' alt='heatmap' style='height:24px;'> Heat map": heatmap,
-				"<img src='../images/hexbin_icon.png' alt='hexbin' style='height:24px;'> Hexbin": hexLayer,
-				"<img src='../images/previous_icon.png' alt='previous' style='height:24px;'> Previous tracks": moveGps,
-				"<img src='../images/last_icon.png' alt='last' style='height:24px;'> Last run": moveGpsLast,
-				"<img src='../images/circle_icon.png' alt='last' style='height:24px;'> Distance circles": circleLayer,
-				"<img src='../images/mean_icon.png' alt='last' style='height:24px;'> Mean positions": meanpositionLayer,
-				"Points of interest": PIlayer
+				"Previous tracks": moveGps,
+				"Hexbin": hexLayer,
+				"🔥 Heat map ": heatmap,
+				"🏃 Last run": moveGpsLast,
+				"📏 Distance circles": circleLayer,
+				"📍 Mean positions": meanpositionLayer,
+				"📷 Points of interest": PIlayer
 			};
 
 			L.control.scale().addTo(map);
-			L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:true}).addTo(map);
+			L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);
 
 		</script>
 

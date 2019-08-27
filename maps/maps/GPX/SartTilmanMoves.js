@@ -116,8 +116,6 @@ var moves = [
 	'2018/SciencePark_2018_08_14_10_06_26_Running_noextensions_500pts.gpx',
 	'2018/SartTilman_Tilff_2018_07_17_12_11_17_Running_noextensions_500pts.gpx',
 	'2018/SartTilman_Cortil_2018_06_07_12_04_05_Running_noextensions_500pts.gpx',
-	'2019/Angleur_ParcScientifique_2019_01_02_15_43_27_Running_500pts.gpx',
-	'2019/Colonster_3sapins_2019_01_03_11_38_31_Running_500pts.gpx',
 	'2018/Cortil_Mery_2018_12_28_11_01_40_Running_500pts.gpx',
 	'2018/sarttilman_2018-08-29T10:20:05Z_500pts.gpx',
 	'2018/sarttilman_2018-08-30T10:13:43Z_500pts.gpx',

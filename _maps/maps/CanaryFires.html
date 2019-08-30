@@ -48,7 +48,7 @@
 				"Esri_WorldImagery": Esri_WorldImagery
 			};
 
-			map.addLayer(Esri_WorldImagery);
+			//map.addLayer(Esri_WorldImagery);
 
 			var mygrad = {.5:'#FCFCFC', .7:'#FFE104',.8:'#FFAB1B', .9:'#FF040C', 1:'#000000'};
 
@@ -66,6 +66,9 @@
 
 			//var bathymetry = L.tileLayer.wms('http://servicios.idee.es/wms-inspire/mdt?request=GetCapabilities&service=WMS',
 			//{layers: 'sombreado'}).addTo(map);
+
+			var sombras = L.tileLayer.wms('http://servicios.idee.es/wms-inspire/mdt?SERVICE=WMS',
+			{layers: 'sombreado'}).addTo(map);
 
 
 			$.getJSON(datafile1, function(json) {

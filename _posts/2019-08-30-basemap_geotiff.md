@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Displaying geoTIFF images with Python
+title: Reading and displaying geoTIFF images with Python
 date: 2019-08-30
 img: geotiff_plot.png
 alt: Displaying geoTIFF images with Python
@@ -33,7 +33,6 @@ datafile2 = "/data/Visible/Sentinel-2_L2A_2019-08-09.tiff"
 ```
 
 ## 1. Reading the geoTIFF
-
 
 ```python
 ds = gdal.Open(datafile1, gdal.GA_ReadOnly)

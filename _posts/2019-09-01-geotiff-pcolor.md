@@ -13,7 +13,9 @@ The goal is to show how to plot geophysical fields using for instance `pcolor`, 
 2. [`Cartopy`](https://scitools.org.uk/cartopy/docs/latest/).
 The data file is not provided but (hopefully) the procedure is clear enough that it can be with any dataset.
 
-<img src="{{ site.url }}/figures/blog/geotiff_pcolor/{{ img }}" class="img-responsive">
+You can download the [full notebook](https://ctroupin.github.io/notebooks/python/plot_visible_pcolor.ipynb).
+
+<img src="{{ site.url }}/figures/blog/chl_oc3_V22.png" class="img-responsive">
 
 
 ```python
@@ -31,7 +33,7 @@ from osgeo import gdal, osr
 from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
 ```
 
-These lines to get rid of some `Matplotlib` warnings.
+These lines to get rid of some `Matplotlib` warnings:
 
 
 ```python

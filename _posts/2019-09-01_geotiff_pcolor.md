@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Displaying a 2D field over a visible image in Python
-date: 2019-08-30
-img: geotiff_plot.png
+date: 2019-09-01
+img: chl_oc3_V22.png
 alt: Displaying a 2D field over a visible image in Python
 tools: Python, Basemap, Cartopy
 topic: Oceanography, Maps
@@ -12,6 +12,8 @@ The goal is to show how to plot geophysical fields using for instance `pcolor`, 
 1. [`Basemap`](https://matplotlib.org/basemap/).
 2. [`Cartopy`](https://scitools.org.uk/cartopy/docs/latest/).
 The data file is not provided but (hopefully) the procedure is clear enough that it can be with any dataset.
+
+<img src="{{ site.url }}/figures/blog/geotiff_pcolor/{{ img }}" class="img-responsive">
 
 
 ```python
@@ -163,11 +165,6 @@ m.drawparallels(np.arange(57.5, 59., 0.5),
 plt.show()
 plt.close()
 ```
-
-    /home/ctroupin/Software/PythonEnvs/Diva-python3.6/lib/python3.6/site-packages/matplotlib/colors.py:1012: RuntimeWarning: invalid value encountered in less_equal
-      mask |= resdat <= 0
-
-
 <img src="{{ site.url }}/figures/blog/geotiff_pcolor/output_16_1.png" class="img-responsive">
 
 ### Test 2

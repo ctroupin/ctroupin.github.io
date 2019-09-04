@@ -2,7 +2,7 @@
 layout: post
 title: Plotting a high-resolution coastline
 date: 2019-09-02
-img: coastline_emodnet.png
+img: finecoast.png
 alt: Plotting a high-resolution coastline
 tools: Python, Basemap, Cartopy
 topic: Oceanography, Maps
@@ -12,8 +12,7 @@ topic: Oceanography, Maps
 How can we obtain the finest coastline for a regional plot?      
 This is what we will show here.
 
-<img src="{{ site.url }}/figures/blog/{{ img }}" class="img-responsive">
-
+<img src="{{ site.url }}/figures/blog/{{ page.img }}" class="img-responsive">
 
 
 ```python

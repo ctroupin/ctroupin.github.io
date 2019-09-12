@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-$.get('http://127.0.0.1:4000/maps/maps/data/numParticipant.csv', function(csv) {
+$.get('./data/distanceTime.csv', function(csv) {
 			$('#timeserie').highcharts({
 
 					data: {

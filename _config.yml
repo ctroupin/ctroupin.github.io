@@ -116,7 +116,7 @@ page_data:
     url: "photography"
 
 
-gems: ['jekyll/scholar']
+plugins: ['jekyll/scholar']
 
 scholar:
   style: _layouts/copernicus-publications

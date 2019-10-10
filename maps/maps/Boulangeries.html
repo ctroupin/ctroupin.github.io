@@ -41,11 +41,29 @@
 			};
 
 			var Boulangeries = [[50.589430, 5.868354],
-													[50.592722, 5.866335]];
+													[50.592722, 5.866335],
+													[50.587850, 5.859113],
+													[50.584091, 5.865361],
+													[50.584872, 5.855356],
+													[50.587173, 5.840658],
+													[50.590911, 5.848718],
+													[50.587550, 5.858029],
+													[50.595425, 5.870255],
+													[50.578594, 5.865369],
+													[50.584426, 5.883850],
+													[50.597871, 5.895605],
+													[50.581754, 5.839074],
+													[50.580835, 5.841440],
+												];
 
+												50.592341, 5.860097
 
-			L.marker(Boulangeries[0]).addTo(map);
-			L.marker(Boulangeries[1]).addTo(map);
+			for (i = 0; i < Boulangeries.length; i++) {
+				var marker = new L.marker(Boulangeries[i], { opacity: 0.01 }); //opacity may be set to zero
+				marker.bindTooltip("🍞", {permanent: true, className: "my-label", offset: [0, 0] });
+				marker.addTo(map);
+			};
+
 
 			map.addLayer(Stamen_Terrain)
 

@@ -24,6 +24,7 @@ Conda.add("cmocean")
 ```
 
 ## Data
+
 We will use:
 1. Sentinel-2 image (geoTIFF format) downloaded from the [Sentinel-Hub](https://apps.sentinel-hub.com/eo-browser/?lat=57.991&lng=18.620&zoom=9&time=2019-08-09&preset=1_TRUE_COLOR&atmFilter=DOS1&datasource=Sentinel-2%20L2A) browser and
 2. A netCDF file containg measurements of chlorophyll concentration, also Sentinel-2.

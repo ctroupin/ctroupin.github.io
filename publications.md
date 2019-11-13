@@ -11,3 +11,5 @@ Download the list in <a href="/CV/publicationList.pdf">pdf <i class="fa fa-downl
 ### Hidden gems
 
 Sometimes people say "*if it's not published, it doesn't exist*". Here are a few [pieces of work](/publications/unpublished) that will maybe never published.
+
+The obvious question is "*why won't that be published?*" and the answer itself deserves its own post in the blog. And, as expected, this post won't probably be ever published, for similar reasons: T I M E. 

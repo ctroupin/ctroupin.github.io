@@ -7,7 +7,7 @@
     <meta name="description" content="Tryin' to turn ocean data into stories">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
-    <link rel="canonical" href="https://ctroupin.github.io/posts/2019-09-26-wind-plot/">
+    <link rel="canonical" href="http://localhost:4000/posts/2019-09-26-wind-plot/">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
 
     <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
@@ -74,6 +74,8 @@
 				</div>
 				<p>How to create display wind vectors, measured by satellite, on top of true color image?</p>
 
+<p><img src="http://localhost:4000/figures/blog/terra-ascat.png" class="img-responsive" alt="Wind from ASCAT on Terra satellite" /></p>
+
 <h2 id="data">Data</h2>
 
 <p>We will play with:</p>
@@ -92,22 +94,23 @@ The only thing we need to ensure is to download the image with the good projecti
 <h3 id="scatterometer-wind">Scatterometer wind</h3>
 
 <p>The wind fields are available as netCDF files from the JPL thredds server.   <br />
-Getting the wind intensity and direction is not an hard task, and converting to zonal and meridional components requires a little bit of trigonometry.</p>
+Getting the wind intensity and direction is not an hard task, and converting to zonal and meridional components requires only a little bit of trigonometry (yes, sometimes people think nobody uses trigonometry after secondary school).</p>
 
-<p>Still, there is a problem to solve: the wind files are organised by day of the years and downloading all the files is not necessary since most of them have zero good measurements in the region of interest. This is easily solved using the OPEnDAP protocol. Then 2nd problem arises: the pattern of the file names does not allow us to construct it in an automatic way.</p>
+<p>Still, there is a problem to solve: the wind files are organised by <em>day of the year</em> (1, 2, …, 365) and downloading all the files is not necessary since most of them have zero good measurements in the region of interest. This is easily solved using the OPEnDAP protocol, which allows us to get the variables we want without actually downloading the file. Then 2nd problem arises: to get the OPEnDAP URL, we need to know the file name, but its pattern does not allow us to construct it in an automatic way, as it depends on the time of acquisition.</p>
 
 <p>For instance, one file corresponding to September 29, 2018, is named:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">ascat_20180929_081200_metopa_61980_eps_o_coa_3201_ovw</span><span class="o">.</span><span class="n">l2</span><span class="o">.</span><span class="n">nc</span><span class="o">.</span><span class="n">gz</span>
 </code></pre></div></div>
+<p>Of course there is a logic in the naming (year, month, day, hour, swath number…), but let’s say it’s not logic enough to code that in a few minutes.</p>
 
-<p>Of course there is a logic in the naming (year, month, day, hour, swath number…), but let’s say it’s not logic enough to code that in a few minutes. Other solution: reading the HTML from the thredds catalog and extract from it the different file paths for the corresponding day.</p>
-
-<p>Luckily there is a library to do that in a few lines: <a href=""><code class="highlighter-rouge">BeautifulSoup</code></a>: it makes it possible to parse the html and then get all the links in the document.</p>
+<p>This leads us to the other solution: reading the HTML from the <code class="highlighter-rouge">thredds</code> catalog index and extract from it the different file paths for the corresponding day. Luckily there is a library to do that in a few lines: <a href=""><code class="highlighter-rouge">BeautifulSoup</code></a>: it makes it possible to parse the HTML and then get all the links in the document. I think people use it a lot when it comes to web scrapping.</p>
 
 <h2 id="putting-all-the-pieces-together">Putting all the pieces together</h2>
 
 <p>With the data at hand, the plot is done in a couple of lines using the <code class="highlighter-rouge">quiver()</code> function (plot of vectors).    <br />
-A color can be added to</p>
+A color can be added to the arrows to depict the wind speed. The figure below provides an example with a tropical storm in the Atlantic Ocean on September 30, 2019. The visible image is taken from VIIRS.</p>
+
+<p><img src="http://localhost:4000/figures/blog/viirs-ascat.png" class="img-responsive" alt="Fuerteventura" /></p>
 
 			</blogsection>
 		</div>

@@ -7,7 +7,7 @@
     <meta name="description" content="Tryin' to turn ocean data into stories">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
-    <link rel="canonical" href="https://ctroupin.github.io/posts/2019-09-02-fine-coast/">
+    <link rel="canonical" href="http://localhost:4000/posts/2019-09-02-fine-coast/">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
 
     <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
@@ -75,7 +75,7 @@
 				<p>How can we obtain the finest coastline for a regional plot?    <br />
 This is what we will show here.</p>
 
-<p><img src="https://ctroupin.github.io/figures/blog/finecoast.png" class="img-responsive" /></p>
+<p><img src="http://localhost:4000/figures/blog/finecoast.png" class="img-responsive" /></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span>
@@ -150,7 +150,7 @@ The full resolution provides a good amound of details that is sufficient in most
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></div>
 
-<p><img src="https://ctroupin.github.io/figures/blog/fine-coast/output_10_0.png" class="img-responsive" /></p>
+<p><img src="http://localhost:4000/figures/blog/fine-coast/output_10_0.png" class="img-responsive" /></p>
 
 <p>Even at 10 m, the result is not good enough.</p>
 
@@ -172,7 +172,7 @@ We start with a <em>Plate-Carrée</em> projection.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></div>
 
-<p><img src="https://ctroupin.github.io/figures/blog/fine-coast/output_12_0.png" class="img-responsive" /></p>
+<p><img src="http://localhost:4000/figures/blog/fine-coast/output_12_0.png" class="img-responsive" /></p>
 
 <p>The full resolution product displays a lot of details, more than with <code class="highlighter-rouge">Basemap</code>.</p>
 
@@ -194,7 +194,7 @@ This <a href="https://scitools.org.uk/cartopy/docs/v0.15/examples/wms.html">Cart
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></div>
 
-<p><img src="https://ctroupin.github.io/figures/blog/fine-coast/output_14_0.png" class="img-responsive" /></p>
+<p><img src="http://localhost:4000/figures/blog/fine-coast/output_14_0.png" class="img-responsive" /></p>
 
 <h2 id="comparison">Comparison</h2>
 
@@ -223,7 +223,7 @@ This <a href="https://scitools.org.uk/cartopy/docs/v0.15/examples/wms.html">Cart
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></div>
 
-<p><img src="https://ctroupin.github.io/figures/blog/fine-coast/output_16_0.png" class="img-responsive" /></p>
+<p><img src="http://localhost:4000/figures/blog/fine-coast/output_16_0.png" class="img-responsive" /></p>
 
 <p>EMODnet Bathymetry offers the best resolution for the coastline.</p>
 

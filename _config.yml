@@ -1,10 +1,10 @@
 # Site settings
 title: Charles Troupin
-email: charles.troupin@gmail.com
+email: ctroupin@protonmail.com
 url: https://ctroupin.github.io
-description: "Tryin' to turn ocean data into stories"
+description: "Turning ocean data into stories"
 keywords: "data analyst, engineering, oceanography, ocean science, numerical modelling"
-skills: "Engineer in Physics - Data analyst - Oceanographer - Ultra-runner"
+skills: "Engineer • Data analyst • Oceanographer • Ultra-Runner"
 meta_author: Troupin Charles
 credits: 'Style based on <a href="https://github.com/jeromelachaud/freelancer-theme">Freelancer Jekyll theme</a> by jeromelachaud. Freelancer is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
 address:
@@ -29,9 +29,9 @@ disqus_shortname: myshortname
 
 # Color settings (hex-codes without the leading hash-tag)
 color:
-  primary: FEB300
+  primary: E7E7E7
   primary-rgb: "254,179,0" #"128,179,255"
-  secondary: 545454 #FD6E8A
+  secondary: 313131
   secondary-dark: 1B1B1B #A2122F
   link: 1483d3
 

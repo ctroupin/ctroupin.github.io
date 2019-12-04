@@ -115,6 +115,7 @@ header .intro-text .name {
 header .intro-text .skills {
     font-size: 1.25em;
     font-weight: 300;
+    color: #313131
 }
 
 @media(min-width:768px) {
@@ -194,7 +195,7 @@ section h2 {
 }
 
 section.success {
-    color: #fff;
+    color: #313131;
     background: #{{ site.color.primary }};
 }
 
@@ -493,4 +494,19 @@ td {
   height: 1.5em;
   background: #DEDEDE;
   vertical-align: middle;
+}
+
+.list-inline-social {
+    display: block;
+    display: inline;
+    content: "";
+    margin: 0 .15em;
+}
+
+.list-inline-social li{display:inline-block;}
+.list-inline-social li:after{content:''; margin:0 2px;}
+
+.list-inline-social li:before {
+  content: "";
+  padding-right: 0px;
 }

@@ -12,8 +12,18 @@ topic: Oceanography, Maps
 A quick post about an installation, something I never remember how to do but can be useful
 to others.
 
+### Update November 2019
+
+Just run
+```julia
+using Conda
+Conda.add("basemap")
+```
+discard the rest of the post and enjoy!
+
 ### Download package
-Get the most recent (and stable) version of Basemap:
+Get the most recent (and stable) version of `Basemap`, for example in the `~/Software/`
+directory:
 ```bash
 wget https://github.com/matplotlib/basemap/archive/v1.1.0.zip
 unzip basemap-1.1.0.zip
@@ -31,7 +41,7 @@ cd geos-3.3.3/
 ```
 and start the installation of Basemap:
 ```bash
-export GEOS_DIR="/home/ctroupin/Software/Geos"
+export GEOS_DIR="~/Software/Geos"
 ./configure --prefix=$GEOS_DIR
 make
 make install
@@ -39,8 +49,10 @@ make install
 The `make` can take up to a few minutes to finish.
 
 ### pip install
-Now the *tricky* part: you need to localise the `pip` and `python` executables
-corresponding to your version of Julia to run the installation scripts.      
+Now the *tricky* part: you need to localise the `python` and `pip` executables
+corresponding to your version of Julia to run the installation scripts.   
+
+Starting in the `basemap-1.1.0` directory:   
 
 For Julia-0.6 I had:
 ```bash
@@ -55,6 +67,10 @@ For Julia-1.0.0, I found 3 installed `pip`:
 ~/.julia/packages/Conda/a196m/deps/usr/bin/pip
 ```
 so I used the most recent one: `~/.julia/packages/Conda/hsaaN/deps/usr/bin/pip`
+```bash
+~/.julia/packages/Conda/hsaaN/deps/usr/bin/pip install pyproj
+~/.julia/packages/Conda/hsaaN/deps/usr/bin/python setup.py install
+```
 
 ### Build Julia package
 Now everything is ready for the installation of the module in Julia:

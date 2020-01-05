@@ -8,7 +8,7 @@ tools: Python, Basemap, git
 topic: Oceanography, Maps, Data Analysis
 ---
 
-Last week we were invited to give a course on Python for oceanography, at the [University of Cádiz](), in the south of Spain. I already gave the course 3 or 4 years ago with another colleagues so I knew more or less what to expect and what could be a hard-to-achieve goal: to make participants use Python as a tool after the course. As I did not take picture during the course, I'll add a few photos of Cádiz, just to have something between the paragraphs.
+Last week we were invited to give a course on _Python for oceanography_, at the [University of Cádiz](https://www.uca.es/?lang=en/), in the south of Spain. I already gave the course 3 or 4 years ago with another colleagues so I knew more or less what to expect and what could be a hard-to-achieve goal: to make participants use Python as a tool after the course. As I did not take picture during the course, I'll add a few photos of Cádiz, just to have something between the paragraphs.
 
 <img src="{{ site.url }}/figures/blog/python-cadiz/Cadiz2019_4289.JPG" class="img-responsive" alt="Cádiz">
 

@@ -35,7 +35,6 @@
 \urlstyle{sf}
 \DeclareUrlCommand\doi{\aiDoi\def\UrlLeft##1\UrlRight{\nobreakspace\href{http://dx.doi.org/##1}{##1}}\urlstyle{sf}}
 
-
 \DeclareGraphicsExtensions{.pdf,.png,.PNG,.JPG,.jpg,.jpeg,.gif}
 \graphicspath{
 {/home/ctroupin/Presentations/figures4presentations/logo/},
@@ -107,10 +106,10 @@
 \raisebox{-1ex}{\includegraphics[width=\logowidth]{logo_uliege}}\textbf{Post-doctoral researcher}\\
 GeoHydrodynamics and Environment Research (\href{http://modb.oce.ulg.ac.be/}{GHER})
 \begin{itemize}%
-\item Improvement of the DIVA and DIVAnd interpolation software tools.
-\item Development of a user interface for DIVA in a Virtual Research Environment.
+\item Improvement and testing of the DIVA and DIVAnd interpolation software tools.
 \item User support and training, documentation writing.
-\item Participation to international project meetings.
+\item Analysis of suspended particular matter satellite images in the North Sea.
+\item Interpolation of velocity measurements using HF radar and drifters.
 \end{itemize}
 
 
@@ -133,7 +132,7 @@ Data analytics:
 
 \subsection{2013/03--2014/03}
 
-\raisebox{-1ex}{\includegraphics[width=\logowidth]{logo_imedea.png}}~\textbf{Post-doctoral researcher}, Mediterranean Institute for Advanced Studies (\href{http://imedea.uib-csic.es/}{IMEDEA})
+\raisebox{-0.6ex}{\includegraphics[width=\logowidth]{logo_imedea.png}}~\textbf{Post-doctoral researcher}, Mediterranean Institute for Advanced Studies (\href{http://imedea.uib-csic.es/}{IMEDEA})
 
 \begin{itemize}%
 \item Preparation of high-resolution altimetry products in the Mediterranean Sea (MyOcean~2 project).
@@ -231,6 +230,8 @@ Study of the upwelling filament off Cape Ghir (Northwest Africa)
 
 %\cvitem{June 2016}{\href{https://www.codecademy.com/learn/learn-java}{\textit{Learn Java}}, 4 hours, 
 %Code Academy}
+\cvitemf{2019/11/29}{Professional software dedicated to research, ULiège (3h), J.~Fays, R.~Hoyoux}
+\cvitemf{2019/11/29}{Software development strategy, ULiège (3h), J.~Fays}
 \cvitemf{2018/01/21}{Managing an international research team, ULiège (3h), I.~Halleux}
 \cvitemf{2016/07}{\href{https://www.futurelearn.com/courses/big-data-visualisation}{\textit{Big Data: Data Visualisation}}, 2~weeks / 2~hours per week, Queensland University of Technology}
 \cvitemf{2016/06}{\href{https://www.codecademy.com/learn/sql-table-transformation}{\textit{SQL: Table Transformation}}, Code Academy}
@@ -263,7 +264,7 @@ Study of the upwelling filament off Cape Ghir (Northwest Africa)
 \subsection{IT skills}
 
 \cvitem{Programming}{Python: numpy, scipy, geopy, pandas, logging, unittest, json, geoip, netCDF4\newline
-Julia: data reading/writing (CSV, netCDF, images), numerical analysis, logging\newline
+Julia: spatial interpolation, writing of modules/functions, unit-testing, numerical analysis\newline
 MATLAB/Octave: netCDF, easykrig, m$\_$map, ROMS tools \newline
 Bash scripting: awk, cronjob, wget, ssh, ncftp\newline
 Web: HTML, CSS, JavaScript, Jekyll, D3, Angular, Markdown, Wordpress, Dokuwiki, Mediawiki\newline
@@ -287,7 +288,7 @@ Other: Fortran 77, 90, Tcl/Tk, MySQL, PostgreSQL}
 \cvitem{Conference organisation}{Main organiser of several editions of the Diva workshop (10 participants from European research centres on average) and member of the organising committee of the 48th International Li\`{e}ge Colloquium on Ocean Dynamics (200 participants from 40 countries).}
 
 \subsection{Languages}
-\cvitem{\textbf{Summary}}{In my current working environment I use Spanish, English and Catalan to communicate with my colleagues and mostly English for the communication with the external users and partners as well as for the writing of technical document.}
+\cvitem{\textbf{Summary}}{English for the communication with the project partners and for the writing of technical document. Spanish, English and Catalan in the previous working environment.}
 \cvitem{French}{Native speaker.}
 \cvitem{Spanish}{Highly proficient in spoken and written Spanish.}
 \cvitem{English}{Highly proficient in spoken and written English.}
@@ -299,6 +300,8 @@ Other: Fortran 77, 90, Tcl/Tk, MySQL, PostgreSQL}
 \subsection{Teaching and Training}
 
 \cvitem{\textbf{General}}{My experience of training at the University is complemented by several training courses given in the frame of European projects or invited lectures.}
+
+\cventryf{2019/10/28--30}{University of C\'{a}diz}{Facultad de Ciencias del Mar y Ambientales}{Introduction to scientific Python. Application to Oceanography}{Graduate students, researchers and professors}{}
 
 \cventryf{2017/11/15--17}{Open Sea Lab Workshop}{De Serre, Antwerp}{Coaching the participants for the data access and usage}{}{}
 
@@ -325,18 +328,23 @@ Other: Fortran 77, 90, Tcl/Tk, MySQL, PostgreSQL}
 
 \subsection{European projects}
 
-\cventryf{2018--ongoing}{EOSC-Hub}{}{Development of a data analytics platform for marine data}{}{}
+\cventryf{2019--ongoing}{\href{https://www.phidias-hpc.eu/}{PHIDIAS} (CEF Telecom)}{}{Deployment of DIVAnd tool in a HPC environment}{}{}
 
-\cventryf{2017--ongoing}{EMODnet Biology}{}{Creation of gridded field for biological variables}{}{}
+\cventryf{2019--ongoing}{\href{https://www.emodnet-physics.eu}{EMODnet Physics}}{}{Creation of velocity maps by interpolating drifter and HF radar measurements}{}{}
 
-\cventryf{2017--ongoing}{EMODnet Chemistry}{}{}{}{\begin{itemize}
+\cventryf{2018--ongoing}{\href{https://www.eosc-hub.eu}{EOSC-Hub}}{}{Development of a data analytics platform for marine data}{}{}
+
+\cventryf{2017--ongoing}{\href{https://emodnet-biology.eu}{EMODnet Biology}}{}{Creation of gridded field for biological variables}{}{}
+
+\cventryf{2017--ongoing}{\href{https://www.emodnet-chemistry.eu}{EMODnet Chemistry}}{}{}{}{\begin{itemize}
 \item Creation of gridded field for chemical variables 
 \item Visualisation of the products using the OceanBrowser tool
+\item Preparation of merged products combining all the regional components
 \end{itemize}}
 
-\cventryf{2017--ongoing}{EMODnet Data Ingestion}{}{Development on new gridded products using the data obtained in the frame of the project}{}{}
+\cventryf{2017--ongoing}{\href{https://www.emodnet-ingestion.eu}{EMODnet Data Ingestion}}{}{Development on new gridded products using the data obtained in the frame of the project}{}{}
 
-\cventryf{2017--ongoing}{SeaDataCloud (H2020)}{Further developing the pan-European infrastructure for marine and ocean data
+\cventryf{2017--ongoing}{\href{https://www.seadatanet.org}{SeaDataCloud} (H2020)}{Further developing the pan-European infrastructure for marine and ocean data
 management}{}{}{
 \begin{itemize}
 \item Improvement of the Diva software tool
@@ -344,8 +352,8 @@ management}{}{}{
 \end{itemize}
 }
 
-\cventryf{2015--2017}{JERICO-NEXT (H2020)}{Joint European Research Infrastructure Network For Coastal Observatories}{Data management best practices ; glider data processing and calibration}{}{}
-\cventryf{2015--2017}{ODIP~2}{Ocean Data Interoperability portal}{}{}{
+\cventryf{2015--2017}{\href{http://www.jerico-ri.eu/}{JERICO-NEXT} (H2020)}{Joint European Research Infrastructure Network For Coastal Observatories}{Data management best practices ; glider data processing and calibration}{}{}
+\cventryf{2015--2017}{\href{http://www.odip.eu/}{ODIP~2}}{Ocean Data Interoperability portal}{}{}{
 \begin{itemize}
 \item Test of new standards in data and metadata management 
 \item Data visualisation tools
@@ -364,7 +372,7 @@ management}{}{}{
 \item Data analysis during a multi-platform experiment in the Ibiza Channel.
 \end{itemize}
 }
-\cventryf{2012--2013}{ODIP}{Ocean Data Interoperability portal}{Definition of standards}{}{}
+\cventryf{2012--2013}{\href{http://www.odip.eu/}{ODIP}}{Ocean Data Interoperability portal}{Definition of standards}{}{}
 \cventryf{2011--2015}{PERSEUS}{Policy-oriented marine Environmental Research for the Southern European Seas}{Processing of glider and campaign data}{}{}
 \cventryf{2009--2013}{EMODNET -- Chemistry}{Pilot component for a final operational European Marine Observation and Data Network}{}{}{
 \begin{itemize}
@@ -402,16 +410,14 @@ management}{}{}{
 \section{Research stays}
 %----------------------------------
 
-\cventryf{5 January - 15 March 2007}{Universidad de Las Palmas de Gran Canaria (ULPGC}{Las Palmas de Gran Canaria (Spain)}{Implementation of ROMS numerical model}{}{}
-\cventryf{21 May - 24 August 2007}{ULPGC}{Las Palmas de Gran Canaria (Spain)}{Design of process-oriented numerical experiments}{}{}
-\cventryf{5 December 2007 - 5 March 2008}{ULPGC}{Las Palmas de Gran Canaria (Spain)}{Diagnostics on model outputs}{}{}
-\cventryf{30 May - 30 August 2008}{ULPGC}{Las Palmas de Gran Canaria (Spain)}{High-resolution configuration for the model}{}{}
-\cventryf{5 January 2009 - 31 March 2009}{ULPGC}{Las Palmas de Gran Canaria (Spain)}{Diagnostics on model outputs}{}{}
-\cventryf{15 July 2009 - 30 September 2009}{ULPGC}{Preparation and participation to CAIBEX cruise}{}{}{}
-\cventryf{5 August - 5 September 2010}{NATO Undersea Research Centre (NURC)}{La Spezia (Italu)}{Analysis of satellite images in the Ligurian Sea}{}{}{}
 \cventryf{3 September - 31 October 2018}{Marine Biology Station Piran, National Institute of Biology (NIB)}{Piran (Slovenia)}{Analysis of surface currents in the Gulf of Trieste using high-frequency radar}{}{}
-
-
+\cventryf{5 August - 5 September 2010}{NATO Undersea Research Centre (NURC)}{La Spezia (Italu)}{Analysis of satellite images in the Ligurian Sea}{}{}{}
+\cventryf{15 July 2009 - 30 September 2009}{ULPGC}{Preparation and participation to CAIBEX cruise}{}{}{}
+\cventryf{5 January 2009 - 31 March 2009}{ULPGC}{Las Palmas de Gran Canaria (Spain)}{Diagnostics on model outputs}{}{}
+\cventryf{30 May - 30 August 2008}{ULPGC}{Las Palmas de Gran Canaria (Spain)}{High-resolution configuration for the model}{}{}
+\cventryf{5 December 2007 - 5 March 2008}{ULPGC}{Las Palmas de Gran Canaria (Spain)}{Diagnostics on model outputs}{}{}
+\cventryf{21 May - 24 August 2007}{ULPGC}{Las Palmas de Gran Canaria (Spain)}{Design of process-oriented numerical experiments}{}{}
+\cventryf{5 January - 15 March 2007}{Universidad de Las Palmas de Gran Canaria (ULPGC}{Las Palmas de Gran Canaria (Spain)}{Implementation of ROMS numerical model}{}{}
 
 
 \section{Scientific contributions}

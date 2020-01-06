@@ -20,10 +20,7 @@ var baseMaps = {
 	"OpenStreetMap": OpenStreetMap_Mapnik,
 	"Stamen Terrain": Stamen_Terrain,
 	"CartoDB Dark": CartoDB_DarkMatter,
-	"Thunderforest_Outdoors": Thunderforest_Outdoors,
-	"CartoDB_VoyagerLabelsUnder": CartoDB_VoyagerLabelsUnder,
 };
-
 
 L.control.coordinates({
 	position:"bottomleft",
@@ -42,7 +39,6 @@ var heatStyle = {
 	radius: 4,
 	blur: 4,
 };
-
 
 var hexoptions = {
 	radius : 12,
@@ -171,10 +167,25 @@ var onEachFeatureLast = function (feature, layer) {
 
 var customLayer = L.geoJson(null, {
 	style: function(feature) {
+		year = parseInt(feature.properties.time.substring(0, 4));
+		if (year == currentTime.getFullYear()){
+			coloryear = "#FF612B";
+			linewidth = 1.5;
+			lineopa = 0.9;
+		} else if (year == currentTime.getFullYear() - 1) {
+			coloryear = "#FFAE2B";
+			linewidth = 1;
+			lineopa = 0.75;
+		} else {
+			coloryear = "#FFE02B";
+			linewidth = 1;
+			lineopa = 0.6;
+		};
+
 		return {
-			color: '#FF612B',
-			weight: 1,
-			opacity: .6,
+			color: coloryear,
+			weight: linewidth,
+			opacity: lineopa,
 			};
 	},
 	onEachFeature: onEachFeature
@@ -191,7 +202,7 @@ var customLayerLast = L.geoJson(null, {
 function done(totaldist, markerMean) {
 	summary.onAdd = function (map) {
 			this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-			this._div.innerHTML = '<b>Total 2019:</b>  <br> Distance: ' + totaldist.toFixed(2) + ' km <br>' +
+			this._div.innerHTML = '<b>Total ' + thisyear + ':</b>  <br> Distance: ' + totaldist.toFixed(1) + ' km <br>' +
 			'Number of tracks: ' + ntrackyear;
 			return this._div;
 	};

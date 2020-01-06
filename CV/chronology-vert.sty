@@ -1,0 +1,111 @@
+%% Modifications copyright 2015 Clea F. Rees
+%% Code from origfile copyright 2011 Levi Wiseman (see below)
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The Current Maintainer of this work is Clea F. Rees.
+%%
+%% This work consists of the file chronology-vert.sty.
+%%
+%% chronology-vert.sty is a derived work under the terms of the LPPL.
+%% The original file, chronology.sty, is supplied with chronology. A
+%% copy of chronology including an unmodified copy of chronology.sty
+%% is available from
+%% http://ctan.org/tex-archive/macros/latex/contrib/chronology.
+%%
+%% The main modifications made to this file are as follows:
+%% - This notice is added.
+%% - The file is renamed.
+%% - The timeline is created as a vertical, rather than horizontal
+%% progression.
+%% - The timeline is not boxed or resized. Hence, it is up to the user
+%% to ensure that things fit appropriately.
+
+% based on chronology 2010/6/12 v1.0 Horizontal timeline
+\NeedsTeXFormat{LaTeX2e}%
+\ProvidesPackage{chronology-vert}[2015/05/02 v1.0 Horizontal timeline]
+\RequirePackage{calc}
+\RequirePackage{tikz}
+\RequirePackage{ifthen}
+\newcounter{step}\newcounter{stepstart}\newcounter{stepstop}
+\newcounter{yearstart}\newcounter{yearstop}\newcounter{deltayears}
+\newlength{\ystart}\newlength{\ystop}
+\newlength{\unit}\newlength{\timelineheight}
+\makeatletter
+\newif\ifchronology@star
+\newenvironment{chronology}{%
+    \@ifstar{\chronology@startrue\chronology@i*}{\chronology@starfalse\chronology@i*}%
+}{%
+    \end{tikzpicture}%
+}%
+\def\chronology@i*{%
+    \@ifnextchar[{\chronology@ii*}{\chronology@ii*[{5}]}%
+}%
+\def\chronology@ii*[#1]#2#3#4{%
+    \@ifnextchar[{\chronology@iii*[{#1}]{#2}{#3}{#4}}{\chronology@iii*[{#1}]{#2}{#3}{#4}[{#4}]}%
+}%
+\def\chronology@iii*[#1]#2#3#4[#5]{%
+    \newif\ifflipped%
+    \ifchronology@star%
+        \flippedtrue%
+    \else%
+        \flippedfalse%
+    \fi%
+    \setcounter{step}{#1}%
+    \setcounter{yearstart}{#2}\setcounter{yearstop}{#3}%
+    \setcounter{deltayears}{\theyearstop-\theyearstart}%
+    \setlength{\unit}{#5/\thedeltayears}%
+    \setlength{\timelineheight}{#4}%
+    \pgfmathsetcounter{stepstart}{\theyearstart+\thestep-mod(\theyearstart,\thestep)}%
+    \pgfmathsetcounter{stepstop}{\theyearstop-mod(\theyearstop,\thestep)}%
+    \addtocounter{step}{\thestepstart}%
+      \begin{tikzpicture}[baseline={(current bounding box.north)}]%
+          \draw [|->] (0,0) -- (0,-\thedeltayears*\unit-\unit);%
+          \foreach \y in {1,...,\thedeltayears}%
+              \draw[yshift=-\y*\unit] (-.1\unit,0) -- (.1\unit,0);%
+          \addtocounter{deltayears}{1}%
+          \foreach \y in {\thestepstart,\thestep,...,\thestepstop}{%
+              \pgfmathsetlength\ystop{(-\y+\theyearstart)*\unit}%
+              \draw[yshift=\ystop] (-.3\unit,0) -- (.3\unit,0);%
+              \ifflipped%
+                  \node at (0,\ystop) [left=.2\unit] {\y};%
+              \else%
+                  \node at (0,\ystop) [right=.2\unit] {\y};%
+              \fi%
+          }%
+}%
+\makeatother
+\newcommand{\event}[3][e]{%
+    \pgfmathsetlength\ystop{(#2-\theyearstart)*\unit}%
+    \ifx #1e%
+        \ifflipped%
+            \draw[fill=black,draw=none,opacity=0.5]%
+                (0,-\ystop) circle (.2\unit)%
+                node[opacity=1,rotate=30,right=.5\unit] {#3};%
+        \else%
+            \draw[fill=black,draw=none,opacity=0.5]%
+                (0,-\ystop) circle (.2\unit)%
+                node[opacity=1,rotate=30,left=.5\unit] {#3};%
+        \fi%
+    \else%
+        \pgfmathsetlength\ystart{(#1-\theyearstart)*\unit}%
+        \ifflipped%
+            \draw[fill=black,draw=none,opacity=0.5,rounded corners=.2\unit]%
+                (-.2\unit,-\ystart) rectangle%
+                node[opacity=1,rotate=30,right=.5\unit] {#3} (.2\unit,-\ystop);%
+        \else%
+            \draw[fill=black,draw=none,opacity=0.5,rounded corners=.2\unit]%
+                (-.2\unit,-\ystart) rectangle%
+                node[opacity=1,rotate=30,left=.5\unit] {#3} (.2\unit,-\ystop);%
+        \fi%
+    \fi}
+\newcommand{\decimaldate}[3]{(#1-1)/31/12+(#2-1)/12+#3}
+\endinput

@@ -97,9 +97,3 @@ this is the first time this work has been done.
 
 15. If you're in working in oceanography,      
 indicate that your region of interest "*is very complex due to the interaction of processes of different scales*".
-
-#### The conclusion
-
-{:start="16"}
-
-16.

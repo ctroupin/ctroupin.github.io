@@ -11,7 +11,7 @@ $.get('./data/distanceTime.csv', function(csv) {
 				zoomType: 'x'
 			},
 				title: {
-				text: 'Distance, elevation and duration'
+				text: 'Distance, elevation and duration (2019)'
 			},
 
 			plotOptions: {

@@ -15,7 +15,7 @@ In a [previous post](./2019-11-13-python-course.md) I already talked about a for
 Here is an example of such a BibTeX file:
 ```
 @Article{TROUPIN2019,
-  Title                    = {{The AlborEX dataset: sampling of sub-mesoscale features in the Alboran Sea}},
+  Title                    = {The AlborEX dataset: sampling of sub-mesoscale features in the Alboran Sea},
   Author                   = {Charles Troupin and Pascual, Ananda and Ruiz, Simon and Olita, Antonio and Casas, Benjamin and Margirier, Félix and Poulain, Pierre-Marie and Notarstefano, Giulio and Torner, Marc and Fernández, Juan Gabriel and Rújula, Miquel Àngel and Muñoz, Cristian and Alou, Eva and Ruiz, Inmaculada and Tovar-Sánchez, Antonio and Allen, John T. and Mahadevan, Amala and Tintoré, Joaquín},
   Journal                  = {Earth System Science Data},
   Year                     = {2019},

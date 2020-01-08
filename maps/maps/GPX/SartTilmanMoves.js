@@ -246,4 +246,6 @@ var moves = [
 	'SartTilman/2019/sarttilman_2019-12-15_11-20-55.gpx',
 	'SartTilman/2019/sarttilman_2019-12-17_11-02-19.gpx',
 	'SartTilman/2019/sarttilman_2019-12-19_10-08-00.gpx',
+	'SartTilman/2020/sarttilman_2020-01-06_10-05-06.gpx',
+	'SartTilman/2020/sarttilman_2020-01-07_10-08-03.gpx',
 ]

@@ -194,7 +194,7 @@ var customLayer = L.geoJson(null, {
 
 var customLayerLast = L.geoJson(null, {
 	style: function(feature) {
-		return {color: '#FFC812', weight: 6, opacity: 1};
+		return {color: '#FF612B', weight: 6, opacity: 1};
 	},
 	onEachFeature: onEachFeatureLast
 });

@@ -40,7 +40,7 @@
 \definecolor{CVmain}{HTML}{3BA647}
 
 \urlstyle{sf}
-\DeclareUrlCommand\doi{\aiDoi\def\UrlLeft##1\UrlRight{\nobreakspace\href{http://dx.doi.org/##1}{##1}}\urlstyle{sf}}
+\DeclareUrlCommand\doi{\textcolor{CVmain}{\aiDoi}\def\UrlLeft##1\UrlRight{\nobreakspace\href{http://dx.doi.org/##1}{##1}}\urlstyle{sf}}
 
 \DeclareGraphicsExtensions{.pdf,.png,.PNG,.JPG,.jpg,.jpeg,.gif}
 \graphicspath{
@@ -56,6 +56,12 @@
 
 \newtcbox{\skillbox}{nobeforeafter,colframe=CVmain,colback=CVgrey,boxrule=1pt,arc=4pt,height=0.5cm,
   boxsep=0pt,left=3pt,right=3pt,top=2.5pt,bottom=2pt,box align=center}
+  
+  \newtcolorbox{summarybox}[1][]{colback=white,
+colframe=black,fonttitle=\bfseries,
+colbacktitle=CVmain,enhanced,
+attach boxed title to top center={yshift=-2mm},
+title=Summary,#1}
 
 % for the bibliography
 % --------------------
@@ -76,18 +82,7 @@
 \titleformat{\section}{\normalfont\Large\bfseries}{\circled{\thesection}~--}{.4em}{}
 \titleformat{\subsection}{\normalfont\bfseries}{\thesubsection~--}{.4em}{}
 
-\newtcolorbox{summarybox}[1][]{colback=white,
-colframe=black,fonttitle=\bfseries,
-colbacktitle=DarkGrey,enhanced,
-attach boxed title to top center={yshift=-2mm},
-title=Summary,#1}
-
-
 \begin{document}
-
-
-
-
 
 \section{Contact data}
 
@@ -269,27 +264,26 @@ Final project: \emph{Structuring in granular media}\\
 
 \begin{description}
 
-\item[Data analytics] \skillbox{Quality control} \skillbox{Singular events} \skillbox{Filtering} \skillbox{Data mining} \skillbox{Statistics}  \skillbox{Predictive modelling}
+\item[Data analytics] Quality control, Time series analysis, Singular events, Filtering, Data mining, Statistics, Predictive modelling
 
-\item[Engineering] \skillbox{Fluid mechanics} \skillbox{Aerodynamics} \skillbox{Finite-Element Method} \skillbox{Atmospheric Physics} \skillbox{Numerical simulations} \skillbox{Numerical analysis} \skillbox{Signal processing} \skillbox{Optimization} \skillbox{High-performance computing}
+\item[Engineering] Fluid mechanics, Aerodynamics, Finite-Element Method, Atmospheric Physics, Numerical simulations, Numerical analysis, Signal processing, Optimization, High-performance computing
 
-\item[Physical Oceanography] \skillbox{Spatial interpolation} \skillbox{Time-Series Analysis} \skillbox{Principal Component Analysis} \skillbox{Numerical Modelling} \skillbox{Data Processing} \skillbox{Database Management} \skillbox{Satellite Image Processing}
+\item[Physical Oceanography] Spatial interpolation, Time-Series Analysis, Principal Component Analysis, Process-oriented modelling, Database Management, Satellite Image Processing
 
 \end{description}
 
 
 \subsection{IT skills}
 
-\parbox{.24\textwidth}{
-\textbf{Programming}\\
+\subsubsection*{\circled{\faCode}~~Programming}
 Functional programming 				\\ 
 Object oriented programming		\\
 Test-oriented development			\\
 Control version system (git, svn)	\\
-Jupyter-notebooks					\\
-Unit tests							\\	
-%Data formats (json, csv, gpx, shapefiles)\\
-}\parbox{.72\textwidth}{
+Unit testing						\\	
+Continuous integration
+
+\subsubsection*{Languages}
 \ganttset{bar height=.3}
 \begin{ganttchart}[
 	canvas/.style={fill=white},
@@ -311,43 +305,36 @@ Unit tests							\\
     today label={}, 
     today rule /.style={draw=CVmain, line width=.75pt, dashed},
     progress label text = ,
-    ]{1}{14}
-   \gantttitle[title label node/.append style={below left=5pt and -3pt}]{Languages\quad}{0}
+    ]{1}{17}
+  % \gantttitle[title label node/.append style={below left=5pt and -3pt}]{Languages\quad}{0}
   %\gantttitle[title/.style={draw=CVmain,below=7pt}]{Languages}{0}
   \gantttitlelist[title/.style={draw=none, inner color=CVgrey,below=7pt}]{2006,2009,...,2020}{3} \\
   \ganttbar[name=bash, progress label text={awk, makefiles, cron, git, ssh, regex, \ldots}]{Bash}{1}{16} \\
-  \ganttbar[name=fortran,progress label text={data I/O, format conversion, optimisation}]{Fortran}{1}{15} \\
-  \ganttbar[name=matlab,progress label text={\hspace{4cm}geostatistics, plotting, neural networks}]{MATLAB}{1}{8} \\
-  \ganttbar[name=python,progress label text={matplotlib, numpy, scipy, pandas, virtualenv, \ldots}]{Python}{8}{16} \\
+  \ganttbar[name=fortran,progress label text={\hspace{.5cm}data I/O, format conversion, optimisation}]{Fortran}{1}{15} \\
+  \ganttbar[name=matlab,progress label text={\hspace{4cm}geostatistics, plotting, neural networks, m\_map}]{MATLAB}{1}{8} \\
+  \ganttbar[name=python,progress label text={matplotlib, numpy, scipy, pandas, virtualenv, Basemap, \ldots}]{Python}{8}{16} \\
   \ganttbar[name=julia,progress label text={DataArrays, PyPlot, module developments}]{Julia}{11}{16} \\
-  \ganttbar[name=javascript,progress label text={Leaflet, Highcharts, D3, Angular, Reveal}]{Javascript}{11}{16}
+  \ganttbar[name=javascript,progress label text={Leaflet, Highcharts, D3, Angular, Reveal}]{Javascript}{11}{16}\\
+  \ganttbar[name=Tcl/Tk,progress label text={\hspace{7cm}Graphical interface (buttons, file selectors, \ldots)}]{Tcl/Tk}{1}{2}\\
+  \ganttbar[name=LaTeX,progress label text={Beamer, TikZ, BibTeX, tcolorbox, \ldots}]{LaTeX}{1}{16}
 \end{ganttchart}
-}
+
+\subsubsection*{\circled{\faWrench}~~Tools}
 
 \begin{description}
-
-\item[Programming] {Python: numpy, scipy, geopy, pandas, logging, unittest, json, geoip, netCDF4\newline
-Julia: spatial interpolation, writing of modules/functions, unit-testing, numerical analysis\newline
-MATLAB/Octave: netCDF, easykrig, m$\_$map, ROMS tools \newline
-Bash scripting: awk, cronjob, wget, ssh, ncftp\newline
-Web: HTML, CSS, JavaScript, Jekyll, D3, Angular, Markdown, Wordpress, Dokuwiki, Mediawiki\newline
-Visualisation: bokeh, matplotlib, folium, plotly, leaflet\newline
-Version control systems: git, SVN \newline
-Other: Fortran 77, 90, Tcl/Tk, MySQL, PostgreSQL}
-\item[Operating systems]{Linux (Mint, Ubuntu) \sepa Experience with Mac~OS~X Lion, Microsoft Windows}
-%\item[Data formats}{netCDF (ncdump, ncview, Panoply, cdo, nco, OPeNDAP), ODV spreadsheet, HDF, CNV, CSV, JSON}
-\item[Image processing]{GIMP, Inkskape, Darktable, ImageJ, Matlab, Python, ffmpeg, hugin, ImageMagick}
-\item[Oceanography software]{Ocean Data View, DIVA (spatial interpolation), DINEOF (spatio-temporal interpolation of satellite images)}
-\item[Other tools]{NX~Client, VPN, LaTeX (BibTex, Beamer, TikZ), Asana}
+\item[Visualisation:] bokeh, matplotlib, folium, plotly, leaflet
+\item[Data bases:] MySQL, PostgreSQL
+\item[Operating systems:] Linux (Mint, Ubuntu) \sepa Experience with Mac~OS~X Lion, Microsoft Windows
+\item[Image processing:] GIMP, Inkskape, Darktable, ImageJ, Matlab, Python, ffmpeg, hugin, ImageMagick
+\item[Oceanography software:] Ocean Data View, DIVA (spatial interpolation), DINEOF (spatio-temporal interpolation of satellite images)
+\item[Misc:] NX~Client, VPN, Asana, QGIS
 \end{description}
 
 
 \subsection{Management}
 
-\subsection{Organisation and Communication}
-
 \begin{description}
-\item[Projects and management]{Planning and monitoring, scientific and technical reports, teamwork, deadlines, specification documents, applications for grants and supports.}
+\item[Projects and management] {Planning and monitoring, scientific and technical reports, teamwork, deadlines, specification documents, applications for grants and supports.}
 
 \item[Communication] {Oral presentations at international conferences (in English, Spanish or French), social networking, management of group accounts on twitter (\symbol{64}SOCIB\_data, \symbol{64}GHER\_ULg).}
 
@@ -357,7 +344,9 @@ Other: Fortran 77, 90, Tcl/Tk, MySQL, PostgreSQL}
 
 
 \subsection{Languages}
-\textbf{Summary:} {English for the communication with the project partners and for the writing of technical document. Spanish, English and Catalan in the previous working environment.}
+\begin{summarybox}
+English for the communication with the project partners and for the writing of technical document. Spanish, English and Catalan in the previous working environment.
+\end{summarybox}
 
 \begin{description}
 \item[French] {Native speaker}
@@ -377,24 +366,23 @@ My experience of training at the University is complemented by several training 
 
 \begin{description}
 
-\item[2019/10/28--30] {Introduction to scientific Python. Application to Oceanography} {University of C\'{a}diz}{Facultad de Ciencias del Mar y Ambientales}{Graduate students, researchers and professors}{}
+\item[2019/10/28--30] \textit{Introduction to scientific Python. Application to Oceanography}, University of C\'{a}diz, Facultad de Ciencias del Mar y Ambientales: Graduate students, researchers and professors.
 
-\item[2017/11/15--17] {Open Sea Lab Workshop}{De Serre, Antwerp}{Coaching the participants for the data access and usage}{}{}
+\item[2017/11/15--17] \textit{Open Sea Lab Workshop}, De Serre, Antwerp: Participant coaching for the EMODnet data access and usage.
 
-\item[2017/04] {University of Li\`{e}ge}{Facult\'{e} des Sciences}{"Geophysical Fluid Dynanamics" lessons to Master students}{}{}
+\item[2017/04] \textit{Geophysical Fluid Dynamics}, University of Li\`{e}ge, Facult\'{e} des Sciences: Master students.
 
-\item[2016/01/27--29] {University of C\'{a}diz}{Facultad de Ciencias del Mar y Ambientales}{Introduction to scientific Python. Application to Oceanography}{Graduate students, researchers and professors}{}
+\item[2016/01/27--29] \textit{Introduction to scientific Python. Application to Oceanography}, University of C\'{a}diz, Facultad de Ciencias del Mar y Ambientales: Graduate students, researchers and professors.
 
-\item[2015/12/10--11] {Lisbon, Portugal}{CMEMS Regional User Training Workshop dedicated to the Atlantic European South West Shelf Ocean}{In Situ Thematic Assembly Center (INSTAC)}{}{}
-\item[2015/12/03--04] {La Spezia, Italy}{CMEMS Regional User and Training Workshop dedicated to the Mediterranean Sea}{In Situ Thematic Assembly Center (INSTAC)}{}{
+\item[2015/12/10--11] CMEMS Regional User Training Workshop dedicated to the Atlantic European South West Shelf Ocean, Lisbon (Portugal): data and tools of the In Situ Thematic Assembly Center (INSTAC). 
+\item[2015/12/03--04] CMEMS Regional User and Training Workshop dedicated to the Mediterranean Sea, La Spezia (Italy): data and tools of the In Situ Thematic Assembly Center
 \begin{itemize}
 \item Manipulation of netCDF files.
 \item Discovery and access to data.
 \item Use of Python and Ocean Data View to process oceanographic data.
 \end{itemize}
-}
-\item[2010/10--2013/02]{University of Li\`{e}ge}{Faculty of Medicine and Faculty of Veterinary Medicine}{Physics laboratory (optics)}{undergraduate students}{}
-\item[2007--2013]{University of Li\`{e}ge}{Faculty of Sciences}{Physical Oceanography, Risk Management, Marine Meteorology (assistant)}{undergraduate students}
+\item[2010/10--2013/02] \textit{Physics laboratory (optics)}, University of Li\`{e}ge, Faculty of Medicine and Faculty of Veterinary Medicine: Undergraduate students.
+\item[2007--2013] \textit{Physical Oceanography, Risk Management, Marine Meteorology} (assistant), University of Li\`{e}ge, Faculty of Sciences: Undergraduate students.
 
 \end{description}
 
@@ -404,81 +392,83 @@ My experience of training at the University is complemented by several training 
 %----------------------------------
 
 \begin{summarybox}
-{In the last 10 years I have been involved in several internal, national and European projects dealing with data analysis and management, operational oceanography or numerical modelling. I contributed to the project proposals, the preparation of the deliverables, the support the external users and was participating to the meetings of the technical task group and steering committee.}
+{Since 2006, I have been involved in several internal, national and European projects dealing with data analysis and management, operational oceanography or numerical modelling. I contributed to the project proposals, the preparation of the deliverables, the support to users and was participating to the meetings of the technical task group and steering committee.}
 \end{summarybox}
 
 \subsection{European projects}
 
 \begin{description}
 
-\item[2019--ongoing]{\href{https://www.phidias-hpc.eu/}{PHIDIAS} (CEF Telecom)}{}{Deployment of DIVAnd tool in a HPC environment}{}{}
+\item[2019--ongoing] \href{https://www.phidias-hpc.eu/}{PHIDIAS} (CEF Telecom): Deployment of DIVAnd tool in a HPC environment.
 
-\item[2019--ongoing]{\href{https://www.emodnet-physics.eu}{EMODnet Physics}}{}{Creation of velocity maps by interpolating drifter and HF radar measurements}{}{}
+\item[2019--ongoing] \href{https://www.emodnet-physics.eu}{EMODnet Physics}: Creation of velocity maps by interpolating drifter and high-frequency radar measurements.
 
-\item[2018--ongoing]{\href{https://www.eosc-hub.eu}{EOSC-Hub}}{}{Development of a data analytics platform for marine data}{}{}
+\item[2018--ongoing] \href{https://www.eosc-hub.eu}{EOSC-Hub}: Development of a data analytics platform for marine data.
 
-\item[2017--ongoing]{\href{https://emodnet-biology.eu}{EMODnet Biology}}{}{Creation of gridded field for biological variables}{}{}
+\item[2017--ongoing] \href{https://emodnet-biology.eu}{EMODnet Biology}: Creation of gridded fields based on species counts and observations.
 
-\item[2017--ongoing]{\href{https://www.emodnet-chemistry.eu}{EMODnet Chemistry}} {\begin{itemize}
-\item Creation of gridded field for chemical variables 
-\item Visualisation of the products using the OceanBrowser tool
-\item Preparation of merged products combining all the regional components
-\end{itemize}}
-
-\item[2017--ongoing]{\href{https://www.emodnet-ingestion.eu}{EMODnet Data Ingestion}}{}{Development on new gridded products using the data obtained in the frame of the project}{}{}
-
-\item[2017--ongoing]{\href{https://www.seadatanet.org}{SeaDataCloud} (H2020)}{Further developing the pan-European infrastructure for marine and ocean data
-management}{}{}{
+\item[2017--ongoing] \href{https://www.emodnet-chemistry.eu}{EMODnet Chemistry} 
 \begin{itemize}
-\item Improvement of the Diva software tool
-\item Development of a user interface for Diva on a Virtual Research Environment
+\item Creation of gridded field for chemical variables.
+\item Visualisation of the products using the OceanBrowser tool.
+\item Preparation of merged products combining all the regional components.
+\item Generation of XML records for the data catalog.
 \end{itemize}
-}
 
-\item[2015--2017] {\href{http://www.jerico-ri.eu/}{JERICO-NEXT} (H2020)}{Joint European Research Infrastructure Network For Coastal Observatories}{Data management best practices ; glider data processing and calibration}{}{}
-\item[2015--2017] {\href{http://www.odip.eu/}{ODIP~2}}{Ocean Data Interoperability portal}{}{}{
+\item[2017--ongoing] \href{https://www.emodnet-ingestion.eu}{EMODnet Data Ingestion}: Development on new gridded products using the data obtained in the frame of the project.
+
+\item[2017--ongoing] \href{https://www.seadatanet.org}{SeaDataCloud} (H2020): Further developing the pan-European infrastructure for marine and ocean data management
+\begin{itemize}
+\item Improvement and testing of the DIVA software tool.
+\item Development of a user interface for Diva on a Virtual Research Environment.
+\item Preparation of the new regional products.
+\end{itemize}
+
+
+\item[2015--2017] \href{http://www.jerico-ri.eu/}{JERICO-NEXT} (H2020): Data management best practices; glider data processing and calibration.
+\item[2015--2017] \href{http://www.odip.eu/}{ODIP~2} (Ocean Data Interoperability portal)
 \begin{itemize}
 \item Test of new standards in data and metadata management 
 \item Data visualisation tools
 \end{itemize}
-}
-\item[2015--2017] {Copernicus Marine Environment Monitoring Service}{In Situ Thematic Assembly}{}{}{
+
+\item[2015--2017] Copernicus Marine Environment Monitoring Service, In Situ Thematic Assembly Center (INSTAC):
 \begin{itemize}
-\item Elaboration to the Ocean State Report.
-\item Coordinator for outreach, training and communication activities.
+\item Elaboration of the Ocean State Report.
+\item Coordinator of the outreach, training and communication activities.
 \item Preparation and participation to the regional user training workshops.
 \end{itemize}
-}
-\item[2013--2014] {MyOcean~2}{Ocean monitoring and forecasting infrastructure}{}{}{
+
+\item[2013--2014] MyOcean~2, Ocean monitoring and forecasting infrastructure:
 \begin{itemize}
 \item Preparation of high-resolution altimetry products in the Mediterranean Sea.
 \item Data analysis during a multi-platform experiment in the Ibiza Channel.
 \end{itemize}
-}
-\item[2012--2013] {\href{http://www.odip.eu/}{ODIP}}{Ocean Data Interoperability portal}{Definition of standards}{}{}
-\item[2011--2015] {PERSEUS}{Policy-oriented marine Environmental Research for the Southern European Seas}{Processing of glider and campaign data}{}{}
-\item[2009--2013] {EMODnet -- Chemistry}{Pilot component for a final operational European Marine Observation and Data Network}{}{}{
+
+\item[2012--2013] \href{http://www.odip.eu/}{ODIP} (Ocean Data Interoperability portal): Definition of standards for the data and metadata exchange.
+
+\item[2011--2015] PERSEUS (Policy-oriented marine Environmental Research for the Southern European Seas): Processing of glider and campaign data
+
+\item[2009--2013] \href{https://www.emodnet-chemistry.eu}{EMODnet -- Chemistry}: Pilot component for a final operational European Marine Observation and Data Network:
 \begin{itemize}
-\item Contribution to the project proposal.
-\item Improvement to the Diva tool.
-\item Development of the Diva web-interface.
+\item Improvement to the DIVA tool.
+\item Development of the DIVA web-interface.
 \end{itemize}
-}
-\item[2009--2013] {SeaDataNet~2}{Infrastructure for ocean and marine data exchange}{Same tasks as for SeaDataNet}{}{}
-\item[2008--2009] {CAIBEX}{Study of the Exchanges between continental shelf and ocean in the Canaries-Iberian marine ecosystem}{}{}{
+
+\item[2009--2013] \href{https://www.seadatanet.org}{SeaDataNet~2}: Infrastructure for ocean and marine data exchange.
+
+\item[2008--2009] CAIBEX (Study of the Exchanges between continental shelf and ocean in the Canaries-Iberian marine ecosystem):
 \begin{itemize}
 \item Implementation of a high-resolution numerical model in the Cape Ghir region.
 \item Participation to the CAIBEX-Cape Ghir cruise (August 2009).
 \end{itemize}
-}
-\item[2006--2011] {SeaDataNet}{Infrastructure for ocean and marine data exchange}{}{}{
+
+\item[2006--2011] \href{https://www.seadatanet.org}{SeaDataNet}: Infrastructure for ocean and marine data exchange:
 \begin{itemize}
 \item Contribution to the project proposal.
-\item Development, documentation and testing of Diva software tool.
-\item Organization of the user workshops.
-\item Participation to the Annual Meetings, Steering Committees and Technical Task Group meetings.
+\item Development, documentation and testing of DIVA software tool.
+\item Organization of the user training workshops.
 \end{itemize}
-}
 
 \end{description}
 
@@ -487,12 +477,12 @@ management}{}{}{
 
 \begin{description}
 \item[2019--ongoing] Multisync: combination of satellites measurements at different resolutions to reconstruct suspended particular matter in the North Sea.
-\item[2014--2017] {BlueFin Tuna}: combination of observations and models to understand and predict tuna abundancy.
-\item[2014--2017] {Grumers}{Database for jellyfish observations around the Balearic Islands} 
-\item[2014--2017] {Medclic}{SOCIB data at one click}{Providing access to SOCIB sensors data} 
-\item[2014--2015] {SeaTurtle}{Development of a viewer showing turtle trajectories in real-time}{Project management}{}{}
-\item[2011--2013] {HiSea}{High-resolution merged satellite Sea surface temperature fields}{EOF analysis of satellite images improved with numerical model outputs.}
-\item[2010/08] {REP10}{Recognized Environmental Picture}{Analysis and reconstruction of incomplete satellite images on the Ligurian Sea}
+\item[2014--2017] BlueFin Tuna: combination of observations and models to understand and predict tuna abundance.
+\item[2014--2017] Grumers: Database for jellyfish observations around the Balearic Islands. 
+\item[2014--2017] \href{http://medclic.es/es/news/research/asimilacion-datos.html}{Medclic} (Oceanographic data in the Medirranean Sea at one click): Providing access to SOCIB sensors data.
+\item[2014--2015] SeaTurtle: Development of a viewer showing turtle trajectories in real-time.
+\item[2011--2013] HiSea (High-resolution merged satellite Sea surface temperature fields): EOF analysis of satellite images improved with numerical model outputs.
+\item[2010/08] REP10 (Recognized Environmental Picture): Analysis and reconstruction of incomplete satellite images on the Ligurian Sea.
 \end{description}
 
 %----------------------------------
@@ -500,14 +490,14 @@ management}{}{}{
 %----------------------------------
 
 \begin{description}
-\item[3 September - 31 October 2018] {Marine Biology Station Piran, National Institute of Biology (NIB)}{Piran (Slovenia)}{Analysis of surface currents in the Gulf of Trieste using high-frequency radar}{}{}
-\item[5 August - 5 September 2010] {NATO Undersea Research Centre (NURC)}{La Spezia (Italy)}{Analysis of satellite images in the Ligurian Sea} 
-\item[15 July 2009 - 30 September 2009] {ULPGC}{Preparation and participation to CAIBEX cruise} 
-\item[5 January 2009 - 31 March 2009] {ULPGC}{Las Palmas de Gran Canaria (Spain)}{Diagnostics on model outputs}
-\item[30 May - 30 August 2008]{ULPGC}{Las Palmas de Gran Canaria (Spain)}{High-resolution configuration for the model}
-\item[5 December 2007 - 5 March 2008] {ULPGC}{Las Palmas de Gran Canaria (Spain)}{Diagnostics on model outputs}
-\item[21 May - 24 August 2007]{ULPGC}{Las Palmas de Gran Canaria (Spain)}{Design of process-oriented numerical experiments}
-\item[5 January - 15 March 2007]{ULPGC} {Las Palmas de Gran Canaria (Spain)}{Implementation of ROMS numerical model}
+\item[3 September - 31 October 2018] Analysis of surface currents in the Gulf of Trieste using high-frequency radar, Marine Biology Station Piran, National Institute of Biology (NIB), Piran (Slovenia).
+\item[5 August - 5 September 2010] Analysis of satellite images in the Ligurian Sea, NATO Undersea Research Centre (NURC), La Spezia (Italy). 
+\item[15 July 2009 - 30 September 2009] Preparation and participation to CAIBEX cruise, Las Palmas (Spain) and Cape Ghir (Morocco). 
+\item[5 January 2009 - 31 March 2009] Diagnostics on model outputs, ULPGC, Las Palmas de Gran Canaria (Spain).
+\item[30 May - 30 August 2008] High-resolution configuration for the model, ULPGC.
+\item[5 December 2007 - 5 March 2008] Diagnostics on model outputs, ULPGC.
+\item[21 May - 24 August 2007] Design of process-oriented numerical experiments, ULPGC.
+\item[5 January - 15 March 2007] Implementation of ROMS numerical model, ULPGC.
 \end{description}
 
 
@@ -515,21 +505,17 @@ management}{}{}{
 \section{Scientific contributions}
 %%---------------------------------
 
-\begin{table}
+\begin{summarybox}
+In the frame of international projects, I authored or co-authored several works published in peer-reviewed journal and mainly focused on data analysis and tools.
+\end{summarybox}
+
+\begin{table}[h]
 \centering
 \begin{tabular}{C{4cm}C{4cm}C{4cm}}
 \huge{20+}  	& \huge{100 +} & 	Reviewer for\hspace{1cm}  \\
 Papers in peer-review journals & Presentations at international conferences	& \huge{7} \hspace{2cm} \normalsize{journals} \\
 \end{tabular}
 \end{table}
-
-\begin{summarybox}
-During my PhD and in the frame of international projects and collaborations, I authored or co-authored several works published in peer-reviewed journal and mainly focused on data analysis and tools. Complete lists are available on request.
-\end{summarybox}
-
-Publications More than 20 publications on data analysis, numerical modelling and engineering in peer reviewed journals.
-
-Conferences More than 100 contributions (talk or poster) to conferences on data management, processing and oceanography.
 
 %\newpage
 
@@ -561,7 +547,7 @@ Earth System Science Data, Ocean Science, Ocean Dynamics, Ocean Engineering, Jou
 \subsection{Doctoral thesis tribunal}
 
 \begin{description}
-\item[2017/09/25] Bàrbara Barceló-Llull (ULPGC, Spain) {\newline \textit{Shedding light into mesoscale dynamics and vertical motion through synthetic and in situ observations"}}
+\item[2017/09/25] Bàrbara Barceló-Llull (ULPGC, Spain) {\newline \textit{Shedding light into mesoscale dynamics and vertical motion through synthetic and in situ observations}}
 
 \item[2017/09/16] Yeray Santana Falc\'{o}n (ULPGC, Spain) {\newline \textit{Transport, Respiration, and Sequestration of Organic Carbon in the Canary Current Ecosystem: Relevance within the Global Carbon Cycle}}
 \end{description}
@@ -610,27 +596,25 @@ From 2006 on, I have organised several editions of a training workshop about an 
 \end{itemize}
 \end{description}
 
-
-\vfill
-
 \section{Misc}
 
 \subsection{Grants and funding}
 
 \begin{description}
-\item[2011/04, 2015/04] EGU Young Scientist's Travel Award
-\item[2008/05--2008/09] Travel grant\newline (French Community of Belgium)
-\item[2006/10--2010/09] Fund for Research Training in Industry and Agriculture\newline (National Fund for Scientific Research, Belgium)
-\item[2006/02--2006/09] \textit{Erasmus} travel grant\newline (European Commission)
+\item[2011/04 \& 2015/04] EGU Young Scientist's Travel Award
+\item[2008/05--2008/09] Travel grant (French Community of Belgium)
+\item[2006/10--2010/09] Fund for Research Training in Industry and Agriculture (National Fund for Scientific Research, Belgium)
+\item[2006/02--2006/09] \textit{Erasmus} travel grant (European Commission)
 \item[2005/09--2005/12] \textit{Pisart} supervision grant: creation of the presentation support for the course \textit{Thermodynamics of continuous media} in LaTeX% (Prof.~J.-P. Ponthot).}
 \item[2004/02--2004/06] State grant: writing of the course notes for the course \textit{Further Study of Digital Analysis (Equations with Partial Derivatives)}% (Prof.~J.-A.~Essers).}
 \end{description}
 
 \subsection{Representation}
 \begin{description}
+\item[2017--ongoing] Delegate at the Department Council (Astrophysics, Geophysics and Oceanography, ULi\`{e}ge)
 \item[2015--2016] Member of the Monitoring Committee of the Framework Agreement between AEMET and SOCIB
 \item[2003--2005] Student delegate 
-\item[2011--2014] Delegate at the Department Council (Astrophysics, Geophysics and Oceanography, ULi\`{e}ge)
+\item[2011--2013] Delegate at the Department Council (Astrophysics, Geophysics and Oceanography, ULi\`{e}ge)
 \end{description}
 
 
@@ -648,7 +632,7 @@ From 2006 on, I have organised several editions of a training workshop about an 
 
 \begin{itemize}
 \item \href{http://www.wikiloc.com/wikiloc/user.do?id=458033}{Running}: trails, mountain races, track
-\item \href{https://500px.com/charlestroupin}{\faicon{500px}}~\href{https://www.flickr.com/photos/sharlo1982/}{\faFlickr}{Photography: landscape, portraits, time-lapse, astro-photography}
+\item \href{https://500px.com/charlestroupin}{\faicon{500px}}~\href{https://www.flickr.com/photos/sharlo1982/}{\faFlickr}~{Photography: landscape, portraits, time-lapse, astro-photography}
 \item \faWordpress~Travel blogging
 \item \faBicycle~Road cycling
 \end{itemize}

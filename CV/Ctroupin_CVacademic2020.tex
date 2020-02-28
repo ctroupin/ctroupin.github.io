@@ -1,5 +1,5 @@
 \documentclass[11pt,a4paper,svgnames]{article}
-
+\usepackage{pgfgantt}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{url}
@@ -55,7 +55,7 @@
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 \newtcbox{\skillbox}{nobeforeafter,colframe=CVmain,colback=CVgrey,boxrule=1pt,arc=4pt,height=0.5cm,
-  boxsep=0pt,left=3pt,right=3pt,top=2.5pt,bottom=2pt,box align = center}
+  boxsep=0pt,left=3pt,right=3pt,top=2.5pt,bottom=2pt,box align=center}
 
 % for the bibliography
 % --------------------
@@ -85,10 +85,7 @@ title=Summary,#1}
 
 \begin{document}
 
-\begin{summarybox}
-This is my own box with a mandatory title
-and options.
-\end{summarybox}
+
 
 
 
@@ -272,16 +269,60 @@ Final project: \emph{Structuring in granular media}\\
 
 \begin{description}
 
-\item[Data analytics] \skillbox{Quality control} \sepa \skillbox{Singular events} \sepa \skillbox{Filtering} \sepa \skillbox{Data mining} \sepa \skillbox{Statistics} \sepa \skillbox{Predictive modelling}
+\item[Data analytics] \skillbox{Quality control} \skillbox{Singular events} \skillbox{Filtering} \skillbox{Data mining} \skillbox{Statistics}  \skillbox{Predictive modelling}
 
-\item[Engineering] {Fluid mechanics \sepa Aerodynamics \sepa Finite-Element Method \sepa Atmospheric Physics \sepa Numerical simulations \sepa Numerical analysis \sepa Signal processing \sepa Optimization \sepa High-performance computing}
+\item[Engineering] \skillbox{Fluid mechanics} \skillbox{Aerodynamics} \skillbox{Finite-Element Method} \skillbox{Atmospheric Physics} \skillbox{Numerical simulations} \skillbox{Numerical analysis} \skillbox{Signal processing} \skillbox{Optimization} \skillbox{High-performance computing}
 
-\item[Physical Oceanography] {Spatial interpolation \sepa Time-Series Analysis \sepa Principal Component Analysis \sepa Numerical Modelling \sepa Data Processing \sepa Database Management \sepa Satellite Image Processing}
+\item[Physical Oceanography] \skillbox{Spatial interpolation} \skillbox{Time-Series Analysis} \skillbox{Principal Component Analysis} \skillbox{Numerical Modelling} \skillbox{Data Processing} \skillbox{Database Management} \skillbox{Satellite Image Processing}
 
 \end{description}
 
 
 \subsection{IT skills}
+
+\parbox{.24\textwidth}{
+\textbf{Programming}\\
+Functional programming 				\\ 
+Object oriented programming		\\
+Test-oriented development			\\
+Control version system (git, svn)	\\
+Jupyter-notebooks					\\
+Unit tests							\\	
+%Data formats (json, csv, gpx, shapefiles)\\
+}\parbox{.72\textwidth}{
+\ganttset{bar height=.3}
+\begin{ganttchart}[
+	canvas/.style={fill=white},
+    hgrid style/.style={draw=black!5, line width=.75pt},
+    vgrid={*1{draw=CVmain, line width=.75pt, dashed},*2{draw=CVgrey, line width=.75pt, dashed}},
+    title/.style={draw=none, fill=none},
+    title label font=\bfseries,
+    title label node/.append style={below=7pt},
+    include title in canvas=false,
+    bar label font=\mdseries\small\color{black!70},
+    bar label node/.append style={left=.2cm},
+    bar/.append style={draw=none, fill=black!63},
+    bar incomplete/.append style={fill=black!70},
+    bar progress label font=\mdseries\footnotesize\color{black!70},
+    bar progress label node /.style=east,
+    y unit chart=.5cm,
+    progress=today,
+    today=1,
+    today label={}, 
+    today rule /.style={draw=CVmain, line width=.75pt, dashed},
+    progress label text = ,
+    ]{1}{14}
+   \gantttitle[title label node/.append style={below left=5pt and -3pt}]{Languages\quad}{0}
+  %\gantttitle[title/.style={draw=CVmain,below=7pt}]{Languages}{0}
+  \gantttitlelist[title/.style={draw=none, inner color=CVgrey,below=7pt}]{2006,2009,...,2020}{3} \\
+  \ganttbar[name=bash, progress label text={awk, makefiles, cron, git, ssh, regex, \ldots}]{Bash}{1}{16} \\
+  \ganttbar[name=fortran,progress label text={data I/O, format conversion, optimisation}]{Fortran}{1}{15} \\
+  \ganttbar[name=matlab,progress label text={\hspace{4cm}geostatistics, plotting, neural networks}]{MATLAB}{1}{8} \\
+  \ganttbar[name=python,progress label text={matplotlib, numpy, scipy, pandas, virtualenv, \ldots}]{Python}{8}{16} \\
+  \ganttbar[name=julia,progress label text={DataArrays, PyPlot, module developments}]{Julia}{11}{16} \\
+  \ganttbar[name=javascript,progress label text={Leaflet, Highcharts, D3, Angular, Reveal}]{Javascript}{11}{16}
+\end{ganttchart}
+}
 
 \begin{description}
 

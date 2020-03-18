@@ -42,7 +42,6 @@ footer:
   social: Around the Web
   credits: Credits
 
-
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
   - title: github
@@ -59,6 +58,8 @@ socialpic:
     url: https://500px.com/charlestroupin
   - title: vimeo
     url: https://vimeo.com/user40792705
+  - title: facebook
+    url:
 
 academic:
   - title: orcid
@@ -73,6 +74,9 @@ collections:
   posts:
     output: true
     permalink: /posts/:path/
+  running:
+    output: true
+    permalink: /running/:path/
   maps:
     output: true
     permalink: /maps/:path/

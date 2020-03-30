@@ -1,17 +1,22 @@
 
+
     <!-- "Where to run" Grid Section -->
     <section class="success" id="portfolio">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <br><br>
-                    <h2> Where to <i class="fas fa-running"></i> in <i class="far fa-building"></i> ?</h2>
+                    <h2> <i class="fas fa-running"></i> <i class="far fa-building"></i> Where to run in cities?</h2>
                     <br>
                     You have a meeting or a conference in a city that you don't know and have your shoes with you?<br>
                     I've compiled a few ideas based on previous experiences. Feedback and new ideas are welcome.
 
                 </div>
             </div>
+
+
+            {% include_relative _running/runningMap.html %}
+
             <br>
             <div class="row">
                 {% for post in site.running %}

@@ -490,17 +490,32 @@ footer .footer-below {
 }
 
 table {
-  table-layout: fixed;
+  table-layout: auto;
   width: 100%;
-  padding: 2em 2em 1em 11em;
+  padding: 4em 4em 4em 11em;
   border-spacing: 10em 4em;
-  border: 2px dashed orange;
+  border: 3px dashed orange;
+}
+
+.table tr:nth-child(odd){
+	background: #b8d1f3;
+}
+.table tr:nth-child(even){
+	background: #dae5f4;
+}
+
+th, td {
+    text-align: left;
+    padding: 4px;
 }
 
 td {
   height: 1.5em;
-  background: #DEDEDE;
   vertical-align: middle;
+}
+
+tr:nth-child(even) {
+    background-color: #DEDEDE; 
 }
 
 .list-inline-social {

@@ -190,6 +190,17 @@
             <div class="row">
                 
                     <div class="col-sm-2 portfolio-item">
+                        <a href="/posts/2020-03-19-ppt2beamer/" class="portfolio-link">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    Converting a powerpoint template to LaTeX beamer
+                                </div>
+                            </div>
+                            <img src="figures/blog/pandoc_bibtex.png" class="img-responsive" alt="ppt to LaTeX">
+                        </a>
+                    </div>
+                
+                    <div class="col-sm-2 portfolio-item">
                         <a href="/posts/2019-12-19-bibtex-markdown/" class="portfolio-link">
                             <div class="caption">
                                 <div class="caption-content">
@@ -617,16 +628,65 @@
     </section>
 
     
+
     <!-- "Where to run" Grid Section -->
     <section class="success" id="portfolio">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
+                <div class="col-lg-12">
                     <br><br>
-                    <h2> Where to <i class="fas fa-running"></i> in <i class="far fa-building"></i> ?</h2>
+                    <h2> <i class="fas fa-hotel"></i> City running guide <i class="fas fa-shoe-prints"></i> </h2>
                     <br>
+                    You have a meeting or a conference in a city that you don't know and have your shoes with you?<br>
+                    I've compiled a few ideas based on previous experiences. Feedback and new ideas are welcome.
+
                 </div>
             </div>
+
+            <script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css" />
+
+<style type="text/css">
+    #map { height : 400px; }
+</style>
+
+<div id="map"></div>
+
+  <script>
+
+  var CartoDB = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+  		maxZoom: 18,
+  		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
+  });
+
+  var runData = {"2020-01-03-Bologna": [44.505708, 11.353999],
+                 "2020-03-16-Piran": [45.528912, 13.566898],
+                 "2020-03-17-Athens": [37.985826, 23.737137]};
+
+  console.log(runData);
+
+  var map = L.map('map', {fullscreenControl: true}).setView([45., 8.], 4);
+
+  for (var key in runData) {
+    // check if the property/key is defined in the object itself, not in parent
+    if (runData.hasOwnProperty(key)) {
+      var marker = L.marker(runData[key]).addTo(map);
+      var city = key.split(/[- ]+/).pop();
+      console.log(city);
+      marker.bindPopup(`<a href='https://ctroupin.github.io/running/${key}/''><h5>${city}</h5></a>`);
+    }
+  }
+
+
+
+
+  map.addLayer(CartoDB)
+
+
+</script>
+
+
+            <br>
             <div class="row">
                 
                     <div class="col-sm-2 portfolio-item">
@@ -637,6 +697,28 @@
                                 </div>
                             </div>
                             <img src="../figures/run/Italy.png" class="img-responsive" alt="">
+                        </a>
+                    </div>
+                
+                    <div class="col-sm-2 portfolio-item">
+                        <a href="/running/2020-03-16-Piran/" class="portfolio-link">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <h3>Piran</h3>
+                                </div>
+                            </div>
+                            <img src="../figures/run/Slovenia.png" class="img-responsive" alt="">
+                        </a>
+                    </div>
+                
+                    <div class="col-sm-2 portfolio-item">
+                        <a href="/running/2020-03-17-Athens/" class="portfolio-link">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <h3>Athens</h3>
+                                </div>
+                            </div>
+                            <img src="../figures/run/Greece.png" class="img-responsive" alt="">
                         </a>
                     </div>
                 

@@ -207,6 +207,7 @@
 					   y == '2017' ? '#6C5FBA' :
 						 y == '2018' ? '#20BD00' :
              y == '2019' ? '#F61D1D' :
+             y == '2020' ? '#4FBC8D' :
 								'grey';
 			}
 
@@ -214,7 +215,7 @@
 
 			legend.onAdd = function (map) {
 				var div = L.DomUtil.create('div', 'info legend'),
-					grades = [2013, 2014, 2015, 2016, 2017, 2018, 2019],
+					grades = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
 					labels = [];
 				div.innerHTML += '<b>Year</b><br>'
 				for (var i = 0; i < grades.length; i++) {

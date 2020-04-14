@@ -1,0 +1,459 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Turning ocean data into stories">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="https://ctroupin.github.io/posts/2020-03-19-ppt2beamer/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Charles Troupin by </title>
+
+	<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-8 col-lg-offset-2">
+			<center>
+				<h2> Converting a powerpoint template to LaTeX beamer </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					
+						<h4><i class="far fa-calendar-alt"></i></h4> 19 March 2020 &nbsp;
+					
+					
+						<h4><i class="fas fa-wrench"></i></h4> LaTeX, beamer, pdftk &nbsp;
+					
+					
+						<h4><i class="fas fa-tags"></i></h4> Presentations, templates &nbsp;
+					
+					
+				</div>
+				<p>Typical situation when you are in a company or work in international projects: you have to use a <em>powerpoint</em> template for your presentations. But what happens if you are more kind of a <code class="highlighter-rouge">LaTeX</code> person? This is what we want to explain here.</p>
+
+<ol>
+  <li>When the template is not very well designed: you just <em>forget</em> to use it and hope that nobody will notice during the meeting.</li>
+  <li>When the template is nice or when you have a lot of pressure to comply: you might be tempted to do an effort and use it (the template, not powerpoint), i.e., adapt your <code class="highlighter-rouge">LaTeX</code> document.</li>
+</ol>
+
+<p>I’ll try to explain how to do that, hopefully speeding up the process to go from a ppt template to a LaTeX beamer template.</p>
+
+<p><strong>Disclaimer:</strong> I know that an easier solution would be “<em>just switch to powerpoint (or equivalent)</em>”. There are many reasons one may have to stick to LaTeX, for example if using already existing texts, figures or equations from other documents. Or just because you like it.</p>
+
+<h2 id="1-prepare-the-slide-background">1. Prepare the slide background</h2>
+
+<p>Often the background is rather complex (logos, color gradients, shapes, …), so reproducing all that in pure LaTeX, for instance using [<code class="highlighter-rouge">TikZ</code>](https://ctan.org/pkg/pgf?lang=en, is feasible but would take too long. So we will proceed differently.</p>
+
+<h3 id="11-convert-the-template-to-pdf">1.1 Convert the template to PDF</h3>
+
+<p>First thing not to forget: the template has a distinct background for the title slide and for the other slides. Let’s start with an empty presentation (let’s call it <code class="highlighter-rouge">mytemplate.ppt</code>), and then export to PDF file (<code class="highlighter-rouge">mytemplate.pdf</code>).   <br />
+By empty we mean that these is not content (no title, no text… nothing).     <br />
+You could obviously use a bitmap format (jpg, png, …) instead of a PDF. Try and see what give the best result.</p>
+
+<p>I’ve tried the options  <em>Lossless compression</em> (instead of jpeg compression) and select a good resolution (300 dpi, 600 dpi) for the reduction of the image resolution, this did not change the quality or size of the resulting PDF.</p>
+
+<h3 id="12-extract-the-title-background-and-the-slide-background">1.2 Extract the title background and the slide background</h3>
+
+<p>From the file <code class="highlighter-rouge">mytemplate.pdf</code>, we need to extract the 1st and the 2nd slides.   <br />
+This is easily done, for example using the tool <a href="https://www.pdflabs.com/docs/pdftk-cli-examples/"><code class="highlighter-rouge">pdftk</code></a>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>pdftk mytemplate.pdf <span class="nb">cat </span>1 output background1.pdf
+pdftk mytemplate.pdf <span class="nb">cat </span>2 output background2.pdf
+</code></pre></div></div>
+
+<p><img src="https://ctroupin.github.io/figures/blog/ppt2beamer/ppt2beamer01.jpg" class="img-responsive" alt="Empty titlepage background" />
+<img src="https://ctroupin.github.io/figures/blog/ppt2beamer/ppt2beamer03.jpg" class="img-responsive" alt="Empty slide" /></p>
+
+<p><strong>Alternative:</strong> a simple screen-shot toolcan also be a solution to obtain the backgrounds.</p>
+<ul>
+  <li>Ubuntu: I use <code class="highlighter-rouge">gnome-screenshot</code> (graphical interface) and sometimes <a href="http://manpages.ubuntu.com/manpages/bionic/man1/scrot.1.html"><code class="highlighter-rouge">scrot</code></a> (bash command).</li>
+  <li>Windows: I don’t remember the name but yeah, there are severals tools to do it.</li>
+</ul>
+
+<p><strong>Trick:</strong> also extract the title slide from a real presentation (not empty), so you can use it as a background and see the
+positions of the different elements (title, date, authors etc) with respect to the original.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/ppt2beamer/ppt2beamer02.jpg" class="img-responsive" alt="Real titlepage background" /></p>
+
+<h3 id="13-include-the-background-in-the-beamer-template">1.3 Include the background in the beamer template.</h3>
+
+<p>For all the slides (except the title slide), you just have to add the command:</p>
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\usebackgroundtemplate</span><span class="p">{</span><span class="k">\includegraphics</span><span class="na">[width=\paperwidth]</span><span class="p">{</span>background2.pdf<span class="p">}}</span>
+</code></pre></div></div>
+<p>before or after the \begin{document}.</p>
+
+<p>For the title slide (we will see later how to format it), we need to have curly brackets
+around the frame, like this:</p>
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="p">{</span>
+<span class="k">\usebackgroundtemplate</span><span class="p">{</span><span class="k">\includegraphics</span><span class="na">[width=\paperwidth]</span><span class="p">{</span>background1.pdf<span class="p">}}</span>
+<span class="nt">\begin{frame}</span>
+...
+<span class="nt">\end{frame}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>The <code class="highlighter-rouge">{ }</code> around the <em>frame</em> environment means that the <code class="highlighter-rouge">\usebackgroundtemplate{ }</code>
+is only applied for the current slide.</p>
+
+<p>Combining this, a MWE would look like:</p>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\documentclass</span><span class="p">{</span>beamer<span class="p">}</span>
+<span class="k">\usepackage</span><span class="p">{</span>graphicx<span class="p">}</span>
+
+<span class="nt">\begin{document}</span>
+
+<span class="p">{</span>
+<span class="k">\usebackgroundtemplate</span><span class="p">{</span><span class="k">\includegraphics</span><span class="na">[width=\paperwidth]</span><span class="p">{</span>background1.pdf<span class="p">}}</span>
+<span class="nt">\begin{frame}</span>
+...
+<span class="nt">\end{frame}</span>
+<span class="p">}</span>
+
+<span class="k">\usebackgroundtemplate</span><span class="p">{</span><span class="k">\includegraphics</span><span class="na">[width=\paperwidth]</span><span class="p">{</span>background2.pdf<span class="p">}}</span>
+
+<span class="nt">\begin{frame}</span>
+...
+<span class="nt">\end{frame}</span>
+
+<span class="nt">\end{document}</span>
+</code></pre></div></div>
+<p>If you compile this file with <code class="highlighter-rouge">pdflatex</code> or <code class="highlighter-rouge">xelatex</code>, you should obtain something
+that looks pretty close to the original template.</p>
+
+<h2 id="2-setting-text-properties">2. Setting text properties</h2>
+
+<h3 id="21-colors">2.1 Colors</h3>
+
+<p>Different text elements (title, authors, slide titles, …) may have different colors.
+When it’s only black and white, it is straightforward. If not, you should use a <em>color picker</em>,
+for instance I use <a href="http://gcolor2.sourceforge.net/"><code class="highlighter-rouge">gcolor2</code></a>.</p>
+
+<p>Let’s imagine that the authors have the color <code class="highlighter-rouge">#7F7F7F</code> (HTML notation) and the slide titles have
+<code class="highlighter-rouge">#0D6CAC</code>.           <br />
+So you define new colors in the preamble of the LaTeX document:</p>
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\definecolor</span><span class="p">{</span>color1<span class="p">}{</span>HTML<span class="p">}{</span>7F7F7F<span class="p">}</span>
+<span class="k">\definecolor</span><span class="p">{</span>color2<span class="p">}{</span>HTML<span class="p">}{</span>0D6CAC<span class="p">}</span>
+</code></pre></div></div>
+<p>Then you have to specify the color of all the presentation elements:</p>
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\setbeamercolor</span><span class="p">{</span>title<span class="p">}{</span>fg=white<span class="p">}</span>
+<span class="k">\setbeamercolor</span><span class="p">{</span>author<span class="p">}{</span>fg=color1<span class="p">}</span>
+<span class="k">\setbeamercolor</span><span class="p">{</span>institute<span class="p">}{</span>fg=color1<span class="p">}</span>
+<span class="k">\setbeamercolor</span><span class="p">{</span>frametitle<span class="p">}{</span>fg=color2<span class="p">}</span>
+<span class="k">\setbeamercolor</span><span class="p">{</span>date<span class="p">}{</span>fg=color1<span class="p">}</span>
+</code></pre></div></div>
+<p>The <code class="highlighter-rouge">fg</code> means foreground, as it is also possible the background using the <code class="highlighter-rouge">bg</code> option.</p>
+
+<h3 id="22-font-type">2.2 Font type</h3>
+
+<p>LaTeX default font (<em>Computer Modern</em>) is not always the best choice and is often the first thing that makes someone think
+“<em>this has been prepared with LaTex</em>”. We first have to identify the font(s) used in the ppt.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th style="text-align: center">Font name</th>
+      <th style="text-align: right">Weight</th>
+      <th style="text-align: right">Size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Author</td>
+      <td style="text-align: center">Open Sans</td>
+      <td style="text-align: right">Regular</td>
+      <td style="text-align: right">18</td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td style="text-align: center">Arial</td>
+      <td style="text-align: right">Bold</td>
+      <td style="text-align: right">28</td>
+    </tr>
+    <tr>
+      <td>Subtitle</td>
+      <td style="text-align: center">Open Sans</td>
+      <td style="text-align: right">Regular</td>
+      <td style="text-align: right">15</td>
+    </tr>
+    <tr>
+      <td>Text</td>
+      <td style="text-align: center">Arial</td>
+      <td style="text-align: right">Regular</td>
+      <td style="text-align: right">28</td>
+    </tr>
+    <tr>
+      <td>Frame title</td>
+      <td style="text-align: center">Arial</td>
+      <td style="text-align: right">Bold</td>
+      <td style="text-align: right">30</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We have to use two new fonts: <code class="highlighter-rouge">Arial</code> and <code class="highlighter-rouge">Open Sans</code>. XeLaTeX allows you to use True Type (TTF) and Open Type fonts (OTF).
+Anytime you have to play with fonts, a good resource is the <a href="https://tug.org/FontCatalogue/">LaTeX font catalog</a>: there
+you can find a long list of fonts and the commands to use them in your document.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Arial</code> is a commercial font: if it is available on your machine, you can use:
+    <div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\usepackage</span><span class="p">{</span>fontspec<span class="p">}</span>
+<span class="k">\usefonttheme</span><span class="p">{</span>serif<span class="p">}</span>
+<span class="k">\setmainfont</span><span class="p">{</span>Arial<span class="p">}</span>
+</code></pre></div>    </div>
+    <p>The command <code class="highlighter-rouge">\usefonttheme{serif}</code> is necessary because beamer use serif font by default.     <br />
+If it is not installed, you can find an equivalent using <a href="www.identifont.com/find?similar=arial">http://www.identifont.com</a>. According to them, the closest font is <code class="highlighter-rouge">Helvetica</code>, which has also to be purchased. Another possibility (after searching a little bit) is <code class="highlighter-rouge">TeX Gyre Heros</code> (see <a href="https://www.fontsquirrel.com/fonts/tex-gyre-heros">fontsquirrel</a>), which is added with:</p>
+    <div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\setsansfont</span><span class="p">{</span>TeX Gyre Heros<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li><code class="highlighter-rouge">Open Sans</code> is a sans serif typeface belonging to the google fonts. There are several ways to use it, here we show how
+to specify the file containing the font (<code class="highlighter-rouge">.ttf</code> or <code class="highlighter-rouge">.otf</code> extension). We create a new font family that we will call, for instance <code class="highlighter-rouge">\myfont</code>
+    <div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\newfontfamily\myfont</span><span class="na">[Path = /home/ctroupin/.fonts/]</span><span class="p">{</span>OpenSans-Regular.ttf<span class="p">}</span>
+</code></pre></div>    </div>
+    <p>Then this font is assigned to the beamer elements:</p>
+    <div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\setbeamerfont</span><span class="p">{</span>author<span class="p">}{</span>size=<span class="k">\fontsize</span><span class="p">{</span>10pt<span class="p">}{</span>10<span class="p">}</span><span class="k">\selectfont</span>,series=<span class="k">\opensansfont</span><span class="p">}</span>
+<span class="k">\setbeamerfont</span><span class="p">{</span>subtitle<span class="p">}{</span>size=<span class="k">\fontsize</span><span class="p">{</span>8pt<span class="p">}{</span>10<span class="p">}</span><span class="k">\selectfont</span>,series=<span class="k">\opensansfont</span><span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="23-font-size">2.3 Font size</h3>
+
+<h4 id="slide-elements">Slide elements</h4>
+
+<p>Each element of a presentation can be assigned a different size, for example with the title:</p>
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\setbeamerfont</span><span class="p">{</span>title<span class="p">}{</span>size=<span class="k">\huge</span><span class="p">}</span>
+</code></pre></div></div>
+<p>Here we know the font size in pts (see Section 2.2), hence it is easier to directly specify these numbers in the command:</p>
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\setbeamerfont</span><span class="p">{</span>title<span class="p">}{</span>size=<span class="k">\fontsize</span><span class="p">{</span>28pt<span class="p">}{</span>10<span class="p">}</span><span class="k">\selectfont</span><span class="p">}</span>
+</code></pre></div></div>
+<p>The second argument of <code class="highlighter-rouge">\fontsize{}{}</code> is the <code class="highlighter-rouge">baselineskip</code> value.    <br />
+However this just does not work: in Beamer, using 28pt for the title is way too big, and bigger than
+what we had the original ppt.</p>
+
+<p><strong>Solution?</strong></p>
+<ul>
+  <li>Try different values, until we have something similar to the title in ppt,</li>
+  <li>then for the other elements we just conserve the ratios.</li>
+</ul>
+
+<p>Here we end up with</p>
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\setbeamerfont</span><span class="p">{</span>title<span class="p">}{</span>size=<span class="k">\fontsize</span><span class="p">{</span>14pt<span class="p">}{</span>10<span class="p">}</span><span class="k">\selectfont</span><span class="p">}</span>
+<span class="k">\setbeamerfont</span><span class="p">{</span>author<span class="p">}{</span>size=<span class="k">\fontsize</span><span class="p">{</span>10pt<span class="p">}{</span>10<span class="p">}</span><span class="k">\selectfont</span><span class="p">}</span>
+<span class="k">\setbeamerfont</span><span class="p">{</span>subtitle<span class="p">}{</span>size=<span class="k">\fontsize</span><span class="p">{</span>8pt<span class="p">}{</span>10<span class="p">}</span><span class="k">\selectfont</span><span class="p">}</span>
+<span class="k">\setbeamerfont</span><span class="p">{</span>frametitle<span class="p">}{</span>size=<span class="k">\fontsize</span><span class="p">{</span>12pt<span class="p">}{</span>10<span class="p">}</span><span class="k">\selectfont</span><span class="p">}</span>
+<span class="k">\setbeamerfont</span><span class="p">{</span>date<span class="p">}{</span>size=<span class="k">\fontsize</span><span class="p">{</span>8pt<span class="p">}{</span>10<span class="p">}</span><span class="k">\selectfont</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="slide-text">Slide text</h4>
+
+<p>Now to set the size of the main text (i.e., the slide content), it can be done with the first line of the
+document:</p>
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\documentclass</span><span class="na">[14pt]</span><span class="p">{</span>beamer<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>Note:</strong> the value <code class="highlighter-rouge">20pt</code> seems the largest you can set: if you try with, for instance <code class="highlighter-rouge">28pt</code>, the text will end up
+in the default value (<code class="highlighter-rouge">11pt</code>). Here we set it again to half the value obtained from the ppt.</p>
+
+<h3 id="24-font-weight">2.4 Font weight</h3>
+
+<p>Decide if the text has to be normal, bold etc. According to the template, both the title and the frame titles should be in bold. We could do that using the <code class="highlighter-rouge">series=\bfseries</code> option:</p>
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\setbeamerfont</span><span class="p">{</span>title<span class="p">}{</span>size=<span class="k">\fontsize</span><span class="p">{</span>14pt<span class="p">}{</span>10<span class="p">}</span><span class="k">\selectfont</span>,series=<span class="k">\bfseries</span><span class="p">}</span>
+<span class="k">\setbeamerfont</span><span class="p">{</span>frametitle<span class="p">}{</span>size=<span class="k">\fontsize</span><span class="p">{</span>15pt<span class="p">}{</span>10<span class="p">}</span><span class="k">\selectfont</span>,series=<span class="k">\bfseries</span><span class="p">}</span>
+</code></pre></div></div>
+<p>However, again comparing with the ppt template, we see that the results are better without that option.</p>
+
+<h2 id="3-slide-layout">3. Slide layout</h2>
+
+<p>Most of the issues concerning the text has been solved, but still, the result does not look like the original ppt,
+mainly because the different elements are not well placed in the slides. Let’s fix that.</p>
+
+<h3 id="31-frame-title">3.1 Frame title</h3>
+
+<p>By default it appears in the top-left corner. It may require some adaptations according to the template.
+One way to that is to add vertical and horizontal spaces before the frame title:</p>
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\setbeamertemplate</span><span class="p">{</span>frametitle<span class="p">}{</span><span class="k">\vspace*</span><span class="p">{</span>1cm<span class="p">}</span><span class="k">\hspace*</span><span class="p">{</span>1.75cm<span class="p">}</span><span class="k">\insertframetitle</span><span class="p">}</span>
+</code></pre></div></div>
+<p>The values set here were found by successive tries. Again, it is not a question of millimeters, nobody will notice
+the difference if your frame title has an horizontal offset.</p>
+
+<h3 id="32-title-slide">3.2 Title slide</h3>
+
+<p>We kept this part for the end as it can be tedious: all the elements (title, subtitle, date, …) have to
+be properly placed and defined.</p>
+
+<h4 id="solution-1-beamer-template">Solution 1: beamer template</h4>
+<p>We can define the template for the title page with the command:</p>
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\defbeamertemplate*</span><span class="p">{</span>title page<span class="p">}{</span>customized<span class="p">}</span>[1][]
+<span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+<p>We will use the commands <code class="highlighter-rouge">\inserttitle</code>, <code class="highlighter-rouge">\insertdate</code>, <code class="highlighter-rouge">\insertauthor</code>, etc for each element.<br />
+There is also a possibility to include graphics (logo etc). The final command looks like:</p>
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\defbeamertemplate*</span><span class="p">{</span>title page<span class="p">}{</span>customized<span class="p">}</span>[1][]
+<span class="p">{</span>
+
+	<span class="k">\vspace</span><span class="p">{</span>3cm<span class="p">}</span>
+
+  <span class="p">{</span><span class="k">\usebeamerfont</span><span class="p">{</span>title<span class="p">}</span><span class="k">\usebeamercolor</span><span class="na">[fg]</span><span class="p">{</span>title<span class="p">}</span><span class="k">\inserttitle</span><span class="p">}</span>
+
+  <span class="k">\vspace</span><span class="p">{</span>.8cm<span class="p">}</span>
+
+  <span class="p">{</span><span class="k">\usebeamerfont</span><span class="p">{</span>subtitle<span class="p">}</span><span class="k">\usebeamercolor</span><span class="na">[fg]</span><span class="p">{</span>subtitle<span class="p">}</span><span class="k">\insertsubtitle</span>, <span class="p">}</span> <span class="k">\usebeamerfont</span><span class="p">{</span>date<span class="p">}</span><span class="k">\usebeamercolor</span><span class="na">[fg]</span><span class="p">{</span>date<span class="p">}</span><span class="k">\insertdate</span>
+
+  <span class="k">\vspace</span><span class="p">{</span>1.cm<span class="p">}</span>
+
+  <span class="k">\hspace*</span><span class="p">{</span>5.25cm<span class="p">}</span>
+  <span class="nt">\begin{minipage}</span>[c]<span class="p">{</span>2.5cm<span class="p">}</span>
+  <span class="k">\flushright</span>
+	<span class="p">{</span><span class="k">\usebeamerfont</span><span class="p">{</span>author<span class="p">}</span><span class="k">\usebeamercolor</span><span class="na">[fg]</span><span class="p">{</span>author<span class="p">}</span><span class="k">\insertauthor</span><span class="p">}</span>
+  <span class="nt">\end{minipage}</span><span class="k">\hspace</span><span class="p">{</span>.15cm<span class="p">}</span>
+  <span class="nt">\begin{minipage}</span>[c]<span class="p">{</span>1cm<span class="p">}</span>
+  <span class="k">\flushright</span>
+	<span class="k">\inserttitlegraphic</span>
+  <span class="nt">\end{minipage}</span>
+
+  <span class="k">\vfill</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>but it required (too) many tests to figure out the right positions.</p>
+
+<h4 id="solution-2-tikz">Solution 2: <code class="highlighter-rouge">TikZ</code></h4>
+
+<p>With <code class="highlighter-rouge">TikZ</code> we can easily set the exact positions of each element on a grid. This way is faster than the 1st solution.
+To make the process easier, we can overlay a grid on the slide:</p>
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="p">{</span>
+<span class="k">\usebackgroundtemplate</span><span class="p">{</span><span class="k">\includegraphics</span><span class="na">[width=\paperwidth]</span><span class="p">{</span>background1.pdf<span class="p">}}</span>
+<span class="nt">\begin{frame}</span>
+<span class="nt">\begin{tikzpicture}</span>[remember picture, overlay]
+<span class="k">\foreach</span> <span class="k">\x</span> in <span class="p">{</span>0,...,12<span class="p">}</span> <span class="k">\path</span> (current page.south west) +(<span class="k">\x</span>,0.25) node <span class="p">{</span><span class="k">\small</span><span class="p">$</span><span class="nv">\x</span><span class="p">$}</span>;
+<span class="k">\foreach</span> <span class="k">\y</span> in <span class="p">{</span>0,...,9<span class="p">}</span> <span class="k">\path</span> (current page.south west) +(0.25,<span class="k">\y</span>) node <span class="p">{</span><span class="k">\small</span><span class="p">$</span><span class="nv">\y</span><span class="p">$}</span>;
+<span class="k">\foreach</span> <span class="k">\x</span> in <span class="p">{</span>0,0.5,...,12.5<span class="p">}</span> <span class="k">\draw</span> (current page.south west) ++(<span class="k">\x</span>,0) -- +(0,9.6);
+<span class="k">\foreach</span> <span class="k">\y</span> in <span class="p">{</span>0,0.5,...,9.5<span class="p">}</span> <span class="k">\draw</span> (current page.south west) ++(0,<span class="k">\y</span>) -- +(12.8,0);
+<span class="nt">\end{tikzpicture}</span>
+<span class="nt">\end{frame}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>With the grid coordinates, each element is placed by a command like:</p>
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\draw</span> (current page.south west) +(1.4, 5.25) node[anchor=south west] <span class="p">{</span><span class="k">\usebeamerfont</span><span class="p">{</span>title<span class="p">}</span><span class="k">\usebeamercolor</span><span class="na">[fg]</span><span class="p">{</span>title<span class="p">}</span><span class="k">\inserttitle</span><span class="p">}</span>;
+</code></pre></div></div>
+<p>which means:</p>
+<ul>
+  <li>at a coordinate (1.4, 5.25), computed with respect to the left-bottom corner,</li>
+  <li>we add a node with a southwest anchor</li>
+  <li>the code contain the title, formated according to its color and font.</li>
+</ul>
+
+<p>There are certainly other ways to do it, but as it works, let’s keep it like this.</p>
+
+<h2 id="4-final-touch">4. Final touch</h2>
+
+<h3 id="navigation-symbols">Navigation symbols</h3>
+
+<p>By default, beamer puts navigation symbols in the bottom-right of the slide.   <br />
+To get rid of them:</p>
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\setbeamertemplate</span><span class="p">{</span>navigation symbols<span class="p">}{}</span>
+</code></pre></div></div>
+
+<h3 id="itemizelist-symbols">Itemize/list symbols</h3>
+<p>Sometimes bullet point lists are not created by bullets, but with another symbols (which doesn’t prevent from the
+<em>death by bullet point</em>): squares, dashes, arrows, … A simple example:</p>
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\setbeamertemplate</span><span class="p">{</span>items<span class="p">}</span>[triangle]
+</code></pre></div></div>
+<p>In some cases, the symbol in the list is more complex, it can be image or a small logo:</p>
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\defbeamertemplate</span><span class="p">{</span>itemize item<span class="p">}{</span>image<span class="p">}{</span><span class="k">\small\includegraphics</span><span class="na">[height=1.6ex]</span><span class="p">{</span>myimage.png<span class="p">}}</span>
+<span class="k">\setbeamertemplate</span><span class="p">{</span>itemize item<span class="p">}</span>[image]
+</code></pre></div></div>
+
+<h3 id="footline">Footline</h3>
+<p>We will add the slide number in the right corner and the date (for example) in the left corner (though it might be
+necessary in general):</p>
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">\addtobeamertemplate</span><span class="p">{</span>navigation symbols<span class="p">}{}{</span>
+    <span class="k">\usebeamerfont</span><span class="p">{</span>footline<span class="p">}</span><span class="c">%</span>
+    <span class="k">\usebeamercolor</span><span class="na">[fg]</span><span class="p">{</span>footline<span class="p">}</span><span class="c">%</span>
+    <span class="k">\hspace</span><span class="p">{</span>1em<span class="p">}</span><span class="c">%</span>
+    <span class="k">\insertframenumber</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Last fix: we don’t want to have this <em>footline</em> in the title frame. For that there is an <code class="highlighter-rouge">plain</code>:
+\begin{frame}[plain]
+…
+\end{frame}
+This can also be useful for the last slide of the presentation.</p>
+
+<h2 id="5-unsolved-issues">5. Unsolved issues</h2>
+
+<h3 id="vertical-spacing-in-author-list">Vertical spacing in author list</h3>
+<p>The authors are defined in a single element (<code class="highlighter-rouge">\author{ }</code>) that we place in the title using
+a <code class="highlighter-rouge">TikZ</code> node in which we set the text width. The vertical spacing is obviously too large compared
+to the template.</p>
+
+<h3 id="fonts">Fonts…</h3>
+<p>Even if we take the same fonts as in the ppt (at least according to <code class="highlighter-rouge">LibreOffice</code>), the final result is not
+exactly the same.</p>
+
+<h2 id="6-conclusions">6. Conclusions</h2>
+
+<p>They are the same as in other articles I’ve written: is it worth doing all that, instead of either</p>
+<ul>
+  <li>use LibreOffice, OpenOffice or Word directly or</li>
+  <li>just skip the template and keep your own?</li>
+</ul>
+
+<p>The answer depends on the time at your disposal and the will to make something nice. As an analogy, I will say that my father-in-law, Antonio, prepares really excellent <em>tortillas</em>, using the potatoes and eggs from his yard. It takes a while to prepare, a lot of dishes to wash after. Of course he could also buy them at the supermarket, it would be faster, easier and at the end no-so-bad. But nothing compared to the one he cooks.</p>
+
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+
+</body>
+</html>

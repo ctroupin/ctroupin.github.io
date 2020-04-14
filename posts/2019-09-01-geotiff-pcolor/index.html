@@ -7,7 +7,7 @@
     <meta name="description" content="Turning ocean data into stories">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
-    <link rel="canonical" href="https://ctroupin.github.io/posts/2019-09-01-geotiff-pcolor/">
+    <link rel="canonical" href="http://localhost:4000/posts/2019-09-01-geotiff-pcolor/">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
 
     <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
@@ -86,7 +86,7 @@ The data file is not provided but (hopefully) the procedure is clear enough that
 
 <p>You can download the <a href="https://ctroupin.github.io/notebooks/python/plot_visible_pcolor.ipynb">full notebook</a>.</p>
 
-<p><img src="https://ctroupin.github.io/figures/blog/chl_oc3_V22.png" class="img-responsive" /></p>
+<p><img src="http://localhost:4000/figures/blog/chl_oc3_V22.png" class="img-responsive" /></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span>
@@ -224,7 +224,7 @@ The function to read the file is detailed in this <a href="https://ctroupin.gith
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></div>
-<p><img src="https://ctroupin.github.io/figures/blog/geotiff_pcolor/output_16_1.png" class="img-responsive" /></p>
+<p><img src="http://localhost:4000/figures/blog/geotiff_pcolor/output_16_1.png" class="img-responsive" /></p>
 
 <h3 id="test-2">Test 2</h3>
 <p>It is not too bad but the limits are taken from the visible image, while we might prefer to use the field (chlorophyll concentration) extent. Here is the new projection:</p>
@@ -260,7 +260,7 @@ The function to read the file is detailed in this <a href="https://ctroupin.gith
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></div>
 
-<p><img src="https://ctroupin.github.io/figures/blog/geotiff_pcolor/output_20_1.png" class="img-responsive" /></p>
+<p><img src="http://localhost:4000/figures/blog/geotiff_pcolor/output_20_1.png" class="img-responsive" /></p>
 
 <p>It might look ok, but it is not: the visible background does not correspond to the field displayed with <code class="highlighter-rouge">pcolormesh</code> (you can check with the position of the clouds).</p>
 
@@ -319,7 +319,7 @@ The function to read the file is detailed in this <a href="https://ctroupin.gith
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></div>
 
-<p><img src="https://ctroupin.github.io/figures/blog/geotiff_pcolor/output_28_1.png" class="img-responsive" /></p>
+<p><img src="http://localhost:4000/figures/blog/geotiff_pcolor/output_28_1.png" class="img-responsive" /></p>
 
 <h2 id="cartopy">Cartopy</h2>
 <p>The code is almost the same. We just have to use:</p>
@@ -346,7 +346,7 @@ The function to read the file is detailed in this <a href="https://ctroupin.gith
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
 
-<p><img src="https://ctroupin.github.io/figures/blog/geotiff_pcolor/output_30_1.png" class="img-responsive" /></p>
+<p><img src="http://localhost:4000/figures/blog/geotiff_pcolor/output_30_1.png" class="img-responsive" /></p>
 
 <p>The projection is not exactly the same as with <code class="highlighter-rouge">Basemap</code>, but we’ll solve that later.</p>
 

@@ -7,7 +7,7 @@
     <meta name="description" content="Turning ocean data into stories">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
-    <link rel="canonical" href="http://localhost:4000/">
+    <link rel="canonical" href="https://ctroupin.github.io/">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
 
     <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
@@ -53,18 +53,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="http://localhost:4000">Charles Troupin</a>
+                <a class="navbar-brand" href="https://ctroupin.github.io">Charles Troupin</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <div class="nav navbar-nav navbar-right navbar-text">
                     <a class="hidden" href="#page-top"></a>
-                    <a class="page-scroll" href="http://localhost:4000/#about">About</a> &mdash;
-                    <a class="page-scroll" href="http://localhost:4000/#portfolio">Tutorials</a> &mdash;
-                    <a class="page-scroll" href="http://localhost:4000/publications">Publications</a> &mdash;
-                    <a class="page-scroll" href="http://localhost:4000/maps">Maps</a>&mdash;
-                    <a class="page-scroll" href="http://localhost:4000/run">Running</a> 
+                    <a class="page-scroll" href="https://ctroupin.github.io/#about">About</a> &mdash;
+                    <a class="page-scroll" href="https://ctroupin.github.io/#portfolio">Tutorials</a> &mdash;
+                    <a class="page-scroll" href="https://ctroupin.github.io/publications">Publications</a> &mdash;
+                    <a class="page-scroll" href="https://ctroupin.github.io/maps">Maps</a>&mdash;
+                    <a class="page-scroll" href="https://ctroupin.github.io/run">Running</a> 
                 </div>
             </div>
             <!-- /.navbar-collapse -->
@@ -151,7 +151,7 @@
                     <h3>Résumé </h3>
                       <p>
                         Check out my <a href="../CV/Ctroupin_curriculum.pdf">1-page CV <i class="fa fa-download"></i></a><br>
-                        or with more details, the <a href="http://localhost:4000/CV/Ctroupin_CVacademic.pdf">Academic CV <i class="fa fa-download"></i></a><br>
+                        or with more details, the <a href="https://ctroupin.github.io/CV/Ctroupin_CVacademic.pdf">Academic CV <i class="fa fa-download"></i></a><br>
                         You can also browse my <a href="publications">publications</a>.
                       </p>
                 </div>
@@ -661,7 +661,10 @@
 
   var runData = {"2020-01-03-Bologna": [44.505708, 11.353999],
                  "2020-03-16-Piran": [45.528912, 13.566898],
-                 "2020-03-17-Athens": [37.985826, 23.737137]};
+                 "2020-03-17-Athens": [37.985826, 23.737137],
+		 "2020-03-18-Hamburg": [53.547476, 9.982747],
+		 "2020-04-14-Barcelona": [41.371538, 2.172167],
+};
 
   console.log(runData);
 
@@ -673,7 +676,7 @@
       var marker = L.marker(runData[key]).addTo(map);
       var city = key.split(/[- ]+/).pop();
       console.log(city);
-      marker.bindPopup(`<a href='http://localhost:4000/running/${key}/''><h5>${city}</h5></a>`);
+      marker.bindPopup(`<a href='https://ctroupin.github.io/running/${key}/''><h5>${city}</h5></a>`);
     }
   }
 

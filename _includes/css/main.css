@@ -21,10 +21,13 @@ ol {
     font-size: 20px;
 }
 
+pre {
+    font-size: 18px;
+}
 code {
     font-size: 20px;
     color: #{{ site.color.link }};
-    background: #F2F1F1;
+    background: #ffffff;
 }
 
 ul {
@@ -65,6 +68,10 @@ h6 {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     text-align: left;
+}
+
+h2 {
+    font-family: "D-DIN"
 }
 
 h4 {
@@ -485,8 +492,8 @@ footer .footer-below {
 table {
   table-layout: auto;
   width: 100%;
-  padding: 4em 4em 4em 11em;
-  border-spacing: 10em 4em;
+  padding: 4em 4em 4em 4em;
+  border-spacing: 4em 4em;
   border: 3px dashed orange;
 }
 
@@ -508,7 +515,7 @@ td {
 }
 
 tr:nth-child(even) {
-    background-color: #DEDEDE; 
+    background-color: #DEDEDE;
 }
 
 .list-inline-social {

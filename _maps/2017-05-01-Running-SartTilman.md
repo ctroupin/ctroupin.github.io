@@ -38,7 +38,7 @@ In the last years I could register the tracks using a GPS device and wanted to s
 
 ### Implementation
 
-Quite similar to the [Mallorca map](../2017-03-01-Activity-Maps/). Different metrics (distance, ascent, ...) are computed on- the-fly. After download from [Movescount](movescount.com/) platform, the GPX files are cleaned, simplified (only 500 points are kept) and edited manually so that the title can be displayed in an `info` box.
+Quite similar to the [Mallorca map](../2017-03-01-Activity-Maps/). Different metrics (distance, positive elevation, ...) are computed _on-the-fly_. The GPX files are downloaded from [Movescount](movescount.com/) then cleaned, simplified (only 500 points are kept) and edited manually so that the title can be displayed in an `info` box.
 
 *Heatmap* and *hexbin* layers provide good ways to see the most frequent places and also locations where we never go. For example we almost never followed the national road "*Route du Condroz*", due to the traffic.
 

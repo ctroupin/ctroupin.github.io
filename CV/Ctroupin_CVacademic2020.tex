@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,svgnames]{article}
+\documentclass[10pt,a4paper,svgnames]{article}
 \usepackage{pgfgantt}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
@@ -45,9 +45,10 @@
 {./figures/}
 }
 
-\fancyfoot[R]{\begin{tcolorbox}[colback=CVgrey,colframe=CVmain,fonttitle=\bfseries,nobeforeafter,sidebyside,left=1mm,right=2mm,width=2.5cm,sidebyside align=top]
-\thepage \end{tcolorbox}
-}
+%\fancyfoot[R]{\begin{tcolorbox}[colback=CVgrey,colframe=CVmain,left=1mm,right=1mm,width=1cm] \thepage \end{tcolorbox}}
+\fancyfoot[C]{\thepage}
+
+
 
 \usepackage{array}
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -57,7 +58,7 @@
 \newtcbox{\skillbox}{nobeforeafter,colframe=CVmain,colback=CVgrey,boxrule=1pt,arc=4pt,height=0.5cm,
   boxsep=0pt,left=3pt,right=3pt,top=2.5pt,bottom=2pt,box align=center}
   
-  \newtcolorbox{summarybox}[1][]{colback=white,
+\newtcolorbox{summarybox}[1][]{colback=white,
 colframe=black,fonttitle=\bfseries,
 colbacktitle=CVmain,enhanced,
 attach boxed title to top center={yshift=-2mm},
@@ -79,16 +80,22 @@ title=Summary,#1}
     pdfsubject={Never forget the metadata!},
 	}
 
-\titleformat{\section}{\normalfont\Large\bfseries}{\circled{\thesection}~--}{.4em}{}
+\titleformat{\section}{\normalfont\Large\bfseries}{\circled{\thesection}~$-$}{.4em}{}
 \titleformat{\subsection}{\normalfont\bfseries}{\thesubsection~--}{.4em}{}
+\newfontfamily\titlefont[Path = /home/ctroupin/.fonts/]{D-DIN-Bold}
+\titleformat*{\section}{\large\bfseries\titlefont}
 
 \begin{document}
+
+\begin{center}
+\huge \titlefont Charles Troupin
+\end{center}
 
 \section{Contact data}
 
 \begin{tabular}{L{.02\textwidth}L{.42\textwidth}L{.02\textwidth}L{.5\textwidth}}
 \faEnvelopeSquare  	& charles.troupin@gmail.com 								& \faSkype			& charles.troupin1 \\
-\circled{\includegraphics[height=1.6ex]{gitlab_logo.png}} & \url{https://gitlab.com/ctroupin} 	& \faGithubSquare	& \url{https://github.com/ctroupin/} \\
+\includegraphics[height=1.6ex]{gitlab_logo.png} & \url{https://gitlab.com/ctroupin} 	& \faGithubSquare	& \url{https://github.com/ctroupin/} \\
 \aiOrcidSquare 		& \url{https://orcid.org/0000-0002-0265-1021} 	& \aiResearchGateSquare &\url{https://www.researchgate.net/profile/Charles_Troupin}\\
 \faTwitterSquare	& \url{https://twitter.com/CharlesTroupin}		&  	& \\
 \end{tabular}
@@ -512,8 +519,8 @@ In the frame of international projects, I authored or co-authored several works 
 \begin{table}[h]
 \centering
 \begin{tabular}{C{4cm}C{4cm}C{4cm}}
-\huge{20+}  	& \huge{100 +} & 	Reviewer for\hspace{1cm}  \\
-Papers in peer-review journals & Presentations at international conferences	& \huge{7} \hspace{2cm} \normalsize{journals} \\
+\huge{20+}  						& \huge{100 +} 									& Reviewer for\hspace{1cm}  \\
+Papers in peer-review journals 	& Presentations at international conferences	& \huge{7} \normalsize{journals} \\
 \end{tabular}
 \end{table}
 

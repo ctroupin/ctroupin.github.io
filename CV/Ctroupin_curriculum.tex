@@ -12,12 +12,32 @@
 \usepackage{marvosym}
 \usepackage{ifsym}
 \usepackage[scale=0.92]{geometry}
+\usepackage{tikz}
+\usepackage{colortbl}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathmorphing}
 \usetikzlibrary{arrows.meta}
 \urlstyle{rm}
+
+% Colors
+\definecolor{CVblue}{HTML}{1483D3}
+\definecolor{CVmain}{HTML}{0C860E}
+\definecolor{CVsecondary}{HTML}{8ED08F}
+\definecolor{CVter}{HTML}{FFE77A}
+
+\definecolor{CVgrey}{HTML}{E6E6E6}
+\sectionfont{\color{CVmain}}
+\subsectionfont{\color{white}}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=1pt,color=CVmain] (char) {#1};}}
 
 % Fonts
 \usepackage{fontspec}
 \setmainfont{Carlito}
+%\newfontfamily\thesubsectionfont{/home/ctroupin/.fonts/D-DIN.ttf}
+\newfontfamily\thesubsectionfont[Path = /home/ctroupin/.fonts/,Color=CVmain]{D-DIN}
+\titleformat*{\subsection}{\large\thesubsectionfont}
 %\urlstyle{rm}
 
 \hypersetup{bookmarksopen=true,
@@ -32,16 +52,10 @@ pdftitle=Charles Troupin Curriculum,
 pdfsubject=C. Troupin Resume,
 colorlinks=true,%
 breaklinks=true,%
-linkcolor=blue,anchorcolor=blue,%
-citecolor=CVblue,filecolor=blue,%
-menucolor=CVblue,%
-urlcolor=CVblue}
-
-\definecolor{CVblue}{HTML}{1483D3}
-\definecolor{CVmain}{HTML}{3BA647}
-\definecolor{CVgrey}{HTML}{E6E6E6}
-\sectionfont{\color{CVmain}}
-\subsectionfont{\color{CVmain}}
+linkcolor=CVmain,anchorcolor=CVmain,%
+citecolor=CVmain,filecolor=blue,%
+menucolor=CVmain,%
+urlcolor=CVmain}
 
 \newcommand{\fourstar}{\footnotesize \textcolor{CVmain}{\faStar\faStar\faStar\faStar}}
 \newcommand{\threestar}{\footnotesize \textcolor{CVmain}{\faStar\faStar\faStar}\faStarO}
@@ -53,8 +67,10 @@ urlcolor=CVblue}
 \newcommand{\role}[1]{\textbf{#1}}
 
 % Ovale box for the skills
-\newtcbox{\skillbox}{nobeforeafter,colframe=CVmain,colback=CVgrey,boxrule=1pt,arc=4pt,height=0.5cm,
+\newtcbox{\skillbox}{nobeforeafter,colframe=CVmain,colback=white,boxrule=1pt,arc=4pt,height=0.5cm,
   boxsep=0pt,left=3pt,right=3pt,top=2.5pt,bottom=2pt,box align = center}
+  
+
   
 \titlespacing*{\subsection}{0pt}{1ex}{-0ex}
 \titlespacing*{\subsubsection}{0pt}{1ex}{-0ex}
@@ -63,14 +79,22 @@ urlcolor=CVblue}
 
 \pagestyle{empty}
 
-{\LARGE Charles {\sc Troupin}} {\large \sepa Data analysist \& modeler --  Engineer in Physics}
-\vspace{.25cm}
+\begin{tikzpicture}[overlay,remember picture]
+    \draw [dashed,line width=.4mm,color=CVsecondary]
+        ($ (current page.north west) + (.25cm,-.25cm) $)
+        rectangle
+        ($ (current page.south east) + (-.25cm,.25cm) $);
+\end{tikzpicture}
 
-\begin{tabular*}{.65\textwidth}{clcl}
-\faMobile & +32~498~155~998 \hspace{5cm} & \faSkype & charles.troupin1 	 \\
-\faEnvelope & \href{mailto:ctroupin@protonmail.com}{ctroupin@protonmail.com} & \faHome	& \url{http://ctroupin.github.io}\\
-\faLinkedinSquare & \url{https://www.linkedin.com/in/charlestroupin} & \faGithubSquare & \url{https://github.com/ctroupin/} \\
-\aiOrcidSquare & \url{http://orcid.org/0000-0002-0265-1021} & \faTwitterSquare &  \url{https://twitter.com/CharlesTroupin} \\
+\vspace{-.7cm}
+
+{\centering \LARGE{\thesubsectionfont Charles Troupin}} {\large \sepa Data analysist \& modeler \sepa  Engineer in Physics}
+
+\begin{tabular*}{.65\textwidth}{cl!{\color{CVmain}\vrule}cl}
+\circled{\faMobile} & +32~498~155~998 \hspace{5cm} & \circled{\faSkype} & charles.troupin1 	 \\
+\circled{\faEnvelope} & \href{mailto:ctroupin@protonmail.com}{ctroupin@protonmail.com} & \circled{\faHome}	& \url{http://ctroupin.github.io}\\
+\circled{\includegraphics[height=1.6ex]{gitlab_logo.png}} & \url{https://gitlab.com/ctroupin} & \circled{\faGithubSquare} & \url{https://github.com/ctroupin/} \\
+\circled{\aiOrcidSquare} & \url{http://orcid.org/0000-0002-0265-1021} & \circled{\faTwitterSquare} &  \url{https://twitter.com/CharlesTroupin} \\
 \end{tabular*}
 
 \subsection*{Professional experience}
@@ -135,19 +159,19 @@ High-performance computing
 
 \parbox{.24\textwidth}{
 \textbf{Programming}\\
-Functional programming 				\\ 
-Object oriented programming		\\
-Test-oriented development			\\
-Control version system (git, svn)	\\
-Jupyter-notebooks					\\
-Unit tests							\\	
+Functional programming 						\\ 
+Object oriented programming				\\
+Test-oriented development					\\
+Control version system (git, svn)			\\
+Jupyter-notebooks							\\
+Continuous integration\\	
 %Data formats (json, csv, gpx, shapefiles)\\
 }\parbox{.72\textwidth}{
 \ganttset{bar height=.3}
 \begin{ganttchart}[
 	canvas/.style={fill=white},
     hgrid style/.style={draw=black!5, line width=.75pt},
-    vgrid={*1{draw=CVmain, line width=.75pt, dashed},*2{draw=CVgrey, line width=.75pt, dashed}},
+    vgrid={*1{draw=CVmain, line width=.75pt, dashed},*2{draw=CVsecondary, line width=.75pt, dashed}},
     title/.style={draw=none, fill=none},
     title label font=\bfseries,
     title label node/.append style={below=7pt},
@@ -177,13 +201,12 @@ Unit tests							\\
 \end{ganttchart}
 }
 
-\noindent \textbf{Web} HTML, CSS, markdown, javascript, Bootstrap, Jekyll, wordpress, Dokuwiki, Mediawiki
+\noindent \textbf{Data analytics} 
 
-\subsection*{Data analytics}
-
-\skillbox{Spatial interpolation} \skillbox{Geostatistics} \skillbox{Big data} \skillbox{Predictive modelling} \skillbox{Cloud computing} \skillbox{Data visualisation}\\ 
+\noindent \skillbox{Spatial interpolation} \skillbox{Geostatistics} \skillbox{Big data} \skillbox{Predictive modelling} \skillbox{Cloud computing} \skillbox{Data visualisation}\\ 
 \skillbox{Neural networks} \skillbox{Signal processing} \skillbox{Open data} \skillbox{Quality control} 
 
+\noindent \textbf{Web} HTML, CSS, markdown, javascript, Bootstrap, Jekyll, wordpress, Dokuwiki, Mediawiki
 
 \subsection*{Soft skills}
 \textbf{Project management:} Planning and monitoring \sepa scientific and technical reporting \sepa specification documents and strategic plans \sepa team leading, recruitment \sepa applications for grants and supports \sepa lean and agile management\\
@@ -197,26 +220,22 @@ German				& \onestar		& Dutch 				& \halfstar	\\
 \end{tabularx}
 
 
-\parbox{.5\textwidth}{
 \subsubsection*{Personal interests}
 %---------------------------
-\begin{tabular}{rlrl}
-\faCameraRetro	& Photography 				& \faMapSigns 	& Ultra-trail and mountain running	\\ 		
-\faMapMarker 	& Maps 						& \faWordpress	&Travel blogging 					\\
-\Bicycle		& Road cycling& \faCloud 	& Weather observation \& forecast					\\
-\Industry    	& UrbEx 					& 							& Coaching  			\\
+\begin{tabular}{rlrlrlrl}
+\textcolor{CVmain}{\faCameraRetro}	& Photography 				& \textcolor{CVmain}{\faMapSigns} 	& Ultra-trail and mountain running	& \textcolor{CVmain}{\faMapMarker} 	& Maps 						& \faWordpress	&Travel blogging 		\\ 		
+\textcolor{CVmain}{\Bicycle}		& Road cycling& \textcolor{CVmain}{\faCloud} 	& Weather observation \& forecast		& \textcolor{CVmain}{\Industry}    	& UrbEx 	& 			& Coaching  			\\
 \end{tabular}
-%\textcolor{white}{Last modified: \today}
-}
+\textcolor{white}{Last modified: \today}
 
-\begin{tcolorbox}[title=\subsubsection*{Personal interests},width=.5\textwidth,arc=0mm]
-\begin{tabular}{rl|rl}
-\faCameraRetro	& Photography 				& \faMapSigns 	& Ultra-trail and mountain running	\\ 		
-\faMapMarker 	& Maps 						& \faWordpress	&Travel blogging 					\\
-\Bicycle		& Road cycling& \faCloud 	& Weather observation \& forecast					\\
-\Industry    	& UrbEx 					& 							& Coaching  			\\
-\end{tabular}
-\end{tcolorbox}
+%\begin{tcolorbox}[title=\subsubsection*{Personal interests},width=.5\textwidth,arc=0mm]
+%\begin{tabular}{rl|rl}
+%\faCameraRetro	& Photography 				& \faMapSigns 	& Ultra-trail and mountain running	\\ 		
+%\faMapMarker 	& Maps 						& \faWordpress	&Travel blogging 					\\
+%\Bicycle		& Road cycling& \faCloud 	& Weather observation \& forecast					\\
+%\Industry    	& UrbEx 					& 							& Coaching  			\\
+%\end{tabular}
+%\end{tcolorbox}
 
 
 	

@@ -25,8 +25,9 @@ category: Map
 | S19 | Degolla de la Cumbre - Ana Lopez - Lagunetas - Santa Brígida |
 | S20 | Siete Fuentes - San Mateo |
 | S21 | Corral de los Juncos - Cruz de los Llanos - Los Manantiales - Hoya del Gamonal - San Mateo |
-| S22	| Arbejales - Utiaca - San Mateo |
+| S22 | Arbejales - Utiaca - San Mateo |
 | S37 | Pico de Las Nieves hasta - Barranco de Guayadeque |
+| S40 | Tunte - Rosiana - Santa Lucía | 
 | S42 | Presa Cuevas Blancas - Vueltas de Adeje - Santa Lucía |
 | S50 | Cruz de Tejeda - Garañón - Llanos de la Pez - Pasos de la Plata - Cruz Grande - Tunte |
 | S51 | Circular Llanos de la Pez - Pico de las Nieves - Dgda los Hornos - La Goleta |

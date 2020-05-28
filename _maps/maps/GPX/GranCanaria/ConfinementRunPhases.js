@@ -81,7 +81,9 @@ var movePhase1 = [
 ]
 
 var movePhase2 = [
-"2020/Phase2/grancanaria_2020_05_25_18_27_41_Running.gpx"
+"2020/Phase2/grancanaria_2020-05-25_16-27-41.gpx",
+"2020/Phase2/grancanaria_2020-05-26_16-07-25.gpx",
+"2020/Phase2/grancanaria_2020-05-27_16-36-04.gpx",
 ]
 
 

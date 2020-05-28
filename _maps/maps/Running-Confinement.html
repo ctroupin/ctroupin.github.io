@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Confinement running in Gran Canaria
+    </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.6.0/Control.FullScreen.css">
+
+    <style type="text/css">
+      #map { height : 800px; }
+      .line{
+        width: 10px;
+        height: 10px;
+        color: red
+      }
+			.myDivIcon {
+			  text-align: center; /* Horizontally center the text (icon) */
+			  line-height: 20px; /* Vertically center the text (icon) */
+			}
+
+    </style>
+  </head>
+  <body>
+
+    <div id="map"></div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/togeojson/0.16.0/togeojson.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.6.0/Control.FullScreen.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/fontawesome.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+		<script type="text/javascript" src="../js/gpxcompute.js"></script>
+    <script type="text/javascript" src="../js/basemaps.js"></script>
+		<script src="./GPX/GranCanaria/ConfinementRunPhases.js"></script>
+		<script type="text/javascript" src="./data/Valleseco2.geojson"></script>
+
+    <script>
+
+      var gpxdir = './GPX/GranCanaria/'
+      var currentTime = new Date()
+      var thisyear = currentTime.getFullYear()
+      var latlonmeanlist = [];
+      var	meanpositionLayer = L.layerGroup([]);
+
+      var map = L.map('map', {
+        fullscreenControl: true,
+			}).setView([28.050165, -15.575199], 14);
+
+			map.createPane('labels');
+			map.getPane('labels').style.zIndex = 650;
+			map.getPane('labels').style.pointerEvents = 'none';
+
+
+      var baseMaps = {
+        "OpenStreetMap": OpenStreetMap_Mapnik,
+        "Stamen Terrain": Stamen_Terrain,
+        "CartoDB Dark": CartoDB_DarkMatter,
+				"CartoDB": CartoDB,
+				"Esri_DarkGreyCanvas": Esri_DarkGreyCanvas
+      };
+
+			// var positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+      //   attribution: '©OpenStreetMap, ©CartoDB'
+			// }).addTo(map);
+
+			// var positronLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
+			//         attribution: '©OpenStreetMap, ©CartoDB',
+			//         pane: 'labels'
+			// }).addTo(map);
+
+
+
+			function style(feature) {
+		    return {
+		      fillColor: "#FFA048",
+		      weight: 3,
+		      opacity: .9,
+		      color: '#FF7A00',
+		      dashArray: '5, 5',
+		      fillOpacity: 0.
+		    };
+		  }
+
+
+      var preconfinementLayer = L.geoJson(null, {
+				style: function(feature) {
+					return {color: "black", weight: 1, opacity: 1};
+				}
+			});
+
+			var confinementLayer = L.geoJson(null, {
+				style: function(feature) {
+					return {color: "red", weight: 2, opacity: 1};
+				}
+			});
+
+			var phase0Layer = L.geoJson(null, {
+				style: function(feature) {
+					return {color: "#146800", weight: 1, opacity: 1};
+				}
+			});
+
+			var phase1Layer = L.geoJson(null, {
+				style: function(feature) {
+					return {color: "#146800", weight: 2, opacity: 1};
+				}
+			});
+
+			var hikingLayer = L.geoJson(null, {
+				style: function(feature) {
+					return {color: "#FBB54C", weight: 2, opacity: .7};
+				}
+			});
+
+      for (var i = 0; i < preconfinement.length ; i++) {
+        var preconfinementL = omnivore.gpx(gpxdir + preconfinement[i], null, preconfinementLayer);
+      }
+
+			for (var i = 0; i < confinement.length ; i++) {
+				var confinementL = omnivore.gpx(gpxdir + confinement[i], null, confinementLayer);
+			}
+			confinementL.addTo(map);
+
+			for (var i = 0; i < movePhase0.length ; i++) {
+				var phase0L = omnivore.gpx(gpxdir + movePhase0[i], null, phase0Layer);
+			}
+			//phase0L.addTo(map);
+
+			for (var i = 0; i < movePhase1.length ; i++) {
+				var phase1L = omnivore.gpx(gpxdir + movePhase1[i], null, phase1Layer);
+			}
+
+			for (var i = 0; i < movePhase2.length ; i++) {
+				var phase2L = omnivore.gpx(gpxdir + movePhase2[i], null, phase1Layer);
+			}
+			//phase1L.addTo(map);
+
+			for (var i = 0; i < hiking.length ; i++) {
+				var hikingL = omnivore.gpx(gpxdir + hiking[i], null, hikingLayer);
+			}
+			hikingL.addTo(map);
+
+			const fontAwesomeIcon = L.divIcon({
+			    html: '<i class="fas fa-mountain fa-2x" style="color: #287400"></i>',
+			    className: 'myDivIcon'
+			});
+
+
+			// Points of interest
+			var pointsInterest = [[28.078287, -15.556174, "Pico de Osorio<br>(969 m)"],
+													  [28.018811, -15.614225, "Pico de los Moriscos<br>(1773 m)"],
+														[28.026200, -15.569116, "Talayón de Ariñez<br>(1265 m)"],
+														[28.012095, -15.600141, "Monte Constantino<br>(1710 m)"],
+														[28.026537, -15.608239, "Montaña la Retamilla<br>(1619 m)"]
+													];
+
+			var PI = []
+			for (var i = 0; i<pointsInterest.length ; i++){
+				//console.log(pointsInterest[i]);
+				var p = new L.LatLng(pointsInterest[i][0], pointsInterest[i][1]);
+				var c = L.marker(p, { icon:  fontAwesomeIcon}).addTo(map)
+				//var c = L.circle(p, {radius: 50, color: 'red', fillOpacity: .5});
+				c.bindTooltip(pointsInterest[i][2], {permanent: true, className: "textlabel"});
+				PI.push(c);
+			};
+			PIlayer = L.layerGroup(PI);
+			PIlayer.setZIndex(1000);
+
+			// Distance circles
+			var startpoint = [28.038815, -15.570990];
+			var distCircles = []
+			dCircle = L.circle(startpoint, 1000.,
+					{color: "#FBB54C", fillColor: "#FBB54C", "opacity": 0.5,
+					"weight": 4}
+			);
+			distCircles.push(dCircle);
+			circleLayer = L.layerGroup(distCircles);
+
+			geojson = L.geoJson(valleseco, {
+		    style: style
+			}).addTo(map);
+
+      var overlayers = {
+        "Pre-confinement": preconfinementL,
+        "Confinement": confinementL,
+				"Hiking": hikingL,
+				"Deconfinement - Phase 0": phase0L,
+				"Deconfinement - Phase 1": phase1L,
+				"Deconfinement - Phase 2": phase2L,
+				"Distance circles": circleLayer,
+				"Points of interest": PIlayer
+      };
+
+      L.control.scale().addTo(map);
+      L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);
+
+    </script>
+
+  </body>
+</html>

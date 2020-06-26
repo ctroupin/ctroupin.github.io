@@ -131,48 +131,101 @@
     </div>
 </header>
 
-     <!-- About Section -->
-    <section id="about">
+    <!-- About Section -->
+<section id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>About me</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <h3>In 3 lines...</h3>
+        <p>
+          An Engineer in Physics studying the
+          ocean and trying to understand how it evolves at different spatial
+          and temporal scales, and how it interacts with the atmosphere.
+        </p>
+
+        <h3>Résumé </h3>
+        <p>
+          Check out my <a href="../CV/Ctroupin_curriculum.pdf">1-page CV <i class="fa fa-download"></i></a><br>
+          or with more details, the <a href="https://ctroupin.github.io/CV/Ctroupin_CVacademic.pdf">Academic CV <i class="fa fa-download"></i></a><br>
+          You can also browse my <a href="publications">publications</a>.
+        </p>
+
+      </div>
+      <div class="col-lg-3">
+
+        <h3> Research interests </h3>
+        <p>
+          Geospatial analysis<br>
+          Ocean numerical modelling<br>
+          Data visualisation
+        </p>
+
+        <h3>Outside the office</h3>
+        <p>
+          <i class="fa fa-camera-retro" aria-hidden="true"></i> <a href="../photography">Photography</a><br>
+          <i class="fas fa-bicycle" aria-hidden="true"></i> <a href="../sports">Run and bike</a><br>
+          <i class="fa fa-book" aria-hidden="true"></i> <a href="https://ctroupin.wordpress.com/">Blog</a><br>
+        </p>
+
+
+      </div>
+      <div class="col-lg-3">
+        <img class="img-responsive" src="figures/sharlogo.png" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+    
+    <!-- Project Grid Section -->
+    <section class="success" id="portfolio">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>About me</h2>
+                    <h2>Projects and works</h2>
+                    <br>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6">
-                    <h3>In 3 lines...</h3>
-                      <p>
-                        Engineer in Physics and PhD in Oceanography<br>
-                        10+ years experience in data analysis and numerical modelling<br>
-                        3 years as the head of the <a href="https://www.socib.eu">SOCIB</a> Data Center.
-                      </p>
-
-                    <h3>Résumé </h3>
-                      <p>
-                        Check out my <a href="../CV/Ctroupin_curriculum.pdf">1-page CV <i class="fa fa-download"></i></a><br>
-                        or with more details, the <a href="https://ctroupin.github.io/CV/Ctroupin_CVacademic.pdf">Academic CV <i class="fa fa-download"></i></a><br>
-                        You can also browse my <a href="publications">publications</a>.
-                      </p>
-                </div>
-                <div class="col-lg-3">
-                    <h3>Outside the office</h3>
-                      <p>
-                        <i class="fa fa-camera-retro" aria-hidden="true"></i> <a href="../photography">Photography</a><br>
-                        <i class="fas fa-bicycle" aria-hidden="true"></i> <a href="../sports">Run and bike</a><br>
-                        <i class="fa fa-book" aria-hidden="true"></i> <a href="https://ctroupin.wordpress.com/">Blog</a><br>
-                      </p>
-
-                      <h3> Research interests </h3>
-                      <p>
-                      Geospatial analysis<br>
-                      Ocean numerical modelling<br>
-                      Data visualisation
-                      </p>
-                </div>
-                <div class="col-lg-3">
-                  <img class="img-responsive" src="figures/sharlogo.png" alt="">
-                </div>
+                
+                    <div class="col-sm-2 portfolio-item">
+                        <a href="/projects/2018-06-04-AlborEx-mission/" class="portfolio-link">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    General map of the AlborEx mission
+                                </div>
+                            </div>
+                            <img src="figures/projects/AlborexMission_V19.jpg" class="img-responsive" alt="General map of the AlborEx mission">
+                        </a>
+                    </div>
+                
+                    <div class="col-sm-2 portfolio-item">
+                        <a href="/projects/2018-06-03-GaltiKa-mission/" class="portfolio-link">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    Galtika Mission
+                                </div>
+                            </div>
+                            <img src="figures/projects/1-ibiza_channel_bathy.png" class="img-responsive" alt="Ibiza Channel">
+                        </a>
+                    </div>
+                
+                    <div class="col-sm-2 portfolio-item">
+                        <a href="/projects/2018-08-03-water-temperature-mallorca/" class="portfolio-link">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    Sea water temperature in Mallorca
+                                </div>
+                            </div>
+                            <img src="figures/projects/temperatura_mallorca.png" class="img-responsive" alt="Sea water temperature in Mallorca">
+                        </a>
+                    </div>
+                
             </div>
         </div>
     </section>
@@ -366,17 +419,6 @@
                     </div>
                 
                     <div class="col-sm-2 portfolio-item">
-                        <a href="/posts/2018-08-03-water-temperature-mallorca/" class="portfolio-link">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    Sea water temperature in Mallorca
-                                </div>
-                            </div>
-                            <img src="figures/blog/temperatura_mallorca.png" class="img-responsive" alt="Sea water temperature in Mallorca">
-                        </a>
-                    </div>
-                
-                    <div class="col-sm-2 portfolio-item">
                         <a href="/posts/2018-07-19-julia-kernel-notebook/" class="portfolio-link">
                             <div class="caption">
                                 <div class="caption-content">
@@ -525,28 +567,6 @@
                     </div>
                 
                     <div class="col-sm-3 portfolio-item">
-                        <a href="/portfolio/2018-06-04-AlborEx-mission/" class="portfolio-link">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    General map of the AlborEx mission
-                                </div>
-                            </div>
-                            <img src="figures/portfolio/AlborexMission_V19.jpg" class="img-responsive" alt="General map of the AlborEx mission">
-                        </a>
-                    </div>
-                
-                    <div class="col-sm-3 portfolio-item">
-                        <a href="/portfolio/2018-06-03-GaltiKa-mission/" class="portfolio-link">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    Galtika Mission
-                                </div>
-                            </div>
-                            <img src="figures/portfolio/1-ibiza_channel_bathy.png" class="img-responsive" alt="Ibiza Channel">
-                        </a>
-                    </div>
-                
-                    <div class="col-sm-3 portfolio-item">
                         <a href="/portfolio/2016-03-01-Medgib-drifters/" class="portfolio-link">
                             <div class="caption">
                                 <div class="caption-content">
@@ -630,12 +650,12 @@
     
 
     <!-- "Where to run" Grid Section -->
-    <section class="success" id="portfolio">
+    <section id="portfolio">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <br><br>
-                    <h2> <i class="fas fa-hotel"></i> City running guide <i class="fas fa-shoe-prints"></i> </h2>
+                    <h2>City running guide</h2>
                     <br>
                     You have a meeting or a conference in a city that you don't know and have your shoes with you?<br>
                     I've compiled a few ideas based on previous experiences. Feedback and new ideas are welcome.

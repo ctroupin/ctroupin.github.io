@@ -74,6 +74,9 @@ collections:
   posts:
     output: true
     permalink: /posts/:path/
+  projects:
+    output: true
+    permalink: /projects/:path/
   running:
     output: true
     permalink: /running/:path/

@@ -138,6 +138,10 @@
 			for (var i = 0; i < movePhase2.length ; i++) {
 				var phase2L = omnivore.gpx(gpxdir + movePhase2[i], null, phase1Layer);
 			}
+
+			for (var i = 0; i < movePhase3.length ; i++) {
+				var phase3L = omnivore.gpx(gpxdir + movePhase3[i], null, phase1Layer);
+			}
 			//phase1L.addTo(map);
 
 			for (var i = 0; i < hiking.length ; i++) {
@@ -192,6 +196,7 @@
 				"Deconfinement - Phase 0": phase0L,
 				"Deconfinement - Phase 1": phase1L,
 				"Deconfinement - Phase 2": phase2L,
+				"Deconfinement - Phase 3": phase3L,
 				"Distance circles": circleLayer,
 				"Points of interest": PIlayer
       };

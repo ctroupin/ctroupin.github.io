@@ -84,12 +84,39 @@ var movePhase2 = [
 "2020/Phase2/grancanaria_2020-05-25_16-27-41.gpx",
 "2020/Phase2/grancanaria_2020-05-26_16-07-25.gpx",
 "2020/Phase2/grancanaria_2020-05-27_16-36-04.gpx",
+"2020/Phase2/grancanaria_2020-05-28_17-27-42.gpx",
+"2020/Phase2/grancanaria_2020-05-29_17-48-19.gpx",
+"2020/Phase2/grancanaria_2020-05-30_10-55-30.gpx",
+"2020/Phase2/grancanaria_2020-05-31_17-07-56.gpx",
+"2020/Phase2/grancanaria_2020-06-01_17-32-11.gpx",
+"2020/Phase2/grancanaria_2020-06-02_17-05-48.gpx",
+"2020/Phase2/grancanaria_2020-06-03_10-31-12.gpx",
+"2020/Phase2/grancanaria_2020-06-04_16-36-52.gpx",
+"2020/Phase2/grancanaria_2020-06-05_09-45-15.gpx",
+"2020/Phase2/grancanaria_2020-06-07_11-10-59.gpx",
+]
+
+var movePhase3 = [
+ "2020/Phase3/grancanaria_2020-06-08_16-44-57.gpx",
+ "2020/Phase3/grancanaria_2020-06-09_17-36-54.gpx",
+ "2020/Phase3/grancanaria_2020-06-11_09-35-34.gpx",
+ "2020/Phase3/grancanaria_2020-06-12_14-48-27.gpx",
+ "2020/Phase3/grancanaria_2020-06-14_10-22-55.gpx",
+ "2020/Phase3/grancanaria_2020-06-15_16-18-18.gpx",
+ "2020/Phase3/grancanaria_2020-06-16_14-13-40.gpx",
+ "2020/Phase3/grancanaria_2020-06-17_15-12-30.gpx",
+ "2020/Phase3/grancanaria_2020-06-18_15-06-18.gpx",
+ "2020/Phase3/grancanaria_2020-06-20_10-16-57.gpx",
+ "2020/Phase3/grancanaria_2020-06-21_10-49-54.gpx",
+ "2020/Phase3/grancanaria_2020-06-22_09-41-59.gpx",
+ "2020/Phase3/grancanaria_2020-06-22_15-26-35.gpx",
+ "2020/Phase3/grancanaria_2020-06-23_14-06-03.gpx",
+ "2020/Phase3/grancanaria_2020-06-24_10-19-42.gpx",
 ]
 
 
 var hiking = [
   "2020/Hiking/grancanaria_2020-04-26_13-18-00.gpx",
-
   "2020/Hiking/grancanaria_2020-04-27_15-03-38.gpx",
   "2020/Hiking/grancanaria_2020_04_30_17_40_49.gpx",
   "2020/Hiking/grancanaria_2020_05_03_08_32_43.gpx",
@@ -100,4 +127,15 @@ var hiking = [
   "2020/Hiking/grancanaria_2020_05_12_15_37_53_Trekking.gpx",
   "2020/Hiking/grancanaria_2020_05_15_14_17_30_Trekking.gpx",
   "2020/Hiking/grancanaria_2020-05-19_14-15-18.gpx",
+  "2020/Hiking/grancanaria_2020-05-31_06-14-36.gpx",
+  "2020/Hiking/grancanaria_2020-05-31_13-50-37.gpx",
+  "2020/Hiking/grancanaria_2020-06-01_14-42-23.gpx",
+  "2020/Hiking/grancanaria_2020-06-02_14-30-49.gpx",
+  "2020/Hiking/grancanaria_2020-06-06_06-58-35.gpx",
+  "2020/Hiking/grancanaria_2020-06-11_13-18-56.gpx",
+  "2020/Hiking/grancanaria_2020-06-13_07-29-21.gpx",
+  "2020/Hiking/grancanaria_2020-06-15_13-55-58.gpx",
+  "2020/Hiking/grancanaria_2020-06-20_06-36-57.gpx",
+  "2020/Hiking/grancanaria_2020-06-20_14-45-18.gpx",
+  "2020/Hiking/grancanaria_2020-06-21_07-12-50.gpx",
 ]

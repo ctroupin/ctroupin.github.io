@@ -1,0 +1,48 @@
+<!doctype html>
+{% include head.html %}
+
+<html lang="{{ site.lang | default: "en-US" }}">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>{{ site.title | default: site.github.repository_name }} by {{ site.github.owner_name }}</title>
+
+	<link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-8 col-lg-offset-2">
+			<center>
+				<h2> {{ page.title }} </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					{% if page.date %}
+						<h4><i class="far fa-calendar-alt"></i></h4> {{ page.date | date_to_long_string }} &nbsp;
+					{% endif %}
+					{% if page.tools %}
+						<h4><i class="fas fa-wrench"></i></h4> {{ page.tools }} &nbsp;
+					{% endif %}
+					{% if page.topic %}
+						<h4><i class="fas fa-tags"></i></h4> {{ page.topic }} &nbsp;
+					{% endif %}
+					{% if page.doi %}
+						<h4><i class="ai ai-doi ai" aria-hidden="true"></i></h4> <a href=https://doi.org/{{ page.doi }}> {{ page.doi }} </a> &nbsp;
+					{% endif %}
+				</div>
+				{{ content }}
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+</body>
+</html>

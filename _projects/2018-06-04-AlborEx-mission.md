@@ -22,7 +22,7 @@ The illustration had 2 purposes:
 
 The difficulty came from the quantity of information to be displayed. It took approximatively 20 iterations to reach the final version, even if, now that I'm looking at it again, there might be other improvements I should do.
 
-<img src="{{ site.url }}/figures/portfolio/{{ page.img }}" class="img-responsive" alt="{{ page.title }}">
+<img src="{{ site.url }}/figures/projects/{{ page.img }}" class="img-responsive" alt="{{ page.title }}">
 
 To provide more context to the image, a high-resolution *sea surface temperature* image was added as the background. In order to avoid simulating fake fronts, a colorbar with a uniform variation in intensity was chosen.
 

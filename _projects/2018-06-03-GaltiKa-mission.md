@@ -4,16 +4,16 @@ date: 2014-07-18
 img: 1-ibiza_channel_bathy.png
 alt: Ibiza Channel
 project-name: G-AltiKa
-tools: Python - matplotlib - basemap
+tools: Python - matplotlib - Basemap
 category: Scientific illustration
 doi: 10.1016/j.asr.2014.09.011
 ---
 
-The *G-AltiKa* mission took place in August 2013. *G* is for glider, *AltiKa* is for the Altika altimeter. The plan was to follow the satellite track with a glider during a few hours, inside the area covered by the high-frequency radar, and compare the velocities obtained by all these platforms.
+The *G-AltiKa* mission took place in August 2013. *G* is for glider, *AltiKa* is for the Altika altimeter. The plan was to follow the satellite track with a glider during a few hours, inside the area covered by the high-frequency radar, and compare the velocities obtained by all these platforms, probably the first time such a comparison was done, thanks to the SOCIB multi-platform capability.
 
-<img src="{{ site.url }}/figures/portfolio/1-ibiza_channel_bathy.png" class="img-responsive" alt="Ibiza Channel">
+<img src="{{ site.url }}/figures/projects/1-ibiza_channel_bathy.png" class="img-responsive" alt="Ibiza Channel">
 
-The illustration aimed to summarize the available dataset and the region of interest (the Ibiza Channel), without too much noise:
+This illustration aimed to summarize the available dataset and the region of interest (the Ibiza Channel), without too much noise:
 * the background in blue tones is the bathymetry,
 * the high-frequency radar coverage is shown by small dots and
 * the glider and the satellite track are represented by thick lines.      

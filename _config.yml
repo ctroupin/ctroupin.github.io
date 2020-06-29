@@ -6,16 +6,12 @@ description: "Turning ocean data into stories"
 keywords: "data analyst, engineering, oceanography, ocean science, numerical modelling"
 skills: "Engineer • Data analyst • Oceanographer • Ultra-Runner"
 meta_author: Troupin Charles
-credits: 'Style based on <a href="https://github.com/jeromelachaud/freelancer-theme">Freelancer Jekyll theme</a> by jeromelachaud. Freelancer is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
+credits: '<a href="https://github.com/jeromelachaud/freelancer-theme">Freelancer Jekyll theme</a> by jeromelachaud.<br> Freelancer is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
 address:
-  - line: "Verviers, Liège"
-  - line: "Belgium"
+  - line: "Verviers (Belgium)"
 
 # Google webmaster tools
 google_verify:
-
-# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:
 
 # Contact form:
 # - static : pass through formspree.io to validate email sending
@@ -29,11 +25,11 @@ disqus_shortname: myshortname
 
 # Color settings (hex-codes without the leading hash-tag)
 color:
-  primary: E7E7E7
-  primary-rgb: "254,179,0" #"128,179,255"
-  secondary: 313131
-  secondary-dark: 1B1B1B #A2122F
-  link: 1483d3
+  primary: 424242
+  primary-rgb: "173,73,62"
+  secondary: 2A9D8F
+  secondary-dark: 265653 #A2122F
+  link: f4a261
 
 # Footer settings
 footer:
@@ -46,9 +42,6 @@ footer:
 social:
   - title: github
     url: https://github.com/ctroupin/
-  - title: linkedin
-    url: https://www.linkedin.com/in/charlestroupin
-
 
 socialpic:
   - title: twitter
@@ -59,6 +52,14 @@ socialpic:
     url: https://500px.com/charlestroupin
   - title: vimeo
     url: https://vimeo.com/user40792705
+
+socialclosed:
+  - title: facebook
+    url: https://ctroupin.github.io/social/facebook/
+  - title: linkedin
+    url: https://ctroupin.github.io/social/linkedin/
+  - title: instagram
+    url: https://ctroupin.github.io/social/instagram/
 
 academic:
   - title: orcid

@@ -6,6 +6,7 @@
 
 body {
     overflow-x: hidden;
+    color: #{{ site.color.primary }}
 }
 
 p {
@@ -53,11 +54,11 @@ ul li:before {
     display: block;
     float: left;
     width: 1.25em;
-    color: #FEB300;
+    color: #{{ site.color.secondary-dark }};
 }
 
 ol li:before {
-    color: #FEB300;
+    color: #{{ site.color.secondary-dark }};
 }
 
 h1,
@@ -105,7 +106,7 @@ margin:15px 10px 20px 1px;
 header {
     text-align: center;
     color: #fff;
-    background: #{{ site.color.primary }};
+    background: #{{ site.color.secondary }};
 }
 
 header .container {
@@ -175,6 +176,7 @@ header .intro-text .skills {
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     font-size: 1.5em;
+    background: #{{ site.color.secondary-dark }};
 }
 
 .navbar a:focus {
@@ -208,8 +210,8 @@ section h2 {
 }
 
 section.success {
-    color: #313131;
-    background: #{{ site.color.primary }};
+    color: #{{ site.color.primary }};
+    background: #{{ site.color.secondary }};
 }
 
 @media(max-width:767px) {
@@ -283,7 +285,7 @@ section.success {
     margin-top: 15px;
     border: solid 2px #444444;
     font-size: 20px;
-    color: #444444;
+    color: site.color.link;
     background: 0 0;
     transition: all .3s ease-in-out;
 }
@@ -363,7 +365,7 @@ footer h3 {
 
 footer .footer-above {
     padding-top: 50px;
-    background-color: #{{ site.color.secondary }};
+    background-color: #{{ site.color.secondary-dark }};
 }
 
 footer .footer-col {
@@ -372,7 +374,7 @@ footer .footer-col {
 
 footer .footer-below {
     padding: 25px 0;
-    background-color: #{{ site.color.secondary-dark }};
+    background-color: #{{ site.color.secondary }};
 }
 
 .btn-social {
@@ -385,6 +387,11 @@ footer .footer-below {
     text-align: center;
     font-size: 22px;
     line-height: 35px;
+    color: #000000
+}
+
+.btn-social-closed{
+    color: #{{ site.color.secondary-dark }};
 }
 
 .btn:focus,
@@ -458,7 +465,7 @@ footer .footer-below {
     width: 1px;
     height: 75px;
     margin-left: 35px;
-    background-color: #{{ site.color.secondary }};
+    background-color: #{{ site.color.secondary-dark }};
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
@@ -468,7 +475,7 @@ footer .footer-below {
     z-index: 1052;
     width: 1px;
     height: 75px;
-    background-color: #{{ site.color.secondary }};
+    background-color: #{{ site.color.secondary-dark }};
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);

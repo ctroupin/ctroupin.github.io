@@ -4,16 +4,15 @@
             <div class="container">
                 <div class="row">
                     <div class="footer-col col-md-3">
-                        <h3>{{ site.footer.location }}</h3>
-                        <p>
+
+                        <p> <b><i class="fas fa-map-marker-alt"></i> </b>
                             {% for adress in site.address %}
                                 {{ adress.line }} <br>
 		                    {% endfor %}
                         </p>
                     </div>
                     <div class="footer-col col-md-9">
-                        <h3>{{ site.footer.credits }}</h3>
-                        <p>{{ site.credits }}</p>
+                        <p><b>{{ site.footer.credits }}</b>: {{ site.credits }}</p>
                     </div>
                 </div>
             </div>

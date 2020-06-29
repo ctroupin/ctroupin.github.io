@@ -46,20 +46,19 @@ footer:
 social:
   - title: github
     url: https://github.com/ctroupin/
-  - title: twitter
-    url: https://twitter.com/CharlesTroupin
   - title: linkedin
     url: https://www.linkedin.com/in/charlestroupin
 
+
 socialpic:
+  - title: twitter
+    url: https://twitter.com/CharlesTroupin
   - title: flickr
     url: https://www.flickr.com/photos/sharlo1982/
   - title: 500px
     url: https://500px.com/charlestroupin
   - title: vimeo
     url: https://vimeo.com/user40792705
-  - title: facebook
-    url:
 
 academic:
   - title: orcid

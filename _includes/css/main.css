@@ -24,9 +24,19 @@ ol {
 pre {
     font-size: 18px;
 }
+
+a,
+a:hover,
+a:focus,
+a:active,
+a.active {
+    outline: 0;
+    color: #{{ site.color.link }};
+}
+
 code {
     font-size: 20px;
-    color: #{{ site.color.link }};
+    color: #{{ site.color.secondary }};
     background: #ffffff;
 }
 
@@ -50,15 +60,6 @@ ol li:before {
     color: #FEB300;
 }
 
-a,
-a:hover,
-a:focus,
-a:active,
-a.active {
-    outline: 0;
-    color: #{{ site.color.link }};
-}
-
 h1,
 h2,
 h3,
@@ -80,6 +81,11 @@ h4 {
 
 .img-centered {
     margin: 0 auto;
+}
+
+.img-centered {
+    margin: 0 auto;
+    text-align: center;
 }
 
 .imagelogo

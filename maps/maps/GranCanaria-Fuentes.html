@@ -31,25 +31,31 @@
 			});
 
 			var baseMaps = {
-				"Thunderforest_Outdoors": Thunderforest_Outdoors,
 				"Stamen Terrain": Stamen_Terrain,
 				"Open Street Map": OpenStreetMap_Mapnik
 			};
 
 			var Fuentes = [
-										  [28.01674, -15.55468],
-											[27.95225, -15.57041],
-											[28.0663, -15.56387]
+										  [[28.01674, -15.55468], "Barranco de la Mina<br> (Utiaca)"],
+											[[27.95225, -15.57041],"La Culata"],
+											[[28.0663, -15.56387], "La Laguna de Valleseco "],
+											[[28.05839, -15.68844], "Tamadaba"],
+											[[28.08757, -15.63634], "Las Rosas"],
+											[[28.10781, -15.59814], "Santa Cristina"],
+											[[28.05901, -15.54137], "Aguas de Teror"],
+											[[27.983, -15.6677], "El Chorillo"],
 										];
 
 			for (i = 0; i < Fuentes.length; i++) {
-				var marker = new L.marker(Fuentes[i], { opacity: 0. }); //opacity may be set to zero
-				marker.bindTooltip("🚰", {permanent: true, className: "my-label", offset: [0, 0] });
+				var marker = new L.marker(Fuentes[i][0], { opacity: 0.85 }); //opacity may be set to zero
+				//marker.bindTooltip("🚰", {permanent: true, className: "my-label", offset: [0, 0] });
+				marker.bindPopup("🚰 " + Fuentes[i][1]);
+				console.log(Fuentes[i][1]);
 				marker.addTo(map);
 			};
 
 
-			map.addLayer(Thunderforest_Outdoors);
+			map.addLayer(OpenStreetMap_Mapnik);
 
 			L.control.layers(baseMaps, null, {collapsed:false}).addTo(map);
 

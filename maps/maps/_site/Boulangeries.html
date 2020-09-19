@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>
+			Boulangeries à Verviers
+		</title>
+		<script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.5.1/Control.FullScreen.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/ionicons.min.css">
+		<link rel="stylesheet" href="../css/L.Icon.FontAwesome.css">
+		<style type="text/css">
+			#map { height : 800px; }
+		</style>
+	</head>
+	<body>
+
+		<div id="map"></div>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.5.1/Control.FullScreen.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+		<script type="text/javascript" src="../js/L.Icon.FontAwesome.js"></script>
+		<script type="text/javascript" src="../js/basemaps.js"></script>
+
+		<script>
+
+			var map = L.map('map', {
+			  fullscreenControl: true,
+			  center: [50.577834, 5.876687],
+			  zoom: 14
+			});
+
+			var baseMaps = {
+				"Stamen Terrain": Stamen_Terrain,
+				"Open Street Map": OpenStreetMap_Mapnik
+			};
+
+			var Boulangeries = [[50.589430, 5.868354],
+													[50.592722, 5.866335],
+													[50.587850, 5.859113],
+													[50.584091, 5.865361],
+													[50.584872, 5.855356],
+													[50.587173, 5.840658],
+													[50.590911, 5.848718],
+													[50.587550, 5.858029],
+													[50.595425, 5.870255],
+													[50.578594, 5.865369],
+													[50.584426, 5.883850],
+													[50.597871, 5.895605],
+													[50.581754, 5.839074],
+													[50.580835, 5.841440],
+												];
+
+												50.592341, 5.860097
+
+			for (i = 0; i < Boulangeries.length; i++) {
+				var marker = new L.marker(Boulangeries[i], { opacity: 0.01 }); //opacity may be set to zero
+				marker.bindTooltip("🍞", {permanent: true, className: "my-label", offset: [0, 0] });
+				marker.addTo(map);
+			};
+
+
+			map.addLayer(Stamen_Terrain)
+
+			L.control.layers(baseMaps, ).addTo(map);
+
+			</script>
+
+</body>
+</html>

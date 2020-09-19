@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>
+		European
+	</title>
+	<script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+	#map { height : 800px; }
+	.info { padding: 10px 20px; font: 20px/22px Arial, Helvetica, sans-serif; background: rgba(255,255,255,0.7);
+		box-shadow: 0 0 15px rgba(0,0,0,0.4); border-radius: 7px; }
+		.info h4 { margin: 0 0 5px; color: #777; }
+		legend { text-align: left; line-height: 18px; color: #555; }
+		.legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+		</style>
+	</head>
+	<body>
+
+		<div id="map"></div>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/togeojson/0.16.0/togeojson.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
+		<script type="text/javascript" src="../js/basemaps.js"></script>
+
+		<div id="map"></div>
+		<script type="text/javascript" src="../data/domain.json"></script>
+		<script type="text/javascript" src="../data/EEZ_europe3_models.geojson"></script>
+		<script>
+
+		var map = L.map('map',
+		{
+			fullscreenControl: true,
+		}
+	).setView([39.6, 2.93], 3);
+
+	Esri_OceanBasemap.addTo(map);
+
+	var baseMaps = {
+		"CartoDB": CartoDB,
+		"CartoDB Dark": CartoDB_DarkMatter,
+		"OpenStreetMap": OpenStreetMap_Mapnik,
+		"Esri_OceanBasemap": Esri_OceanBasemap
+
+	};
+
+	// control that shows state info on hover
+	var info = L.control({position: 'topleft'});
+
+	info.onAdd = function (map) {
+		this._div = L.DomUtil.create('div', 'info');
+		this.update();
+		return this._div;
+	};
+
+	info.update = function (props) {
+		this._div.innerHTML = (props ?
+			'<h4>' + props.Institute + ':</h4> ' + props.name + ' <br/> <img src="./img/' + props.logo + '" height="56">'
+			: 'Select a domain');
+		};
+
+		info.addTo(map);
+
+		var geojson;
+		var geojsonEEZ;
+		var mk;
+		var mklist=[];
+
+		function getColor(d) {
+			return d > 20 ? '#bd0026' :
+			d > 10  ? '#f03b20' :
+			d > 5  ? '#fd8d3c' :
+			d > 2  ? '#fecc5c' :
+			d > 1  ? '#ffffb2' :
+			'white';
+		}
+
+		function style(feature) {
+			return {
+				fillColor: "#c7e9b4",
+				weight: 1,
+				opacity: 1,
+				color: 'black',
+				dashArray: '2',
+				fillOpacity: 0.3
+			};
+		}
+
+		function style_eez(feature) {
+			return {
+				fillColor: getColor(feature.properties.nmodels),
+				weight: .5,
+				opacity: .7,
+				color: 'black',
+				fillOpacity: 0.5
+			};
+		}
+
+
+		function highlightFeature(e) {
+			var layer = e.target;
+
+			layer.setStyle({
+				weight: 5,
+				color: '#666',
+				dashArray: '',
+				fillOpacity: 0.7
+			});
+
+			if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+				layer.bringToFront();
+			}
+
+			info.update(layer.feature.properties);
+			var coords = layer.feature.properties.coords;
+			// Remove if already exists
+			if (mk != undefined) {
+				map.removeLayer(mk);
+			};
+			mk = L.marker(coords, {opacity: 1});
+			mk.bindPopup(layer.feature.properties.Institute).openPopup();
+			mk.addTo(map);
+		}
+
+		function resetHighlight(e) {
+			geojson.resetStyle(e.target);
+			info.update();
+		}
+
+		function zoomToFeature(e) {
+			map.fitBounds(e.target.getBounds());
+		}
+
+		function onEachFeature(feature, layer, mk) {
+			layer.on({
+				mouseover: highlightFeature,
+				mouseout: resetHighlight,
+				click: zoomToFeature
+			});
+			var coords = feature.properties.coords;
+			//console.log(coords);
+			mk = L.marker(coords, {opacity: 0.6});
+			mk.addTo(map);
+			mklist.push(mk);
+		}
+
+		geojson = L.geoJson(domain, {
+			style: style,
+			onEachFeature: onEachFeature
+		});
+
+
+		geojsonEEZ = L.geoJson(nmodels, {
+			style: style_eez
+		}).addTo(map);
+
+		//var eezLayer = L.tileLayer.wms('http://geo.vliz.be/geoserver/MarineRegions/wms?version%3D1.1.0',
+		//{layers: 'eez',
+		// opacity: 0.5}).addTo(map);
+
+		instLayer = L.layerGroup(mklist);
+
+		var legend = L.control({position: 'bottomright'});
+		legend.onAdd = function (map) {
+
+			var div = L.DomUtil.create('div', 'info legend'),
+			grades = [0, 1, 2, 5, 10, 20],
+			labels = ["Number of models<br>per EEZ"],
+			from, to;
+
+			//for (var i = 0; i < grades.length; i++) {
+			for (var i = grades.length-1; i >= 0; i--) {
+				from = grades[i];
+				to = grades[i + 1];
+
+				labels.push(
+					'<i style="background:' + getColor(from + 1) + '"></i> ' +
+					from + (to ? '&ndash;' + to : '+'));
+				}
+
+				div.innerHTML = labels.join('<br>');
+				return div;
+			};
+
+			legend.addTo(map);
+
+			var overlayers = {
+				"Domains ": geojson,
+				"EEZ": geojsonEEZ,
+				"i": instLayer
+			};
+
+			L.control.layers(baseMaps, overlayers).addTo(map);
+
+		</script>
+
+	</body>
+	</html>

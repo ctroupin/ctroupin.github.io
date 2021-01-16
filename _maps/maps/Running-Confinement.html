@@ -64,15 +64,7 @@
 				"Esri_DarkGreyCanvas": Esri_DarkGreyCanvas
       };
 
-			// var positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
-      //   attribution: '©OpenStreetMap, ©CartoDB'
-			// }).addTo(map);
-
-			// var positronLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
-			//         attribution: '©OpenStreetMap, ©CartoDB',
-			//         pane: 'labels'
-			// }).addTo(map);
-
+      CartoDB.addTo(map);
 
 
 			function style(feature) {
@@ -111,6 +103,18 @@
 				}
 			});
 
+			var phase2Layer = L.geoJson(null, {
+				style: function(feature) {
+					return {color: "#146800", weight: 2, opacity: 1};
+				}
+			});
+
+			var phase3Layer = L.geoJson(null, {
+				style: function(feature) {
+					return {color: "#146800", weight: 2, opacity: 1};
+				}
+			});
+
 			var hikingLayer = L.geoJson(null, {
 				style: function(feature) {
 					return {color: "#FBB54C", weight: 2, opacity: .7};
@@ -129,20 +133,22 @@
 			for (var i = 0; i < movePhase0.length ; i++) {
 				var phase0L = omnivore.gpx(gpxdir + movePhase0[i], null, phase0Layer);
 			}
-			//phase0L.addTo(map);
+			phase0L.addTo(map);
 
 			for (var i = 0; i < movePhase1.length ; i++) {
 				var phase1L = omnivore.gpx(gpxdir + movePhase1[i], null, phase1Layer);
 			}
+			phase1L.addTo(map);
 
 			for (var i = 0; i < movePhase2.length ; i++) {
-				var phase2L = omnivore.gpx(gpxdir + movePhase2[i], null, phase1Layer);
+				var phase2L = omnivore.gpx(gpxdir + movePhase2[i], null, phase2Layer);
 			}
+			phase2L.addTo(map);
 
 			for (var i = 0; i < movePhase3.length ; i++) {
-				var phase3L = omnivore.gpx(gpxdir + movePhase3[i], null, phase1Layer);
+				var phase3L = omnivore.gpx(gpxdir + movePhase3[i], null, phase3Layer);
 			}
-			//phase1L.addTo(map);
+			phase3L.addTo(map);
 
 			for (var i = 0; i < hiking.length ; i++) {
 				var hikingL = omnivore.gpx(gpxdir + hiking[i], null, hikingLayer);
@@ -175,15 +181,6 @@
 			PIlayer = L.layerGroup(PI);
 			PIlayer.setZIndex(1000);
 
-			// Distance circles
-			var startpoint = [28.038815, -15.570990];
-			var distCircles = []
-			dCircle = L.circle(startpoint, 1000.,
-					{color: "#FBB54C", fillColor: "#FBB54C", "opacity": 0.5,
-					"weight": 4}
-			);
-			distCircles.push(dCircle);
-			circleLayer = L.layerGroup(distCircles);
 
 			geojson = L.geoJson(valleseco, {
 		    style: style
@@ -197,7 +194,6 @@
 				"Deconfinement - Phase 1": phase1L,
 				"Deconfinement - Phase 2": phase2L,
 				"Deconfinement - Phase 3": phase3L,
-				"Distance circles": circleLayer,
 				"Points of interest": PIlayer
       };
 

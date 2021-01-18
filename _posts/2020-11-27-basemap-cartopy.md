@@ -2,8 +2,8 @@
 layout: post
 title: Installing Basemap and Cartopy in a virtual environment
 date: 2020-11-27
-img: Sentinel2_0091.png
-alt:
+img: mpl_basemap.jpg
+alt: Basemap and Cartopy
 tools: Python, matplotlib, Basemap, Cartopy
 topic: Plots
 ---
@@ -25,7 +25,7 @@ workon Argo3.8
 Yes, we now it is deprecated in favor of `Cartopy`, but for some reasons,
 let's say we want to continue with `Basemap` for some more time.
 
-Download the last release from https://github.com/matplotlib/basemap/releases/,
+Download the last release from [https://github.com/matplotlib/basemap/releases/](here),
 here we save it in a directory `~/Software`, for example.
 
 ### Compile geoslibrary
@@ -86,9 +86,9 @@ and found, among many directories:
 * `basemap-1.2.1-py3.8-linux-x86_64.egg/mpl_toolkits`, which was installed a few minutes before
 * `mpl_toolkits`, installed some days ago.
 
-So my assumption (and I must apologise because I won't take the time to verify it), it that `mpl_toolkits` has been installed at the same time as `matplotlib`. Seems plausible.
-```
-Then, when I run in Python `from mpl_toolkits import ...` it searches for Basemap in this older directory.
+So my assumption (and I must apologise because I won't take the time to verify it), is that `mpl_toolkits` has been installed at the same time as `matplotlib`. Seems plausible.
+
+Then, when I run in Python `from mpl_toolkits import ...` it searches for `Basemap` in this older directory.
 
 #### Solution
 
@@ -96,7 +96,7 @@ I created a link inside the old `mpl_toolkits` directory toward the newly instal
 `basemap` directory:
 
 ```bash
-cd {VIRTUALENVDIR}/Argo3.8/lib/python3.8/site-packages/mpl_toolkits
+cd ${VIRTUALENVDIR}/Argo3.8/lib/python3.8/site-packages/mpl_toolkits
 ln -sfv ../basemap-1.2.1-py3.8-linux-x86_64.egg/mpl_toolkits/basemap/ .
 ```
 
@@ -120,7 +120,7 @@ Now we're done with `Basemap`.
 ## Cartopy
 
 Let's repeat: `Basemap` is deprecated and we should use [`Cartopy`](https://scitools.org.uk/cartopy/docs/latest/installing.html). Their documentation
-starts with Canda stuffs, we're not using it too much as we prefer the classical
+starts with `Conda` stuffs, we're not using it too much as we prefer the classical
 `pip` approach.
 
 ### pip
@@ -128,14 +128,4 @@ starts with Canda stuffs, we're not using it too much as we prefer the classical
 Let's start with a `pip install cartopy`.
 
 On other occasions we got error messages, but this time it seems everything
-is in place to avoid us some troubles.
-
-
-
-
-
-Listing
-jupyter kernelspec list
-
-Remove
-jupyter kernelspec uninstall myenv
+is in place to avoid us some troubles. Lucky me.

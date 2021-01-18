@@ -1,5 +1,11 @@
+.ruby-version
+CV/gitlab_logo*
+CV/Ctroupin_curriculum_*.pdf
+CV/Ctroupin_curriculum_*.tex
 *Hugo*
+
 .ipynb_checkpoints
+# Leaflet stuff 
 leaflet/images/markers*
 leaflet/images/pin*
 leaflet/css/images/
@@ -22,6 +28,7 @@ leaflet/js/leaflet.js
 CV/Candidatures/
 .bundle
 vendor
+# LaTeX stuff
 *.out
 *.bak
 *.swp

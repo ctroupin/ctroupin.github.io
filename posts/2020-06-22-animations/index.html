@@ -102,22 +102,38 @@ north_sea002.png
 north_sea003.png
 ...
 </code></pre></div></div>
-<p>and we want to create a movie called <code class="highlighter-rouge">animation.mp4</code>.</p>
+<p>and we want to create a movie called in <code class="highlighter-rouge">mp4</code> format.</p>
 
 <p><img src="https://ctroupin.github.io/figures/blog/Sentinel2_0022.png" class="img-responsive" alt="Sentinel-2 image" /></p>
 
-<p>Here is the command I use:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>ffmpeg <span class="nt">-i</span> north_sea%03d.png <span class="nt">-r</span> 6 <span class="nt">-c</span>:v libx264 <span class="nt">-pix_fmt</span> yuv420p animation.mp4
+<p>Here is an example of command we ca, use:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>ffmpeg <span class="nt">-framerate</span> 6 <span class="nt">-i</span> north_sea%03d.png <span class="nt">-c</span>:v libx264 <span class="nt">-pix_fmt</span> yuv420p animation.mp4
 </code></pre></div></div>
 <p>and now some explanations:</p>
 <ul>
+  <li><code class="highlighter-rouge">-framerate 12</code> specifies the <em>framerate</em>, here 6 frames per second.</li>
   <li><code class="highlighter-rouge">-i north_sea%03d.png</code> indicates the input files, with the <code class="highlighter-rouge">%03</code> for the zero-padding.</li>
-  <li><code class="highlighter-rouge">-r 6</code> specifies the <em>framerate</em>, here 6 frames per second.</li>
   <li><code class="highlighter-rouge">-c:v libx264</code> [optional] encodes the movie with <code class="highlighter-rouge">libx264</code>.</li>
   <li><code class="highlighter-rouge">-pix_fmt yuv420p</code> [optional] to ensure the output work in <code class="highlighter-rouge">QuickTime</code> and most other players.</li>
 </ul>
 
-<p>And that’s all, the movie is ready to be played or uploaded to your favorite platform.</p>
+<p>And that’s all, the movie is ready to be played or uploaded to your favorite platform or even on social media (<em>Twitter</em> has a size limit for the animations).</p>
+
+<h3 id="working-with-file-patterns">Working with file patterns</h3>
+
+<p>In the initial example, the files were named sequentially. Usually I saved the
+figures with a name containing the date, for instance <code class="highlighter-rouge">SST_201801.jpg</code>,
+<code class="highlighter-rouge">SST_201802.jpg</code>, …, <code class="highlighter-rouge">SST_202012.jpg</code></p>
+
+<p>Of course we can use some options to take care of that, in particular
+the option <code class="highlighter-rouge">-pattern_type</code>. An example is better than explanations:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>ffmpeg <span class="nt">-framerate</span> 12 <span class="nt">-pattern_type</span> glob <span class="nt">-i</span> <span class="s2">"SST_*.jpg"</span> <span class="nt">-c</span>:v libx264 <span class="nt">-pix_fmt</span> yuv420p  animation.mp4
+</code></pre></div></div>
+<p>It is always possible to check a priori the file order using this command:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">echo </span>SST_<span class="k">*</span>.png
+</code></pre></div></div>
+<p>ensuring there is no surprise in the final animation.</p>
 
 <h3 id="errors">Errors</h3>
 
@@ -126,7 +142,7 @@ north_sea003.png
 </code></pre></div></div>
 <p>which was solved by adding this option <code class="highlighter-rouge">-vf "pad=ceil(iw/2)*2:ceil(ih/2)*2"</code>:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>ffmpeg <span class="nt">-r</span> 6 <span class="nt">-i</span> north_sea%03d.png <span class="nt">-c</span>:v libx264 <span class="nt">-pix_fmt</span> yuv420p <span class="nt">-vf</span> <span class="s2">"pad=ceil(iw/2)*2:ceil(ih/2)*2"</span> animation.mp4
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>ffmpeg <span class="nt">-framerate</span> 6 <span class="nt">-i</span> north_sea%03d.png <span class="nt">-c</span>:v libx264 <span class="nt">-pix_fmt</span> yuv420p <span class="nt">-vf</span> <span class="s2">"pad=ceil(iw/2)*2:ceil(ih/2)*2"</span> animation.mp4
 </code></pre></div></div>
 
 <h2 id="examples">Examples</h2>

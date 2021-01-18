@@ -1,0 +1,201 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Turning ocean data into stories">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="https://ctroupin.github.io/posts/2020-11-27-basemap-cartopy/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Charles Troupin by </title>
+
+	<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-8 col-lg-offset-2">
+			<center>
+				<h2> Installing Basemap and Cartopy in a virtual environment </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					
+						<h4><i class="far fa-calendar-alt"></i></h4> 27 November 2020 &nbsp;
+					
+					
+						<h4><i class="fas fa-wrench"></i></h4> Python, matplotlib, Basemap, Cartopy &nbsp;
+					
+					
+						<h4><i class="fas fa-tags"></i></h4> Plots &nbsp;
+					
+					
+				</div>
+				<p>A classical problem, I’m sure it is documented already in different places, but
+I’ve had recently some issues with the installation, hence this short post,
+which may be useful only to me.</p>
+
+<h2 id="creation-of-the-virtual-environment">Creation of the virtual environment</h2>
+
+<p>Nothing fancy here, we use the <a href="https://virtualenvwrapper.readthedocs.io/en/latest/">virtualenvwrapper</a> and specify the python version we’re using (3.8 as at the time of this post):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>mkvirtualenv <span class="nt">--python</span><span class="o">=</span>/usr/local/bin/python3.8 Argo3.8
+workon Argo3.8
+</code></pre></div></div>
+
+<h2 id="basemap">Basemap</h2>
+
+<p>Yes, we now it is deprecated in favor of <code class="highlighter-rouge">Cartopy</code>, but for some reasons,
+let’s say we want to continue with <code class="highlighter-rouge">Basemap</code> for some more time.</p>
+
+<p>Download the last release from <a href="here">https://github.com/matplotlib/basemap/releases/</a>,
+here we save it in a directory <code class="highlighter-rouge">~/Software</code>, for example.</p>
+
+<h3 id="compile-geoslibrary">Compile geoslibrary</h3>
+
+<p>It is a necessary step before installing <code class="highlighter-rouge">Basemap</code>.
+We need to specify the directory where the <code class="highlighter-rouge">libgeos.*</code> files are located.
+In our case: <code class="highlighter-rouge">/usr/local/lib</code>. This is stored in the variable <code class="highlighter-rouge">GEOS_DIR</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">cd</span> ~/Software/basemap-1.2.2rel
+<span class="nb">cd </span>geos-3.3.3
+<span class="nb">export </span><span class="nv">GEOS_DIR</span><span class="o">=</span>/usr/local/lib
+./configure <span class="nt">--prefix</span><span class="o">=</span><span class="nv">$GEOS_DIR</span>
+make
+<span class="nb">sudo </span>make <span class="nb">install</span>
+</code></pre></div></div>
+
+<h3 id="install-basemap">Install Basemap</h3>
+
+<p>Almost done, just run the following command to install the module:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">cd</span> ..
+python setup.py <span class="nb">install</span>
+</code></pre></div></div>
+<p>which should end with the message:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>Finished processing dependencies <span class="k">for </span><span class="nv">basemap</span><span class="o">==</span>1.2.1
+</code></pre></div></div>
+
+<h3 id="testing">Testing</h3>
+
+<p>Open a python terminal and run</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span>
+</code></pre></div></div>
+
+<p>We get the error:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">ModuleNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="s">'mpl_toolkits.basemap'</span>
+</code></pre></div></div>
+<p>though we’re sure the module has been properly installed,
+since <code class="highlighter-rouge">pip list</code> returns:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>Package                       Version
+<span class="nt">-----------------------------</span> <span class="nt">-----------</span>
+...
+basemap                       1.2.1
+...
+</code></pre></div></div>
+
+<h4 id="whats-the-problem-then">What’s the problem then?</h4>
+
+<p>I check the directory storing the different virtual environments:     <br />
+<code class="highlighter-rouge">{VIRTUALENVDIR}/Argo3.8/lib/python3.8/site-packages</code>    <br />
+and found, among many directories:</p>
+<ul>
+  <li><code class="highlighter-rouge">basemap-1.2.1-py3.8-linux-x86_64.egg/mpl_toolkits</code>, which was installed a few minutes before</li>
+  <li><code class="highlighter-rouge">mpl_toolkits</code>, installed some days ago.</li>
+</ul>
+
+<p>So my assumption (and I must apologise because I won’t take the time to verify it), is that <code class="highlighter-rouge">mpl_toolkits</code> has been installed at the same time as <code class="highlighter-rouge">matplotlib</code>. Seems plausible.</p>
+
+<p>Then, when I run in Python <code class="highlighter-rouge">from mpl_toolkits import ...</code> it searches for <code class="highlighter-rouge">Basemap</code> in this older directory.</p>
+
+<h4 id="solution">Solution</h4>
+
+<p>I created a link inside the old <code class="highlighter-rouge">mpl_toolkits</code> directory toward the newly installed
+<code class="highlighter-rouge">basemap</code> directory:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">cd</span> <span class="k">${</span><span class="nv">VIRTUALENVDIR</span><span class="k">}</span>/Argo3.8/lib/python3.8/site-packages/mpl_toolkits
+<span class="nb">ln</span> <span class="nt">-sfv</span> ../basemap-1.2.1-py3.8-linux-x86_64.egg/mpl_toolkits/basemap/ <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>This way, when typing <code class="highlighter-rouge">from mpl_toolkits.basemap import Basemap</code>, Python
+find the expected directory.</p>
+
+<h4 id="with-ipython">With IPython</h4>
+
+<p>Side note: the command can work in a Python terminal but not with IPython. Why?</p>
+
+<p>When you type <code class="highlighter-rouge">ipython</code> in a terminal, you need to be sure that it is the <code class="highlighter-rouge">ipython</code>
+relative to the virtual environment that is run.</p>
+
+<p>A possibility for that is to call it with</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>python <span class="nt">-m</span> IPython
+</code></pre></div></div>
+
+<p>Now we’re done with <code class="highlighter-rouge">Basemap</code>.</p>
+
+<h2 id="cartopy">Cartopy</h2>
+
+<p>Let’s repeat: <code class="highlighter-rouge">Basemap</code> is deprecated and we should use <a href="https://scitools.org.uk/cartopy/docs/latest/installing.html"><code class="highlighter-rouge">Cartopy</code></a>. Their documentation
+starts with <code class="highlighter-rouge">Conda</code> stuffs, we’re not using it too much as we prefer the classical
+<code class="highlighter-rouge">pip</code> approach.</p>
+
+<h3 id="pip">pip</h3>
+
+<p>Let’s start with a <code class="highlighter-rouge">pip install cartopy</code>.</p>
+
+<p>On other occasions we got error messages, but this time it seems everything
+is in place to avoid us some troubles. Lucky me.</p>
+
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+</body>
+</html>

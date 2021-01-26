@@ -1,11 +1,11 @@
 h1, h2 {
-  color: #919191; }
+  color: #FBA100; }
 
 h3, h4, h5, h6 {
-  color: #3BA647; }
+  color: #6D648B; }
 
 body {
-  color: #16253D; }
+  color: #1D2731; }
 
 blogsection {
   width: 100%;
@@ -14,7 +14,7 @@ blogsection {
   color: #16253D; }
 
 a {
-  color: #1483D3;
+  color: #FBA100;
   text-decoration: none; }
 
 .imagelogo {

@@ -1,6 +1,6 @@
 ## In 3 lines...
 
-Engineer in Physics and PhD in Oceanography.  
+Engineer in Physics & PhD in Oceanography.  
 3 years as the head of the [SOCIB](http://socib.es/) Data Center.  
 10+ years experience in data analysis & numerical modelling.
 

@@ -1,14 +1,14 @@
 ---
 ---
 
-h1, h2 { color: #919191 ; }
-h3, h4, h5, h6 { color: #3BA647 ; }
+h1, h2 { color: #{{ site.color.secondary-dark }} ; }
+h3, h4, h5, h6 { color: #{{ site.color.link }} ; }
 
-body { color: #16253D ; }
+body { color: #{{ site.color.primary }} ; }
 
 blogsection { width: 100%; float: left; padding-bottom: 50px; color: #16253D ; }
 
-a { color: #1483D3 ; text-decoration: none; }
+a { color: #{{ site.color.secondary-dark }} ; text-decoration: none; }
 
 .imagelogo
 {

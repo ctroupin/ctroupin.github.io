@@ -391,7 +391,7 @@ footer .footer-below {
 }
 
 .btn-social-closed{
-    color: #{{ site.color.secondary-dark }};
+    color: #fff ;
 }
 
 .btn:focus,

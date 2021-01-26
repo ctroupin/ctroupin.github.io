@@ -6,7 +6,7 @@ description: "Turning ocean data into stories"
 keywords: "data analyst, engineering, oceanography, ocean science, numerical modelling"
 skills: "Engineer • Data analyst • Oceanographer • Ultra-Runner"
 meta_author: Troupin Charles
-credits: '<a href="https://github.com/jeromelachaud/freelancer-theme">Freelancer Jekyll theme</a> by jeromelachaud.<br> Freelancer is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
+credits: '<a href="https://github.com/jeromelachaud/freelancer-theme">Freelancer Jekyll theme</a> by jeromelachaud.<br> '
 address:
   - line: "Verviers (Belgium)"
 
@@ -25,11 +25,11 @@ disqus_shortname: myshortname
 
 # Color settings (hex-codes without the leading hash-tag)
 color:
-  primary: 424242
-  primary-rgb: "173,73,62"
-  secondary: 2A9D8F
-  secondary-dark: 265653 #A2122F
-  link: f4a261
+  primary: 1D2731 #424242
+  primary-rgb: "192,96,20" #"173,73,62"
+  secondary: 6BBAA7 #2A9D8F
+  secondary-dark: FBA100 #  #265653 #A2122F
+  link: 6D648B
 
 # Footer settings
 footer:

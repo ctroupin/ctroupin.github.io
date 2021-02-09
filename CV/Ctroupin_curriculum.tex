@@ -21,8 +21,8 @@
 
 % Colors
 \definecolor{CVblue}{HTML}{1483D3}
-\definecolor{CVmain}{HTML}{0C860E}
-\definecolor{CVsecondary}{HTML}{8ED08F}
+\definecolor{CVmain}{HTML}{FBA100}
+\definecolor{CVsecondary}{HTML}{6BBAA7}
 \definecolor{CVter}{HTML}{FFE77A}
 
 \definecolor{CVgrey}{HTML}{E6E6E6}
@@ -30,13 +30,13 @@
 \subsectionfont{\color{white}}
 
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
-            \node[shape=circle,draw,inner sep=1pt,color=CVmain] (char) {#1};}}
+            \node[shape=circle,draw,inner sep=1pt,color=CVsecondary] (char) {#1};}}
 
 % Fonts
 \usepackage{fontspec}
 \setmainfont{Carlito}
 %\newfontfamily\thesubsectionfont{/home/ctroupin/.fonts/D-DIN.ttf}
-\newfontfamily\thesubsectionfont[Path = /home/ctroupin/.fonts/,Color=CVmain]{D-DIN}
+\newfontfamily\thesubsectionfont[Path = /home/ctroupin/.fonts/,Color=CVsecondary]{D-DIN}
 \titleformat*{\subsection}{\large\thesubsectionfont}
 %\urlstyle{rm}
 
@@ -223,8 +223,8 @@ German				& \onestar		& Dutch 				& \halfstar	\\
 \subsubsection*{Personal interests}
 %---------------------------
 \begin{tabular}{rlrlrlrl}
-\textcolor{CVmain}{\faCameraRetro}	& Photography 				& \textcolor{CVmain}{\faMapSigns} 	& Ultra-trail and mountain running	& \textcolor{CVmain}{\faMapMarker} 	& Maps 						& \faWordpress	&Travel blogging 		\\ 		
-\textcolor{CVmain}{\Bicycle}		& Road cycling& \textcolor{CVmain}{\faCloud} 	& Weather observation \& forecast		& \textcolor{CVmain}{\Industry}    	& UrbEx 	& 			& Coaching  			\\
+\textcolor{CVsecondary}{\faCameraRetro}	& Photography 				& \textcolor{CVsecondary}{\faMapSigns} 	& Ultra-trail and mountain running	& \textcolor{CVsecondary}{\faMapMarker} 	& Maps 						& \textcolor{CVsecondary}{\faWordpress}	&Travel blogging 		\\ 		
+\textcolor{CVsecondary}{\Bicycle}		& Road cycling& \textcolor{CVsecondary}{\faCloud} 	& Weather observation \& forecast		& \textcolor{CVsecondary}{\Industry}    	& UrbEx 	& 			& Coaching  			\\
 \end{tabular}
 \textcolor{white}{Last modified: \today}
 

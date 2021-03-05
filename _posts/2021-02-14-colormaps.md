@@ -20,7 +20,7 @@ A type of plot that is used a lot, including in geosciences, it the _pseudo-colo
 
 __2006__ When I started working in #oceanography, everybody was using the famous "_jet_" or "_rainbow_" colormaps (I know they are not strictly the same, but no time/interest to discuss that).
 
-<img src="{{ site.url }}/figures/blog/colormaps/colormap002.gif" class="img-responsive">
+<img src="{{ site.url }}/figures/blog/colormaps/newcolor.jpg" class="img-responsive">
 
 __2007__ already, a paper entitled "[_Rainbow Color Map (Still) Considered Harmful_](https://www.computer.org/csdl/magazine/cg/2007/02/mcg2007020014/13rRUxYrbOE
 )" was published. Yes, __2007__!
@@ -32,6 +32,8 @@ And in the references of this paper, we can find, among others, a paper from __1
 So yes, 2 decades ago, we were already trying to kill this colormap.
 
 <img src="{{ site.url }}/figures/blog/colormaps/colormap004.jpg" class="img-responsive">
+
+## More of the same
 
 During my PhD I was using a lot the excellent [ncview](http://meteora.ucsd.edu/~pierce/ncview_home_page.html), and a friend of mine had a version "with new colormaps"!! So we were feeling like the bosses with these new superpowers. Nice colormaps, yes, but still no idea about what we were doing.
 
@@ -49,8 +51,8 @@ On a side note: with the increasing number of available colormaps, we were never
 
 <img src="{{ site.url }}/figures/blog/colormaps/colormap007.png" class="img-responsive">
 
-__2014__ At that time I was not using MATLAB a lot anymore, but I remember that they changed their default colormap. That was a big move ;)
-https://www.mathworks.com/matlabcentral/answers/169307-why-has-the-default-colormap-of-surface-plots-changed-in-matlab-r2014b
+__2014__ At that time I was not using MATLAB a lot anymore, but I remember that [they changed their default colormap](https://www.mathworks.com/matlabcentral/answers/169307-why-has-the-default-colormap-of-surface-plots-changed-in-matlab-r2014b). That was a big move ;)
+
 
 <img src="{{ site.url }}/figures/blog/colormaps/colormap008.jpg" class="img-responsive">
 
@@ -75,6 +77,9 @@ __2019__: "[The Importance of Colormaps](https://ieeexplore.ieee.org/document/91
 __2020:__ "[The misuse of colour in science communication](https://www.nature.com/articles/s41467-020-19160-7)" by F. Crameri in _Nature_
 
 ## Conclusions
+
+<img src="{{ site.url }}/figures/blog/colormaps/end.jpg" class="img-responsive">
+
 
 For more than 20 years, scientists have come up with new colormaps, with the idea of removing the possible distortion or problems. The message was often "_let's get rid of rainbow_". But, if you attend conferences, it's still alive (which is maybe not so bad)!
 

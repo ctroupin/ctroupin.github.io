@@ -174,6 +174,7 @@ PyPlot.savefig("./visible_chloro_julia.png", dpi=300, bbox_inches="tight")
 ```
 
 #### Final remarks
+
 1. I'm quite new to `Cartopy` so there are probably many ways to improve the figure.
 2. For the final plot you may want to use the full resolution for the 2D field (i.e. setting NN=1). Just take into account that this may take a while, more than 20 minutes in my case, with the computer almost not responding.
 3. The `PyPlot.`prefixes of the commands can certainly be removed, but I prefer to keep them for explicitness.

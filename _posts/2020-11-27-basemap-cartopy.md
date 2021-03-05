@@ -8,7 +8,7 @@ tools: Python, matplotlib, Basemap, Cartopy
 topic: Plots
 ---
 
-A classical problem, I'm sure it is documented already in different places, but
+A classical problem, I'm sure it is already well documented in different places, but
 I've had recently some issues with the installation, hence this short post,
 which may be useful only to me.
 
@@ -127,5 +127,5 @@ starts with `Conda` stuffs, we're not using it too much as we prefer the classic
 
 Let's start with a `pip install cartopy`.
 
-On other occasions we got error messages, but this time it seems everything
+On other occasions, we got error messages, but this time it seems everything
 is in place to avoid us some troubles. Lucky me.

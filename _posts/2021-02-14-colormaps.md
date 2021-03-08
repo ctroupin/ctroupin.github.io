@@ -14,7 +14,6 @@ Let's be honest: while I think it is a relevant topic, I also believe it becomes
 
 A type of plot that is used a lot, including in geosciences, it the _pseudo-color_ plot (pcolor): each cell is 'painted' in a color according to the value of a property: temperature, humidity, wind speed...
 
-<img src="{{ site.url }}/figures/blog/colormaps/colormap001.png" class="img-responsive">
 
 ## In the beginning...
 

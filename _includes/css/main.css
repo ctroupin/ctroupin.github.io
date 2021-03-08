@@ -54,7 +54,7 @@ ul li:before {
     display: block;
     float: left;
     width: 1.25em;
-    color: #{{ site.color.secondary-dark }};
+    color: #{{ site.color.link }};
 }
 
 ol li:before {

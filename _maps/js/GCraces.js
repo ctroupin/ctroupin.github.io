@@ -8,26 +8,49 @@ var map = L.map('map', {
 	fullscreenControl: true,
 }).setView([27.9768, -15.5882], 11);
 
-map.addLayer(CartoDB_DarkMatter)
+map.createPane('labels');
+map.getPane('labels').style.zIndex = 650;
+map.getPane('labels').style.pointerEvents = 'none';
+
+var positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+        attribution: '©OpenStreetMap, ©CartoDB'
+});
+
+var positronLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
+        attribution: '©OpenStreetMap, ©CartoDB',
+        pane: 'labels'
+});
+
+var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+});
+
+var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+});
+
+var Stadia_Outdoors = L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png', {
+	maxZoom: 20,
+	attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+});
+
+
+var CartoDB = L.layerGroup([positron, positronLabels]).addTo(map);
 
 var baseMaps = {
 	"CartoDB": CartoDB,
-	"OpenStreetMap": OpenStreetMap_Mapnik,
-	"Stamen Terrain": Stamen_Terrain,
-	"CartoDB Dark": CartoDB_DarkMatter,
+	"OSM": OpenStreetMap_Mapnik,
+	"ERSI": Esri_WorldImagery,
+	"Stadia_Outdoors": Stadia_Outdoors,
 };
 
-var mygrad = {.6:'#2c7bb6', .7:'#abd9e9',.8:'#F9ED55',.9:'#fdae61',1:'#d7191c'};
-var mygrad = {.5:'#FCFCFC', .7:'#FFE104',.8:'#FFAB1B', .9:'#FF040C', 1:'#000000'};
+var mygrad = {0.2: '#ffffb2', 0.4: '#fd8d3c', 0.6: '#fd8d3c', 0.8: '#f03b20', 1: '#bd0026'}
 
 var heatStyle = {
-	gradient : mygrad,
 	minOpacity: 0.75,
-	radius: 4,
-	blur: 4,
+	radius: 7,
+	blur: 7,
 };
-
-
 
 // control that shows state info on hover
 var info = L.control({position: 'bottomright'});
@@ -43,7 +66,7 @@ info.update = function (props, d, dp, dm, last) {
 		'<b>' + props.name + '</b><br/> <img src="../images/runner-.png" alt="Running" style="height:20px;"> ' + d.toFixed(2) + ' km' +
 		'<br/> <b><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></b> ' + dp.toFixed(1) + ' m' +
 		'&emsp; <b><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></b> ' + dm.toFixed(1) + ' m'
-		: 'Hover'
+		: 'Hover over a track<br>to get more information'
 	);
 
 };
@@ -51,6 +74,23 @@ info.update = function (props, d, dp, dm, last) {
 info.addTo(map);
 
 var latlon = [];
+var geojson;
+
+geojson = L.geoJson(municipios, {
+	style: municipiosstyle,
+	onEachFeature: onEachFeature
+});
+
+function municipiosstyle(feature) {
+	return {
+		fillColor: '',
+		weight: 3.,
+		opacity: .75,
+		color: '#4C4C4C',
+		dashArray: '5, 5',
+		fillOpacity: 0.0
+	};
+}
 
 function randomColor() {
 	cc = '#'+Math.floor(Math.random()*16777215).toString(16);
@@ -140,6 +180,7 @@ heatlayer.addTo(map);
 var overlayers = {
 	"Tracks": moveGps,
 	"🔥 Heat map ": heatmap,
+	"Municipios": geojson
 };
 
 L.control.scale().addTo(map);

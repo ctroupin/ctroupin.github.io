@@ -1,0 +1,162 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Turning ocean data into stories">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="https://ctroupin.github.io/posts/2021-02-14-colormaps/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Charles Troupin by </title>
+
+	<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-8 col-lg-offset-2">
+			<center>
+				<h2> Data visualisation and colormaps </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					
+						<h4><i class="far fa-calendar-alt"></i></h4> 14 February 2021 &nbsp;
+					
+					
+						<h4><i class="fas fa-wrench"></i></h4> Python, matplotlib, Julia &nbsp;
+					
+					
+						<h4><i class="fas fa-tags"></i></h4> Dataviz &nbsp;
+					
+					
+				</div>
+				<p>In this post we will talk about a hot topics: the colormaps (or color palettes) used for data visualisation.</p>
+
+<p>Let’s be honest: while I think it is a relevant topic, I also believe it becomes a hype these days. Let’s go!</p>
+
+<p>A type of plot that is used a lot, including in geosciences, it the <em>pseudo-color</em> plot (pcolor): each cell is ‘painted’ in a color according to the value of a property: temperature, humidity, wind speed…</p>
+
+<h2 id="in-the-beginning">In the beginning…</h2>
+
+<p><strong>2006</strong> When I started working in #oceanography, everybody was using the famous “<em>jet</em>” or “<em>rainbow</em>” colormaps (I know they are not strictly the same, but no time/interest to discuss that).</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/colormaps/newcolor.jpg" class="img-responsive" /></p>
+
+<p><strong>2007</strong> already, a paper entitled “<a href="https://www.computer.org/csdl/magazine/cg/2007/02/mcg2007020014/13rRUxYrbOE"><em>Rainbow Color Map (Still) Considered Harmful</em></a>” was published. Yes, <strong>2007</strong>!</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/colormaps/colormap003.jpg" class="img-responsive" /></p>
+
+<p>And in the references of this paper, we can find, among others, a paper from <strong>1998</strong>: “<a href="https://ieeexplore.ieee.org/abstract/document/736450"><em>Data visualization: the end of the rainbow</em></a>”.</p>
+
+<p>So yes, 2 decades ago, we were already trying to kill this colormap.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/colormaps/colormap004.jpg" class="img-responsive" /></p>
+
+<h2 id="more-of-the-same">More of the same</h2>
+
+<p>During my PhD I was using a lot the excellent <a href="http://meteora.ucsd.edu/~pierce/ncview_home_page.html">ncview</a>, and a friend of mine had a version “with new colormaps”!! So we were feeling like the bosses with these new superpowers. Nice colormaps, yes, but still no idea about what we were doing.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/colormaps/colormap005.png" class="img-responsive" /></p>
+
+<p><strong>2013</strong>, starting to lean Python, I read more about data visualisation, at that time there was already a lot about colormap, for instance:</p>
+<ul>
+  <li><a href="https://eagereyes.org/basics/rainbow-color-map">How The Rainbow Color Map Misleads</a></li>
+  <li><a href="https://jakevdp.github.io/blog/2014/10/16/how-bad-is-your-colormap">How Bad Is Your Colormap?</a></li>
+</ul>
+
+<p><img src="https://ctroupin.github.io/figures/blog/colormaps/colormap006.png" class="img-responsive" /></p>
+
+<p>On a side note: with the increasing number of available colormaps, we were never totally happy with our choice for the sea surface temperature: jet/rainbow created fake gradients, but other were too… smooth.</p>
+
+<p><a href="https://matplotlib.org/3.1.0/tutorials/colors/colormaps.html">Choosing Colormaps in Matplotlib</a></p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/colormaps/colormap007.png" class="img-responsive" /></p>
+
+<p><strong>2014</strong> At that time I was not using MATLAB a lot anymore, but I remember that <a href="https://www.mathworks.com/matlabcentral/answers/169307-why-has-the-default-colormap-of-surface-plots-changed-in-matlab-r2014b">they changed their default colormap</a>. That was a big move ;)</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/colormaps/colormap008.jpg" class="img-responsive" /></p>
+
+<p><strong>2016</strong> another paper about colormaps, this time focused on the ocean: <a href="http://tos.org/oceanography/assets/docs/29-3_thyng.pdf">True colors of oceanography</a>
+For sure they are beautiful, and that could have been the end of the story…</p>
+
+<p>More colormaps were created:</p>
+<ul>
+  <li><a href="https://colorcet.holoviz.org/">Colorcet</a> (which I’ve discovered when I wrote this post)</li>
+  <li><a href="http://holoviews.org/user_guide/Colormaps.html">Holoviews</a></li>
+  <li><a href="https://seaborn.pydata.org/tutorial/color_palettes.html">Seaborn</a></li>
+  <li><a href="https://yt-project.org/doc/visualizing/colormaps/index.html">yt</a></li>
+  <li><a href="https://cmasher.readthedocs.io/">CMasher</a>: scientific colormaps for making accessible, informative and cmashing plots.</li>
+</ul>
+
+<h2 id="publications">Publications</h2>
+
+<p>Let’s go back to publications:</p>
+
+<p><strong>2018</strong>: “<a href="https://gmd.copernicus.org/articles/11/2541/2018/">Geodynamic Diagnostics, Scientific Visualisation and StagLab 3.0.</a>” by F. Crameri in <em>Geoscientific Model Development</em></p>
+
+<p><strong>2019</strong>: “<a href="https://ieeexplore.ieee.org/document/9167329">The Importance of Colormaps</a>” by K. M. Thyng in <em>Computing in Science &amp; Engineering</em></p>
+
+<p><strong>2020:</strong> “<a href="https://www.nature.com/articles/s41467-020-19160-7">The misuse of colour in science communication</a>” by F. Crameri in <em>Nature</em></p>
+
+<h2 id="conclusions">Conclusions</h2>
+
+<p><img src="https://ctroupin.github.io/figures/blog/colormaps/end.jpg" class="img-responsive" /></p>
+
+<p>For more than 20 years, scientists have come up with new colormaps, with the idea of removing the possible distortion or problems. The message was often “<em>let’s get rid of rainbow</em>”. But, if you attend conferences, it’s still alive (which is maybe not so bad)!</p>
+
+<p>Now I’m wondering: is there a time when we will stop producing new colormaps? Isn’t there enough? I believe that the answer is no: if papers are still published on the topic, this creates a demand, so why scientists should stop working on that?</p>
+
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+</body>
+</html>

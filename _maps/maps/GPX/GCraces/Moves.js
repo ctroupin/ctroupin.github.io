@@ -1,5 +1,5 @@
-var moves = [
-	"Acebuches-trail-2018-26-km.gpx",
+var moves = { "short" :
+	["Acebuches-trail-2018-26-km.gpx",
 	"Aguimes-Lagartrail-26km.gpx",
 	"ArtenaraTrail.gpx",
 	"Arucas-LaGoleta-24km.gpx",
@@ -38,4 +38,24 @@ var moves = [
 	"Valsequillo-LasVegas-23km.gpx",
 	"Valsequillo-NocheMagica-.gpx",
 	"Veneguera-Trail-21k.gpx",
+	"media-maraton-montana-arucas-2021.gpx",
+	"combinado-guayre-extreme.gpx",
+], "ultra": [
+	"UTGC2013.gpx",
+	"UTGC2012.gpx",
+	"UTGC2011.gpx",
+	"TGC-2009.gpx",
+	"TGC-2010.gpx",
+	"TGC-2011.gpx",
+	"TGC-2012.gpx",
+	"TGC-2013.gpx",
+	"TGC-2014.gpx",
+	"TGC-2015.gpx",
+	"TGC-2016.gpx",
+	"TGC-2017.gpx",
+	"TGC-2018.gpx",
+	"TGC-2019.gpx",
+	"TGC-2020.gpx",
+	"TGC-2021.gpx",
 ]
+}

@@ -167,9 +167,28 @@ var customLayer = L.geoJson(null, {
 	onEachFeature: onEachFeature
 });
 
-var nMoves = moves.length;
-for (var i = 0; i < nMoves ; i++) {
-	var moveGps = omnivore.gpx(gpxdir + moves[i], null, customLayer).addTo(map);
+var ultraLayer = L.geoJson(null, {
+	style: function(feature) {
+		coloryear = randomColor();
+		linewidth = 2;
+		lineopa = 0.9;
+		return {
+			color: coloryear,
+			weight: linewidth,
+			opacity: lineopa,
+		};
+	},
+	onEachFeature: onEachFeature
+});
+
+var nMoves1 = moves["short"].length;
+for (var i = 0; i < nMoves1 ; i++) {
+	var moveGps = omnivore.gpx(gpxdir + moves["short"][i], null, customLayer).addTo(map);
+}
+
+var nMoves2 = moves["ultra"].length;
+for (var i = 0; i < nMoves2 ; i++) {
+	var moveGpsUltra = omnivore.gpx(gpxdir + moves["ultra"][i], null, ultraLayer).addTo(map);
 }
 
 var heatmap = L.heatLayer(latlon, heatStyle);
@@ -178,9 +197,10 @@ heatlayer.addTo(map);
 
 
 var overlayers = {
-	"Tracks": moveGps,
+	"Races": moveGps,
+	"Ultras": moveGpsUltra,
 	"🔥 Heat map ": heatmap,
-	"Municipios": geojson
+	"Municipios": geojson,
 };
 
 L.control.scale().addTo(map);

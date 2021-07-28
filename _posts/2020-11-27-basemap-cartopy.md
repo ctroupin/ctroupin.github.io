@@ -28,7 +28,9 @@ let's say we want to continue with `Basemap` for some more time.
 Download the last release from [https://github.com/matplotlib/basemap/releases/](here),
 here we save it in a directory `~/Software`, for example.
 
-### Compile geoslibrary
+__Update:__ I have encountered issues with `basemap-1.2.2rel`, while the previous version, `basemap-1.2.1rel` was working fine.
+
+### Compile geos library
 
 It is a necessary step before installing `Basemap`.
 We need to specify the directory where the `libgeos.*` files are located.
@@ -42,6 +44,12 @@ export GEOS_DIR=/usr/local/lib
 make
 sudo make install
 ```
+If you don't have the permissions to write in `/usr/local/lib` and similar
+directories, for instance on a cluster, you can use another one, typically:
+```bash
+export GEOS_DIR=~/.local/
+```
+(ensuring the directory has already been created).
 
 ### Install Basemap
 
@@ -116,6 +124,30 @@ python -m IPython
 ```
 
 Now we're done with `Basemap`.
+
+### Problem with 'dedent'
+
+In some installations I encountered this issue:
+```python
+ImportError: cannot import name 'dedent' from 'matplotlib.cbook'
+```
+It is documented [here](https://github.com/matplotlib/basemap/issues/494), and the solution detailed below.
+
+#### Solution
+
+Find the path of the file `proj.py` with the command:
+```python
+import pyproj
+pyproj.__file__
+```
+In my case it ends with `basemap-1.2.1-py3.8-linux-x86_64.egg/mpl_toolkits/basemap/proj.py`.
+
+In this file, replace      
+`from matplotlib.cbook import dedent` with     
+`from inspect import cleandoc as dedent`.
+
+Okay, another dirty fix, but there is no time now to be much cleaner.
+
 
 ## Cartopy
 

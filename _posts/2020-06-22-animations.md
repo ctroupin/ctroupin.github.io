@@ -41,7 +41,7 @@ Here is an example of command we ca, use:
 ffmpeg -framerate 6 -i north_sea%03d.png -c:v libx264 -pix_fmt yuv420p animation.mp4
 ```
 and now some explanations:
-* `-framerate 12` specifies the *framerate*, here 6 frames per second.
+* `-framerate 6` specifies the *framerate*, here 6 frames per second.
 * `-i north_sea%03d.png` indicates the input files, with the `%03` for the zero-padding.
 * `-c:v libx264` [optional] encodes the movie with `libx264`.
 * `-pix_fmt yuv420p` [optional] to ensure the output work in `QuickTime` and most other players.

@@ -12,6 +12,12 @@ category: Map
 
 | Number   | Directions    |
 |:--------:|:--------------|
+| PR-GC40 | Tunte - Degolla de la Manzanilla - Degollada del Dinero |
+| PR-GC45 | Laderones - Montaña de Tauro - Degollada de Cortadores |
+| PR-GC46 | Las Burillas - El Molino de Viento |
+
+| Number   | Directions    |
+|:--------:|:--------------|
 | S01 | Gáldar - Saucillo - Cruz de Tejeda - Garañón |
 | S05 | El Tablado - Fontanales - Galeote - Artenara |
 | S06 | La Laguna - Bco de la Virgen |
@@ -27,7 +33,7 @@ category: Map
 | S21 | Corral de los Juncos - Cruz de los Llanos - Los Manantiales - Hoya del Gamonal - San Mateo |
 | S22 | Arbejales - Utiaca - San Mateo |
 | S37 | Pico de Las Nieves hasta - Barranco de Guayadeque |
-| S40 | Tunte - Rosiana - Santa Lucía | 
+| S40 | Tunte - Rosiana - Santa Lucía |
 | S42 | Presa Cuevas Blancas - Vueltas de Adeje - Santa Lucía |
 | S50 | Cruz de Tejeda - Garañón - Llanos de la Pez - Pasos de la Plata - Cruz Grande - Tunte |
 | S51 | Circular Llanos de la Pez - Pico de las Nieves - Dgda los Hornos - La Goleta |
@@ -35,6 +41,7 @@ category: Map
 | S60 | El Aserrador - Cruz de Pajonales - La Data - Soria - Chira - Degollada del Dinero |
 | S66 | La Candelilla - Dgda Hoya Vieja - La Data - Soria |
 | S70 | Encrucijada del Nublo y derivaciones a La Culata y al Asserrador |
+| S73 | Mogán - Veneguera - Tocodomán
 | S80 | Tejeda - Cruz de Timagada - El Chorillo - El Toscón - El Aserrador |
 | S81 | Toscón Alto - Ronda - El Juncal - Taguy - El Carrizal de Tejeda |
 | S82 | Culata de Tejeda - Cruz de Timagada - Cruz del Carpio - La Candelilla - Cruz Grande - Chira |

@@ -67,24 +67,75 @@
 			<blogsection>
 				 <div style="text-align:left; vertical-align: middle; ">
 					
-						<h4><i class="far fa-calendar-alt"></i></h4> 21 March 2021 &nbsp;
+						<h4><i class="far fa-calendar-alt"></i></h4> 28 July 2021 &nbsp;
 					
 					
-						<h4><i class="fas fa-wrench"></i></h4> gpsbabel, Leaflet &nbsp;
+						<h4><i class="fas fa-wrench"></i></h4> gpsbabel, Leaflet, Python &nbsp;
 					
 					
 						<h4><i class="fas fa-tags"></i></h4> Maps &nbsp;
 					
 					
 				</div>
-				<p>Convert kml to GPX
-gpsbabel -i kml -f doc.kml -o gpx -F la-brena-trail-20k.gpx</p>
+				<p>It’s not a secret: I often mix 2 of my passions: trail running and maps. This time
+I’m trying to display all the trail or mountain races taking place in the island
+of Gran Canaria. This is how it goes.</p>
 
-<p>Remove waypoints and routes
-gpsbabel -i gpx -f Teror-ElAlamo-.gpx -x nuketypes,waypoints,routes -o gpx -F  Teror-ElAlamo-.gpx</p>
+<p><img src="https://ctroupin.github.io/figures/blog/GCraces/GC_races.jpg" class="img-responsive" /></p>
 
-<p>Remove time
-sed -i ‘/<time>/d' *gpx</time></p>
+<h2 id="the-data">The data</h2>
+
+<p>There are 2 main ways to find the tracks:</p>
+<ol>
+  <li>By searching on the race web pages: there is often a section called “<em>Recorridos</em>”, where the track is available.</li>
+  <li>By searching in <a href="wikiloc.com/">Wikiloc</a>: it is frequent that organisers or runners upload their tracks there.</li>
+</ol>
+
+<p>The difficulty is to find the name of races that don’t exist anymore. Sometimes there are still old calendars with the name of the competitions. This is the information I used to prepare the map.</p>
+
+<h2 id="the-tools">The tools</h2>
+
+<p>For most of the operations on the track files, I use <a href="https://www.gpsbabel.org/">GPSBabel</a>.   <br />
+For the visualisation part, the excellent <a href="https://leafletjs.com/">Leaflet</a>.</p>
+
+<h2 id="the-pre-processing">The pre-processing</h2>
+
+<p>As usual, a few steps to clean or simplify the files. There is no need to show thousand of points for dozen of tracks, we can clearly simplify them.</p>
+
+<p>As I prefer to work with <code class="highlighter-rouge">GPX</code> files, it happens that a conversion is needed, for example from a <code class="highlighter-rouge">kml</code> file:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>gpsbabel <span class="nt">-i</span> kml <span class="nt">-f</span> doc.kml <span class="nt">-o</span> gpx <span class="nt">-F</span> la-brena-trail-20k.gpx
+</code></pre></div></div>
+
+<p>Some tracks also contain way points and routes, which we clearly don’t need:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>gpsbabel <span class="nt">-i</span> gpx <span class="nt">-f</span> Teror-ElAlamo-.gpx <span class="nt">-x</span> nuketypes,waypoints,routes <span class="nt">-o</span> gpx <span class="nt">-F</span>  Teror-ElAlamo-.gpx
+</code></pre></div></div>
+
+<p>Reducing each track to a set of 500 points also helps keep the file size low:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>gpsbabel <span class="nt">-r</span> <span class="nt">-i</span> gpx <span class="nt">-f</span> Tejeda-CircularLarga-47km.gpx <span class="nt">-x</span> simplify,count<span class="o">=</span>500 <span class="nt">-o</span> gpx <span class="nt">-F</span> Tejeda-CircularLarga-47km.gpx
+</code></pre></div></div>
+
+<p>Finally, we remove the time and just keeping the coordinates; I guess it can be done
+with <code class="highlighter-rouge">GPSBabel</code>, I did it with <code class="highlighter-rouge">sed</code>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'/&lt;time&gt;/d'</span> <span class="k">*</span>gpx
+</code></pre></div></div>
+
+<h2 id="the-plotting">The plotting</h2>
+
+<p>Python + matplotlib + cartopy will do the trick. I used a Sentinel-2 images as the map background, downloaded from <a href="https://apps.sentinel-hub.com/eo-browser">Sentinel hub</a>
+in geoTIFF format.</p>
+
+<p>The GPX files are easily read, for instance using <a href="https://github.com/tkrajina/gpxpy">gpxpy</a>, then added to the map.</p>
+
+<p>Finally, a little bit of decoration, with some points of interest, and we’re done.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/GCraces/GC_races5.jpg" class="img-responsive" /></p>
+
+<p>What clearly appears is the heterogeneous coverage of the island. The northwestern
+quadrant (Agaete, Artenra, Cruz de Tejeda…) seems very popular. The southestern side is almost empty, but that may be because we did not search enough. Or the dry landscapes are not so nice for a race.</p>
+
+<p>There are a few tracks in the south, most of the time they are ultra-marathon that cross the island and start or finish there. This is what we show in the next map, which combines all the <em>TransGranCanaria</em> races I could find.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/GCraces/TGC_all12.jpg" class="img-responsive" /></p>
 
 			</blogsection>
 		</div>

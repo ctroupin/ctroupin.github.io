@@ -41,7 +41,6 @@ var baseMaps = {
 	"CartoDB": CartoDB,
 	"OSM": OpenStreetMap_Mapnik,
 	"ERSI": Esri_WorldImagery,
-	"Stadia_Outdoors": Stadia_Outdoors,
 };
 
 var mygrad = {0.2: '#ffffb2', 0.4: '#fd8d3c', 0.6: '#fd8d3c', 0.8: '#f03b20', 1: '#bd0026'}

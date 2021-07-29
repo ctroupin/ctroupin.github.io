@@ -148,7 +148,6 @@ In this file, replace
 
 Okay, another dirty fix, but there is no time now to be much cleaner.
 
-
 ## Cartopy
 
 Let's repeat: `Basemap` is deprecated and we should use [`Cartopy`](https://scitools.org.uk/cartopy/docs/latest/installing.html). Their documentation

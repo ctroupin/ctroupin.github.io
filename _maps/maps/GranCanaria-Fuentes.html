@@ -32,7 +32,7 @@
 				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 			});
 
-			var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+			var CartoDB = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
 				subdomains: 'abcd',
 				maxZoom: 19
@@ -66,14 +66,13 @@
 											[[27.9365899, -15.5376448], "Subida Taidía (to check)"],
 											[[27.87810, -15.64676], "Fuente de Don Simeón"],
 											[[28.020255, -15.646656], "Plaza Artenara"],
-											[[27.90212,-15.58356]], "Degollada de la Manzanilla]"
+											[[27.90212,-15.58356], "Degollada de la Manzanilla"]
 										];
 
-			for (i = 0; i < Fuentes.length; i++) {
+			for (i = 0; i < Fuentes.length ; i++) {
 				var marker = new L.marker(Fuentes[i][0], { opacity: 0.85 }); //opacity may be set to zero
 				//marker.bindTooltip("🚰", {permanent: true, className: "my-label", offset: [0, 0] });
 				marker.bindPopup("🚰 " + Fuentes[i][1]);
-				//console.log(Fuentes[i][1]);
 				marker.addTo(map);
 			};
 

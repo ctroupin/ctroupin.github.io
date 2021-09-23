@@ -27,17 +27,19 @@
 
 			var dataattribution = ' | <b>Data</b> by @albercastellano, @AdrianRodri, @Adzu92, @Oliveerr46, @en_teror | Conception @ctroupin'
 
-			var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-			    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors ' + dataattribution
+			var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				maxZoom: 19,
+				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 			});
 
-			var CartoDB = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
-					maxZoom: 18,
-					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>' + dataattribution
+			var CartoDB = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+				subdomains: 'abcd',
+				maxZoom: 19
 			});
 
 			var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-				attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' + dataattribution
+				attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 			});
 
 			var baseMaps = {
@@ -64,14 +66,13 @@
 											[[27.9365899, -15.5376448], "Subida Taidía (to check)"],
 											[[27.87810, -15.64676], "Fuente de Don Simeón"],
 											[[28.020255, -15.646656], "Plaza Artenara"],
-											[[27.90212,-15.58356]], "Degollada de la Manzanilla]"
+											[[27.90212,-15.58356], "Degollada de la Manzanilla"]
 										];
 
-			for (i = 0; i < Fuentes.length; i++) {
+			for (i = 0; i < Fuentes.length ; i++) {
 				var marker = new L.marker(Fuentes[i][0], { opacity: 0.85 }); //opacity may be set to zero
 				//marker.bindTooltip("🚰", {permanent: true, className: "my-label", offset: [0, 0] });
 				marker.bindPopup("🚰 " + Fuentes[i][1]);
-				//console.log(Fuentes[i][1]);
 				marker.addTo(map);
 			};
 

@@ -4,11 +4,20 @@
 \usepackage{academicons}
 \usepackage{hyperref}
 \usepackage{doi}
+\usepackage{fontspec}
 \usepackage[scale=.85]{geometry}
 
 % Fonts
 \usepackage{fontspec}
-\setmainfont{Carlito}
+
+\setmainfont{Lato}[
+    Path=/home/ctroupin/.fonts/Lato2OFL/,
+    Extension = .ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic
+    ]
 
 \definecolor{CVblue}{HTML}{1483D3}
 \definecolor{CVorange}{HTML}{FF9900}
@@ -29,7 +38,7 @@ citecolor=CVblue,filecolor=CVblue,%
 menucolor=blue,%
 urlcolor=CVblue}
 
-\renewcommand\refname{List of peer-reviewed publications}
+\renewcommand\refname{List of peer-reviewed publications (in reverse chronological order)}
 
 \begin{document}
 

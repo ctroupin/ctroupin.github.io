@@ -22,6 +22,7 @@
 \usepackage{tikz}
 \usepackage{titlesec}
 
+
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 
 \newlength{\logowidth}
@@ -32,9 +33,9 @@
 \setmainfont{Lato-Regular}
 
 \definecolor{CVblue}{HTML}{1483D3}
-\definecolor{CVorange}{HTML}{FFA034}
+\definecolor{CVorange}{HTML}{1CA881}
 \definecolor{CVgrey}{HTML}{E3E3E3}
-\definecolor{CVmain}{HTML}{3BA647}
+\definecolor{CVmain}{HTML}{1CA881}
 
 \urlstyle{sf}
 \DeclareUrlCommand\doi{\textcolor{CVmain}{\aiDoi}\def\UrlLeft##1\UrlRight{\nobreakspace\href{http://dx.doi.org/##1}{##1}}\urlstyle{sf}}
@@ -58,6 +59,8 @@
 \newtcbox{\skillbox}{nobeforeafter,colframe=CVmain,colback=CVgrey,boxrule=1pt,arc=4pt,height=0.5cm,
   boxsep=0pt,left=3pt,right=3pt,top=2.5pt,bottom=2pt,box align=center}
   
+\newtcbox{\datebox}{enhanced,nobeforeafter,tcbox raise base,colframe=CVmain,colback=CVgrey,boxrule=1pt,arc=0pt,before upper={\vphantom{dlg}},boxsep=0pt,left=3pt,right=3pt,top=2.5pt,bottom=2.5pt}
+  
 \newtcolorbox{summarybox}[1][]{colback=white,
 colframe=black,fonttitle=\bfseries,
 colbacktitle=CVmain,enhanced,
@@ -68,9 +71,9 @@ title=Summary,#1}
 % --------------------
 
 \usepackage{multibib}
-\newcites{article,incollection,conference}{{\faFilePdfO~Articles},{\faBook~Book chapters},{\faMicrophone~Talks and posters}}
+\newcites{article,incollection,proceedings,conference}{{\faFilePdfO~Articles},{\faBook~Book chapters},{\faBook~Conference proceedings},{\faMicrophone~Talks and posters}}
 
-\renewcommand{\labelitemi}{|} 
+\renewcommand{\labelitemi}{} 
 
 \hypersetup{
     urlcolor=CVblue,
@@ -89,24 +92,31 @@ title=Summary,#1}
 
 \begin{center}
 \huge \titlefont Charles Troupin
+
+\large Engineer in Physics $-$ PhD in Sciences (Oceanography)
 \end{center}
 
-\section{Contact data}
+\section{Contact data \& networking}
 
 \begin{tabular}{L{.02\textwidth}L{.42\textwidth}L{.02\textwidth}L{.5\textwidth}}
-\faEnvelopeSquare  	& charles.troupin@gmail.com 								& \faSkype			& charles.troupin1 \\
-\includegraphics[height=1.6ex]{gitlab_logo.png} & \url{https://gitlab.com/ctroupin} 	& \faGithubSquare	& \url{https://github.com/ctroupin/} \\
-\aiOrcidSquare 		& \url{https://orcid.org/0000-0002-0265-1021} 	& \aiResearchGateSquare &\url{https://www.researchgate.net/profile/Charles_Troupin}\\
-\faTwitterSquare	& \url{https://twitter.com/CharlesTroupin}		&  	& \\
+\faEnvelopeSquare  	& ctroupin@protonmail.com						& \faMobile 	& +32~498~155~998\\
+\faGitlab 			& \url{https://gitlab.com/ctroupin} 			& \faSkype		& charles.troupin1\\
+\aiOrcidSquare 		& \url{https://orcid.org/0000-0002-0265-1021} 	& \faGithubSquare	& \url{https://github.com/ctroupin/} \\
+\faTwitterSquare	& \url{https://twitter.com/CharlesTroupin}		& \aiResearchGateSquare &\url{https://www.researchgate.net/profile/Charles_Troupin}
 \end{tabular}
 
-\section{Experience}
+\section{Experience \& projects}
+
+\begin{summarybox}
+{Since 2006, I have been involved in several internal, national and European projects dealing with data analysis and management, operational oceanography or numerical modelling. For most of the projects, my contributions consists of inputs to the project proposals, preparation of the deliverables, support to users through manual writing and training workshop organisation, and participation to the meetings of the technical task group and steering committees.}
+\end{summarybox}
 
 %---------------------timeline----------------%
-\begin{chronology}[align=left, startyear=2005,stopyear=2021, height=0pt, startdate=false, stopdate=false, dateselevation=0pt, arrow=false, box=true]
-\chronograduation[event][dateselevation=0pt]{5}
+\begin{chronology}[align=left, startyear=2006,stopyear=2022, height=0pt, startdate=false, stopdate=false, dateselevation=0pt, arrow=false, box=true]
 
-\chronoperiode[textstyle=\raggedleft\colorbox{CVgrey},color=CVmain, startdate=false, bottomdepth=0pt, topheight=8pt, textdepth=-25pt,dateselevation=16pt,stopdate=false,datesseparation=/]{9/1/2017}{31/12/2020}{\includegraphics[width=\logowidth]{logo_uliege}~\includegraphics[width=.7\logowidth]{logo_gher}}
+\chronograduation[event][dateselevation=0pt,startdate=true]{3}
+
+\chronoperiode[textstyle=\raggedleft\colorbox{CVgrey},color=CVmain, startdate=false, bottomdepth=0pt, topheight=8pt, textdepth=-25pt,dateselevation=16pt,stopdate=false,datesseparation=/]{9/1/2017}{01/02/2022}{\includegraphics[width=\logowidth]{logo_uliege}~\includegraphics[width=.7\logowidth]{logo_gher}}
 
 \chronoperiode[textstyle=\raggedleft\colorbox{CVgrey},color=CVblue, startdate=false, bottomdepth=0pt, topheight=8pt, textdepth=-25pt,dateselevation=16pt,stopdate=false,datesseparation=/]{14/3/2014}{8/1/2017}{\includegraphics[width=\logowidth]{logo_socib}}
 
@@ -116,42 +126,117 @@ title=Summary,#1}
 
 \chronoperiode[textstyle=\raggedleft\colorbox{CVgrey}, color=CVmain, startdate=false, bottomdepth=0pt, topheight=8pt, textdepth=-25pt,dateselevation=16pt,stopdate=false,datesseparation=/]{1/10/2006}{30/9/2010}{\includegraphics[height=8mm]{FRS_FNRS_BLACK_transp.png}~\includegraphics[height=8mm]{logo_ulg.png}}
 
-%\chronoperiode[textstyle=\raggedleft\colorbox{CVgrey}, color=CVorange, startdate=false, bottomdepth=0pt, topheight=8pt, textdepth=-25pt,dateselevation=16pt,stopdate=false,datesseparation=/]{1/9/2005}{30/9/2006}{\footnotesize{DEA in Oceanography}}
+%\chronoperiode[textstyle=\raggedleft\colorbox{CVgrey}, color=CVorange, startdate=false, bottomdepth=0pt, topheight=8pt, %textdepth=-25pt,dateselevation=16pt,stopdate=false,datesseparation=/]{1/9/2005}{30/9/2006}{\footnotesize{DEA in Oceanography}}
 
 \end{chronology}
+%------------------------------------------------------
 
 \begin{description}
-\item[2017/01 present | Senior researcher |] GeoHydrodynamics and Environment Research (\href{http://modb.oce.ulg.ac.be/}{GHER})
+\item[\datebox{2017/01--present} | Senior researcher |] GeoHydrodynamics and Environment Research (\href{http://modb.oce.ulg.ac.be/}{GHER}), University of Liège
 
-\begin{itemize}%
-\item Improvement and testing of the DIVA and DIVAnd interpolation software tools.
-\item User support and training, documentation writing.
-\item Analysis of suspended particular matter satellite images in the North Sea.
-\item Interpolation of velocity measurements using HF radar and drifters.
+European projects:
+\begin{description}
+
+\item[2019--ongoing] \href{https://www.blue-cloud.org/}{BlueCloud} (H2020)
+\begin{itemize}
+\item Analysis of Continuous Plankton Recorder data and deployment of \mbox{DIVAnd} interpolation tool in a Virtual Research Environment (VRE).
+\item Participation to webinars and support to the VRE users.
 \end{itemize}
 
+\item[2019--ongoing] \href{https://www.phidias-hpc.eu/}{PHIDIAS} (CEF Telecom)
+\begin{itemize}
+\item Deployment and testing of DIVAnd tool in a HPC environment.
+\item Optimisation of data reading and writing.
+\item Contributions to outreach activities (podcast, flyers, webpage).
+\end{itemize}
 
-\item[2014/03--2017/01 | Head of Data Centre |] Balearic Islands Coastal Ocean Observing and Forecasting System (\href{http//www.socib.eu}{SOCIB})
+\item[2019--2021] \href{https://www.emodnet-physics.eu}{EMODnet Physics}: Creation of velocity maps by interpolating drifter and high-frequency radar measurements. 
+
+%\item[] IMPACT: Impact Portuaire sur les aires marines protégées: Actions Coopératives Transfrontalières
+
+\item[2018--ongoing] \href{https://www.eosc-hub.eu}{EOSC-Hub}: Development of a data analytics platform for marine data.
+
+\item[2017--ongoing] \href{https://emodnet-biology.eu}{EMODnet Biology}: Creation of gridded fields based on species counts and observations.
+
+\item[2017--ongoing] \href{https://www.emodnet-chemistry.eu}{EMODnet Chemistry} 
+\begin{itemize}
+\item Creation of gridded field for chemical variables.
+\item Visualisation of the products using the OceanBrowser tool.
+\item Preparation of merged products combining all the regional components.
+\item Generation of XML records for the data catalog.
+\end{itemize}
+
+\item[2017--ongoing] \href{https://www.emodnet-ingestion.eu}{EMODnet Data Ingestion}: Development on new gridded products using the data obtained in the frame of the project.
+
+\item[2017--ongoing] \href{https://www.seadatanet.org}{SeaDataCloud} (H2020): Further developing the pan-European infrastructure for marine and ocean data management
+\begin{itemize}
+\item Improvement and testing of the DIVAnd software tool.
+\item Development of a user interface for Diva on a Virtual Research Environment.
+\item Preparation of the new regional climatologies.
+\end{itemize}
+
+\end{description}
+National projects:
+\begin{description}
+\item[2019--2021] \href{https://odnature.naturalsciences.be/multi-sync/en/}{Multisync}: combination of satellites measurements at different resolutions to reconstruct suspended particular matter in the North Sea.
+\end{description}
+
+\item[\datebox{2014/03--2017/01} | Head of Data Centre |] Balearic Islands Coastal Ocean Observing and Forecasting System (\href{http//www.socib.eu}{SOCIB})
+
+General tasks:
 \begin{itemize}%
 \item Management of the projects and staff.
 \item Relations with external users (national and European), data providers and other facilities.
 \item Development of applications for the access and visualisation of oceanographic data.
 \item Forecasting of extreme sea level events (\textit{rissaga}) using time series.
 \item Acquisition and processing of satellite, remote-sensing data\\(wind, salinity sea surface temperature, chlorophyll concentration).
-\item Analysis and interpretation of multi-platform observations\\(HF radar, satellite, stations, mobile platforms).
+\item Analysis and interpretation of multi-platform observations\\(High-frequency radar, satellite, stations, mobile platforms).
+\end{itemize}
+European projects:
+\begin{description}
+\item[2015--2017] \href{http://www.jerico-ri.eu/}{JERICO-NEXT} (H2020): Data management best practices; glider data processing and calibration.
+\item[2015--2017] \href{http://www.odip.eu/}{ODIP~2} (H2020):  (Ocean Data Interoperability portal)
+\begin{itemize}
+\item Analysis of sofware citation tools.
+\item Test of new standards in data and metadata management .
+\item Data visualisation tools.
 \end{itemize}
 
+\item[2015--2017] Copernicus Marine Environment Monitoring Service, In Situ Thematic Assembly Center (INSTAC):
+\begin{itemize}
+\item Elaboration of the Ocean State Report.
+\item Coordinator of the outreach, training and communication activities.
+\item Preparation and participation to the regional user training workshops.
+\end{itemize}
+\end{description}
+National projects:
+\begin{description}
+\item[2014--2017] BlueFin Tuna: combination of observations and models to understand and predict tuna abundance.
+\item[2014--2017] Grumers: Database for jellyfish observations around the Balearic Islands. 
+\item[2014--2017] \href{http://medclic.es/es/news/research/asimilacion-datos.html}{Medclic} (Oceanographic data in the Medirranean Sea at one click): Providing access to SOCIB sensors data.
+\item[2014--2015] SeaTurtle: Development of a viewer showing turtle trajectories in real-time.
+\end{description}
 
-\item[2013/03--2014/03 | Post-doctoral researcher |] Mediterranean Institute for Advanced Studies (\href{http://imedea.uib-csic.es/}{IMEDEA})
+
+\item[\datebox{2013/03--2014/03} | Post-doctoral researcher |] Mediterranean Institute for Advanced Studies (\href{http://imedea.uib-csic.es/}{IMEDEA})
+
+European projects:
+\begin{description}
+\item[2013--2014] MyOcean~2, Ocean monitoring and forecasting infrastructure:
 \begin{itemize}%
 \item Preparation of high-resolution altimetry products in the Mediterranean Sea (MyOcean~2 project).
 \item Analysis of in situ and remote-sensed data in the Balearic Sea.
+\end{itemize}
+
+\item[2011--2015] PERSEUS (Policy-oriented marine Environmental Research for the Southern European Seas)
+\begin{itemize}%
 \item Processing (interpolation, filtering) and interpretation of multi-sensor measurements\\(High-frequency radar, underwater glider, altimeter).
 \item Operational production of regional altimetry maps (satellite imagery).
 \end{itemize}
+\end{description}
 
 
-\item[2010/10--2013/02 | Research assistant |] \href{www.ulg.ac.be}{University of Li\`{e}ge}
+\item[\datebox{2010/10--2013/02} | Research assistant |] \href{www.ulg.ac.be}{University of Li\`{e}ge}
 \begin{itemize}%
 \item Supervisor of the laboratory "\textit{Microscopes}" for undergraduate students\\ (laboratory sessions for 60-80 students, evaluation).
 \item Analysis of total-suspended matter images on the North Sea.
@@ -159,47 +244,77 @@ title=Summary,#1}
 \item Improvement and testing of DIVA interpolation software tool.
 \end{itemize}
 
+National projects:
+\begin{description}
+\item[2011--2013] HiSea (High-resolution merged satellite Sea surface temperature fields): EOF analysis of satellite images improved with numerical model outputs.
+\end{description}
 
-\item[2006/10--2010/09 | PhD Candidate |] Fund for Research Training in Industry and Agriculture (\href{https://www.fnrs.be}{National Fund for Scientific Research}, Belgium), GeoHydrodynamics and Environment Research (\href{http://modb.oce.ulg.ac.be/}{GHER}, University of Li\`{e}ge)
+\item[\datebox{2006/10--2010/09} | PhD Candidate |] Fund for Research Training in Industry and Agriculture (\href{https://www.fnrs.be}{National Fund for Scientific Research}, Belgium), GeoHydrodynamics and Environment Research (\href{http://modb.oce.ulg.ac.be/}{GHER}, University of Li\`{e}ge)
 
-\parbox{.65\textwidth}{
-\begin{itemize}%
+Projects:
+\begin{description}
+
+\item[2012--2013] \href{http://www.odip.eu/}{ODIP} (FP7): Establishing and operating an Ocean Data Interoperability Platform
+\begin{itemize}
+\item Definition of standards for the data and metadata exchange.
+\end{itemize}
+\item[2009--2013] \href{https://www.emodnet-chemistry.eu}{EMODnet -- Chemistry}: Pilot component for a final operational European Marine Observation and Data Network:
+\begin{itemize}
+\item Improvement to the DIVA tool.
+\item Development of the DIVA web-interface.
+\end{itemize}
+
+\item[2009--2013] \href{https://www.seadatanet.org}{SeaDataNet~2}: Infrastructure for ocean and marine data exchange.
+\begin{itemize}
+\item User training
+\item Software development and testing
+\end{itemize}
+
+\item[2008--2009] CAIBEX (Study of the Exchanges between continental shelf and ocean in the Canaries-Iberian marine ecosystem):
+\begin{itemize}
 \item Study of the upwelling filament off Cape Ghir (Northwest Africa).
 \item Hydrographic climatology for the North-East Atlantic Ocean.
 \item Implementation of the ROMS model at high-resolution around Cape Ghir and design of process-oriented experiments.
 \item Participation to the CAIBEX cruise onboard \textit{Sarmiento de Gamboa} (summer 2009) off Cape Ghir and processing of the cruise data.
 \end{itemize}
-}\hspace{.5cm}\parbox{.25\textwidth}{
-\skillbox{MATLAB} \skillbox{ROMS} \skillbox{DIVA} \skillbox{Spatial interpolation} \skillbox{Quality control}
-}
+
+\item[2006--2011] \href{https://www.seadatanet.org}{SeaDataNet}: Infrastructure for ocean and marine data exchange:
+\begin{itemize}
+\item Contribution to the project proposal.
+\item Development, documentation and testing of DIVA software tool.
+\item Organization of the user training workshops.
+\end{itemize}
+
+\end{description}
+
+%}\hspace{.5cm}\parbox{.25\textwidth}{
+%\skillbox{MATLAB} \skillbox{ROMS} \skillbox{DIVA} \skillbox{Spatial interpolation} \skillbox{Quality control}
+%}
 
 
-\item[2010/08--2010/09 | Trainee |] NATO Undersea Research Center, La Spezia (Italy)
+\item[\datebox{2010/08--2010/09} | Trainee |] NATO Undersea Research Center, La Spezia (Italy)
 
-\parbox{.65\textwidth}{
+\begin{description}
+\item[2010/08] REP10 (Recognized Environmental Picture): Analysis and reconstruction of incomplete satellite images on the Ligurian Sea.
 \begin{itemize}%
 \item Development of an operational, multivariate processing for the reconstruction of incomplete satellite images.
 \item Pre-processing of remote-sensed data (chlorophyll concentration, sea surface temperature).
 \end{itemize}
-}\hspace{.5cm}\parbox{.25\textwidth}{
-\skillbox{MATLAB}\skillbox{DINEOF}
-\skillbox{Remote sensing}
-\skillbox{Multivariate analysis}
-\skillbox{EOF analysis}
-}
+\end{description}
 
 
-\item[2005/10--2005/12 | Research Engineer |] University of Li\`{e}ge
+\item[\datebox{2005/10--2005/12} | Research Engineer |] University of Li\`{e}ge
 
-\parbox{.65\textwidth}{
+%\parbox{.65\textwidth}{
 \begin{itemize}
 \item Modeling of Coccolithophore blooms in the Bay of Biscay using a 1-dimensional model (GOTM)
 \end{itemize}
-}\hspace{.5cm}\parbox{.25\textwidth}{
-\skillbox{Fortran}\skillbox{MATLAB}
-\skillbox{netCDF}\skillbox{Atmospheric forcing}
-}
+%}\hspace{.5cm}\parbox{.25\textwidth}{
+%\skillbox{Fortran}\skillbox{MATLAB}
+%\skillbox{netCDF}\skillbox{Atmospheric forcing}
+%}
 \end{description}
+
 
 
 \section{Main research interests}
@@ -280,17 +395,57 @@ Final project: \emph{Structuring in granular media}\\
 \end{description}
 
 
+\subsection{Soft skills \& management}
+
+\begin{description}
+\item[Projects and management] {Planning and monitoring, scientific and technical reports, teamwork, deadline-conscious, specification documents, applications for grants and supports.}
+
+\item[Communication]~
+\begin{itemize}
+\item Oral presentations at international conferences (in English, Spanish or French).
+\item Social networking (outreach) and management of group accounts on twitter\\ 
+(\href{GHER_ULiege}{\symbol{64}GHER\_ULiege}, \symbol{64}SOCIB\_data [discontinued]).
+\item Design of conference flyers.
+\end{itemize}
+
+\item[Conference organisation]~
+\begin{itemize}
+\item Main organiser of several editions of the user training workshop for DIVA (participants from European research centres on average).
+\item Member of the organising committee of the 48th International Li\`{e}ge Colloquium on Ocean Dynamics (200 participants from 40 countries).
+\item Member of the scientific committee of several conferences.
+\end{itemize}
+\end{description}
+
+\subsection{Languages}
+\begin{summarybox}
+English for the communication with the project partners and for the writing of technical document. Spanish, English and Catalan in the previous working environments.
+\end{summarybox}
+
+\begin{description}
+\item[French] {Native speaker}
+\item[Spanish] {Highly proficient (speaking and writing}
+\item[English] {Highly proficient (speaking and writing}
+\item[Catalan] {Limited working proficiency}
+\item[German] {Limited working proficiency}
+\item[Italian] {Elementary proficiency}
+\item[Dutch] {Elementary proficiency (basic course for beginners)}
+\end{description}
+
 \subsection{IT skills}
 
 \subsubsection*{\circled{\faCode}~~Programming}
-Functional programming 				\\ 
-Object oriented programming		\\
-Test-oriented development			\\
-Control version system (git, svn)	\\
-Unit testing						\\	
-Continuous integration
+\begin{itemize}
+\item Functional programming 				
+\item Object oriented programming		
+\item Test-oriented development			
+\item Control version system (git, svn)
+\item Unit testing							
+\item Continuous integration
+\item Software citation and reproducibility
+\item Containerisation (Docker, Singulariy)
+\end{itemize}
 
-\subsubsection*{Languages}
+\subsubsection*{\circled{\faCode}~Languages}
 \ganttset{bar height=.3}
 \begin{ganttchart}[
 	canvas/.style={fill=white},
@@ -315,15 +470,13 @@ Continuous integration
     ]{1}{17}
   % \gantttitle[title label node/.append style={below left=5pt and -3pt}]{Languages\quad}{0}
   %\gantttitle[title/.style={draw=CVmain,below=7pt}]{Languages}{0}
-  \gantttitlelist[title/.style={draw=none, inner color=CVgrey,below=7pt}]{2006,2009,...,2020}{3} \\
-  \ganttbar[name=bash, progress label text={awk, makefiles, cron, ssh, regex, \ldots}]{Bash}{1}{16} \\
-  \ganttbar[name=fortran,progress label text={\hspace{.5cm}data I/O, format conversion, optimisation}]{Fortran}{1}{15} \\
-  \ganttbar[name=matlab,progress label text={\hspace{4cm}geostatistics, plotting, neural networks, m\_map}]{MATLAB}{1}{8} \\
-  \ganttbar[name=python,progress label text={matplotlib, numpy, scipy, pandas, virtualenv, Basemap, \ldots}]{Python}{8}{16} \\
-  \ganttbar[name=julia,progress label text={DataArrays, PyPlot, module developments}]{Julia}{11}{16} \\
-  \ganttbar[name=javascript,progress label text={Leaflet, Highcharts, D3, Angular, Reveal}]{Javascript}{11}{16}\\
-  \ganttbar[name=Tcl/Tk,progress label text={\hspace{7cm}Graphical interface (buttons, file selectors, \ldots)}]{Tcl/Tk}{1}{2}\\
-  \ganttbar[name=LaTeX,progress label text={Beamer, TikZ, BibTeX, tcolorbox, \ldots}]{LaTeX}{1}{16}
+  \gantttitlelist[title/.style={draw=none, inner color=CVgrey,below=7pt}]{2006,2009,...,2022}{3} \\
+  \ganttbar[name=bash, progress label text={awk, makefiles, cron, git, ssh, regex, \ldots}]{Bash}{1}{17} \\
+  \ganttbar[name=fortran,progress label text={data I/O, format conversion, optimisation}]{Fortran}{1}{17} \\
+  \ganttbar[name=matlab,progress label text={\hspace{4cm}geostatistics, plotting, neural networks}]{MATLAB}{1}{8} \\
+  \ganttbar[name=python,progress label text={matplotlib, numpy, scipy, pandas, virtualenv, \ldots}]{Python}{8}{17} \\
+  \ganttbar[name=julia,progress label text={DataArrays, PyPlot, module developments}]{Julia}{11}{17} \\
+  \ganttbar[name=javascript,progress label text={Leaflet, Highcharts, D3, Angular, Reveal}]{Javascript}{11}{17}
 \end{ganttchart}
 
 \subsubsection*{\circled{\faWrench}~~Tools}
@@ -332,38 +485,12 @@ Continuous integration
 \item[Visualisation:] bokeh, matplotlib, folium, plotly, leaflet, cartopy
 \item[Data bases:] MySQL, PostgreSQL
 \item[Operating systems:] Linux (Mint, Ubuntu) \sepa Experience with Mac~OS~X Lion, Microsoft Windows
-\item[Image processing:] GIMP, Inkskape, Darktable, ImageJ, Matlab, Python, ffmpeg, hugin, ImageMagick
+\item[Image processing:] Darktable, GIMP, Inkskape, ImageJ, ffmpeg, Hugin, ImageMagick
 \item[Oceanography software:] Ocean Data View, DIVA (spatial interpolation), DINEOF (spatio-temporal interpolation of satellite images)
-\item[Misc:] NX~Client, VPN, Asana, QGIS
+\item[Website:] WordPress, Jekyll
+\item[Misc:] QGIS 
 \end{description}
 
-
-\subsection{Management}
-
-\begin{description}
-\item[Projects and management] {Planning and monitoring, scientific and technical reports, teamwork, deadlines, specification documents, applications for grants and supports.}
-
-\item[Communication] {Oral presentations at international conferences (in English, Spanish or French), social networking, management of group accounts on twitter (\symbol{64}SOCIB\_data, \symbol{64}GHER\_ULg).}
-
-\item[Conference organisation]{Main organiser of several editions of the Diva workshop (10 participants from European research centres on average) and member of the organising committee of the 48th International Li\`{e}ge Colloquium on Ocean Dynamics (200 participants from 40 countries).}
-
-\end{description}
-
-
-\subsection{Languages}
-\begin{summarybox}
-English for the communication with the project partners and for the writing of technical document. Spanish, English and Catalan in the previous working environment.
-\end{summarybox}
-
-\begin{description}
-\item[French] {Native speaker}
-\item[Spanish] {Highly proficient in spoken and written Spanish}
-\item[English] {Highly proficient in spoken and written English}
-\item[Catalan] {Limited working proficiency}
-\item[German] {Limited working proficiency}
-\item[Italian] {Elementary proficiency}
-\item[Dutch] {Elementary proficiency (basic course for beginners)}
-\end{description}
 
 \subsection{Teaching and Training}
 
@@ -395,104 +522,6 @@ My experience of training at the University is complemented by several training 
 
 
 %----------------------------------
-\section{Projects and services}
-%----------------------------------
-
-\begin{summarybox}
-{Since 2006, I have been involved in several internal, national and European projects dealing with data analysis and management, operational oceanography or numerical modelling. I contributed to the project proposals, the preparation of the deliverables, the support to users and was participating to the meetings of the technical task group and steering committee.}
-\end{summarybox}
-
-\subsection{European projects}
-
-\begin{description}
-
-\item[2019--ongoing] \href{https://www.phidias-hpc.eu/}{PHIDIAS} (CEF Telecom): Deployment of DIVAnd tool in a HPC environment.
-
-\item[2019--ongoing] \href{https://www.emodnet-physics.eu}{EMODnet Physics}: Creation of velocity maps by interpolating drifter and high-frequency radar measurements.
-
-\item[2018--ongoing] \href{https://www.eosc-hub.eu}{EOSC-Hub}: Development of a data analytics platform for marine data.
-
-\item[2017--ongoing] \href{https://emodnet-biology.eu}{EMODnet Biology}: Creation of gridded fields based on species counts and observations.
-
-\item[2017--ongoing] \href{https://www.emodnet-chemistry.eu}{EMODnet Chemistry} 
-\begin{itemize}
-\item Creation of gridded field for chemical variables.
-\item Visualisation of the products using the OceanBrowser tool.
-\item Preparation of merged products combining all the regional components.
-\item Generation of XML records for the data catalog.
-\end{itemize}
-
-\item[2017--ongoing] \href{https://www.emodnet-ingestion.eu}{EMODnet Data Ingestion}: Development on new gridded products using the data obtained in the frame of the project.
-
-\item[2017--ongoing] \href{https://www.seadatanet.org}{SeaDataCloud} (H2020): Further developing the pan-European infrastructure for marine and ocean data management
-\begin{itemize}
-\item Improvement and testing of the DIVA software tool.
-\item Development of a user interface for Diva on a Virtual Research Environment.
-\item Preparation of the new regional products.
-\end{itemize}
-
-
-\item[2015--2017] \href{http://www.jerico-ri.eu/}{JERICO-NEXT} (H2020): Data management best practices; glider data processing and calibration.
-\item[2015--2017] \href{http://www.odip.eu/}{ODIP~2} (Ocean Data Interoperability portal)
-\begin{itemize}
-\item Test of new standards in data and metadata management 
-\item Data visualisation tools
-\end{itemize}
-
-\item[2015--2017] Copernicus Marine Environment Monitoring Service, In Situ Thematic Assembly Center (INSTAC):
-\begin{itemize}
-\item Elaboration of the Ocean State Report.
-\item Coordinator of the outreach, training and communication activities.
-\item Preparation and participation to the regional user training workshops.
-\end{itemize}
-
-\item[2013--2014] MyOcean~2, Ocean monitoring and forecasting infrastructure:
-\begin{itemize}
-\item Preparation of high-resolution altimetry products in the Mediterranean Sea.
-\item Data analysis during a multi-platform experiment in the Ibiza Channel.
-\end{itemize}
-
-\item[2012--2013] \href{http://www.odip.eu/}{ODIP} (Ocean Data Interoperability portal): Definition of standards for the data and metadata exchange.
-
-\item[2011--2015] PERSEUS (Policy-oriented marine Environmental Research for the Southern European Seas): Processing of glider and campaign data
-
-\item[2009--2013] \href{https://www.emodnet-chemistry.eu}{EMODnet -- Chemistry}: Pilot component for a final operational European Marine Observation and Data Network:
-\begin{itemize}
-\item Improvement to the DIVA tool.
-\item Development of the DIVA web-interface.
-\end{itemize}
-
-\item[2009--2013] \href{https://www.seadatanet.org}{SeaDataNet~2}: Infrastructure for ocean and marine data exchange.
-
-\item[2008--2009] CAIBEX (Study of the Exchanges between continental shelf and ocean in the Canaries-Iberian marine ecosystem):
-\begin{itemize}
-\item Implementation of a high-resolution numerical model in the Cape Ghir region.
-\item Participation to the CAIBEX-Cape Ghir cruise (August 2009).
-\end{itemize}
-
-\item[2006--2011] \href{https://www.seadatanet.org}{SeaDataNet}: Infrastructure for ocean and marine data exchange:
-\begin{itemize}
-\item Contribution to the project proposal.
-\item Development, documentation and testing of DIVA software tool.
-\item Organization of the user training workshops.
-\end{itemize}
-
-\end{description}
-
-
-\subsection{National projects}
-
-\begin{description}
-\item[2019--ongoing] Multisync: combination of satellites measurements at different resolutions to reconstruct suspended particular matter in the North Sea.
-\item[2014--2017] BlueFin Tuna: combination of observations and models to understand and predict tuna abundance.
-\item[2014--2017] Grumers: Database for jellyfish observations around the Balearic Islands. 
-\item[2014--2017] \href{http://medclic.es/es/news/research/asimilacion-datos.html}{Medclic} (Oceanographic data in the Medirranean Sea at one click): Providing access to SOCIB sensors data.
-\item[2014--2015] SeaTurtle: Development of a viewer showing turtle trajectories in real-time.
-\item[2011--2013] HiSea (High-resolution merged satellite Sea surface temperature fields): EOF analysis of satellite images improved with numerical model outputs.
-\item[2010/08] REP10 (Recognized Environmental Picture): Analysis and reconstruction of incomplete satellite images on the Ligurian Sea.
-\end{description}
-
-%----------------------------------
 \section{Research stays}
 %----------------------------------
 
@@ -519,7 +548,7 @@ In the frame of international projects, I authored or co-authored several works 
 \begin{table}[h]
 \centering
 \begin{tabular}{C{4cm}C{4cm}C{4cm}}
-\huge{20+}  						& \huge{100 +} 									& Reviewer for\hspace{1cm}  \\
+\huge{30+}  						& \huge{100 +} 									& Reviewer for\hspace{1cm}  \\
 Papers in peer-review journals 	& Presentations at international conferences	& \huge{7} \normalsize{journals} \\
 \end{tabular}
 \end{table}
@@ -528,23 +557,28 @@ Papers in peer-review journals 	& Presentations at international conferences	& \
 
 
 \nocitearticle{*}
-\bibliographystylearticle{referencelist}
+\bibliographystylearticle{referencelist.bst}
 \bibliographyarticle{Troupin_publi.bib}
 
 \nociteincollection{*}
-\bibliographystyleincollection{referencelist}
+\bibliographystyleincollection{referencelist.bst}
 \bibliographyincollection{Troupin_book.bib}
+
+\nociteproceedings{*}
+\bibliographystyleproceedings{referencelist}
+\bibliographyproceedings{Troupin_proceedings.bib}
  
 \nociteconference{*}
 \bibliographystyleconference{referencelist}
 \bibliographyconference{Troupin_conferences.bib}
 
-\begin{center}
-\includegraphics[width=.75\textwidth]{ConferenceMap.png}
-\end{center}
+%\begin{center}
+%\includegraphics[width=.75\textwidth]{ConferenceMap.png}
+%\end{center}
 
 \subsection{Invited Editor}
 
+Ocean Dynamics: Special Issue for the 50th Li\`{e}ge Colloquium on Ocean Dynamics, \doi{10.1007/s10236-020-01421-0}\\
 Ocean Dynamics: Special Issue for the 48th Li\`{e}ge Colloquium on Ocean Dynamics, \doi{10.1007/s10236-018-1173-5}
 
 \subsection{Reviewer}
@@ -561,6 +595,8 @@ Earth System Science Data, Ocean Science, Ocean Dynamics, Ocean Engineering, Jou
 
 \subsection{Undergraduate student training}
 \begin{description}
+%\item[2021-2022] 
+\item[2020-2021] Hugo Romanelli (ULiège), supervision
 \item[2012/05/12--2012/05/19] Joaquim Pereira Bento (Uni-Kiel, Germany)\\ \textit{In situ and satellite data interpolation}
 \item[2011/09--2011/11] Nikolaos Zarokanellos (HCMR, Greece) \\ \textit{Data interpolation for the Eastern Mediterranean Sea}
 \item[2009/01--2009/05] Marc Piedeleu (ULPGC, Spain)\\ \textit{Analysis of in situ observations south of the Canary Islands}
@@ -574,6 +610,11 @@ From 2006 on, I have organised several editions of a training workshop about an 
 \end{summarybox}
 
 \begin{description}
+
+\item[2021/04/12-14] IMDIS Conference (online): member of the Scientific Committee and co-chair of the "Products" session.
+
+\item[2020/05/4--8] EGU General Assembly 2020 (online): Co-convener of the session "\textit{Open session on ocean processes and techniques}".
+
 \item[2016/05/23--27] 48th International Li\`{e}ge Colloquium on Ocean Dynamics on \textit{Submesoscale Processes: Mechanisms, Implications and new Frontiers} (Li\`{e}ge, Belgium)
 \begin{itemize}
 \item Invitation of keynote speakers.
@@ -603,6 +644,7 @@ From 2006 on, I have organised several editions of a training workshop about an 
 \end{itemize}
 \end{description}
 
+
 \section{Misc}
 
 \subsection{Grants and funding}
@@ -618,6 +660,7 @@ From 2006 on, I have organised several editions of a training workshop about an 
 
 \subsection{Representation}
 \begin{description}
+\item[2019--ongoing] Delegate at the Faculty of Sciences for the scientific staff
 \item[2017--ongoing] Delegate at the Department Council (Astrophysics, Geophysics and Oceanography, ULi\`{e}ge)
 \item[2015--2016] Member of the Monitoring Committee of the Framework Agreement between AEMET and SOCIB
 \item[2003--2005] Student delegate 

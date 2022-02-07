@@ -1,0 +1,127 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Turning ocean data into stories">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="https://ctroupin.github.io/posts/2021-11-16-Topography/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Charles Troupin by </title>
+
+	<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-8 col-lg-offset-2">
+			<center>
+				<h2> Digital terrain model processing </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					
+						<h4><i class="far fa-calendar-alt"></i></h4> 31 July 2021 &nbsp;
+					
+					
+						<h4><i class="fas fa-wrench"></i></h4> QGIS, gdal &nbsp;
+					
+					
+						<h4><i class="fas fa-tags"></i></h4> Data visualisation &nbsp;
+					
+					
+				</div>
+				<p>Some instructions to work on digital terrain model data using <code class="highlighter-rouge">gdal</code> tool.</p>
+
+<ol>
+  <li>Convert <code class="highlighter-rouge">.asc</code> file to <code class="highlighter-rouge">.geotiff</code>:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>gdal_translate <span class="nt">-of</span> GTiff <span class="nt">-a_srs</span> <span class="s2">"EPSG:9059"</span> <span class="nt">-co</span> <span class="s2">"COMPRESS=LZW"</span> MDS05_REGCAN95_H28_1087_COB1.asc lp03.geotiff
+</code></pre></div>    </div>
+    <p>Data are downloaded from the <a href="https://centrodedescargas.cnig.es">CNIG</a>; several files
+to cover one island.</p>
+  </li>
+  <li>Generate <code class="highlighter-rouge">.vrt</code> files:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>gdalbuildvrt geotiff.vrt <span class="k">*</span>.tif
+</code></pre></div>    </div>
+    <p>The <code class="highlighter-rouge">.vrt</code> stands for Virtual Format, it allows a virtual dataset to be composer from
+other datasets.</p>
+  </li>
+  <li>Merge the geotiff:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>gdaltranslate <span class="nt">-of</span> GTiff <span class="nt">-a_srs</span> <span class="s2">"EPSG:9059"</span> <span class="nt">-co</span> <span class="s2">"COMPRESS=LZW"</span> geotiff.vrt master.tif
+</code></pre></div>    </div>
+  </li>
+  <li>Change projection:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>gdalwarp <span class="nt">-s_srs</span> EPSG:9059 <span class="nt">-t_srs</span> EPSG:4326 <span class="k">in</span>.tiff out.tiff
+</code></pre></div>    </div>
+    <ul>
+      <li><a href="http://epsg.io/9059">EPSG:9059</a>: Geodetic coordinate system for Europe - onshore and offshore</li>
+      <li><a href="https://epsg.io/4326">EPSG:4326</a>: Geodetic coordinate system for World.</li>
+    </ul>
+  </li>
+  <li>Extract region of interest
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>gdal_translate <span class="nt">-projwin</span> 5.6 50.6 5.9 50.4 out.tiff subset.tiff
+</code></pre></div>    </div>
+    <p>The bounding box is specified by the northwest and southeast corners.</p>
+  </li>
+</ol>
+
+<h2 id="final-result">Final result</h2>
+
+<p>After merging all the tiles, I extracted each municipality.    <br />
+The figure shows Agaete (northwest of Gran Canaria) with a <em>hill-shading</em> plot.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/agaete.png" class="img-responsive" /></p>
+
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+</body>
+</html>

@@ -142,6 +142,8 @@ a quicker way to find the population of a given place.</p>
 <div id="map" style="height:400px;"></div>
 <script type="text/javascript" src="../data/CanariasMunicipiosHab.geojson"></script>
 
+<script type="text/javascript" src="../js/basemaps.js"></script>
+
 <script>
 
   var map = L.map('map', {
@@ -155,10 +157,14 @@ a quicker way to find the population of a given place.</p>
   var dataattribution = ' | Population data: <a href="http://www.ine.es/">Instituto National de Estadística</a>,' +
               ' | Municipalities limits: <a href="http://centrodedescargas.cnig.es">Centro National de Información Geográfica</a>'
 
-  var Esri_OceanBasemap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
-    attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri' + dataattribution,
-    maxZoom: 13
-  }).addTo(map);
+  map.addLayer(OpenStreetMap_Mapnik)
+
+  var baseMaps = {
+    "ESRI World Imagery": Esri_WorldImagery,
+    "CartoDB": CartoDB,
+    "OpenStreetMap": OpenStreetMap_Mapnik,
+    "CartoDB Dark": CartoDB_DarkMatter
+  };
 
   // control that shows state info on hover
   var info = L.control();
@@ -263,6 +269,7 @@ a quicker way to find the population of a given place.</p>
   };
 
   legend.addTo(map);
+  L.control.layers(baseMaps).addTo(map);
 
 </script>
 

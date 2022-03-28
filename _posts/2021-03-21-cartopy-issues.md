@@ -163,3 +163,14 @@ python setup.py install
 cd ..
 python test_carto.py
 ```
+
+## Edit [March 28]
+
+One year later the installation story is not yet completed for me. I re-ran
+the procedure above, just trying to use a more recent release of `Cartopy` (0.20),
+but the command `python setup.py install` gave me an error:
+```bash
+GEOS version 3.3.3 is installed, but cartopy requires at least version 3.7.2.
+```
+even if I was using 3.6.1... so I don't know. Sticking to 0.18 works so I won't
+dig deeper right now.

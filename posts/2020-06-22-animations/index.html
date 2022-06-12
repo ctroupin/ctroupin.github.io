@@ -145,6 +145,21 @@ the option <code class="highlighter-rouge">-pattern_type</code>. An example is b
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>ffmpeg <span class="nt">-framerate</span> 6 <span class="nt">-i</span> north_sea%03d.png <span class="nt">-c</span>:v libx264 <span class="nt">-pix_fmt</span> yuv420p <span class="nt">-vf</span> <span class="s2">"pad=ceil(iw/2)*2:ceil(ih/2)*2"</span> animation.mp4
 </code></pre></div></div>
 
+<h2 id="twitter-video">Twitter video</h2>
+
+<p>On Twitter sometimes the videos cannot be uploaded. The instruction concerning the media can be found in this <a href="https://developer.twitter.com/en/docs/twitter-api/v1/media/upload-media/uploading-media/media-best-practices">developer post</a>.</p>
+
+<p>For instance they make recommendations about:</p>
+<ul>
+  <li>the codec: H264</li>
+  <li>the frame rates: 30 FPS or 60 FPS</li>
+  <li>the resolution: 1280x720 (landscape), 720x1280 (portrait), 720x720 (square)</li>
+  <li>the minimum video bitrate: 5000 kbps
+…</li>
+</ul>
+
+<p>All these options can be configured by <code class="highlighter-rouge">ffmpeg</code>.</p>
+
 <h2 id="examples">Examples</h2>
 
 <p>Instead of showing an animation of ocean-related variables, I preferred an example of time-lapse

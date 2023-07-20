@@ -12,7 +12,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script> 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
-    <script type="text/javascript" src="../js/basemaps.js"></script>
+    <script type="text/javascript" src="basemaps.js"></script>
     <script type="text/javascript" src="data/LaPalmaFire/taburiente.geojson"></script>
     <script type="text/javascript" src="data/LaPalmaFire/EMS.geojson"></script>
     
@@ -57,7 +57,7 @@
   	}
   });
 
-  var Parcours = omnivore.gpx('GPX/LP13.gpx', null, customLayer);
+  var Parcours = omnivore.gpx('data/LaPalmaFire/LP13.gpx', null, customLayer);
   Parcours.addTo(map);
 
   var emsStyle = {"color": "red", "weight": 2, "opacity": 1};

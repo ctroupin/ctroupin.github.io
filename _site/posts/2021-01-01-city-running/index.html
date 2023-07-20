@@ -1,0 +1,175 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content=" ">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="https://ctroupin.github.io/posts/2021-01-01-city-running/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Charles Troupin by </title>
+
+	<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-8 col-lg-offset-2">
+			<center>
+				<h2> City running map </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					
+						<h4><i class="far fa-calendar-alt"></i></h4> 21 January 2021 &nbsp;
+					
+					
+						<h4><i class="fas fa-wrench"></i></h4> bash, GPX, matplotlib &nbsp;
+					
+					
+						<h4><i class="fas fa-tags"></i></h4> Dataviz &nbsp;
+					
+					
+				</div>
+				<p>If you have ever been running (a lot) in the same town or village, you might
+want to know if you have covered most of the streets and trails. In this post
+we will see how to create a map summarizing all the information.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/palma_runningmap.png" class="img-responsive" /></p>
+
+<h2 id="getting-the-data">Getting the data</h2>
+
+<p>The plan is to get all the tracks from the platform you are using with your
+device. Here we work with <a href="https://www.movescount.com">Movescount</a> (Suunto). Until recently, one could easily request all the moves using the <em>export</em> option, available in the <em>Settings</em>: https://www.movescount.com/settings#export</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/suunto_export.jpg" class="img-responsive" alt="Movescount export" /></p>
+
+<p>Usually the data arrives pretty fast, a few minutes later. What do we get?
+An archived containing a folder <em>Moves</em>, in which we have all
+the moves recorded with the device (more than 2500 in my case).</p>
+
+<h3 id="update">Update</h3>
+
+<p>Due to change in Suunto move management, I had to switch to a more manual method.
+The log files are not directly extracted from the watch using the <a href="https://github.com/openambitproject/openambit"><code class="language-plaintext highlighter-rouge">openambit</code></a> project.</p>
+
+<p>It is quite strange to have to rely on code not written by Suunto, but hey, if they
+cannot ensure the data transfer, then the watch is kind of useless.</p>
+
+<h2 id="data-preparation">Data preparation</h2>
+
+<h3 id="converting-to-gpx">Converting to GPX</h3>
+
+<h4 id="fit-files"><code class="language-plaintext highlighter-rouge">.fit</code> files</h4>
+
+<p>When you export from Movescount, the file format is <code class="language-plaintext highlighter-rouge">.fit</code>. It can easily be
+converted to <code class="language-plaintext highlighter-rouge">.gpx</code> using the awesome <a href="https://www.gpsbabel.org/"><code class="language-plaintext highlighter-rouge">gpsbabel</code></a> tool. The command for the conversion reads:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>gpsbabel <span class="nt">-i</span> garmin_fit <span class="nt">-f</span> input.fit <span class="nt">-o</span> gpx <span class="nt">-F</span> output.gpx
+</code></pre></div></div>
+<p>and we can loop on all the files to apply this conversion.</p>
+
+<h4 id="log-files"><code class="language-plaintext highlighter-rouge">.log</code> files</h4>
+
+<p>If you use Openambit, you end up with <code class="language-plaintext highlighter-rouge">.log</code> files that you can convert to <code class="language-plaintext highlighter-rouge">gpx</code> using a tool provided with Openambit: <a href="https://github.com/openambitproject/openambit/blob/master/tools/openambit2gpx.py"><code class="language-plaintext highlighter-rouge">openambit2gpx.py</code></a>. The file name is quite explicit.</p>
+
+<h3 id="selection-by-type-of-activity">Selection by type of activity</h3>
+
+<h4 id="movescount">Movescount</h4>
+
+<p>When downloaded from Movescount, the type of activity (<em>Running</em>, <em>Walking</em>, <em>Trekking</em>) is written in the file name, so the job is already done.</p>
+
+<p>We can remove static activities, such as <em>Stretching</em>, <em>Indoor_training</em>, in which there is no displacement.</p>
+
+<h4 id="openambit">Openambit</h4>
+
+<p>With Openambit, we don’t have access to the activity type. It might be necessary to implement a way to detect it from the total distance, the mean speed, or any other combination of relevant metrics.</p>
+
+<p>This might be a good application of Machine Learning techniques, since we already have a ready training set.</p>
+
+<h3 id="selection-by-region">Selection by region</h3>
+
+<p>If you have traveled and run in different places, it could be useful to classify the
+track by region. How to do that? Probably there are many ways, using for example
+geo-referencing. What we did is to base the classification on the distance between</p>
+<ul>
+  <li>the average position of a track (mean longitude and latitude) and</li>
+  <li>a coordinate representative of a region or town, it can be its center for example.
+If that computed distance is below a given threshold, then the track becomes to that region.</li>
+</ul>
+
+<p>Of course we could use a geocoder such as <code class="language-plaintext highlighter-rouge">geopy</code>, though here we prefered to keep it simple.</p>
+
+<h4 id="example">Example</h4>
+
+<p>For Vienna, we consider the tracks for which the distance to the point
+(48.20467°N, 16.343028°E) is lower than 12 km. The threshold distance depends on the
+extension of the region.</p>
+
+<p>In another example, we want to have all the tracks located in Mallorca island: the
+distance is computed from (39.624293°N, 3.025380°E), with a threshold of 60 km.</p>
+
+<h2 id="results">Results</h2>
+
+<h3 id="files">Files</h3>
+
+<p>After all this we end up with GPX files classified by region. It is then straightforward to read the coordinates from the files and generate plots.</p>
+
+<h3 id="figures">Figures</h3>
+
+<p>There are many types of visualisation to be done: simple lines, heatmaps, hexbin maps, radial plots… Here we just show an example with the running sessions in Verviers from 2017 to 2020.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/verviers2020_map.png" class="img-responsive" /></p>
+
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+</body>
+</html>

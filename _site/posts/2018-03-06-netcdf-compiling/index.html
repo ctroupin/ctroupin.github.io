@@ -1,0 +1,163 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content=" ">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="https://ctroupin.github.io/posts/2018-03-06-netcdf-compiling/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Charles Troupin by </title>
+
+	<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-8 col-lg-offset-2">
+			<center>
+				<h2> Compiling netCDF library with intel compiler </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					
+						<h4><i class="far fa-calendar-alt"></i></h4> 06 March 2018 &nbsp;
+					
+					
+						<h4><i class="fas fa-wrench"></i></h4> netCDF, Fortran, bash &nbsp;
+					
+					
+					
+				</div>
+				<p>This is a really really nice blog post: no picture, just text and code snippets.
+Something I have been doing many times in different machines since 2006: installing and compiling the <a href="https://www.unidata.ucar.edu/software/netcdf/">netCDF library</a>.
+And today I had to do it again, this time with the <a href="https://software.intel.com/en-us/intel-compilers">intel compiler</a>, so enjoy.</p>
+
+<h2 id="resources">Resources</h2>
+
+<p>I must say that the documentation is just great, better read it before sending questions to Stack Overflow!</p>
+<ul>
+  <li><a href="https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html#building">Building netCDF-C</a></li>
+  <li><a href="https://www.unidata.ucar.edu/software/netcdf/docs/building_netcdf_fortran.html">Building the NetCDF-4.2 and later Fortran libraries </a></li>
+  <li><a href="https://software.intel.com/en-us/articles/performance-tools-for-software-developers-building-netcdf-with-the-intel-compilers">Building NetCDF* with the Intel® compilers</a></li>
+</ul>
+
+<h2 id="downloading-stuffs">Downloading stuffs</h2>
+
+<p>Latest version of zlib:   <br />
+https://zlib.net/</p>
+
+<p>Latest version of HDF5:    <br />
+https://support.hdfgroup.org/downloads/index.html</p>
+
+<p>Latest versions of netCDF for C and Fortran:    <br />
+https://github.com/Unidata/netcdf-c     <br />
+https://github.com/Unidata/netcdf-fortran</p>
+
+<h2 id="compiling">Compiling</h2>
+
+<p>In the directory where you have download the archives:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>unzip netcdf-c-4.6.0.zip
+<span class="nb">cd </span>netcdf-c-4.6.0
+</code></pre></div></div>
+
+<p>Then following the instructions from the <a href="https://software.intel.com/en-us/articles/performance-tools-for-software-developers-building-netcdf-with-the-intel-compilers">intel post</a></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">source</span> /opt/intel/bin/compilervars.sh intel64
+</code></pre></div></div>
+<p>Export the environment variables:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">export </span><span class="nv">CC</span><span class="o">=</span>icc
+<span class="nb">export </span><span class="nv">CXX</span><span class="o">=</span>icpc
+<span class="nb">export </span><span class="nv">CFLAGS</span><span class="o">=</span><span class="s1">'-O3 -xHost -ip -no-prec-div -static-intel'</span>
+<span class="nb">export </span><span class="nv">CXXFLAGS</span><span class="o">=</span><span class="s1">'-O3 -xHost -ip -no-prec-div -static-intel'</span>
+<span class="nb">export </span><span class="nv">F77</span><span class="o">=</span>ifort
+<span class="nb">export </span><span class="nv">FC</span><span class="o">=</span>ifort
+<span class="nb">export </span><span class="nv">F90</span><span class="o">=</span>ifort
+<span class="nb">export </span><span class="nv">FFLAGS</span><span class="o">=</span><span class="s1">'-O3 -xHost -ip -no-prec-div -static-intel'</span>
+<span class="nb">export </span><span class="nv">CPP</span><span class="o">=</span><span class="s1">'icc -E'</span>
+<span class="nb">export </span><span class="nv">CXXCPP</span><span class="o">=</span><span class="s1">'icpc -E'</span>
+</code></pre></div></div>
+
+<h3 id="c-library">C library</h3>
+<p>And finally compile the netCDF library, indicating the path to the HDF5 lib and include directory:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nv">NCDIR</span><span class="o">=</span>/home/ctroupin/Software/netCDF/
+<span class="nv">CPPFLAGS</span><span class="o">=</span><span class="nt">-I</span>/home/ctroupin/Software/netCDF/hdf5/include <span class="nv">LDFLAGS</span><span class="o">=</span><span class="nt">-L</span>/home/ctroupin/Software/netCDF/hdf5/lib  ./configure <span class="nt">--prefix</span><span class="o">=</span><span class="k">${</span><span class="nv">NCDIR</span><span class="k">}</span>
+make check
+make <span class="nb">install</span>
+</code></pre></div></div>
+
+<h3 id="fortran-library">Fortran library</h3>
+
+<p>Once the C library has been properly installed, we can install the Fortran one in
+a similar fashion. We assume we want to install everything in the same directory:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nv">NCDIR</span><span class="o">=</span>/home/ctroupin/Software/netCDF/
+<span class="nv">NFDIR</span><span class="o">=</span>/home/ctroupin/Software/netCDF/
+</code></pre></div></div>
+<p>If is also necessary to update the LD_LIBRARY_PATH variable:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">NCDIR</span><span class="k">}</span>/lib:<span class="k">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="k">}</span>
+</code></pre></div></div>
+<p>Then we proceed to the configuration and installation:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nv">CPPFLAGS</span><span class="o">=</span><span class="nt">-I</span><span class="k">${</span><span class="nv">NCDIR</span><span class="k">}</span>/include <span class="nv">LDFLAGS</span><span class="o">=</span><span class="nt">-L</span><span class="k">${</span><span class="nv">NCDIR</span><span class="k">}</span>/lib <span class="se">\</span>
+./configure <span class="nt">--prefix</span><span class="o">=</span><span class="k">${</span><span class="nv">NFDIR</span><span class="k">}</span>
+make
+make check
+make <span class="nb">install</span>
+</code></pre></div></div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>That should make the trick. Note that you can compile the library with different compilers, should that be the case,
+simply modify the <code class="language-plaintext highlighter-rouge">NCDIR</code>.</p>
+
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+</body>
+</html>

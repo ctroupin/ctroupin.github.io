@@ -1,0 +1,153 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content=" ">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="https://ctroupin.github.io/posts/2017-10-25-BibTeX-format/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Charles Troupin by </title>
+
+	<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-8 col-lg-offset-2">
+			<center>
+				<h2> Using BibTeX format for bibliography management </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					
+						<h4><i class="far fa-calendar-alt"></i></h4> 25 October 2017 &nbsp;
+					
+					
+						<h4><i class="fas fa-wrench"></i></h4> LaTeX, BibTeX &nbsp;
+					
+					
+						<h4><i class="fas fa-tags"></i></h4> Scientific tools &nbsp;
+					
+					
+				</div>
+				<p>A typical concern for scientists relates to the papers they publish: how to manage the different repertories, portals, databases in an efficient way? Let’s try to do something.</p>
+
+<h3 id="the-problem">The problem</h3>
+
+<p>Usually once the paper is published, it has to be archived in:</p>
+<ul>
+  <li>the institutional repository</li>
+  <li>the scientist’s résumé</li>
+  <li>the project database</li>
+  <li>the <a href="http://orcid.org/">ORCID</a>, <a href="https://www.researchgate.net">ResearchGate</a>, LinkedIN (+ many more) profiles</li>
+  <li>…</li>
+</ul>
+
+<p>Each of them, of course, has its specific format.   <br />
+In my previous job, once a year, we (then it became “I”) also had to create a list of all the publications and presentations made by the group.</p>
+
+<h3 id="the-solution">The solution</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">BibTeX</code> format () is used to describe and process lists of references.  <br />
+Nowadays, many platform can directly process this format and turn it into an entry in a database. Below is an example of an entry:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>@Article<span class="o">{</span>TROUPIN2010JMS,
+  Title <span class="o">=</span> <span class="o">{</span>Seasonal variability of the oceanic upper layer and its modulation of biological cycles <span class="k">in </span>the Canary Island region<span class="o">}</span>,
+  Author <span class="o">=</span> <span class="o">{</span>C. Troupin and P. Sangrà and J. Arístegui<span class="o">}</span>,
+  Journal <span class="o">=</span> <span class="o">{</span>Journal of Marine Systems<span class="o">}</span>,
+  Year <span class="o">=</span> <span class="o">{</span>2010<span class="o">}</span>,
+  Number <span class="o">=</span> <span class="o">{</span>3-4<span class="o">}</span>,
+  Pages <span class="o">=</span> <span class="o">{</span>172-183<span class="o">}</span>,
+  Volume <span class="o">=</span> <span class="o">{</span>80<span class="o">}</span>,
+  Doi <span class="o">=</span> <span class="o">{</span>10.1016/j.jmarsys.2009.10.007<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>so basically you have set of key-value pairs, some of them are mandatory while other are optional.</p>
+
+<h3 id="how-to-create-a-bibtex-entry">How to create a BiBTeX entry?</h3>
+
+<p>There are now several ways to do it depending on the tools at your disposal.  <br />
+Obviously, adding the information manually is the first option but probably not the quickest.</p>
+
+<h4 id="jabref">JabRef</h4>
+
+<p><a href="http://www.jabref.org/">JabRef</a> really helps when it comes to manage different bibliographies. Depending on the type of entry (e.g., article, book, conference, …), the tool indicates the mandatory fields and offers plug-ins to make easier the conversion to other formats. But still, it does not avoid you to type or copy/paste the different fields.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/jabref.jpg" class="img-responsive" alt="JabRef" /></p>
+
+<h4 id="import-from-journal-web">Import from journal web</h4>
+
+<p>Most of the journal web pages make available the BibTeX file along with the article itself. See below the example with <em>Journal of Geophysical Research</em>.      <br />
+Just download it and copy its content in a reference list managed with JabRef and you’re done.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/jgr_bibtex.png" class="img-responsive" alt="BibTex export in JGR" /></p>
+
+<p>Time estimated for an entry: 1 minute.</p>
+
+<h4 id="import-from-journal-web-1">Import from journal web</h4>
+
+<p>Another cool solution consists in using the Digital Object Identifier (DOI) to generate the BibTex.  <br />
+If you run the following command in a terminal:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>curl <span class="nt">-LH</span> <span class="s2">"Accept: text/bibliography; style=bibtex"</span> http://dx.doi.org/10.1029/2009JC005512
+</code></pre></div></div>
+<p>you will quickly obtained the desired entry. It is then easy to redirect it to an existing reference list or to copy/paste its content wherever needed.  <br />
+Time estimated for an entry: 30 seconds.</p>
+
+<h3 id="whats-more">What’s more?</h3>
+
+<p>In another post I’ll explain how to use <code class="language-plaintext highlighter-rouge">BibTeX</code> to create lists of publications in other formats.</p>
+
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+</body>
+</html>

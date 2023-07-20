@@ -1,0 +1,112 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content=" ">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="https://ctroupin.github.io/posts/2017-09-18-TGC-analytics/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Charles Troupin by </title>
+
+	<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-8 col-lg-offset-2">
+			<center>
+				<h2> TransGranCanaria and data analytics </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					
+						<h4><i class="far fa-calendar-alt"></i></h4> 18 September 2017 &nbsp;
+					
+					
+						<h4><i class="fas fa-wrench"></i></h4> Python (matplotlib), Leaflet &nbsp;
+					
+					
+					
+				</div>
+				<p>Just after the race I decided to play a little bit with the data to see some cool stuffs. More than 6 months later, here they are.</p>
+
+<h3 id="data-extraction">Data extraction</h3>
+
+<p>First (and usual): get the data in a usable format. From the race web page, I downloaded the <code class="language-plaintext highlighter-rouge">pdf</code> file storing the results and copied its content in a text file. The result is pretty bad as everything (names, times, countries) is mixed up. Luckily with regular expressions it was easy to extract the information needed.</p>
+
+<h3 id="time-to-finish-the-race">Time to finish the race</h3>
+
+<p>The dates extracted in the previous steps are converted to seconds for the calculation of durations.</p>
+
+<h4 id="time-series">Time series</h4>
+
+<p>Here we show all the finishers’ time along with basic diagnostics (mean, standard deviations from mean, …). For the first runners, long gaps are visible, especially below 22 hours. Such gaps tend to diminish for longer race times. The median time is slightly below 24 hours of race, almost twice the winner’s time. The fact that among the participants we have both professional runners and amateurs can explain these observations.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/timeseriesTGC.png" class="img-responsive" alt="Time series" /></p>
+
+<h4 id="histogram-classic">Histogram (classic)</h4>
+
+<p>The idea is simply to count the number of runners by bins of 1 hour. The distribution is clearly non-Gaussian and shows that in general more participants require more time to finish. The maximal time allowed to finish the race is 30 hours but it would be interesting to see how many persons can do it in less than, let’s say, 32 hours.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/histogramTGC.png" class="img-responsive" alt="Histogram" /></p>
+
+<h3 id="distribution-by-countries">Distribution by countries</h3>
+
+<p>It is not a surprise, but most of the finishers come from Spain and from France (they had holidays during the week of the race). Strangely, there is not a single finisher from Africa. Finally we can see that we were (only) 6 from Belgium, which means I cannot be too proud to be the 1st of them.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/TGCfinishers.png" class="img-responsive" alt="Participation by country" /></p>
+
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+</body>
+</html>

@@ -1,0 +1,250 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content=" ">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="https://ctroupin.github.io/maps/2019-01-29-Fake-Conferences/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://ctroupin.github.io">Charles Troupin</a>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<!-- Header -->
+<header>
+    <div class="container">
+        <h2>Maps</h2>
+    </div>
+</header>
+
+<head>
+    <meta charset="utf-8">
+
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.3.0/MarkerCluster.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.3.0/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/togeojson/0.16.0/togeojson.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.6/leaflet.markercluster.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.js"></script>
+    <script type="text/javascript" src="/maps/js/Leaflet.Geodesic.js"></script>
+    <script type="text/javascript" src="/maps/js/basemaps.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.4.8/css/ionicons.min.css">
+    <style type="text/css">
+      #map {
+        width:100%;
+        height:450px;
+      }
+      #map2points {
+        width:100%;
+        height:450px;
+      }
+      #mapfarthestairports {
+        width:100%;
+        height:450px;
+      }
+      .awesome-marker i {
+          font-size: 18px;
+          margin-top: 5px;
+      }
+      .info { padding: 6px 8px; font: 18px/20px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+      .legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+      .popupCustom .leaflet-popup-tip,
+      .popupCustom .leaflet-popup-content-wrapper {
+          background: #e0e0e0;
+          color: #234c5e;
+      }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h3> Fake conferences (#scamference) </h3>
+                <div style="text-align:left; vertical-align: middle; ">
+                    
+                    <h4><i class="far fa-calendar-alt"></i></h4> 29 January 2019 &nbsp;
+                    
+                    
+                    <h4><i class="fas fa-wrench"></i></h4> Leaflet, Python, matplotlib &nbsp;
+                    
+                    
+                    
+                    
+                </div>
+                <p>As any scientist (I guess), I was getting bored because of all the invitations to, let’s say,
+strange conferences. I say strange because of the look of their web page, the topic (no relation with what I’m doing) and the <em>famous</em> keynote speakers, that you never heard of.</p>
+
+<p>During one year I decided to:</p>
+<ol>
+  <li>Read those mails, often located in my spam folder (3 seconds per mail).</li>
+  <li>Very important: the <em>Unsubscribe</em> button.</li>
+  <li>Collect the dates and locations.</li>
+</ol>
+
+<p>The main discovery (but not surprise) is that you often have many conferences of different topics organised extactly at the same place and the same time… suspect, isn’t it?</p>
+
+<h4 id="disclaimer">Disclaimer</h4>
+
+<p>I don’t pretend any of those conferences is real or fake. I follow the principle:</p>
+<blockquote>
+  <p>They sent me an invitation mail → they appear on the map.</p>
+</blockquote>
+
+<h3 id="first-tries">First tries…</h3>
+
+<p>The idea was to highlight that feature on a graphic. After many tries, I ended up with that one, which does not convince me:</p>
+
+<p><img src="https://ctroupin.github.io/figures/maps/diag_map_11.png" class="img-responsive" alt="Timeline map" /></p>
+
+<ul>
+  <li>A map with the location of the conferences.</li>
+  <li>2 vertical time-lines.</li>
+  <li>A line between the location and the date, with the conference acronym.</li>
+</ul>
+
+<p>Quite messy, and not conveying any clear message.</p>
+
+<h3 id="simpler--better">Simpler = better</h3>
+
+<p>Next try: the conference locations are shown as <em>clusters</em>. No information on time in this version.
+The screen-shot below is too small to display the numbers but we have more than 60 events organised in China.</p>
+
+<p><img src="https://ctroupin.github.io/figures/maps/fakeconf01.jpg" class="img-responsive" alt="Cluster map" /></p>
+
+<p>Let’s be clear: not all the conferences shown here are <em>scamferences</em>, but a lot of them fall into that category. Anyway, I just don’t want to try to attend those events to check them, or try to find more info.</p>
+
+<p>Hong-Kong, Shanghai, Beijing… here are some of the hot places to be!</p>
+
+<p><img src="https://ctroupin.github.io/figures/maps/fakeconf02.jpg" class="img-responsive" alt="Cluster map" /></p>
+
+<h3 id="future-work">Future work</h3>
+
+<p>I’m trying to combine the map with a polar plot to represent the time of the year.   <br />
+Of course any idea is welcome.</p>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-3">
+
+                        <p> <b><i class="fas fa-map-marker-alt"></i> </b>
+                            
+                                Verviers (Belgium) <br>
+		                    
+                        </p>
+                    </div>
+                    <div class="footer-col col-md-9">
+                        <p><b>Credits</b>: <a href="https://github.com/jeromelachaud/freelancer-theme">Freelancer Jekyll theme</a> by jeromelachaud.<br> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Charles Troupin 2023
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visible-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+ <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/js/jqBootstrapValidation.js"></script>
+    
+    <script src="/js/contact_me_static.js"></script>
+    
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/freelancer.js"></script>
+
+</body>

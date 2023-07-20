@@ -1,0 +1,50 @@
+\documentclass[svgnames]{article}
+\usepackage{xcolor}
+\usepackage{fontawesome}
+\usepackage{academicons}
+\usepackage{hyperref}
+\usepackage{doi}
+\usepackage{fontspec}
+\usepackage[scale=.85]{geometry}
+
+% Fonts
+\usepackage{fontspec}
+
+\setmainfont{Lato}[
+    Path=/home/ctroupin/.fonts/Lato2OFL/,
+    Extension = .ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic
+    ]
+
+\definecolor{CVblue}{HTML}{1483D3}
+\definecolor{CVorange}{HTML}{FF9900}
+
+\hypersetup{bookmarksopen=true,
+bookmarksnumbered=true,  
+pdffitwindow=false, 
+pdfstartview=FitH,
+pdftoolbar=false,
+pdfmenubar=false,
+pdfwindowui=true,
+pdfauthor=Charles Troupin,
+pdftitle=List of publications,
+colorlinks=true,%
+breaklinks=true,%
+linkcolor=CVblue,anchorcolor=CVblue,%
+citecolor=CVblue,filecolor=CVblue,%
+menucolor=blue,%
+urlcolor=CVblue}
+
+\renewcommand\refname{List of peer-reviewed publications (in reverse chronological order)}
+
+\begin{document}
+
+\noindent\textcolor{CVblue}{\faCalendarCheckO~Updated} on \today
+
+\nocite{*}
+\bibliographystyle{referencelist}
+\bibliography{Troupin_publi.bib}
+\end{document}

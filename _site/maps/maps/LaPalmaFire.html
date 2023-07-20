@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>#IFPuntagorda in La Palma island (15-20 July 2023)</title>
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script> 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+    <script type="text/javascript" src="basemaps.js"></script>
+    <script type="text/javascript" src="data/LaPalmaFire/taburiente.geojson"></script>
+    <script type="text/javascript" src="data/LaPalmaFire/EMS.geojson"></script>
+    
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 600px;
+			width: 600px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+
+	
+</head>
+<body>
+
+
+
+<div id="map" style="width: 100%; height: 100%;"></div>
+<script>
+  var map = L.map('map', {fullscreenControl: true}).setView([28.677, -17.851], 12);
+
+  var baseMaps = {
+  	"CartoDB": CartoDB,
+  	"OpenStreetMap": OpenStreetMap_Mapnik,
+  };
+
+  map.addLayer(OpenStreetMap_Mapnik)
+
+  var customLayer = L.geoJson(null, {
+  	style: function(feature) {
+  		return {
+  			color: 'blue',
+  			weight: 3,
+  			opacity: .75
+  			};
+  	}
+  });
+
+  var Parcours = omnivore.gpx('data/LaPalmaFire/LP13.gpx', null, customLayer);
+  Parcours.addTo(map);
+
+  var emsStyle = {"color": "red", "weight": 2, "opacity": 1};
+  var laPalmaStyle = {"color": "green", "weight": 2, "opacity": 1};
+  
+  L.geoJSON(taburiente, {style: laPalmaStyle}).addTo(map);
+  L.geoJSON(EMS, {style: emsStyle}).addTo(map);
+
+  var contours = L.tileLayer.wms('http://servicios.idee.es/wms-inspire/mdt?SERVICE=WMS', {
+                        layers: 'EL.ContourLine', 
+                        transparent: 'true',
+                        format: 'image/png',
+                        maxZoom: 21,
+                        opacity: 0.5}).addTo(map);
+
+  $.getJSON("data/LaPalmaFire/fire_nrt_J1V-C2_367140.json", function(json) {
+                json.forEach(function (item, index) {
+                    L.circleMarker([item["latitude"], item["longitude"]], {radius: 2, color: '#FFAF00'}).addTo(map);
+                })
+  });
+
+  $.getJSON("data/LaPalmaFire/fire_nrt_M-C61_367139.json", function(json) {
+                json.forEach(function (item, index) {
+                    L.circleMarker([item["latitude"], item["longitude"]], {radius: 2, color: '#FFAF00'}).addTo(map);
+                })
+  });
+
+  $.getJSON("data/LaPalmaFire/fire_nrt_SV-C2_367141.json", function(json) {
+                json.forEach(function (item, index) {
+                    L.circleMarker([item["latitude"], item["longitude"]], {radius: 2, color: '#FFAF00'}).addTo(map);
+                })
+  });
+
+
+
+  overlayers = {contours};
+
+L.control.layers(baseMaps, overlayers, {autoZIndex:false, collapsed:false}).addTo(map);
+
+</script>
+
+</body>
+</html>

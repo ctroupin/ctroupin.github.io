@@ -1,0 +1,241 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content=" ">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="https://ctroupin.github.io/posts/2019-09-02-fine-coast/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Charles Troupin by </title>
+
+	<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-8 col-lg-offset-2">
+			<center>
+				<h2> Plotting a high-resolution coastline </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					
+						<h4><i class="far fa-calendar-alt"></i></h4> 02 September 2019 &nbsp;
+					
+					
+						<h4><i class="fas fa-wrench"></i></h4> Python, Basemap, Cartopy &nbsp;
+					
+					
+						<h4><i class="fas fa-tags"></i></h4> Oceanography, Maps &nbsp;
+					
+					
+				</div>
+				<p>How can we obtain the finest coastline for a regional plot?    <br />
+This is what we will show here.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/finecoast.png" class="img-responsive" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="n">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span>
+<span class="kn">import</span> <span class="n">cartopy</span>
+<span class="kn">import</span> <span class="n">cartopy.crs</span> <span class="k">as</span> <span class="n">ccrs</span>
+<span class="kn">import</span> <span class="n">cartopy.feature</span> <span class="k">as</span> <span class="n">cfeature</span>
+</code></pre></div></div>
+
+<p>Let’s define our domain: here we will work with the Bay of Calvi (Corsica, France).   <br />
+We create a variable <code class="language-plaintext highlighter-rouge">coordinates</code> that will store the min/max longitudes/latitudes.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">coordinates</span> <span class="o">=</span> <span class="p">(</span><span class="mf">8.7</span><span class="p">,</span> <span class="mf">8.81</span><span class="p">,</span> <span class="mf">42.55</span><span class="p">,</span> <span class="mf">42.60</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="basemap">Basemap</h2>
+<p>Let’s work with the <em>Mercator</em> projection.    <br />
+With the Global Self-consistent, Hierarchical, High-resolution Geography Database (<a href="https://www.soest.hawaii.edu/pwessel/gshhg/">GSHHG</a>), 5 resolutions are available:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">resolutions</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">c</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">crude</span><span class="sh">"</span><span class="p">,</span>
+               <span class="sh">"</span><span class="s">l</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">low</span><span class="sh">"</span><span class="p">,</span>
+               <span class="sh">"</span><span class="s">i</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">intermediate</span><span class="sh">"</span><span class="p">,</span>
+               <span class="sh">"</span><span class="s">h</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">high</span><span class="sh">"</span><span class="p">,</span>
+               <span class="sh">"</span><span class="s">f</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">full</span><span class="sh">"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>We can display the different coastlines:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">res</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">resolutions</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="nc">Basemap</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="sh">'</span><span class="s">merc</span><span class="sh">'</span><span class="p">,</span>
+        <span class="n">llcrnrlon</span><span class="o">=</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">llcrnrlat</span><span class="o">=</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+        <span class="n">urcrnrlon</span><span class="o">=</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">urcrnrlat</span><span class="o">=</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+        <span class="n">resolution</span><span class="o">=</span><span class="n">res</span><span class="p">)</span>
+    <span class="n">proj_list</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">m</span><span class="p">.</span><span class="nf">drawcoastlines</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="n">resolutions</span><span class="p">[</span><span class="n">res</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>The <em>crude</em> resolution is so low that we can’t even see the coast.    <br />
+The full resolution provides a good amound of details that is sufficient in most of the situations.</p>
+
+<h2 id="cartopy">Cartopy</h2>
+<h3 id="coastline-from-natural-earth">Coastline from Natural Earth</h3>
+<p>With the function <code class="language-plaintext highlighter-rouge">coastlines()</code>, we can draw a coastline using the <a href="https://www.naturalearthdata.com/">Natural Earth</a> dataset at 110 m, 50 m or 10 m resolution.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">myproj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="p">.</span><span class="nc">PlateCarree</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">myproj</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">coastlines</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="sh">'</span><span class="s">110m</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_xlim</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_ylim</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">coordinates</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="sh">"</span><span class="s">110 m</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">myproj</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">coastlines</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="sh">'</span><span class="s">50m</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_xlim</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_ylim</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">coordinates</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="sh">"</span><span class="s">50 m</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">myproj</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">coastlines</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="sh">'</span><span class="s">10m</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_xlim</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_ylim</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">coordinates</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="sh">"</span><span class="s">10 m</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="nf">suptitle</span><span class="p">(</span><span class="sh">"</span><span class="s">Natural Earth</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="https://ctroupin.github.io/figures/blog/fine-coast/output_10_0.png" class="img-responsive" /></p>
+
+<p>Even at 10 m, the result is not good enough.</p>
+
+<h3 id="gshhg">GSHHG</h3>
+<p>Let’s try to use again the GSHHG, also accessible from <code class="language-plaintext highlighter-rouge">Cartopy</code>.    <br />
+We start with a <em>Plate-Carrée</em> projection.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">myproj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="p">.</span><span class="nc">PlateCarree</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">res</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">resolutions</span><span class="p">):</span><span class="c1">#, "h", "f"):
+</span>    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">myproj</span><span class="p">)</span>
+    <span class="n">coast</span> <span class="o">=</span> <span class="n">cf</span><span class="p">.</span><span class="nc">GSHHSFeature</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">res</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">.</span><span class="nf">add_feature</span><span class="p">(</span><span class="n">coast</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">.</span><span class="nf">set_xlim</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">.</span><span class="nf">set_ylim</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">coordinates</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+    <span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="n">resolutions</span><span class="p">[</span><span class="n">res</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">suptitle</span><span class="p">(</span><span class="sh">"</span><span class="s">GSHHS</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="https://ctroupin.github.io/figures/blog/fine-coast/output_12_0.png" class="img-responsive" /></p>
+
+<p>The full resolution product displays a lot of details, more than with <code class="language-plaintext highlighter-rouge">Basemap</code>.</p>
+
+<h3 id="emodnet-bathymetry">EMODnet Bathymetry</h3>
+<p>If we’re working on a European Sea or region, <a href="https://www.emodnet-bathymetry.eu/">EMODnet</a> is a good option.    <br />
+Instead of downloading the product, we can access it through the <a href="http://ows.emodnet-bathymetry.eu/wms">Web Map Service</a> (WMS).     <br />
+This <a href="https://scitools.org.uk/cartopy/docs/v0.15/examples/wms.html">Cartopy example</a> is particularly relevant.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">myproj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="p">.</span><span class="nc">PlateCarree</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">myproj</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">add_wms</span><span class="p">(</span><span class="n">wms</span><span class="o">=</span><span class="sh">'</span><span class="s">http://ows.emodnet-bathymetry.eu/wms</span><span class="sh">'</span><span class="p">,</span>
+               <span class="n">layers</span><span class="o">=</span><span class="p">[</span><span class="sh">'</span><span class="s">coastlines</span><span class="sh">'</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_xlim</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_ylim</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">coordinates</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="sh">"</span><span class="s">EMODnet Bathymetry</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">savefig</span><span class="p">(</span><span class="sh">"</span><span class="s">./coastline_emodnet</span><span class="sh">"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="sh">"</span><span class="s">tight</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="https://ctroupin.github.io/figures/blog/fine-coast/output_14_0.png" class="img-responsive" /></p>
+
+<h2 id="comparison">Comparison</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">myproj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="p">.</span><span class="nc">PlateCarree</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">subplot</span><span class="p">(</span><span class="mi">311</span><span class="p">)</span>
+<span class="n">m</span><span class="p">.</span><span class="nf">drawcoastlines</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="n">resolutions</span><span class="p">[</span><span class="n">res</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="sh">"</span><span class="s">Basemap: GSHHS (full resolution)</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">subplot</span><span class="p">(</span><span class="mi">312</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">myproj</span><span class="p">)</span>
+<span class="n">coast</span> <span class="o">=</span> <span class="n">cf</span><span class="p">.</span><span class="nc">GSHHSFeature</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">res</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">add_feature</span><span class="p">(</span><span class="n">coast</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_xlim</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_ylim</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">coordinates</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="sh">"</span><span class="s">Cartopy: GSHHS (full resolution)</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">subplot</span><span class="p">(</span><span class="mi">313</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">myproj</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">add_wms</span><span class="p">(</span><span class="n">wms</span><span class="o">=</span><span class="sh">'</span><span class="s">http://ows.emodnet-bathymetry.eu/wms</span><span class="sh">'</span><span class="p">,</span>
+               <span class="n">layers</span><span class="o">=</span><span class="p">[</span><span class="sh">'</span><span class="s">coastlines</span><span class="sh">'</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_xlim</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_ylim</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">coordinates</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="sh">"</span><span class="s">Cartopy: EMODnet Bathymetry WMS</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="https://ctroupin.github.io/figures/blog/fine-coast/output_16_0.png" class="img-responsive" /></p>
+
+<p>EMODnet Bathymetry offers the best resolution for the coastline.</p>
+
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+</body>
+</html>

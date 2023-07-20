@@ -1,0 +1,342 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content=" ">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="https://ctroupin.github.io/maps/2018-06-25-Palma-LasPalmas/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://ctroupin.github.io">Charles Troupin</a>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<!-- Header -->
+<header>
+    <div class="container">
+        <h2>Maps</h2>
+    </div>
+</header>
+
+<head>
+    <meta charset="utf-8">
+
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.3.0/MarkerCluster.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.3.0/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/togeojson/0.16.0/togeojson.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.6/leaflet.markercluster.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.js"></script>
+    <script type="text/javascript" src="/maps/js/Leaflet.Geodesic.js"></script>
+    <script type="text/javascript" src="/maps/js/basemaps.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.4.8/css/ionicons.min.css">
+    <style type="text/css">
+      #map {
+        width:100%;
+        height:450px;
+      }
+      #map2points {
+        width:100%;
+        height:450px;
+      }
+      #mapfarthestairports {
+        width:100%;
+        height:450px;
+      }
+      .awesome-marker i {
+          font-size: 18px;
+          margin-top: 5px;
+      }
+      .info { padding: 6px 8px; font: 18px/20px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+      .legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+      .popupCustom .leaflet-popup-tip,
+      .popupCustom .leaflet-popup-content-wrapper {
+          background: #e0e0e0;
+          color: #234c5e;
+      }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h3> Palma, Las Palmas, La Palma... </h3>
+                <div style="text-align:left; vertical-align: middle; ">
+                    
+                    <h4><i class="far fa-calendar-alt"></i></h4> 25 June 2018 &nbsp;
+                    
+                    
+                    <h4><i class="fas fa-wrench"></i></h4> Leaflet &nbsp;
+                    
+                    
+                    
+                    
+                </div>
+                <p>If you’ve ever been in the Canary Islands, you surely know that there is some confusion about the names of the place: La Palma, Las Palmas, Palma… Even the Spaniards get confused with that, there are even people saying that people got on a place flying to La Palma thinking they were going to Las Palmas (I think it’s an urban legend.)</p>
+
+<p><img src="/figures/photography/VueltaNbublo4209.png" class="img-responsive" alt="A famous place in the Canary Islands" /></p>
+
+<h3 id="the-places">The places</h3>
+
+<p>Now you will understand why it’s so complicated.</p>
+
+<p><strong>Las Palmas de Gran Canaria:</strong> the capital city of the island of Gran Canaria. It is also the capital city of the Province of Las Palmas.</p>
+
+<p><strong>Las Palmas</strong> (without “de Gran Canaria”): the name of the eastern province of the Canary Islands, made up of <em>Lanzatore</em>, <em>Fuerteventura</em> and <em>Gran Canaria</em>.</p>
+
+<p><strong>La Palma:</strong> another island of the Canary archipelago.</p>
+
+<p><strong>Palma (de Mallorca):</strong> the main city of the Balearic islands (quite far away from the Canary islands).</p>
+
+<p><strong>Santa Cruz de Tenerife:</strong> capital of <em>Tenerife</em>. It is also name of the western province of the Canary Islands, made up of <em>El Hierro</em>, <em>La Gomera</em>, <em>La Palma</em> and <em>Tenerife</em>.</p>
+
+<p><strong>Santa Cruz de La Palma:</strong> capital of <em>La Palma</em>.</p>
+
+<h3 id="the-map">The map</h3>
+
+<p>Better use the <em>FullScreen</em> button…</p>
+<div id="map"></div>
+<script type="text/javascript" src="../data/canary/ProvinciaSantaCruz.geojson"></script>
+
+<script type="text/javascript" src="../data/canary/ProvinciaLasPalmas.geojson"></script>
+
+<script type="text/javascript" src="../data/canary/LaPalma.js"></script>
+
+<script type="text/javascript" src="../data/canary/ElHierro.js"></script>
+
+<script type="text/javascript" src="../data/canary/LaGomera.js"></script>
+
+<script type="text/javascript" src="../data/canary/Tenerife.js"></script>
+
+<script src="../js/basemaps.js"></script>
+
+<script>
+
+	var map = L.map('map', {fullscreenControl: true}).setView([34.47, -6.13], 5);
+
+	map.addLayer(CartoDB)
+
+	var baseMaps = {
+		"OpenStreetMap": OpenStreetMap_Mapnik,
+		"CartoDB": CartoDB,
+	};
+
+	var geojson;
+
+	// control that shows state info on hover
+	var info = L.control();
+
+	info.onAdd = function (map) {
+		this._div = L.DomUtil.create('div', 'info');
+		this.update();
+		return this._div;
+	};
+
+	info.update = function (props) {
+		this._div.innerHTML = (props ?
+		'<h4>' + "Hello" + '</h4>'
+		: 'Select a location');
+	};
+
+	info.addTo(map);
+
+	function highlightFeature(e) {
+		var layer = e.target;
+
+		layer.setStyle({
+			weight: 5,
+			color: '#666',
+			dashArray: '',
+			fillOpacity: 0.4
+		});
+
+		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+			layer.bringToFront();
+		}
+
+		//info.update(layer.feature.properties);
+	}
+
+	function resetHighlight(e) {
+		for (var i in allIslands){
+			allIslands[i].resetStyle(e.target);
+		}
+		//info.update();
+	}
+
+	function zoomToFeature(e) {
+		map.fitBounds(e.target.getBounds());
+	}
+
+	function onEachFeature(feature, layer) {
+		layer.on({
+			mouseover: highlightFeature,
+			mouseout: resetHighlight,
+			click: zoomToFeature
+		});
+	}
+
+	var santaCruzStyle = {"color": "#ff7800", "weight": 2, "opacity": 0.65};
+	var lasPalmasStyle = {"color": "#18CA3F", "weight": 2, "opacity": 0.65};
+	var laPalmaStyle = {"color": "#332BF9", "weight": 2, "opacity": 1};
+
+	// var ProvSantaCruz = L.geoJson(santacruz, {style: santaCruzStyle, onEachFeature: onEachFeature}).addTo(map);
+	var ProvLasPalmas = L.geoJson(laspalmas, {style: lasPalmasStyle, onEachFeature: onEachFeature}).addTo(map);
+	var LaPalma = L.geoJson(lapalma, {style: laPalmaStyle, onEachFeature: onEachFeature});
+	var ElHierro = L.geoJson(elhierro, {style: santaCruzStyle, onEachFeature: onEachFeature});
+	var LaGomera = L.geoJson(lagomera, {style: santaCruzStyle, onEachFeature: onEachFeature});
+	var Tenerife = L.geoJson(tenerife, {style: santaCruzStyle, onEachFeature: onEachFeature});
+
+	var ProvSantaCruz = L.layerGroup([LaPalma,ElHierro,Tenerife,LaGomera]).addTo(map);
+	allIslands = [LaPalma,ElHierro,Tenerife,LaGomera,ProvLasPalmas];
+
+	var Palma = L.marker([39.566667, 2.65]);
+	Palma.addTo(map);
+	var LasPalmas = L.marker([28.15, -15.416667]);
+	LasPalmas.addTo(map);
+
+
+	var groupedOverlays = {
+		"Cities": {
+			"Palma de Mallorca": Palma,
+			"Las Palmas de Gran Canaria": LasPalmas
+		},
+		"Provinces": {
+			"Las Palmas": ProvLasPalmas,
+			"Santa Cruz de Tenerife": ProvSantaCruz
+		},
+		"Islands": {
+			"La Palma": LaPalma
+		}
+	};
+	L.control.groupedLayers(baseMaps, groupedOverlays).addTo(map);
+
+</script>
+
+<p>Hopefully the map makes all this more explicit. Basically we represent the different entities (cities, provinces, islands) using <code class="language-plaintext highlighter-rouge">geoJSON</code> files. The plugin <a href="https://github.com/ismyrnow/leaflet-groupedlayercontrol">groupedlayercontrol</a> is nice to have different categories (cities, provinces, …) in the layer menu.</p>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-3">
+
+                        <p> <b><i class="fas fa-map-marker-alt"></i> </b>
+                            
+                                Verviers (Belgium) <br>
+		                    
+                        </p>
+                    </div>
+                    <div class="footer-col col-md-9">
+                        <p><b>Credits</b>: <a href="https://github.com/jeromelachaud/freelancer-theme">Freelancer Jekyll theme</a> by jeromelachaud.<br> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Charles Troupin 2023
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visible-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+ <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/js/jqBootstrapValidation.js"></script>
+    
+    <script src="/js/contact_me_static.js"></script>
+    
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/freelancer.js"></script>
+
+</body>

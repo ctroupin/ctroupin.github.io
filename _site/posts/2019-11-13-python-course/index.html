@@ -1,0 +1,155 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content=" ">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="https://ctroupin.github.io/posts/2019-11-13-python-course/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Charles Troupin by </title>
+
+	<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-8 col-lg-offset-2">
+			<center>
+				<h2> What happened at the Python course? </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					
+						<h4><i class="far fa-calendar-alt"></i></h4> 13 November 2019 &nbsp;
+					
+					
+						<h4><i class="fas fa-wrench"></i></h4> Python, Basemap, git &nbsp;
+					
+					
+						<h4><i class="fas fa-tags"></i></h4> Oceanography, Maps, Data Analysis &nbsp;
+					
+					
+				</div>
+				<p>Last week we were invited to give a course on <em>Python for oceanography</em>, at the <a href="https://www.uca.es/?lang=en/">University of Cádiz</a>, in the south of Spain. I already gave the course 3 or 4 years ago with another colleagues so I knew more or less what to expect and what could be a hard-to-achieve goal: to make participants use Python as a tool after the course. As I did not take picture during the course, I’ll add a few photos of Cádiz, just to have something between the paragraphs.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/python-cadiz/Cadiz2019_4289.JPG" class="img-responsive" alt="Cádiz" /></p>
+
+<p>First minutes, my first question: “<em>what programming language are you using the most?</em>”
+The reply was almost the same for everybody: MATLAB. Not a real surprise: in universities it is frequent that student make their projects with MATLAB, sometimes with a so-called “<em>cracked license</em>”, sometimes with a university-wide license, whatever. Hence my goal was clear: show them that anything they do with MATLAB, they can do it with Python, maybe faster, probably more elegantly. By the way: I have nothing against MATLAB, I’ve been using it for years, they are doing a great job by providing excellent tools, and it totally makes sense that they get money out of the investment.</p>
+
+<p>It was also clear in my mind, and I told them, that even I gave the best training of my life, it doesn’t really matter if at the end nobody decides to use Python on a regular basis. And it doesn’t matter if I give a horrible training, if a few of them switch to Python.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/python-cadiz/Cadiz2019_4309.JPG" class="img-responsive" alt="Cádiz" /></p>
+
+<p>It was also clear to me that most of the participants already had a bunch of tools written in MATLAB and that switching to another language really needed some kind of “excuse”:</p>
+<ul>
+  <li>my institute doesn’t want to pay the license anymore;</li>
+  <li>my code is getting to slow;</li>
+  <li>my new boss wants me to only work in Python.
+Without that excuse, it is hard to make that first step.</li>
+</ul>
+
+<h2 id="how-did-i-try">How did I try?</h2>
+
+<p>There is a huge amount of resources to learn Python on the web: videos on Youtube, books, learning platforms… all of them often designed by people specialized in the topic, so no way we will reinvent the wheel. Instead, I thought that settling for a problem-solving approach would give the best results. We started simple: write a program to process strings, typically turning “name surname” into “Name SURNAME”. Then quickly go to: represent a (real) time series of sea water temperature near Cádiz. That implied: finding the data, reading the file(s) (netCDF), applying quality control, and then creating the plot.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/python-cadiz/Cadiz2019_4315.JPG" class="img-responsive" alt="Cádiz" /></p>
+
+<p>For all exercises I tried to give them time to code and to fail. Quite similar to learn a language: the best is, at least for me, when we have time to read, write, listen, talk, and not spend hours listening to theory. At the end everybody could finish the exercises, with a little help from time to time.</p>
+
+<h2 id="what-went-wrong">What went wrong?</h2>
+
+<p>It is always difficult to assess from one’s perspective, but clearly there are certainly some points that could be improved:</p>
+
+<h3 id="the-interface">The interface</h3>
+<p>I deliberately chose to work with the Jupyter notebooks: I believe it’s a nice and clean way to run small chunks of code, having the documentations and the results within the same document. Probably it was not convincing enough. And probably I should have used something to the MATLAB IDE, with different windows with the terminal, the history, the workspace.</p>
+
+<p><img src="https://ctroupin.github.io/figures/blog/python-cadiz/Cadiz2019_4360.JPG" class="img-responsive" alt="Cádiz" /></p>
+
+<p>In fact many questions I had were like “how to you do that (from MATLAB) in Python?”. For instance how to you see the workspace (variables + their size) in Python? I think they were the types of questions I asked myself when I started coding in Python, and now the answers are hidden in my memory.</p>
+
+<h3 id="not-reading-the-doc">Not reading the doc</h3>
+
+<p>I know that many people, including myself, just don’t read the doc. Let’s just try, get an error, then fix it, till we get something that works. The problem arises when people don’t read the error message, which is maybe worse than not reading the doc. I the case of Python I think the logs are quite explicit, for example</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="n">np</span><span class="p">.</span><span class="nf">aray</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="o">---------------------------------------------------------------------------</span>
+<span class="nb">AttributeError</span>                            <span class="nc">Traceback </span><span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">01</span><span class="n">f3d7aa9d4a</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="n">np</span><span class="p">.</span><span class="nf">aray</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>but I must admit that most of the time when somebody called me for to solve an issue, it was:</p>
+<ol>
+  <li>a mistyping of a function or a variable name</li>
+  <li>a part of the code that was not run, for example <code class="language-plaintext highlighter-rouge">import ...</code>.
+All in all, nothing significant, however putting a lot of small issues together can make things really difficult. In fact it reminds me the first months I tried to code with <code class="language-plaintext highlighter-rouge">Julia</code>: very similar to languages I knew, but small differences that can be annoying.</li>
+</ol>
+
+<p><img src="https://ctroupin.github.io/figures/blog/python-cadiz/Cadiz2019_4382.JPG" class="img-responsive" alt="Cádiz" /></p>
+
+<h2 id="next-time">Next time?</h2>
+
+<p>Last time we did this course we hoped that a least a few participants would tell us: yes, we’re now coding in Python. But that did not happen. This time we will see how it turns out, I’ve tried my best. However after talking to two colleagues there, I realized I might make more sense to have a course on Julia, mainly for 2 reasons:</p>
+<ol>
+  <li>it’s closer to what participants already know.</li>
+  <li>it’s very fast, and at some point this can really be a game-changer.</li>
+</ol>
+
+<p>More important that just learning a new language, it’s probably developing a flexibility, a capacity of adaptation that will be asset. Hope you liked the pictures.</p>
+
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+</body>
+</html>

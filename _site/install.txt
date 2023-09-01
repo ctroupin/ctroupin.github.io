@@ -1,0 +1,19 @@
+gem install bundler jekyll --user-install
+
+jekyll --version
+jekyll 4.3.2
+
+bundle install
+
+
+sudo gem update
+
+echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+bundle add jekyll --version "3.9.3"
+
+bundle add jekyll-scholar
+

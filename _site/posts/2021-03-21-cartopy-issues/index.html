@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Charles Troupin</title>
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content=" ">
+    <meta name="description" content="Turning ocean data into stories">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
     <link rel="canonical" href="https://ctroupin.github.io/posts/2021-03-21-cartopy-issues/">
@@ -77,26 +77,26 @@
 					
 					
 				</div>
-				<p>Not to long ago I <a href="/posts/2021-04-17-cartopy-wms/">posted</a> about <code class="language-plaintext highlighter-rouge">Cartopy</code> and how it was easy to install it. Well, I must say it is not as easy as running
-<code class="language-plaintext highlighter-rouge">pip install cartopy</code>. While the installation could go without a warning message,
+				<p>Not to long ago I <a href="/posts/2021-04-17-cartopy-wms/">posted</a> about <code class="highlighter-rouge">Cartopy</code> and how it was easy to install it. Well, I must say it is not as easy as running
+<code class="highlighter-rouge">pip install cartopy</code>. While the installation could go without a warning message,
 the execution of some code could quickly lead to problems.</p>
 
 <h2 id="the-issue">The issue</h2>
 
 <p>Here is an example of code that created the problem (let’s save it a file
-<code class="language-plaintext highlighter-rouge">test_carto.py</code> to be used later):</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="kn">import</span> <span class="n">cartopy.crs</span> <span class="k">as</span> <span class="n">ccrs</span>
-<span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="p">.</span><span class="nc">PlateCarree</span><span class="p">())</span>
-<span class="n">ax</span><span class="p">.</span><span class="nf">coastlines</span><span class="p">()</span>
-<span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+<code class="highlighter-rouge">test_carto.py</code> to be used later):</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="n">ccrs</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
 
 <p>which lead to the error message:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">Geometry</span> <span class="n">must</span> <span class="n">be</span> <span class="n">a</span> <span class="n">Point</span> <span class="ow">or</span> <span class="n">LineString</span>
-<span class="n">python</span><span class="p">:</span> <span class="n">geos_ts_c</span><span class="p">.</span><span class="n">cpp</span><span class="p">:</span><span class="mi">3991</span><span class="p">:</span> <span class="nb">int</span> <span class="nc">GEOSCoordSeq_getSize_r</span><span class="p">(</span><span class="n">GEOSContextHandle_t</span><span class="p">,</span> <span class="n">const</span> <span class="n">geos</span><span class="p">::</span><span class="n">geom</span><span class="p">::</span><span class="n">CoordinateSequence</span><span class="o">*</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="o">*</span><span class="p">):</span> <span class="n">Assertion</span> <span class="err">`</span><span class="mi">0</span> <span class="o">!=</span> <span class="n">cs</span><span class="sh">'</span><span class="s"> failed.
-Aborted (core dumped)
+<span class="n">python</span><span class="p">:</span> <span class="n">geos_ts_c</span><span class="o">.</span><span class="n">cpp</span><span class="p">:</span><span class="mi">3991</span><span class="p">:</span> <span class="nb">int</span> <span class="n">GEOSCoordSeq_getSize_r</span><span class="p">(</span><span class="n">GEOSContextHandle_t</span><span class="p">,</span> <span class="n">const</span> <span class="n">geos</span><span class="p">::</span><span class="n">geom</span><span class="p">::</span><span class="n">CoordinateSequence</span><span class="o">*</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span><span class="o">*</span><span class="p">):</span> <span class="n">Assertion</span> <span class="err">`</span><span class="mi">0</span> <span class="o">!=</span> <span class="n">cs</span><span class="s">' failed.</span><span class="err">
+</span><span class="s">Aborted (core dumped)</span><span class="err">
 </span></code></pre></div></div>
 
 <h2 id="toward-the-solution">Toward the solution</h2>
@@ -109,7 +109,7 @@ Aborted (core dumped)
 </blockquote>
 
 <p>But is it really a wrong version? (by the way, what is a wrong version?)?   <br />
-Let’s check with <code class="language-plaintext highlighter-rouge">pip show shapely</code>:</p>
+Let’s check with <code class="highlighter-rouge">pip show shapely</code>:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>Name: Shapely
 Version: 1.7.1
 Summary: Geometric objects, predicates, and operations
@@ -126,20 +126,20 @@ released in March 2021. I tried</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>pip uninstall shapely
 pip <span class="nb">install </span>shapely <span class="nt">--no-binary</span> shapely
 </code></pre></div></div>
-<p>then re-run the <code class="language-plaintext highlighter-rouge">cartopy</code> installation. Still failing.</p>
+<p>then re-run the <code class="highlighter-rouge">cartopy</code> installation. Still failing.</p>
 
 <h3 id="reading-the-doc">Reading the doc</h3>
 
-<p>According to <a href="https://pypi.org/project/Shapely/"><code class="language-plaintext highlighter-rouge">shapely</code></a> documentation,
+<p>According to <a href="https://pypi.org/project/Shapely/"><code class="highlighter-rouge">shapely</code></a> documentation,
 one should run this:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nv">GEOS_CONFIG</span><span class="o">=</span>/path/to/geos-config pip <span class="nb">install </span>shapely
 </code></pre></div></div>
-<p>where <code class="language-plaintext highlighter-rouge">GEOS_CONFIG</code> environment variable has to be set according to the
-<a href="https://github.com/libgeos/geos"><code class="language-plaintext highlighter-rouge">GEOS</code></a> library you are using. I did a quick
-search with <code class="language-plaintext highlighter-rouge">find</code>:</p>
+<p>where <code class="highlighter-rouge">GEOS_CONFIG</code> environment variable has to be set according to the
+<a href="https://github.com/libgeos/geos"><code class="highlighter-rouge">GEOS</code></a> library you are using. I did a quick
+search with <code class="highlighter-rouge">find</code>:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>find / <span class="nt">-name</span> <span class="s1">'geos-config'</span> <span class="nt">-type</span> f
 </code></pre></div></div>
-<p>and it turned out I had 20 locations containing <code class="language-plaintext highlighter-rouge">geos-config</code>… Not sure which one to
+<p>and it turned out I had 20 locations containing <code class="highlighter-rouge">geos-config</code>… Not sure which one to
 use.</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>/bin/geos-config
 /usr/bin/geos-config
@@ -153,7 +153,7 @@ that did not solve the initial problem. Then I tried with version 3.6.1:</p>
 </code></pre></div></div>
 <p>Still failing when running the example.</p>
 
-<h3 id="building-cartopy-from-source">Building <code class="language-plaintext highlighter-rouge">cartopy</code> from source</h3>
+<h3 id="building-cartopy-from-source">Building <code class="highlighter-rouge">cartopy</code> from source</h3>
 
 <p>According to <a href="https://github.com/SciTools/cartopy">cartopy doc</a>, we can do:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>git clone https://github.com/SciTools/cartopy.git
@@ -166,20 +166,20 @@ repository, the last line issued on the screen is:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>Finished processing dependencies <span class="k">for </span><span class="nv">Cartopy</span><span class="o">==</span>0.0.0
 </code></pre></div></div>
 <p>i.e., the version doesn’t seem correct. Then in a Python session, the command</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="kn">import</span> <span class="n">cartopy</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="kn">import</span> <span class="nn">cartopy</span>
 </code></pre></div></div>
 <p>yields this error:</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nc">Traceback </span><span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="sh">"</span><span class="s">&lt;stdin&gt;</span><span class="sh">"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-  <span class="n">File</span> <span class="sh">"</span><span class="s">/home/ctroupin/Software/PythonEnvs/ToDelete/lib/python3.8/site-packages/Cartopy-0.0.0-py3.8-linux-x86_64.egg/cartopy/__init__.py</span><span class="sh">"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">7</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-    <span class="kn">from</span> <span class="n">._version</span> <span class="kn">import</span> <span class="n">version</span> <span class="k">as</span> <span class="n">__version__</span>  <span class="c1"># noqa: F401
-</span><span class="nb">ImportError</span><span class="p">:</span> <span class="n">cannot</span> <span class="kn">import</span> <span class="n">name</span> <span class="sh">'</span><span class="s">version</span><span class="sh">'</span> <span class="k">from</span> <span class="sh">'</span><span class="s">cartopy._version</span><span class="sh">'</span> <span class="p">(</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ctroupin</span><span class="o">/</span><span class="n">Software</span><span class="o">/</span><span class="n">PythonEnvs</span><span class="o">/</span><span class="n">ToDelete</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="p">.</span><span class="mi">8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">Cartopy</span><span class="o">-</span><span class="mf">0.0</span><span class="p">.</span><span class="mi">0</span><span class="o">-</span><span class="n">py3</span><span class="p">.</span><span class="mi">8</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">x86_64</span><span class="p">.</span><span class="n">egg</span><span class="o">/</span><span class="n">cartopy</span><span class="o">/</span><span class="n">_version</span><span class="p">.</span><span class="n">py</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s">"/home/ctroupin/Software/PythonEnvs/ToDelete/lib/python3.8/site-packages/Cartopy-0.0.0-py3.8-linux-x86_64.egg/cartopy/__init__.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">7</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="kn">from</span> <span class="nn">._version</span> <span class="kn">import</span> <span class="n">version</span> <span class="k">as</span> <span class="n">__version__</span>  <span class="c"># noqa: F401</span>
+<span class="nb">ImportError</span><span class="p">:</span> <span class="n">cannot</span> <span class="kn">import</span> <span class="nn">name</span> <span class="s">'version'</span> <span class="k">from</span> <span class="s">'cartopy._version'</span> <span class="p">(</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ctroupin</span><span class="o">/</span><span class="n">Software</span><span class="o">/</span><span class="n">PythonEnvs</span><span class="o">/</span><span class="n">ToDelete</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="o">.</span><span class="mi">8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">Cartopy</span><span class="o">-</span><span class="mf">0.0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">py3</span><span class="o">.</span><span class="mi">8</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">egg</span><span class="o">/</span><span class="n">cartopy</span><span class="o">/</span><span class="n">_version</span><span class="o">.</span><span class="n">py</span><span class="p">)</span>
 </code></pre></div></div>
 <p>which seems to be related to the version number.</p>
 
 <p><strong>Solution:</strong></p>
 <ol>
-  <li>a dirty way to solve that is to comment the line 7 of <code class="language-plaintext highlighter-rouge">__init__.py</code>.
+  <li>a dirty way to solve that is to comment the line 7 of <code class="highlighter-rouge">__init__.py</code>.
 That works…</li>
   <li>Otherwise, switch to another branch and re-run the installation:
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>git checkout v0.18.0
@@ -191,9 +191,9 @@ python setup.py <span class="nb">install</span>
 <h3 id="missing-geos-library">Missing GEOS library</h3>
 
 <p>Running again the example from the beginning leads to this error:</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">OSError</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">username</span><span class="o">/</span><span class="n">PythonEnvironments</span><span class="o">/</span><span class="n">GPXproc</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libgeos_c</span><span class="p">.</span><span class="n">so</span><span class="p">:</span> <span class="n">cannot</span> <span class="nb">open</span> <span class="n">shared</span> <span class="nb">object</span> <span class="nb">file</span><span class="p">:</span> <span class="n">No</span> <span class="n">such</span> <span class="nb">file</span> <span class="ow">or</span> <span class="n">directory</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">OSError</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">username</span><span class="o">/</span><span class="n">PythonEnvironments</span><span class="o">/</span><span class="n">GPXproc</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libgeos_c</span><span class="o">.</span><span class="n">so</span><span class="p">:</span> <span class="n">cannot</span> <span class="nb">open</span> <span class="n">shared</span> <span class="nb">object</span> <span class="nb">file</span><span class="p">:</span> <span class="n">No</span> <span class="n">such</span> <span class="nb">file</span> <span class="ow">or</span> <span class="n">directory</span>
 </code></pre></div></div>
-<p>which I solved in a not very clever way: by creating a soft link to the existing library <code class="language-plaintext highlighter-rouge">libgeos_c.so</code> in the <code class="language-plaintext highlighter-rouge">lib</code> directory of my virtual environment.</p>
+<p>which I solved in a not very clever way: by creating a soft link to the existing library <code class="highlighter-rouge">libgeos_c.so</code> in the <code class="highlighter-rouge">lib</code> directory of my virtual environment.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">cd</span> /home/username/PythonEnvironments/GPXproc/lib/
 <span class="nb">ln</span> <span class="nt">-sfv</span> /usr/local/lib/lib/libgeos_c.so <span class="nb">.</span>
@@ -204,7 +204,7 @@ python setup.py <span class="nb">install</span>
 <p><img src="https://ctroupin.github.io/figures/blog/cartopy-wms/cartopytest01.jpg" class="img-responsive" /></p>
 
 <p>Here is the list of commands that lead to a working environment. For sure they
-are things that can be improved, for example the step in which the <code class="language-plaintext highlighter-rouge">libgeos_c</code> file is linked in the lib directory of the virtual environment.</p>
+are things that can be improved, for example the step in which the <code class="highlighter-rouge">libgeos_c</code> file is linked in the lib directory of the virtual environment.</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nv">venvname</span><span class="o">=</span><span class="s2">"ToDelete"</span>
 mkvirtualenv <span class="nt">--python</span><span class="o">=</span>/usr/local/bin/python3.8 <span class="k">${</span><span class="nv">venvname</span><span class="k">}</span>
 pip <span class="nb">install </span>matplotlib
@@ -225,8 +225,8 @@ python test_carto.py
 <h2 id="edit-march-28">Edit [March 28]</h2>
 
 <p>One year later the installation story is not yet completed for me. I re-ran
-the procedure above, just trying to use a more recent release of <code class="language-plaintext highlighter-rouge">Cartopy</code> (0.20),
-but the command <code class="language-plaintext highlighter-rouge">python setup.py install</code> gave me an error:</p>
+the procedure above, just trying to use a more recent release of <code class="highlighter-rouge">Cartopy</code> (0.20),
+but the command <code class="highlighter-rouge">python setup.py install</code> gave me an error:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>GEOS version 3.3.3 is installed, but cartopy requires at least version 3.7.2.
 </code></pre></div></div>
 <p>even if I was using 3.6.1… so I don’t know. Sticking to 0.18 works so I won’t

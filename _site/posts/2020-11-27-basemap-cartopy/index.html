@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Charles Troupin</title>
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content=" ">
+    <meta name="description" content="Turning ocean data into stories">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
     <link rel="canonical" href="https://ctroupin.github.io/posts/2020-11-27-basemap-cartopy/">
@@ -90,19 +90,19 @@ workon Argo3.8
 
 <h2 id="basemap">Basemap</h2>
 
-<p>Yes, we now it is deprecated in favor of <code class="language-plaintext highlighter-rouge">Cartopy</code>, but for some reasons,
-let’s say we want to continue with <code class="language-plaintext highlighter-rouge">Basemap</code> for some more time.</p>
+<p>Yes, we now it is deprecated in favor of <code class="highlighter-rouge">Cartopy</code>, but for some reasons,
+let’s say we want to continue with <code class="highlighter-rouge">Basemap</code> for some more time.</p>
 
 <p>Download the last release from <a href="here">https://github.com/matplotlib/basemap/releases/</a>,
-here we save it in a directory <code class="language-plaintext highlighter-rouge">~/Software</code>, for example.</p>
+here we save it in a directory <code class="highlighter-rouge">~/Software</code>, for example.</p>
 
-<p><strong>Update:</strong> I have encountered issues with <code class="language-plaintext highlighter-rouge">basemap-1.2.2rel</code>, while the previous version, <code class="language-plaintext highlighter-rouge">basemap-1.2.1rel</code> was working fine.</p>
+<p><strong>Update:</strong> I have encountered issues with <code class="highlighter-rouge">basemap-1.2.2rel</code>, while the previous version, <code class="highlighter-rouge">basemap-1.2.1rel</code> was working fine.</p>
 
 <h3 id="compile-geos-library">Compile geos library</h3>
 
-<p>It is a necessary step before installing <code class="language-plaintext highlighter-rouge">Basemap</code>.
-We need to specify the directory where the <code class="language-plaintext highlighter-rouge">libgeos.*</code> files are located.
-In our case: <code class="language-plaintext highlighter-rouge">/usr/local/lib</code>. This is stored in the variable <code class="language-plaintext highlighter-rouge">GEOS_DIR</code>.</p>
+<p>It is a necessary step before installing <code class="highlighter-rouge">Basemap</code>.
+We need to specify the directory where the <code class="highlighter-rouge">libgeos.*</code> files are located.
+In our case: <code class="highlighter-rouge">/usr/local/lib</code>. This is stored in the variable <code class="highlighter-rouge">GEOS_DIR</code>.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">cd</span> ~/Software/basemap-1.2.2rel
 <span class="nb">cd </span>geos-3.3.3
@@ -111,7 +111,7 @@ In our case: <code class="language-plaintext highlighter-rouge">/usr/local/lib</
 make
 <span class="nb">sudo </span>make <span class="nb">install</span>
 </code></pre></div></div>
-<p>If you don’t have the permissions to write in <code class="language-plaintext highlighter-rouge">/usr/local/lib</code> and similar
+<p>If you don’t have the permissions to write in <code class="highlighter-rouge">/usr/local/lib</code> and similar
 directories, for instance on a cluster, you can use another one, typically:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">export </span><span class="nv">GEOS_DIR</span><span class="o">=</span>~/.local/
 </code></pre></div></div>
@@ -130,16 +130,16 @@ python setup.py <span class="nb">install</span>
 <h3 id="testing">Testing</h3>
 
 <p>Open a python terminal and run</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="kn">from</span> <span class="n">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span>
 </code></pre></div></div>
 
 <p>We get the error:</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nc">Traceback </span><span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="sh">"</span><span class="s">&lt;stdin&gt;</span><span class="sh">"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="nb">ModuleNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="sh">'</span><span class="s">mpl_toolkits.basemap</span><span class="sh">'</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">ModuleNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="s">'mpl_toolkits.basemap'</span>
 </code></pre></div></div>
 <p>though we’re sure the module has been properly installed,
-since <code class="language-plaintext highlighter-rouge">pip list</code> returns:</p>
+since <code class="highlighter-rouge">pip list</code> returns:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>Package                       Version
 <span class="nt">-----------------------------</span> <span class="nt">-----------</span>
 ...
@@ -150,72 +150,72 @@ basemap                       1.2.1
 <h4 id="whats-the-problem-then">What’s the problem then?</h4>
 
 <p>I check the directory storing the different virtual environments:     <br />
-<code class="language-plaintext highlighter-rouge">{VIRTUALENVDIR}/Argo3.8/lib/python3.8/site-packages</code>    <br />
+<code class="highlighter-rouge">{VIRTUALENVDIR}/Argo3.8/lib/python3.8/site-packages</code>    <br />
 and found, among many directories:</p>
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">basemap-1.2.1-py3.8-linux-x86_64.egg/mpl_toolkits</code>, which was installed a few minutes before</li>
-  <li><code class="language-plaintext highlighter-rouge">mpl_toolkits</code>, installed some days ago.</li>
+  <li><code class="highlighter-rouge">basemap-1.2.1-py3.8-linux-x86_64.egg/mpl_toolkits</code>, which was installed a few minutes before</li>
+  <li><code class="highlighter-rouge">mpl_toolkits</code>, installed some days ago.</li>
 </ul>
 
-<p>So my assumption (and I must apologise because I won’t take the time to verify it), is that <code class="language-plaintext highlighter-rouge">mpl_toolkits</code> has been installed at the same time as <code class="language-plaintext highlighter-rouge">matplotlib</code>. Seems plausible.</p>
+<p>So my assumption (and I must apologise because I won’t take the time to verify it), is that <code class="highlighter-rouge">mpl_toolkits</code> has been installed at the same time as <code class="highlighter-rouge">matplotlib</code>. Seems plausible.</p>
 
-<p>Then, when I run in Python <code class="language-plaintext highlighter-rouge">from mpl_toolkits import ...</code> it searches for <code class="language-plaintext highlighter-rouge">Basemap</code> in this older directory.</p>
+<p>Then, when I run in Python <code class="highlighter-rouge">from mpl_toolkits import ...</code> it searches for <code class="highlighter-rouge">Basemap</code> in this older directory.</p>
 
 <h4 id="solution">Solution</h4>
 
-<p>I created a link inside the old <code class="language-plaintext highlighter-rouge">mpl_toolkits</code> directory toward the newly installed
-<code class="language-plaintext highlighter-rouge">basemap</code> directory:</p>
+<p>I created a link inside the old <code class="highlighter-rouge">mpl_toolkits</code> directory toward the newly installed
+<code class="highlighter-rouge">basemap</code> directory:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">cd</span> <span class="k">${</span><span class="nv">VIRTUALENVDIR</span><span class="k">}</span>/Argo3.8/lib/python3.8/site-packages/mpl_toolkits
 <span class="nb">ln</span> <span class="nt">-sfv</span> ../basemap-1.2.1-py3.8-linux-x86_64.egg/mpl_toolkits/basemap/ <span class="nb">.</span>
 </code></pre></div></div>
 
-<p>This way, when typing <code class="language-plaintext highlighter-rouge">from mpl_toolkits.basemap import Basemap</code>, Python
+<p>This way, when typing <code class="highlighter-rouge">from mpl_toolkits.basemap import Basemap</code>, Python
 find the expected directory.</p>
 
 <h4 id="with-ipython">With IPython</h4>
 
 <p>Side note: the command can work in a Python terminal but not with IPython. Why?</p>
 
-<p>When you type <code class="language-plaintext highlighter-rouge">ipython</code> in a terminal, you need to be sure that it is the <code class="language-plaintext highlighter-rouge">ipython</code>
+<p>When you type <code class="highlighter-rouge">ipython</code> in a terminal, you need to be sure that it is the <code class="highlighter-rouge">ipython</code>
 relative to the virtual environment that is run.</p>
 
 <p>A possibility for that is to call it with</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>python <span class="nt">-m</span> IPython
 </code></pre></div></div>
 
-<p>Now we’re done with <code class="language-plaintext highlighter-rouge">Basemap</code>.</p>
+<p>Now we’re done with <code class="highlighter-rouge">Basemap</code>.</p>
 
 <h3 id="problem-with-dedent">Problem with ‘dedent’</h3>
 
 <p>In some installations I encountered this issue:</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">ImportError</span><span class="p">:</span> <span class="n">cannot</span> <span class="kn">import</span> <span class="n">name</span> <span class="sh">'</span><span class="s">dedent</span><span class="sh">'</span> <span class="k">from</span> <span class="sh">'</span><span class="s">matplotlib.cbook</span><span class="sh">'</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">ImportError</span><span class="p">:</span> <span class="n">cannot</span> <span class="kn">import</span> <span class="nn">name</span> <span class="s">'dedent'</span> <span class="k">from</span> <span class="s">'matplotlib.cbook'</span>
 </code></pre></div></div>
 <p>It is documented <a href="https://github.com/matplotlib/basemap/issues/494">here</a>, and the solution detailed below.</p>
 
 <h4 id="solution-1">Solution</h4>
 
-<p>Find the path of the file <code class="language-plaintext highlighter-rouge">proj.py</code> with the command:</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="kn">import</span> <span class="n">pyproj</span>
-<span class="n">pyproj</span><span class="p">.</span><span class="n">__file__</span>
+<p>Find the path of the file <code class="highlighter-rouge">proj.py</code> with the command:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="kn">import</span> <span class="nn">pyproj</span>
+<span class="n">pyproj</span><span class="o">.</span><span class="n">__file__</span>
 </code></pre></div></div>
-<p>In my case it ends with <code class="language-plaintext highlighter-rouge">basemap-1.2.1-py3.8-linux-x86_64.egg/mpl_toolkits/basemap/proj.py</code>.</p>
+<p>In my case it ends with <code class="highlighter-rouge">basemap-1.2.1-py3.8-linux-x86_64.egg/mpl_toolkits/basemap/proj.py</code>.</p>
 
 <p>In this file, replace    <br />
-<code class="language-plaintext highlighter-rouge">from matplotlib.cbook import dedent</code> with   <br />
-<code class="language-plaintext highlighter-rouge">from inspect import cleandoc as dedent</code>.</p>
+<code class="highlighter-rouge">from matplotlib.cbook import dedent</code> with   <br />
+<code class="highlighter-rouge">from inspect import cleandoc as dedent</code>.</p>
 
 <p>Okay, another dirty fix, but there is no time now to be much cleaner.</p>
 
 <h2 id="cartopy">Cartopy</h2>
 
-<p>Let’s repeat: <code class="language-plaintext highlighter-rouge">Basemap</code> is deprecated and we should use <a href="https://scitools.org.uk/cartopy/docs/latest/installing.html"><code class="language-plaintext highlighter-rouge">Cartopy</code></a>. Their documentation
-starts with <code class="language-plaintext highlighter-rouge">Conda</code> stuffs, we’re not using it too much as we prefer the classical
-<code class="language-plaintext highlighter-rouge">pip</code> approach.</p>
+<p>Let’s repeat: <code class="highlighter-rouge">Basemap</code> is deprecated and we should use <a href="https://scitools.org.uk/cartopy/docs/latest/installing.html"><code class="highlighter-rouge">Cartopy</code></a>. Their documentation
+starts with <code class="highlighter-rouge">Conda</code> stuffs, we’re not using it too much as we prefer the classical
+<code class="highlighter-rouge">pip</code> approach.</p>
 
 <h3 id="pip">pip</h3>
 
-<p>Let’s start with a <code class="language-plaintext highlighter-rouge">pip install cartopy</code>.</p>
+<p>Let’s start with a <code class="highlighter-rouge">pip install cartopy</code>.</p>
 
 <p>On other occasions, we got error messages, but this time it seems everything
 is in place to avoid us some troubles. Lucky me.</p>

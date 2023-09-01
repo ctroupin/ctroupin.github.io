@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Charles Troupin</title>
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content=" ">
+    <meta name="description" content="Turning ocean data into stories">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
     <link rel="canonical" href="https://ctroupin.github.io/posts/2019-03-27-mpl-config/">
@@ -84,25 +84,25 @@ precious minutes.</p>
 
 <p>You have created a new <em>virtualenv</em> to work on your favorite code, but
 get tired to always specify the same options when saving a figure with
-<code class="language-plaintext highlighter-rouge">matplotlib</code>:</p>
+<code class="highlighter-rouge">matplotlib</code>:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="bp">...</span>
-<span class="n">plt</span><span class="p">.</span><span class="nf">savefig</span><span class="p">(</span><span class="n">figname</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="sh">'</span><span class="s">tight</span><span class="sh">'</span><span class="p">,</span> <span class="p">...)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="o">...</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">figname</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s">'tight'</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h3 id="solution">Solution</h3>
 
-<p>For each of the <em>virtualenv</em> you create (provided <code class="language-plaintext highlighter-rouge">matplotlib</code> is installed),
-there is a file called <code class="language-plaintext highlighter-rouge">matplotlibrc</code> that defines the different options. With
+<p>For each of the <em>virtualenv</em> you create (provided <code class="highlighter-rouge">matplotlib</code> is installed),
+there is a file called <code class="highlighter-rouge">matplotlibrc</code> that defines the different options. With
 my installation, I found it in the virtualenv directory, in the folder
-<code class="language-plaintext highlighter-rouge">lib/python3.6/site-packages/matplotlib/mpl-data</code></p>
+<code class="highlighter-rouge">lib/python3.6/site-packages/matplotlib/mpl-data</code></p>
 
 <p>In my case I will edit the following lines:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="c1">#figure.dpi       : 300      # figure dots per inch
-#savefig.bbox     : tight    # 'tight' or 'standard'.
-</span></code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="c">#figure.dpi       : 300      # figure dots per inch</span>
+<span class="c">#savefig.bbox     : tight    # 'tight' or 'standard'.</span>
+</code></pre></div></div>
 
 			</blogsection>
 		</div>

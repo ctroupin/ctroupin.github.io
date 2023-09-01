@@ -3,7 +3,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Charles Troupin</title>
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content=" ">
+    <meta name="description" content="Turning ocean data into stories">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
     <link rel="canonical" href="https://ctroupin.github.io/maps/2017-03-01-Activity-Maps/">
@@ -134,20 +134,20 @@
                     
                     
                 </div>
-                <p>When I was working in Mallorca, I used to organize trekking in the <em>Tramuntana</em> and after a while I though we could have a visual summary of what we did, in the form of an interactive map. <code class="language-plaintext highlighter-rouge">Leaflet</code> was very popular where I was working, hence that was the natural choice. We then added other types of activities: trail running, bike, …</p>
+                <p>When I was working in Mallorca, I used to organize trekking in the <em>Tramuntana</em> and after a while I though we could have a visual summary of what we did, in the form of an interactive map. <code class="highlighter-rouge">Leaflet</code> was very popular where I was working, hence that was the natural choice. We then added other types of activities: trail running, bike, …</p>
 
 <p><img src="/figures/maps/MallorcaActivities.jpg" class="img-responsive" alt="Mallorca running and trekking" /></p>
 
 <h3 id="pre-processing">Pre-processing</h3>
 
-<p>The GPX files downloaded from <a href="http://movescount.com/">Movescount</a> are a bit heavy, for example a track of about 9500 points is stored in a 4.5 MB file. This is because the files not only store the time and coordinates, but also the cadence, distance, altitude and speed. It’s straightforward to remove that information (since we won’t use it) with a bash script using <code class="language-plaintext highlighter-rouge">sed</code> commands for instance.</p>
+<p>The GPX files downloaded from <a href="http://movescount.com/">Movescount</a> are a bit heavy, for example a track of about 9500 points is stored in a 4.5 MB file. This is because the files not only store the time and coordinates, but also the cadence, distance, altitude and speed. It’s straightforward to remove that information (since we won’t use it) with a bash script using <code class="highlighter-rouge">sed</code> commands for instance.</p>
 
-<p>For the same file with the 9500 points, we end up with a new file of 1.3 MB. Finally, as we’re not interested in having a high precision representation of the tracks, we re-sample them to 500 points. This turns out to be enough to properly display the tracks and at the time to have correct values for the total distance and the ascent. <a href="https://www.gpsbabel.org/"><code class="language-plaintext highlighter-rouge">gpsbabel</code></a> is very good for this kind of operations.</p>
+<p>For the same file with the 9500 points, we end up with a new file of 1.3 MB. Finally, as we’re not interested in having a high precision representation of the tracks, we re-sample them to 500 points. This turns out to be enough to properly display the tracks and at the time to have correct values for the total distance and the ascent. <a href="https://www.gpsbabel.org/"><code class="highlighter-rouge">gpsbabel</code></a> is very good for this kind of operations.</p>
 
 <h3 id="implementation">Implementation</h3>
 
 <p>The list of GPX files is stored in a simple file like this:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="trac"><code>var run = [
+<div class="highlighter-rouge"><div class="highlight"><pre class="trac"><code>var run = [
   "run/es-molinar-son-espanyol.gpx",
   "run/es-molinar-palma.gpx",
   ...
@@ -156,7 +156,7 @@
 
 <p>When we need to add a new activity, we just have to update the list and add the corresponding file.   <br />
 The line color depends on the type of sport: hiking, cycling, running… this information is not explicitly present in the GPX files so we simply add it as a <em>keywords</em> tag, for example:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="trac"><code>&lt;keywords&gt;Hike&lt;/keywords&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="trac"><code>&lt;keywords&gt;Hike&lt;/keywords&gt;
 </code></pre></div></div>
 <p>Another solution could be to derive the type of sport from the data, for example computing the mean velocity, the distance, … but we prefer to keep it simple, especially considering that some running tracks have very long distances that could mislead the classification. Well, in other words: I didn’t want to implement that.</p>
 
@@ -196,7 +196,7 @@ The line color depends on the type of sport: hiking, cycling, running… this in
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Charles Troupin 2023
+                        Copyright &copy; Charles Troupin 2022
                     </div>
                 </div>
             </div>

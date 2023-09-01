@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Charles Troupin</title>
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content=" ">
+    <meta name="description" content="Turning ocean data into stories">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
     <link rel="canonical" href="https://ctroupin.github.io/posts/2019-02-12-running-polar/">
@@ -79,7 +79,7 @@
 Here I try to explore other possibilities.</p>
 
 <h2 id="read-the-data">Read the data</h2>
-<p>First thing first: get the data. GPX is a wide-spread format and <a href="https://github.com/tkrajina/gpxpy"><code class="language-plaintext highlighter-rouge">gpxpy</code></a> the perfect tool to read the files. In the past I had my own parsing function using <em>regex</em> but hey, why not using what already exists?</p>
+<p>First thing first: get the data. GPX is a wide-spread format and <a href="https://github.com/tkrajina/gpxpy"><code class="highlighter-rouge">gpxpy</code></a> the perfect tool to read the files. In the past I had my own parsing function using <em>regex</em> but hey, why not using what already exists?</p>
 
 <h3 id="available-data">Available data</h3>
 <p>I have tracks since 2013, though most of the tracks around Sart Tilman are concentrated
@@ -95,8 +95,8 @@ in 2017-2018. The total is about 150 files.</p>
 
 <p>We will compute:</p>
 <ul>
-  <li>the distance to a central point, located close to our offices, using the <code class="language-plaintext highlighter-rouge">Vincenty</code> distance function available in th <a href="https://github.com/geopy/geopy"><code class="language-plaintext highlighter-rouge">geopy</code></a> module,</li>
-  <li>the direction with (e.g. northward, southward, eastward, …) with respect to the starting point, using the <code class="language-plaintext highlighter-rouge">bearing</code> function from the <a href="https://github.com/gojuno/geo-py"><code class="language-plaintext highlighter-rouge">geo-py</code></a> module</li>
+  <li>the distance to a central point, located close to our offices, using the <code class="highlighter-rouge">Vincenty</code> distance function available in th <a href="https://github.com/geopy/geopy"><code class="highlighter-rouge">geopy</code></a> module,</li>
+  <li>the direction with (e.g. northward, southward, eastward, …) with respect to the starting point, using the <code class="highlighter-rouge">bearing</code> function from the <a href="https://github.com/gojuno/geo-py"><code class="highlighter-rouge">geo-py</code></a> module</li>
   <li>the altitude, directly read from the file.</li>
 </ul>
 
@@ -119,10 +119,10 @@ in 2017-2018. The total is about 150 files.</p>
 <p>In this figure we simply plot the different tracks in the new coordinate system with some points of interest (red dots) that we use to visit, helping me to check if everything is correct.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">pointsInterest</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">[</span><span class="mf">50.552</span><span class="p">,</span> <span class="mf">5.5502</span><span class="p">,</span> <span class="sh">"</span><span class="s">Roche aux Faucons</span><span class="sh">"</span><span class="p">],</span>
-    <span class="p">[</span><span class="mf">50.6024</span><span class="p">,</span> <span class="mf">5.5957</span><span class="p">,</span> <span class="sh">"</span><span class="s">Lande de Streupas</span><span class="sh">"</span><span class="p">],</span>
-    <span class="p">[</span><span class="mf">50.5818</span><span class="p">,</span> <span class="mf">5.6027</span><span class="p">,</span> <span class="sh">"</span><span class="s">Rochers du bout du monde</span><span class="sh">"</span><span class="p">],</span>
-    <span class="p">[</span><span class="mf">50.6007</span><span class="p">,</span> <span class="mf">5.5554</span><span class="p">,</span> <span class="sh">"</span><span class="s">Point de vue</span><span class="sh">"</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">50.552</span><span class="p">,</span> <span class="mf">5.5502</span><span class="p">,</span> <span class="s">"Roche aux Faucons"</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">50.6024</span><span class="p">,</span> <span class="mf">5.5957</span><span class="p">,</span> <span class="s">"Lande de Streupas"</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">50.5818</span><span class="p">,</span> <span class="mf">5.6027</span><span class="p">,</span> <span class="s">"Rochers du bout du monde"</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">50.6007</span><span class="p">,</span> <span class="mf">5.5554</span><span class="p">,</span> <span class="s">"Point de vue"</span><span class="p">],</span>
     <span class="p">];</span>
 </code></pre></div></div>
 
@@ -139,9 +139,9 @@ The lowest parts (dark blue) are the valleys of the <em>Meuse</em> and the <em>O
 
 <p>Final one: the goal is to count count how many times we’ve been in different subregions delimited by angles and distances. I won’t write the whole code here, just the lines that allows us to count quite easily.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">r_edges</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">6.01</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-<span class="n">theta_edges</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">ntheta</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="p">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">16.</span>
-<span class="n">H</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">histogram2d</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span> <span class="n">angles</span><span class="p">,</span> <span class="p">[</span><span class="n">r_edges</span><span class="p">,</span> <span class="n">theta_edges</span><span class="p">])</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">r_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">6.01</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">theta_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">ntheta</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">16.</span>
+<span class="n">H</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span> <span class="n">angles</span><span class="p">,</span> <span class="p">[</span><span class="n">r_edges</span><span class="p">,</span> <span class="n">theta_edges</span><span class="p">])</span>
 </code></pre></div></div>
 
 <p><img src="https://ctroupin.github.io/figures/blog/polar_pcolor.png" class="img-responsive" alt="GPX histogram" /></p>

@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Charles Troupin</title>
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content=" ">
+    <meta name="description" content="Turning ocean data into stories">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
     <link rel="canonical" href="https://ctroupin.github.io/posts/2021-11-16-Topography/">
@@ -77,19 +77,19 @@
 					
 					
 				</div>
-				<p>Some instructions to work on digital terrain model data using <code class="language-plaintext highlighter-rouge">gdal</code> tool.</p>
+				<p>Some instructions to work on digital terrain model data using <code class="highlighter-rouge">gdal</code> tool.</p>
 
 <ol>
-  <li>Convert <code class="language-plaintext highlighter-rouge">.asc</code> file to <code class="language-plaintext highlighter-rouge">.geotiff</code>:
+  <li>Convert <code class="highlighter-rouge">.asc</code> file to <code class="highlighter-rouge">.geotiff</code>:
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>gdal_translate <span class="nt">-of</span> GTiff <span class="nt">-a_srs</span> <span class="s2">"EPSG:9059"</span> <span class="nt">-co</span> <span class="s2">"COMPRESS=LZW"</span> MDS05_REGCAN95_H28_1087_COB1.asc lp03.geotiff
 </code></pre></div>    </div>
     <p>Data are downloaded from the <a href="https://centrodedescargas.cnig.es">CNIG</a>; several files
 to cover one island.</p>
   </li>
-  <li>Generate <code class="language-plaintext highlighter-rouge">.vrt</code> files:
+  <li>Generate <code class="highlighter-rouge">.vrt</code> files:
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>gdalbuildvrt geotiff.vrt <span class="k">*</span>.tif
 </code></pre></div>    </div>
-    <p>The <code class="language-plaintext highlighter-rouge">.vrt</code> stands for Virtual Format, it allows a virtual dataset to be composer from
+    <p>The <code class="highlighter-rouge">.vrt</code> stands for Virtual Format, it allows a virtual dataset to be composer from
 other datasets.</p>
   </li>
   <li>Merge the geotiff:

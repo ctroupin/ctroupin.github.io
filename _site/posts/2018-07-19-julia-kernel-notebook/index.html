@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Charles Troupin</title>
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content=" ">
+    <meta name="description" content="Turning ocean data into stories">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
     <link rel="canonical" href="https://ctroupin.github.io/posts/2018-07-19-julia-kernel-notebook/">
@@ -80,20 +80,20 @@
 				<p>I’m using the <em>notebooks</em> almost everyday as I think it’s great to develop a code in this environment
 before doing something for production.</p>
 
-<p>Here I explain how to do it with <code class="language-plaintext highlighter-rouge">Julia</code> language.</p>
+<p>Here I explain how to do it with <code class="highlighter-rouge">Julia</code> language.</p>
 
 <h3 id="install-a-new-julia-version">Install a new Julia version</h3>
 
 <p>Julia is changing a lot these weeks and the probability you’ll need to upgrade your
-installation is hight. Recently I installed version <code class="language-plaintext highlighter-rouge">0.6.4</code> and I must admit it took me… about 3 minutes. So definitively not a big deal.</p>
+installation is hight. Recently I installed version <code class="highlighter-rouge">0.6.4</code> and I must admit it took me… about 3 minutes. So definitively not a big deal.</p>
 
 <p>The different version are available from https://julialang.org/downloads/, for my machine I installed the <em>64-bit, Generic Linux Binaries for x86</em>, about 65 MB. Then I just extracted the archive and I’m done.</p>
 
-<p>As the version <code class="language-plaintext highlighter-rouge">0.7.0-beta2</code> was also there, so I decided to give it a try.</p>
+<p>As the version <code class="highlighter-rouge">0.7.0-beta2</code> was also there, so I decided to give it a try.</p>
 
 <h3 id="what-about-the-packages">What about the packages?</h3>
 
-<p>If you have a version <code class="language-plaintext highlighter-rouge">0.6.something</code> and upgrade to <code class="language-plaintext highlighter-rouge">0.6.somethingElse</code>, then the installed packages are still available, no need to re-install everything.</p>
+<p>If you have a version <code class="highlighter-rouge">0.6.something</code> and upgrade to <code class="highlighter-rouge">0.6.somethingElse</code>, then the installed packages are still available, no need to re-install everything.</p>
 
 <p>If you install for example version 0.7, then in this case an installation is required.</p>
 
@@ -104,9 +104,9 @@ installation is hight. Recently I installed version <code class="language-plaint
 <div class="language-julia highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="x">(</span><span class="s">"IJulia"</span><span class="x">)</span>
 <span class="n">Pkg</span><span class="o">.</span><span class="n">build</span><span class="x">(</span><span class="s">"IJulia"</span><span class="x">)</span>
 </code></pre></div></div>
-<p>This last command will create the new kernel. On my machine, the Jupyter kernels can be found in the directory <code class="language-plaintext highlighter-rouge">~/.local/share/jupyter/kernels/</code>.</p>
+<p>This last command will create the new kernel. On my machine, the Jupyter kernels can be found in the directory <code class="highlighter-rouge">~/.local/share/jupyter/kernels/</code>.</p>
 
-<p>Now when run a Jupyter session, you have access to a variety of languages, including the different versions of <code class="language-plaintext highlighter-rouge">Julia</code>.</p>
+<p>Now when run a Jupyter session, you have access to a variety of languages, including the different versions of <code class="highlighter-rouge">Julia</code>.</p>
 
 <h3 id="change-the-kernel-of-a-notebook">Change the kernel of a notebook</h3>
 

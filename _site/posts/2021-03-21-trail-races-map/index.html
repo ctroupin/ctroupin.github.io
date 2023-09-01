@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Charles Troupin</title>
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content=" ">
+    <meta name="description" content="Turning ocean data into stories">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
     <link rel="canonical" href="https://ctroupin.github.io/posts/2021-03-21-trail-races-map/">
@@ -102,7 +102,7 @@ For the visualisation part, the excellent <a href="https://leafletjs.com/">Leafl
 
 <p>As usual, a few steps to clean or simplify the files. There is no need to show thousand of points for dozen of tracks, we can clearly simplify them.</p>
 
-<p>As I prefer to work with <code class="language-plaintext highlighter-rouge">GPX</code> files, it happens that a conversion is needed, for example from a <code class="language-plaintext highlighter-rouge">kml</code> file:</p>
+<p>As I prefer to work with <code class="highlighter-rouge">GPX</code> files, it happens that a conversion is needed, for example from a <code class="highlighter-rouge">kml</code> file:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>gpsbabel <span class="nt">-i</span> kml <span class="nt">-f</span> doc.kml <span class="nt">-o</span> gpx <span class="nt">-F</span> la-brena-trail-20k.gpx
 </code></pre></div></div>
 
@@ -115,7 +115,7 @@ For the visualisation part, the excellent <a href="https://leafletjs.com/">Leafl
 </code></pre></div></div>
 
 <p>Finally, we remove the time and just keeping the coordinates; I guess it can be done
-with <code class="language-plaintext highlighter-rouge">GPSBabel</code>, I did it with <code class="language-plaintext highlighter-rouge">sed</code>:</p>
+with <code class="highlighter-rouge">GPSBabel</code>, I did it with <code class="highlighter-rouge">sed</code>:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'/&lt;time&gt;/d'</span> <span class="k">*</span>gpx
 </code></pre></div></div>
 

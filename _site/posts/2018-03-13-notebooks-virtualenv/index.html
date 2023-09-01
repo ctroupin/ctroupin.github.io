@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Charles Troupin</title>
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content=" ">
+    <meta name="description" content="Turning ocean data into stories">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
     <link rel="canonical" href="https://ctroupin.github.io/posts/2018-03-13-notebooks-virtualenv/">
@@ -82,19 +82,19 @@
 <h3 id="install-virtual-environment-wrapper">Install virtual environment wrapper</h3>
 
 <p>The <a href="https://virtualenvwrapper.readthedocs.io/en/latest/">wrapper</a> is installed
-using <code class="language-plaintext highlighter-rouge">pip</code>:</p>
+using <code class="highlighter-rouge">pip</code>:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>pip <span class="nb">install </span>virtualenvwrapper
 </code></pre></div></div>
 <p>The configuration is done by setting up the environment directory and
-sourcing <code class="language-plaintext highlighter-rouge">virtualenvwrapper.sh</code>:</p>
+sourcing <code class="highlighter-rouge">virtualenvwrapper.sh</code>:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">export </span><span class="nv">WORKON_HOME</span><span class="o">=</span>~/Envs
 <span class="nb">mkdir</span> <span class="nt">-p</span> <span class="nv">$WORKON_HOME</span>
 <span class="nb">source</span> /usr/local/bin/virtualenvwrapper.sh
 </code></pre></div></div>
-<p>The previous <em>export</em> and <em>source</em> commands can be added in the <code class="language-plaintext highlighter-rouge">.bashrc</code> file so that they are executed automatically.</p>
+<p>The previous <em>export</em> and <em>source</em> commands can be added in the <code class="highlighter-rouge">.bashrc</code> file so that they are executed automatically.</p>
 
 <h3 id="create-the-new-virtual-environment">Create the new virtual environment</h3>
-<p>Note that the python version used in the virtualenv is specified using the <code class="language-plaintext highlighter-rouge">--python</code> option:</p>
+<p>Note that the python version used in the virtualenv is specified using the <code class="highlighter-rouge">--python</code> option:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>mkvirtualenv <span class="nt">--python</span><span class="o">=</span>/usr/local/bin/python3.6 3Dplot
 </code></pre></div></div>
 
@@ -109,7 +109,7 @@ python <span class="nt">-m</span> ipykernel <span class="nb">install</span> <spa
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>jupyter-notebook
 </code></pre></div></div>
 <p>When you create a new notebook, a drop-down allows you to select the <em>kernel</em> or <em>virtualenv</em> of your choice.   <br />
-From an existing notebook window, you can also modify the kernel by clicking on <code class="language-plaintext highlighter-rouge">Kernel / Change kernel</code>.</p>
+From an existing notebook window, you can also modify the kernel by clicking on <code class="highlighter-rouge">Kernel / Change kernel</code>.</p>
 
 			</blogsection>
 		</div>

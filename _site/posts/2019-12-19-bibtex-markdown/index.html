@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Charles Troupin</title>
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content=" ">
+    <meta name="description" content="Turning ocean data into stories">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
     <link rel="canonical" href="https://ctroupin.github.io/posts/2019-12-19-bibtex-markdown/">
@@ -80,11 +80,11 @@
 				<p>In a <a href="./2019-11-13-python-course.md">previous post</a> I already talked about a format I use a lot: <a href="http://www.bibtex.org/">BibTeX</a>. I like it because you can easily convert it to other formats. In  addition, you almost never really have to encode the BibTeX entries yourself: they are</p>
 <ul>
   <li>either directly downloadable from the journal webpage (“Export citation”)</li>
-  <li>or you can get it them from the publication Digital Object Identifier (DOI). Have a look at my script <a href="https://github.com/ctroupin/ctroupin.github.io/blob/source/notebooks/bash/doi2bib"><code class="language-plaintext highlighter-rouge">doi2bib</code></a> to see how easy it is.</li>
+  <li>or you can get it them from the publication Digital Object Identifier (DOI). Have a look at my script <a href="https://github.com/ctroupin/ctroupin.github.io/blob/source/notebooks/bash/doi2bib"><code class="highlighter-rouge">doi2bib</code></a> to see how easy it is.</li>
 </ul>
 
 <p>Here is an example of such a BibTeX file:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="trac"><code>@Article{TROUPIN2019,
+<div class="highlighter-rouge"><div class="highlight"><pre class="trac"><code>@Article{TROUPIN2019,
   Title                    = {The AlborEX dataset: sampling of sub-mesoscale features in the Alboran Sea},
   Author                   = {Charles Troupin and Pascual, Ananda and Ruiz, Simon and Olita, Antonio and Casas, Benjamin and Margirier, Félix and Poulain, Pierre-Marie and Notarstefano, Giulio and Torner, Marc and Fernández, Juan Gabriel and Rújula, Miquel Àngel and Muñoz, Cristian and Alou, Eva and Ruiz, Inmaculada and Tovar-Sánchez, Antonio and Allen, John T. and Mahadevan, Amala and Tintoré, Joaquín},
   Journal                  = {Earth System Science Data},
@@ -98,31 +98,31 @@
 </code></pre></div></div>
 
 <h3 id="conversion-tool">Conversion tool</h3>
-<p><code class="language-plaintext highlighter-rouge">pandoc</code> is a powerful tool that makes it possible to perform different format conversions, for instance from LaTeX to HTML, to pdf or to Word. Here are a few basic examples of calls:</p>
+<p><code class="highlighter-rouge">pandoc</code> is a powerful tool that makes it possible to perform different format conversions, for instance from LaTeX to HTML, to pdf or to Word. Here are a few basic examples of calls:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>pandoc input.tex <span class="nt">-o</span> output.pdf
 pandoc input.md <span class="nt">-o</span> output2.pdf
 pandoc input.md <span class="nt">-o</span> output3.docx
 </code></pre></div></div>
 <p>I must say I’m not a big fan of all those formats, but still, having a tool to convert from one to another is great.</p>
 
-<p>Here we want to generate a Markdown from a list of references stored in a BibTeX file. In order to do so, we have to install <a href="https://github.com/jgm/pandoc-citeproc"><code class="language-plaintext highlighter-rouge">pandoc-citeproc</code></a>, as documented <a href="https://pandoc.org/demo/example19/Extension-citations.html">here</a>.</p>
+<p>Here we want to generate a Markdown from a list of references stored in a BibTeX file. In order to do so, we have to install <a href="https://github.com/jgm/pandoc-citeproc"><code class="highlighter-rouge">pandoc-citeproc</code></a>, as documented <a href="https://pandoc.org/demo/example19/Extension-citations.html">here</a>.</p>
 
 <h3 id="procedure">Procedure</h3>
 
 <ol>
-  <li>Create a file that will <em>call</em> the bibliography, we will call it <code class="language-plaintext highlighter-rouge">nao_ref.md</code>.
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="trac"><code>---
+  <li>Create a file that will <em>call</em> the bibliography, we will call it <code class="highlighter-rouge">nao_ref.md</code>.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="trac"><code>---
 bibliography: nao.bib
 nocite: '@*'
 ...
 </code></pre></div>    </div>
-    <p>Basically it says that it has to read the references from <code class="language-plaintext highlighter-rouge">nao.bib</code> and cite all of them.</p>
+    <p>Basically it says that it has to read the references from <code class="highlighter-rouge">nao.bib</code> and cite all of them.</p>
   </li>
   <li>Run the following command:
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="trac"><code>pandoc -t markdown_strict --filter=pandoc-citeproc nao_ref.md -o nao.md
+    <div class="highlighter-rouge"><div class="highlight"><pre class="trac"><code>pandoc -t markdown_strict --filter=pandoc-citeproc nao_ref.md -o nao.md
 </code></pre></div>    </div>
-    <p>Here it is: <code class="language-plaintext highlighter-rouge">nao.md</code> can now be used, for example in a presentation (well, maybe not a good idea to list references in a presentation), or in a web page. We just paste one reference of the list.</p>
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="trac"><code>Narayan, N., A. Paul, S. Mulitza, and M. Schulz. 2010. “Trends in
+    <p>Here it is: <code class="highlighter-rouge">nao.md</code> can now be used, for example in a presentation (well, maybe not a good idea to list references in a presentation), or in a web page. We just paste one reference of the list.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="trac"><code>Narayan, N., A. Paul, S. Mulitza, and M. Schulz. 2010. “Trends in
 Coastal Upwelling Intensity During the Late 20th Century.” *Ocean
 Science* 6 (3): 815–23. &lt;https://doi.org/10.5194/os-6-815-2010&gt;
 </code></pre></div>    </div>
@@ -134,23 +134,23 @@ Science* 6 (3): 815–23. &lt;https://doi.org/10.5194/os-6-815-2010&gt;
 <p>The result is a little blunt, let’s see what we can do to improve it.</p>
 
 <h4 id="add-content">Add content</h4>
-<p>We can easily edit <code class="language-plaintext highlighter-rouge">nao_ref.md</code>, for instance:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="trac"><code>---
+<p>We can easily edit <code class="highlighter-rouge">nao_ref.md</code>, for instance:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="trac"><code>---
 bibliography: nao.bib
 nocite: '@*'
 ...
 ### North Atlantic Oscillation
 Here is a list of relevant publications related to the NAO.
 </code></pre></div></div>
-<p>After running again the <code class="language-plaintext highlighter-rouge">pandoc</code> command, the last 2 lines we’ve added at the end of the file will be present in the MarkDown file.</p>
+<p>After running again the <code class="highlighter-rouge">pandoc</code> command, the last 2 lines we’ve added at the end of the file will be present in the MarkDown file.</p>
 
 <h4 id="changing-style">Changing style</h4>
-<p>Each journal has its style concerning the bibliography (the famous <code class="language-plaintext highlighter-rouge">bst</code> files, if you’re using LaTeX). Here the equivalent is the so-called <a href="https://citationstyles.org/">Citation Style Language</a> (.csl) files. You can browse a massive list of styles and chose the one that fits.   <br />
-Here we decided to go with <code class="language-plaintext highlighter-rouge">ocean-science.csl</code>. We add the option to the pandoc command:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="trac"><code>pandoc -t markdown_strict --filter=pandoc-citeproc --csl ocean-science.csl nao_ref.md -o nao.md
+<p>Each journal has its style concerning the bibliography (the famous <code class="highlighter-rouge">bst</code> files, if you’re using LaTeX). Here the equivalent is the so-called <a href="https://citationstyles.org/">Citation Style Language</a> (.csl) files. You can browse a massive list of styles and chose the one that fits.   <br />
+Here we decided to go with <code class="highlighter-rouge">ocean-science.csl</code>. We add the option to the pandoc command:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="trac"><code>pandoc -t markdown_strict --filter=pandoc-citeproc --csl ocean-science.csl nao_ref.md -o nao.md
 </code></pre></div></div>
 <p>and the resulting reference is now:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="trac"><code>Narayan, N., Paul, A., Mulitza, S. and Schulz, M.: Trends in coastal
+<div class="highlighter-rouge"><div class="highlight"><pre class="trac"><code>Narayan, N., Paul, A., Mulitza, S. and Schulz, M.: Trends in coastal
 upwelling intensity during the late 20th century, Ocean Science, 6(3),
 815–823,
 doi:[10.5194/os-6-815-2010](https://doi.org/10.5194/os-6-815-2010),

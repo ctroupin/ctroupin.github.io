@@ -3,7 +3,7 @@ layout: post
 title: Digital terrain model processing
 date: 2021-07-31
 img: GCaltitude_nocbab_rain_m.png
-alt: La Palma topography
+alt: Gran Canaria altitude
 tools: QGIS, gdal
 topic: Data visualisation
 ---

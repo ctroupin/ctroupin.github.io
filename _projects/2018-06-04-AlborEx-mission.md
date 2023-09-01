@@ -10,20 +10,18 @@ category: Scientific illustration
 doi: 10.3389/fmars.2017.00039
 ---
 
-In May 2014, the *AlborEx* mission took place with the objective to measure the water properties in a dynamic area of the Mediterranean Sea with a high spatial resolution. The sampling strategy included gliders, drifters, profiling floats...
+## The project
 
-### Concept
+In May 2014, the `AlborEx` mission took place with the objective to measure the water properties in a dynamic area of the Mediterranean Sea with a high spatial resolution. The sampling strategy included gliders, drifters, profiling floats...
 
-The illustration had 2 purposes:
-1. Display the available platforms deployed in the studied area.
-2. Provide an overview of the condition (temperature and currents) when the mission took place.
+## Contributions
 
-### Realisation
+- Creation of the main illustration of the experiment
+- 
 
-The difficulty came from the quantity of information to be displayed. It took approximatively 20 iterations to reach the final version, even if, now that I'm looking at it again, there might be other improvements I should do.
+## Results
 
-<img src="{{ site.url }}/figures/projects/{{ page.img }}" class="img-responsive" alt="{{ page.title }}">
-
-To provide more context to the image, a high-resolution *sea surface temperature* image was added as the background. In order to avoid simulating fake fronts, a colorbar with a uniform variation in intensity was chosen.
-
-The *geostrophic velocity* field is displayed using streamlines. The gray intensity of the streamlines reflects the intensity of the geostrophic currents. The inset image gives a detailed view of the deployments along with a clear caption.
+Several papers were published following `AlborEx`:
+- [Pascual et al. (2017)](https://www.frontiersin.org/articles/10.3389/fmars.2017.00039/full)
+- [Ruiz et al. (2019)](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019JC015034)
+- [Troupin et al. (2019)](https://essd.copernicus.org/articles/11/129/2019/)

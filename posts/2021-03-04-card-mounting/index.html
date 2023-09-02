@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Charles Troupin</title>
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Turning ocean data into stories">
+    <meta name="description" content=" ">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
     <link rel="canonical" href="https://ctroupin.github.io/posts/2021-03-04-card-mounting/">
@@ -87,11 +87,11 @@ solved the problem.</p>
 <h3 id="explanations">Explanations</h3>
 
 <p>Not clear yet why it works, and no time to dig. Let’s just say this:   <br />
-<code class="highlighter-rouge">mknod</code>: this command creates a filesystem node</p>
+<code class="language-plaintext highlighter-rouge">mknod</code>: this command creates a filesystem node</p>
 
 <h4 id="how-do-we-find-the-card-reader">How do we find the card reader?</h4>
 
-<p>With the <code class="highlighter-rouge">dmesg</code> (diagnostic message) command. According to the doc: “the default action is to display all messages from the kernel ring buffer”. <code class="highlighter-rouge">dmesg</code> is
+<p>With the <code class="language-plaintext highlighter-rouge">dmesg</code> (diagnostic message) command. According to the doc: “the default action is to display all messages from the kernel ring buffer”. <code class="language-plaintext highlighter-rouge">dmesg</code> is
 typically used after a device is plugged in, to check the operation went fine.</p>
 
 <h4 id="what-is-the-meaning-of-the-arguments">What is the meaning of the arguments?</h4>
@@ -99,13 +99,13 @@ typically used after a device is plugged in, to check the operation went fine.</
 <ol>
   <li>The letter that comes after the node means:
     <ul>
-      <li><code class="highlighter-rouge">c</code> is for character device.</li>
-      <li><code class="highlighter-rouge">b</code> for block devices</li>
-      <li><code class="highlighter-rouge">p</code> for fifo (pipe).</li>
+      <li><code class="language-plaintext highlighter-rouge">c</code> is for character device.</li>
+      <li><code class="language-plaintext highlighter-rouge">b</code> for block devices</li>
+      <li><code class="language-plaintext highlighter-rouge">p</code> for fifo (pipe).</li>
     </ul>
   </li>
   <li>The second parameter is the <em>major number</em>, it identifies the driver for the kernel to use. The major numbers can be found in <a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/admin-guide/devices.txt">this document</a>.     <br />
-For the <code class="highlighter-rouge">179 block</code>, we have this information:
+For the <code class="language-plaintext highlighter-rouge">179 block</code>, we have this information:
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>179 block       MMC block devices
        0 <span class="o">=</span> /dev/mmcblk0      First SD/MMC card
        1 <span class="o">=</span> /dev/mmcblk0p1    First partition on first MMC card

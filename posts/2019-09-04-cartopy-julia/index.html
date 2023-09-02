@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Charles Troupin</title>
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Turning ocean data into stories">
+    <meta name="description" content=" ">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
     <link rel="canonical" href="https://ctroupin.github.io/posts/2019-09-04-cartopy-julia/">
@@ -77,16 +77,16 @@
 					
 					
 				</div>
-				<p>A quick example of how to work with <code class="highlighter-rouge">Cartopy</code> and <code class="highlighter-rouge">Julia</code> to process and visualise 2D fields and visible images.</p>
+				<p>A quick example of how to work with <code class="language-plaintext highlighter-rouge">Cartopy</code> and <code class="language-plaintext highlighter-rouge">Julia</code> to process and visualise 2D fields and visible images.</p>
 
 <p><img src="https://ctroupin.github.io/figures/blog/visible_chloro_julia.png" class="img-responsive" /></p>
 
-<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">using</span> <span class="n">NCDatasets</span>
-<span class="n">using</span> <span class="n">PyPlot</span>
-<span class="n">using</span> <span class="n">ImageView</span>
-<span class="n">using</span> <span class="n">ArchGDAL</span>
-<span class="n">using</span> <span class="n">PyCall</span>
-<span class="n">using</span> <span class="n">Conda</span>
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">using</span> <span class="n">NCDatasets</span>
+<span class="k">using</span> <span class="n">PyPlot</span>
+<span class="k">using</span> <span class="n">ImageView</span>
+<span class="k">using</span> <span class="n">ArchGDAL</span>
+<span class="k">using</span> <span class="n">PyCall</span>
+<span class="k">using</span> <span class="n">Conda</span>
 <span class="n">Conda</span><span class="o">.</span><span class="n">add</span><span class="x">(</span><span class="s">"cmocean"</span><span class="x">)</span>
 </code></pre></div></div>
 
@@ -103,24 +103,24 @@
 <span class="n">isfile</span><span class="x">(</span><span class="n">imagefile</span><span class="x">)</span> <span class="o">&amp;</span> <span class="n">isfile</span><span class="x">(</span><span class="n">datafile</span><span class="x">)</span>
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="trac"><code>true
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="trac"><code>true
 </code></pre></div></div>
 
 <h3 id="reading-the-netcdf-file">Reading the netCDF file</h3>
-<p>That’s an easy job if we use the <code class="highlighter-rouge">NCDatasets</code> module.</p>
+<p>That’s an easy job if we use the <code class="language-plaintext highlighter-rouge">NCDatasets</code> module.</p>
 
 <div class="language-julia highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">function</span><span class="nf"> read_chloro</span><span class="x">(</span><span class="n">datafile</span><span class="o">::</span><span class="kt">String</span><span class="x">)</span>
     <span class="kd">local</span> <span class="n">lon</span><span class="x">,</span> <span class="n">lat</span><span class="x">,</span> <span class="n">chl_oc3</span>
-    <span class="n">NCDatasets</span><span class="o">.</span><span class="n">Dataset</span><span class="x">(</span><span class="n">datafile</span><span class="x">,</span> <span class="s">"r"</span><span class="x">)</span> <span class="n">do</span> <span class="n">ds</span>
-        <span class="n">lon</span> <span class="o">=</span> <span class="n">ds</span><span class="x">[</span><span class="s">"lon"</span><span class="x">][:]</span>
-        <span class="n">lat</span> <span class="o">=</span> <span class="n">ds</span><span class="x">[</span><span class="s">"lat"</span><span class="x">][:]</span>
-        <span class="n">chl_oc3</span> <span class="o">=</span> <span class="n">ds</span><span class="x">[</span><span class="s">"chl_oc3"</span><span class="x">][:]</span>
+    <span class="n">NCDatasets</span><span class="o">.</span><span class="n">Dataset</span><span class="x">(</span><span class="n">datafile</span><span class="x">,</span> <span class="s">"r"</span><span class="x">)</span> <span class="k">do</span> <span class="n">ds</span>
+        <span class="n">lon</span> <span class="o">=</span> <span class="n">ds</span><span class="x">[</span><span class="s">"lon"</span><span class="x">][</span><span class="o">:</span><span class="x">]</span>
+        <span class="n">lat</span> <span class="o">=</span> <span class="n">ds</span><span class="x">[</span><span class="s">"lat"</span><span class="x">][</span><span class="o">:</span><span class="x">]</span>
+        <span class="n">chl_oc3</span> <span class="o">=</span> <span class="n">ds</span><span class="x">[</span><span class="s">"chl_oc3"</span><span class="x">][</span><span class="o">:</span><span class="x">]</span>
     <span class="k">end</span>
     <span class="k">return</span> <span class="n">lon</span><span class="x">,</span> <span class="n">lat</span><span class="x">,</span> <span class="n">chl_oc3</span>
 <span class="k">end</span>
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="trac"><code>read_chloro (generic function with 1 method)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="trac"><code>read_chloro (generic function with 1 method)
 </code></pre></div></div>
 
 <div class="language-julia highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">lon</span><span class="x">,</span> <span class="n">lat</span><span class="x">,</span> <span class="n">chl_oc3</span> <span class="o">=</span> <span class="n">read_chloro</span><span class="x">(</span><span class="n">datafile</span><span class="x">);</span>
@@ -129,21 +129,21 @@
 <p>Let’s make a quick plot:</p>
 
 <div class="language-julia highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">NN</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">PyPlot</span><span class="o">.</span><span class="n">pcolormesh</span><span class="x">(</span><span class="n">lon</span><span class="x">[</span><span class="mi">1</span><span class="x">:</span><span class="n">NN</span><span class="x">:</span><span class="k">end</span><span class="x">,</span><span class="mi">1</span><span class="x">:</span><span class="n">NN</span><span class="x">:</span><span class="k">end</span><span class="x">],</span> <span class="n">lat</span><span class="x">[</span><span class="mi">1</span><span class="x">:</span><span class="n">NN</span><span class="x">:</span><span class="k">end</span><span class="x">,</span><span class="mi">1</span><span class="x">:</span><span class="n">NN</span><span class="x">:</span><span class="k">end</span><span class="x">],</span>
-    <span class="n">chl_oc3</span><span class="x">[</span><span class="mi">1</span><span class="x">:</span><span class="n">NN</span><span class="x">:</span><span class="k">end</span><span class="x">,</span><span class="mi">1</span><span class="x">:</span><span class="n">NN</span><span class="x">:</span><span class="k">end</span><span class="x">],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">PyPlot</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">BuGn_r</span><span class="x">,</span>
+<span class="n">PyPlot</span><span class="o">.</span><span class="n">pcolormesh</span><span class="x">(</span><span class="n">lon</span><span class="x">[</span><span class="mi">1</span><span class="o">:</span><span class="n">NN</span><span class="o">:</span><span class="k">end</span><span class="x">,</span><span class="mi">1</span><span class="o">:</span><span class="n">NN</span><span class="o">:</span><span class="k">end</span><span class="x">],</span> <span class="n">lat</span><span class="x">[</span><span class="mi">1</span><span class="o">:</span><span class="n">NN</span><span class="o">:</span><span class="k">end</span><span class="x">,</span><span class="mi">1</span><span class="o">:</span><span class="n">NN</span><span class="o">:</span><span class="k">end</span><span class="x">],</span>
+    <span class="n">chl_oc3</span><span class="x">[</span><span class="mi">1</span><span class="o">:</span><span class="n">NN</span><span class="o">:</span><span class="k">end</span><span class="x">,</span><span class="mi">1</span><span class="o">:</span><span class="n">NN</span><span class="o">:</span><span class="k">end</span><span class="x">],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">PyPlot</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">BuGn_r</span><span class="x">,</span>
     <span class="n">vmin</span><span class="o">=</span><span class="mf">0.95</span><span class="x">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">7.5</span><span class="x">)</span>
 </code></pre></div></div>
 
 <p><img src="https://ctroupin.github.io/figures/blog/cartopy-julia/output_8_0.png" class="img-responsive" /></p>
 
 <h3 id="reading-the-geotiff">Reading the geoTIFF</h3>
-<p>We will use the <a href="https://github.com/yeesian/ArchGDAL.jl"><code class="highlighter-rouge">ArchGDAL</code></a> package to access the information from the geoTIFF file.     <br />
+<p>We will use the <a href="https://github.com/yeesian/ArchGDAL.jl"><code class="language-plaintext highlighter-rouge">ArchGDAL</code></a> package to access the information from the geoTIFF file.     <br />
 The function below reads the dimensions, the coordinates and the 2D layer.</p>
 
 <div class="language-julia highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">function</span><span class="nf"> read_geotiff</span><span class="x">(</span><span class="n">filename</span><span class="o">::</span><span class="kt">String</span><span class="x">)</span>
     <span class="kd">local</span> <span class="n">field</span><span class="x">,</span> <span class="n">lon</span><span class="x">,</span> <span class="n">lat</span><span class="x">,</span> <span class="n">proj4</span><span class="x">,</span> <span class="n">extent</span>
-    <span class="n">ArchGDAL</span><span class="o">.</span><span class="n">registerdrivers</span><span class="x">()</span> <span class="n">do</span>
-        <span class="n">ArchGDAL</span><span class="o">.</span><span class="n">read</span><span class="x">(</span><span class="n">filename</span><span class="x">)</span> <span class="n">do</span> <span class="n">dataset</span>
+    <span class="n">ArchGDAL</span><span class="o">.</span><span class="n">registerdrivers</span><span class="x">()</span> <span class="k">do</span>
+        <span class="n">ArchGDAL</span><span class="o">.</span><span class="n">read</span><span class="x">(</span><span class="n">filename</span><span class="x">)</span> <span class="k">do</span> <span class="n">dataset</span>
             <span class="n">width</span> <span class="o">=</span> <span class="n">ArchGDAL</span><span class="o">.</span><span class="n">width</span><span class="x">(</span><span class="n">dataset</span><span class="x">)</span>
             <span class="n">height</span> <span class="o">=</span> <span class="n">ArchGDAL</span><span class="o">.</span><span class="n">height</span><span class="x">(</span><span class="n">dataset</span><span class="x">)</span>
             <span class="n">field</span> <span class="o">=</span> <span class="n">ArchGDAL</span><span class="o">.</span><span class="n">read</span><span class="x">(</span><span class="n">dataset</span><span class="x">)</span>
@@ -155,8 +155,8 @@ The function below reads the dimensions, the coordinates and the 2D layer.</p>
             <span class="n">y0</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="x">(</span><span class="n">height</span><span class="o">-</span><span class="mi">1</span><span class="x">)</span><span class="o">*</span><span class="n">dy</span>
 
             <span class="n">proj4</span> <span class="o">=</span> <span class="n">strip</span><span class="x">(</span><span class="n">ArchGDAL</span><span class="o">.</span><span class="n">toPROJ4</span><span class="x">(</span><span class="n">ArchGDAL</span><span class="o">.</span><span class="n">importWKT</span><span class="x">(</span><span class="n">ArchGDAL</span><span class="o">.</span><span class="n">getproj</span><span class="x">(</span><span class="n">dataset</span><span class="x">))))</span>
-            <span class="n">lon</span> <span class="o">=</span> <span class="n">x0</span><span class="x">:</span><span class="n">dx</span><span class="x">:</span><span class="n">x1</span>
-            <span class="n">lat</span> <span class="o">=</span> <span class="n">y0</span><span class="x">:</span><span class="n">dy</span><span class="x">:</span><span class="n">y1</span>
+            <span class="n">lon</span> <span class="o">=</span> <span class="n">x0</span><span class="o">:</span><span class="n">dx</span><span class="o">:</span><span class="n">x1</span>
+            <span class="n">lat</span> <span class="o">=</span> <span class="n">y0</span><span class="o">:</span><span class="n">dy</span><span class="o">:</span><span class="n">y1</span>
 
             <span class="n">extent</span> <span class="o">=</span> <span class="x">(</span><span class="n">x0</span><span class="x">,</span> <span class="n">x1</span><span class="x">,</span> <span class="n">y0</span><span class="x">,</span> <span class="n">y1</span><span class="x">)</span>
         <span class="k">end</span>
@@ -165,18 +165,18 @@ The function below reads the dimensions, the coordinates and the 2D layer.</p>
 <span class="k">end</span>
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="trac"><code>read_geotiff (generic function with 1 method)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="trac"><code>read_geotiff (generic function with 1 method)
 </code></pre></div></div>
 
 <div class="language-julia highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">lonvis</span><span class="x">,</span> <span class="n">latvis</span><span class="x">,</span> <span class="n">imagevis</span><span class="x">,</span> <span class="n">proj4</span><span class="x">,</span> <span class="n">extent</span> <span class="o">=</span> <span class="n">read_geotiff</span><span class="x">(</span><span class="n">imagefile</span><span class="x">);</span>
 <span class="nd">@info</span><span class="x">(</span><span class="s">"Image size: </span><span class="si">$</span><span class="s">(size(imagevis))"</span><span class="x">)</span>
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="trac"><code>┌ Info: Image size: (3564, 1833, 3)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="trac"><code>┌ Info: Image size: (3564, 1833, 3)
 └ @ Main In[4]:2
 </code></pre></div></div>
 
-<p>For the plot we can simply use the <code class="highlighter-rouge">imshow()</code> method.   <br />
+<p>For the plot we can simply use the <code class="language-plaintext highlighter-rouge">imshow()</code> method.   <br />
 Note the permutation applied to the first 2 dimensions of the field.</p>
 
 <div class="language-julia highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">PyPlot</span><span class="o">.</span><span class="n">imshow</span><span class="x">(</span><span class="n">permutedims</span><span class="x">(</span><span class="n">imagevis</span><span class="x">,</span> <span class="x">(</span><span class="mi">2</span><span class="x">,</span><span class="mi">1</span><span class="x">,</span><span class="mi">3</span><span class="x">)))</span>
@@ -186,16 +186,16 @@ Note the permutation applied to the first 2 dimensions of the field.</p>
 
 <h2 id="plotting-with-cartopy">Plotting with Cartopy</h2>
 
-<p>The installation of Cartopy with Julia is not explained in details here. A solution is to use the <code class="highlighter-rouge">Conda</code> module and then install <code class="highlighter-rouge">Cartopy</code> with:</p>
-<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">using</span> <span class="n">Conda</span>
+<p>The installation of Cartopy with Julia is not explained in details here. A solution is to use the <code class="language-plaintext highlighter-rouge">Conda</code> module and then install <code class="language-plaintext highlighter-rouge">Cartopy</code> with:</p>
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">using</span> <span class="n">Conda</span>
 <span class="n">Conda</span><span class="o">.</span><span class="n">add</span><span class="x">(</span><span class="s">"Cartopy"</span><span class="x">)</span>
 </code></pre></div></div>
-<p><code class="highlighter-rouge">Cartopy</code> is a Python module hence it is not directly imported by Julia.</p>
+<p><code class="language-plaintext highlighter-rouge">Cartopy</code> is a Python module hence it is not directly imported by Julia.</p>
 
 <div class="language-julia highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">ccrs</span> <span class="o">=</span> <span class="n">pyimport</span><span class="x">(</span><span class="s">"cartopy.crs"</span><span class="x">)</span>
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="trac"><code>PyObject &lt;module 'cartopy.crs' from '/home/ctroupin/.julia/conda/3/lib/python3.7/site-packages/cartopy/crs.py'&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="trac"><code>PyObject &lt;module 'cartopy.crs' from '/home/ctroupin/.julia/conda/3/lib/python3.7/site-packages/cartopy/crs.py'&gt;
 </code></pre></div></div>
 
 <h3 id="create-a-projection">Create a projection</h3>
@@ -222,9 +222,9 @@ Note the permutation applied to the first 2 dimensions of the field.</p>
 <h4 id="final-remarks">Final remarks</h4>
 
 <ol>
-  <li>I’m quite new to <code class="highlighter-rouge">Cartopy</code> so there are probably many ways to improve the figure.</li>
+  <li>I’m quite new to <code class="language-plaintext highlighter-rouge">Cartopy</code> so there are probably many ways to improve the figure.</li>
   <li>For the final plot you may want to use the full resolution for the 2D field (i.e. setting NN=1). Just take into account that this may take a while, more than 20 minutes in my case, with the computer almost not responding.</li>
-  <li>The <code class="highlighter-rouge">PyPlot.</code>prefixes of the commands can certainly be removed, but I prefer to keep them for explicitness.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">PyPlot.</code>prefixes of the commands can certainly be removed, but I prefer to keep them for explicitness.</li>
 </ol>
 
 			</blogsection>

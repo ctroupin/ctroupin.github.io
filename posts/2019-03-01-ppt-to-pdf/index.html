@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Charles Troupin</title>
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Turning ocean data into stories">
+    <meta name="description" content=" ">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
     <link rel="canonical" href="https://ctroupin.github.io/posts/2019-03-01-ppt-to-pdf/">
@@ -84,7 +84,7 @@
 
 <p>Yesterday during the group meeting at work, a colleague reminded me a nice story that I hold him but had totally forgotten since then.</p>
 
-<p>Some years ago, I had to prepare a presentation for a talk, as usual, did it in <code class="highlighter-rouge">LaTeX</code>. It was a nice one, so my boss at that time asked if I could send him the <em>ppt</em>. The what? Yes, the file in powerpoint format. I did not use that for many years so that was kind of a surprise. I told him:</p>
+<p>Some years ago, I had to prepare a presentation for a talk, as usual, did it in <code class="language-plaintext highlighter-rouge">LaTeX</code>. It was a nice one, so my boss at that time asked if I could send him the <em>ppt</em>. The what? Yes, the file in powerpoint format. I did not use that for many years so that was kind of a surprise. I told him:</p>
 <blockquote>
   <p>Sorry, I prepared it in LaTeX, so I can only send a pdf file (or the LaTeX source).</p>
 </blockquote>
@@ -102,17 +102,17 @@
 
 <h4 id="1-turn-the-pdf-into">1. Turn the pdf into</h4>
 
-<p>Get the <a href="https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/"><code class="highlighter-rouge">PDFtk</code></a> toolkit and run the following command on your pdf:</p>
+<p>Get the <a href="https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/"><code class="language-plaintext highlighter-rouge">PDFtk</code></a> toolkit and run the following command on your pdf:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>pdftk input.pdf burst
 </code></pre></div></div>
 <p>You obtain a series of pdf named: pg_0001.pdf, pg_0002.pdf, …</p>
 
 <h4 id="2-convert-the-pages-into-jpg">2. Convert the pages into jpg</h4>
 
-<p>Here we use the <a href="https://imagemagick.org/script/convert.php"><code class="highlighter-rouge">convert</code></a> tool, which comes with
-<code class="highlighter-rouge">ImageMagick</code>. You can loop on the files and apply the conversion on each of them, with something like:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">for </span>ii <span class="k">in</span> <span class="k">$(</span><span class="nb">ls </span>pg_<span class="k">*</span>.pdf<span class="k">)</span><span class="p">;</span> <span class="k">do
-  </span><span class="nv">outputfile</span><span class="o">=</span><span class="k">$(</span><span class="nb">basename</span> <span class="k">${</span><span class="nv">ii</span><span class="k">}</span> <span class="s1">'.pdf'</span><span class="k">)</span><span class="s2">".jpg"</span>
+<p>Here we use the <a href="https://imagemagick.org/script/convert.php"><code class="language-plaintext highlighter-rouge">convert</code></a> tool, which comes with
+<code class="language-plaintext highlighter-rouge">ImageMagick</code>. You can loop on the files and apply the conversion on each of them, with something like:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">for </span>ii <span class="k">in</span> <span class="si">$(</span><span class="nb">ls </span>pg_<span class="k">*</span>.pdf<span class="si">)</span><span class="p">;</span> <span class="k">do
+  </span><span class="nv">outputfile</span><span class="o">=</span><span class="si">$(</span><span class="nb">basename</span> <span class="k">${</span><span class="nv">ii</span><span class="k">}</span> <span class="s1">'.pdf'</span><span class="si">)</span><span class="s2">".jpg"</span>
   <span class="nb">echo</span> <span class="k">${</span><span class="nv">ii</span><span class="k">}</span> <span class="s2">"--&gt;"</span> <span class="k">${</span><span class="nv">outputfile</span><span class="k">}</span>
   convert <span class="nt">-density</span> 300 <span class="k">${</span><span class="nv">ii</span><span class="k">}</span> <span class="k">${</span><span class="nv">outputfile</span><span class="k">}</span>
 <span class="k">done</span>
@@ -122,7 +122,7 @@ or decrease the quality of the jpg images.</p>
 
 <h4 id="3-add-the-images-into-the-presentation">3. Add the images into the presentation</h4>
 
-<p>As I only have <code class="highlighter-rouge">LibreOffice</code> installed, I will show how to do with it with Impress.   <br />
+<p>As I only have <code class="language-plaintext highlighter-rouge">LibreOffice</code> installed, I will show how to do with it with Impress.   <br />
 The solution is to add a <em>media</em> which is a <em>photo album</em>, and then add the photos from the album
 into the presentation.</p>
 

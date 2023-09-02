@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Charles Troupin</title>
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Turning ocean data into stories">
+    <meta name="description" content=" ">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
     <link rel="canonical" href="https://ctroupin.github.io/posts/2021-01-01-city-running/">
@@ -97,7 +97,7 @@ the moves recorded with the device (more than 2500 in my case).</p>
 <h3 id="update">Update</h3>
 
 <p>Due to change in Suunto move management, I had to switch to a more manual method.
-The log files are not directly extracted from the watch using the <a href="https://github.com/openambitproject/openambit"><code class="highlighter-rouge">openambit</code></a> project.</p>
+The log files are not directly extracted from the watch using the <a href="https://github.com/openambitproject/openambit"><code class="language-plaintext highlighter-rouge">openambit</code></a> project.</p>
 
 <p>It is quite strange to have to rely on code not written by Suunto, but hey, if they
 cannot ensure the data transfer, then the watch is kind of useless.</p>
@@ -106,17 +106,17 @@ cannot ensure the data transfer, then the watch is kind of useless.</p>
 
 <h3 id="converting-to-gpx">Converting to GPX</h3>
 
-<h4 id="fit-files"><code class="highlighter-rouge">.fit</code> files</h4>
+<h4 id="fit-files"><code class="language-plaintext highlighter-rouge">.fit</code> files</h4>
 
-<p>When you export from Movescount, the file format is <code class="highlighter-rouge">.fit</code>. It can easily be
-converted to <code class="highlighter-rouge">.gpx</code> using the awesome <a href="https://www.gpsbabel.org/"><code class="highlighter-rouge">gpsbabel</code></a> tool. The command for the conversion reads:</p>
+<p>When you export from Movescount, the file format is <code class="language-plaintext highlighter-rouge">.fit</code>. It can easily be
+converted to <code class="language-plaintext highlighter-rouge">.gpx</code> using the awesome <a href="https://www.gpsbabel.org/"><code class="language-plaintext highlighter-rouge">gpsbabel</code></a> tool. The command for the conversion reads:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>gpsbabel <span class="nt">-i</span> garmin_fit <span class="nt">-f</span> input.fit <span class="nt">-o</span> gpx <span class="nt">-F</span> output.gpx
 </code></pre></div></div>
 <p>and we can loop on all the files to apply this conversion.</p>
 
-<h4 id="log-files"><code class="highlighter-rouge">.log</code> files</h4>
+<h4 id="log-files"><code class="language-plaintext highlighter-rouge">.log</code> files</h4>
 
-<p>If you use Openambit, you end up with <code class="highlighter-rouge">.log</code> files that you can convert to <code class="highlighter-rouge">gpx</code> using a tool provided with Openambit: <a href="https://github.com/openambitproject/openambit/blob/master/tools/openambit2gpx.py"><code class="highlighter-rouge">openambit2gpx.py</code></a>. The file name is quite explicit.</p>
+<p>If you use Openambit, you end up with <code class="language-plaintext highlighter-rouge">.log</code> files that you can convert to <code class="language-plaintext highlighter-rouge">gpx</code> using a tool provided with Openambit: <a href="https://github.com/openambitproject/openambit/blob/master/tools/openambit2gpx.py"><code class="language-plaintext highlighter-rouge">openambit2gpx.py</code></a>. The file name is quite explicit.</p>
 
 <h3 id="selection-by-type-of-activity">Selection by type of activity</h3>
 
@@ -143,7 +143,7 @@ geo-referencing. What we did is to base the classification on the distance betwe
 If that computed distance is below a given threshold, then the track becomes to that region.</li>
 </ul>
 
-<p>Of course we could use a geocoder such as <code class="highlighter-rouge">geopy</code>, though here we prefered to keep it simple.</p>
+<p>Of course we could use a geocoder such as <code class="language-plaintext highlighter-rouge">geopy</code>, though here we prefered to keep it simple.</p>
 
 <h4 id="example">Example</h4>
 

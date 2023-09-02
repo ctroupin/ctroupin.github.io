@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Charles Troupin</title>
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Turning ocean data into stories">
+    <meta name="description" content=" ">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
     <link rel="canonical" href="https://ctroupin.github.io/posts/2019-01-28-publi-orbi/">
@@ -102,12 +102,12 @@
 <p>Ideally you would prefer to write it to a file, like this:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>curl <span class="nt">-LH</span> <span class="s2">"Accept: text/bibliography; style=bibtex"</span> http://dx.doi.org/10.5194/essd-11-129-2019 <span class="o">&gt;&gt;</span> reference.bib
 </code></pre></div></div>
-<p>and finally, as you don’t want to remember that command, you create a script <code class="highlighter-rouge">doi2bib</code> that you can call easily:</p>
+<p>and finally, as you don’t want to remember that command, you create a script <code class="language-plaintext highlighter-rouge">doi2bib</code> that you can call easily:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>doi2bib 10.5194/essd-11-129-2019 reference.bib
 </code></pre></div></div>
 <p>where the DOI and the file to which it will be written have to be adapted.</p>
 
-<p><em>Issue:</em> with this technique the list of authors is not complete. It can probably be fixed using other options with <code class="highlighter-rouge">curl</code>.</p>
+<p><em>Issue:</em> with this technique the list of authors is not complete. It can probably be fixed using other options with <code class="language-plaintext highlighter-rouge">curl</code>.</p>
 
 <h4 id="other-technique">Other technique</h4>
 

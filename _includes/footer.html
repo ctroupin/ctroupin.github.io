@@ -3,25 +3,8 @@
         <div class="footer-above">
             <div class="container">
                 <div class="row">
-                    <div class="footer-col col-md-3">
-
-                        <p> <b><i class="fas fa-map-marker-alt"></i> </b>
-                            {% for adress in site.address %}
-                                {{ adress.line }} <br>
-		                    {% endfor %}
-                        </p>
-                    </div>
-                    <div class="footer-col col-md-9">
-                        <p><b>{{ site.footer.credits }}</b>: {{ site.credits }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-below">
-            <div class="container">
-                <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; {{ site.footer.copyright }} 20{{ site.time | date: '%y' }}
+                        <p>Copyright &copy; {{ site.footer.copyright }} 20{{ site.time | date: '%y' }}</p>
                     </div>
                 </div>
             </div>

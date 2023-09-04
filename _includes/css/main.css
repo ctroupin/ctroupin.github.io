@@ -4,6 +4,8 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap');
+
 body {
     overflow-x: hidden;
     color: #{{ site.color.primary }}
@@ -73,7 +75,7 @@ h6 {
 }
 
 h2 {
-    font-family: "D-DIN"
+    font-family: 'Barlow', sans-serif;
 }
 
 h4 {

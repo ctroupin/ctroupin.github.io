@@ -13,10 +13,19 @@ echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-gem install bundler jekyll --user-install
+### Install `bundler` and `jekyll`
 
+```bash
+gem install bundler jekyll --user-install
+```
+
+### Tests
+
+```bash
 jekyll --version
 jekyll 4.3.2
+```
+
 
 bundle install
 

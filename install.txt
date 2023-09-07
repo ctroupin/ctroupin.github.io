@@ -13,6 +13,13 @@ echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
+### Install ruby
+
+```bash
+ sudo apt  install ruby-bundler
+sudo apt install ruby-dev
+```
+
 ### Install `bundler` and `jekyll`
 
 ```bash

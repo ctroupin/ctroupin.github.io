@@ -24,19 +24,34 @@
 				<h2> {{ page.title }} </h2>
 			</center>
 			<blogsection>
-				 <div style="text-align:left; vertical-align: middle; ">
-					{% if page.date %}
-						<h4><i class="far fa-calendar-alt"></i></h4> {{ page.date | date_to_long_string }} &nbsp;
+				 <div style="text-align:left; vertical-align: middle; line-height: 1.5;">
+					{% if page.datestart %}
+						{% if page.dateend %}
+							<i class="far fa-calendar-alt"></i>&nbsp; Started: {{ page.datestart | date_to_long_string }} Finished: {{ page.dateend | date_to_long_string }}<br>           
+						{% else %}
+							<i class="far fa-calendar-alt"></i>&nbsp; Started: {{ page.datestart | date_to_long_string }} <i class="fa-solid fa-ellipsis"></i>        
+						{% endif %}
+					{% else %}
+						<i class="far fa-calendar-alt"></i>&nbsp; {{ page.date | date_to_long_string }}        
 					{% endif %}
+					<br>
+
+					{% if page.projurl %}
+						<i class="fa-solid fa-link"></i></i> &nbsp;<a href="url">{{ page.projurl }}</a>
+					{% endif %}
+					<br>
 					{% if page.tools %}
-						<h4><i class="fas fa-wrench"></i></h4> {{ page.tools }} &nbsp;
+						<i class="fas fa-wrench"></i> &nbsp; {{ page.tools }} &nbsp;
 					{% endif %}
+					<br>
 					{% if page.topic %}
-						<h4><i class="fas fa-tags"></i></h4> {{ page.topic }} &nbsp;
+						<i class="fas fa-tags"></i> &nbsp; {{ page.topic }} &nbsp;
 					{% endif %}
 					{% if page.doi %}
-						<h4><i class="ai ai-doi ai" aria-hidden="true"></i></h4> <a href=https://doi.org/{{ page.doi }}> {{ page.doi }} </a> &nbsp;
+						<h4><i class="ai ai-doi ai" aria-hidden="true"></i> </h4> <a href=https://doi.org/{{ page.doi }}> {{ page.doi }} </a> &nbsp;
 					{% endif %}
+
+					popopopop
 				</div>
 				{{ content }}
 			</blogsection>

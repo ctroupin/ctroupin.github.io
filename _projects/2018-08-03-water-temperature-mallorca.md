@@ -1,5 +1,5 @@
 ---
-layout: project
+layout: post
 title: Sea water temperature in Mallorca
 date: 2018-08-03
 img: temperatura_mallorca.png

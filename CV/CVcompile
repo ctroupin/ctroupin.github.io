@@ -2,7 +2,7 @@
 # Compile the CV (tex file) and the corresponding bibliographies
 #
 
-XELATEX='/usr/local/texlive/2021/bin/x86_64-linux/xelatex'
+XELATEX='/usr/bin/xelatex'
 PDFLATEX='/usr/bin/pdflatex'
 BIBTEX='/usr/bin/bibtex'
 input='Ctroupin_CVacademic.tex'

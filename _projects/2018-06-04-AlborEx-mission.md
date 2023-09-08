@@ -1,16 +1,17 @@
 ---
-layout: post
+layout: project
 date: 2014-07-15
+datestart: 2014-05-25
 img: AlborexMission_V19.jpg
-title: General map of the AlborEx mission
+title: AlborEx mission
 alt: General map of the AlborEx mission
 project-name: AlborEx
 tools: Python - matplotlib - basemap
 category: Scientific illustration
-doi: 10.3389/fmars.2017.00039
+projurl:  https://doi.org/10.25704/z5y2-qpye
 ---
 
-## The project
+## Project summary
 
 In May 2014, the `AlborEx` mission took place with the objective to measure the water properties in a dynamic area of the Mediterranean Sea with a high spatial resolution. The sampling strategy included gliders, drifters, profiling floats...
 

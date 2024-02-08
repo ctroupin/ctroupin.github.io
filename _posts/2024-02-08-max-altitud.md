@@ -9,8 +9,8 @@ topic: Data visualisation
 ---
 
 | Municipio                 | Max. altitud (m)  |            |
+| -----------------         | --------------    | ---------  |
 |                           | Wikipedia         | Me         |
-| -----------               | -----------       | ---------- |
 | San Bartolomé de Tirajana | 1957              |            |
 | Vega de San Mateo         | 1947              |            |
 | Tejeda                    | 1947              |            |

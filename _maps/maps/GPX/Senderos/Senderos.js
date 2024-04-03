@@ -10,7 +10,6 @@ var moves = {
 		],
 	"short" :
 		[	
-			"SanMateo01.gpx",
 			"Teror-S10.gpx",
 			"Teror-S14.gpx",
 			"Teror-S15.gpx",

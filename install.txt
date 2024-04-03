@@ -1,17 +1,42 @@
-gem install bundler jekyll --user-install
+# Instructions
 
-jekyll --version
-jekyll 4.3.2
+A few commands that helped me in the installation
 
-bundle install
+## Jekyll
 
+https://jekyllrb.com/docs/installation/ubuntu/
 
-sudo gem update
-
+```bash
 echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
 echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
 echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
+```
+
+### Install ruby
+
+```bash
+ sudo apt  install ruby-bundler
+sudo apt install ruby-dev
+```
+
+### Install `bundler` and `jekyll`
+
+```bash
+gem install bundler jekyll --user-install
+```
+
+### Tests
+
+```bash
+jekyll --version
+jekyll 4.3.2
+```
+
+
+bundle install
+
+sudo gem update
 
 bundle add jekyll --version "3.9.3"
 

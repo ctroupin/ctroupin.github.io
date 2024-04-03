@@ -13,6 +13,7 @@ var moves = {
 			"Teror-S10.gpx",
 			"Teror-S14.gpx",
 			"Teror-S15.gpx",
+			"Teror-S17.gpx",
 			"Teror-S18.gpx",
 			"Teror-S22.gpx",
 			"Valleseco-GC06.gpx",

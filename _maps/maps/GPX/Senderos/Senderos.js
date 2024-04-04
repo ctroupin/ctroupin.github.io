@@ -1,6 +1,8 @@
 var moves = { 
 	"circular": 
 		[
+			"LaAldea01.gpx",
+			"LaAldea02.gpx",
 			"Teror03.gpx",
 			"Teror04.gpx",
 			"Teror06.gpx",
@@ -10,6 +12,7 @@ var moves = {
 		],
 	"short" :
 		[	
+			"LaAldea03.gpx",
 			"Teror-S10.gpx",
 			"Teror-S14.gpx",
 			"Teror-S15.gpx",

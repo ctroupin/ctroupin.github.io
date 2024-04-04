@@ -32,5 +32,3 @@ topic: Data visualisation
 | Santa Brígida             | 946               | 943        | Pino Santo           | 
 | Arucas                    | 758               | 742        | Zona el Palmar       | 
 | Las Palmas de Gran Canaria| 722               | 720        | Zona el Espartero    | 
-
-

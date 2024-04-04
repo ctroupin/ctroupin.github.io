@@ -13,6 +13,8 @@ var moves = {
 	"short" :
 		[	
 			"LaAldea03.gpx",
+			"LaAldea04.gpx",
+			"LaAldea05.gpx",
 			"Teror-S10.gpx",
 			"Teror-S14.gpx",
 			"Teror-S15.gpx",

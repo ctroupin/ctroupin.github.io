@@ -11,11 +11,11 @@ topic: Data visualisation
 | Municipio                 | Max. altitud (m)  |            |
 | -----------------         | --------------    | ---------  |
 |                           | Wikipedia         | Me         |
-| San Bartolomé de Tirajana | 1957              |            |
+| San Bartolomé de Tirajana | 1957              | 1961       |
 | Vega de San Mateo         | 1947              |            |
 | Tejeda                    | 1947              |            |
-| Artenara                  | 1770              |            |
-| Valleseco                 | 1769              |            |
+| Artenara                  | 1770              | 1772       |
+| Valleseco                 | 1769              | 1772       |
 | Galdar                    | 1701              |            |
 | Ingenio                   | 1673              |            |
 | Aguimes                   | 1673              |            |

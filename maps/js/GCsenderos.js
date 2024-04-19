@@ -38,11 +38,11 @@ info.onAdd = function (map) {
 	return this._div;
 };
 
-info.update = function (props, d, dp, dm, last) {
-	this._div.innerHTML = (props ?
-		'<b>' + props.name + '</b><br/> <img src="../images/runner-.png" alt="Running" style="height:20px;"> ' + d.toFixed(2) + ' km' +
-		'<br/> <b><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></b> ' + dp.toFixed(1) + ' m' +
-		'&emsp; <b><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></b> ' + dm.toFixed(1) + ' m'
+info.update = function (track) {
+	this._div.innerHTML = (track ?
+		'<b>' + track.get_name() + '</b><br/> <img src="../images/runner-.png" alt="Running" style="height:20px;"> ' + (0.001 * track.get_distance()).toFixed(1) + ' km' +
+		'<br/> <b><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></b> ' + track.get_elevation_gain().toFixed(1) + ' m' +
+		'&emsp; <b><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></b> ' + track.get_elevation_loss().toFixed(1) + ' m'
 		: 'Hover over a track<br>to get more information'
 	);
 
@@ -75,22 +75,40 @@ function randomColor() {
 	return(cc);
 }
 
+var lastClicked = null;
+
 // Define some functions to work on the line look
 function highlightFeature(e) {
-	var layer = e.target;
-	trackLength = computeTrackLength(layer);
-	elevation = computeElevationGain(layer);
-	dplus = elevation[0];
-	dminus = elevation[1];
 
-	layer.setStyle({
-		weight: 5,
-		dashArray: ' '
-	});
+	var track = e.target;
+
+	if (lastClicked !== null) {
+		if(track !== lastClicked) {
+			lastClicked.setStyle({
+				weight: 3,
+				dashArray: ' '
+			});
+		}
+	};
+
+	if(e.layer.selected) {
+		track.setStyle({
+			weight: 3,
+			dashArray: ' '
+		});
+		e.layer.selected = false;
+	  } else {
+		track.setStyle({
+			weight: 5,
+		});
+		e.layer.selected = true;
+	  };
+	
 	if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-		layer.bringToFront();
+		track.bringToFront();
 	}
-	info.update(layer.feature.properties, trackLength, dplus, dminus, last);
+	info.update(track);
+	lastClicked = track;
 }
 
 function resetHighlight(e) {
@@ -98,7 +116,7 @@ function resetHighlight(e) {
 	layer.setStyle({
 		weight: 2,
 	});
-	info.update(undefined, trackLength, dplus, dminus, last);
+	info.update(layer);
 }
 
 function zoomToFeature(e) {
@@ -117,82 +135,69 @@ var onEachFeature = function (feature, layer) {
 		latlon.push([coords[i][1], coords[i][0]]);
 	}
 };
+var marker_options = {startIconUrl: '', endIconUrl: '', shadowUrl: ''}
+//var polyline_options_circular = {color: randomColor(), opacity: 0.75, weight: 3}
 
+// Create the layer groups
 
-var onEachFeatureLast = function (feature, layer) {
-	trackLength = computeTrackLength(layer);
-	elevation = computeElevationGain(layer);
-	last = {
-		name: feature.properties.name,
-		length: trackLength.toFixed(2),
-		dplus: elevation[0].toFixed(1),
-		dminus: elevation[1].toFixed(1),
-	};
-};
-
-var customLayer = L.geoJson(null, {
-	style: function(feature) {
-		coloryear = randomColor();
-		linewidth = 2;
-		lineopa = 0.9;
-		return {
-			color: coloryear,
-			weight: linewidth,
-			opacity: lineopa,
-		};
-	},
-	onEachFeature: onEachFeature
-});
-
-var circularLayer = L.geoJson(null, {
-	style: function(feature) {
-		coloryear = randomColor();
-		linewidth = 2;
-		lineopa = 0.9;
-		return {
-			color: coloryear,
-			weight: linewidth,
-			opacity: lineopa,
-		};
-	},
-	onEachFeature: onEachFeature
-});
-
-var ultraLayer = L.geoJson(null, {
-	style: function(feature) {
-		coloryear = randomColor();
-		linewidth = 2;
-		lineopa = 0.9;
-		return {
-			color: coloryear,
-			weight: linewidth,
-			opacity: lineopa,
-		};
-	},
-	onEachFeature: onEachFeature
-});
+layerGroupsCirc = new L.LayerGroup();
+layerGroupsShort = new L.LayerGroup();
+layerGroupsLong = new L.LayerGroup();
 
 var nMoves0 = moves["circular"].length;
-for (var i = 0; i < nMoves0 ; i++) {
-	var movesCirc = omnivore.gpx(gpxdir + moves["circular"][i], null, circularLayer).addTo(map);
-}
-
 var nMoves1 = moves["short"].length;
-for (var i = 0; i < nMoves1 ; i++) {
-	var moveGps = omnivore.gpx(gpxdir + moves["short"][i], null, customLayer).addTo(map);
-}
-
 var nMoves2 = moves["long"].length;
+
+for (var i = 0; i < nMoves0 ; i++) {
+	console.log(moves["circular"][i]);
+
+	new L.GPX(gpxdir + moves["circular"][i], {async: true, marker_options: marker_options}).on('loaded', function(e) {
+		layerGroupsCirc.addLayer(e.target);;
+	  }).addTo(map);
+	
+	/*
+	L.GPX(gpxdir + moves["circular"][i], {
+		async: true, 
+		//marker_options: marker_options, 
+		//polyline_options: {color: randomColor(), opacity: 0.75, weight: 2}	
+	}).addTo(map);
+	*/
+	//.on('loaded', function(e) {
+	//	layerGroupsCirc.addLayer(e.target);
+	//}).addTo(map)
+};
+
+for (var i = 0; i < nMoves1 ; i++) {
+	new L.GPX(gpxdir + moves["short"][i], {
+		async: true, 
+		marker_options: marker_options, 
+		polyline_options: {color: randomColor(), opacity: 0.75, weight: 3}	
+	}).on('loaded', function(e) {
+		layerGroupsShort.addLayer(e.target);
+	}).addTo(map)
+};
+
 for (var i = 0; i < nMoves2 ; i++) {
-	var moveGpsLong = omnivore.gpx(gpxdir + moves["long"][i], null, ultraLayer).addTo(map);
-}
+	new L.GPX(gpxdir + moves["long"][i], {
+		async: true, 
+		marker_options: marker_options, 
+		polyline_options: {color: randomColor(), opacity: 0.75, weight: 3}	
+	}).on('loaded', function(e) {
+		layerGroupsLong.addLayer(e.target);
+	}).on('click', function(e) {
+		console.log(e.target.get_name());
+		highlightFeature(e);
+	}).addTo(map)
+};
+
 
 var overlayers = {
-	"Circular": movesCirc,
-	"Short": moveGps,
-	//"Long": moveGpsLong,
-	"Municipios": geojson,
+	"Circular": layerGroupsCirc,
+	"Short": layerGroupsShort,
+	"Long": layerGroupsLong,
+	"Municipalities": geojson,
 };
+
 
 L.control.scale().addTo(map);
 L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);

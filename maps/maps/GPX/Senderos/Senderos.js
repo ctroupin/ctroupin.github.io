@@ -1,6 +1,13 @@
 var moves = { 
 	"circular": 
 		[
+			//"C20.gpx",
+			//"C30.gpx",
+			//"C31.gpx",
+			//"C33.gpx",
+			//"C38.gpx",
+			"LaAldea01.gpx",
+			"LaAldea02.gpx",
 			"Teror03.gpx",
 			"Teror04.gpx",
 			"Teror06.gpx",
@@ -10,9 +17,17 @@ var moves = {
 		],
 	"short" :
 		[	
+			"LaAldea03.gpx",
+			"LaAldea04.gpx",
+			"LaAldea05.gpx",
+			"SanMateo01.gpx",
+			"SanMateo02.gpx",
+			"SanMateo03.gpx",
+			"SanMateo04.gpx",
 			"Teror-S10.gpx",
 			"Teror-S14.gpx",
 			"Teror-S15.gpx",
+			"Teror-S17.gpx",
 			"Teror-S18.gpx",
 			"Teror-S22.gpx",
 			"Valleseco-GC06.gpx",
@@ -28,7 +43,9 @@ var moves = {
 		], 
 	"long": 
 		[
-			
+			"LR1.gpx",
+			"LR2.gpx",
+			"LR3.gpx",
 		]
 }
 

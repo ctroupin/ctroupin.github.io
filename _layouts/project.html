@@ -21,13 +21,16 @@
 	<div class="container">
 		<div class="col-lg-8 col-lg-offset-2">
 			<center>
-				<h2> {{ page.title }} </h2>
+				<h2> {{ page.projname }} </h2>
 			</center>
 			<blogsection>
 				 <div style="text-align:left; vertical-align: middle; line-height: 1.5;">
+					{% if page.img %}
+					<img src="{{ site.url }}/figures/projects/{{ page.img }}" alt="{{ page.projname }} logo" width="100"> <br>
+					{% endif %}
 					{% if page.datestart %}
 						{% if page.dateend %}
-							<i class="far fa-calendar-alt"></i>&nbsp; Started: {{ page.datestart | date_to_long_string }} Finished: {{ page.dateend | date_to_long_string }}<br>           
+							<i class="far fa-calendar-alt"></i>&nbsp; Start: {{ page.datestart | date_to_long_string }}  -  End:  {{ page.dateend | date_to_long_string }}          
 						{% else %}
 							<i class="far fa-calendar-alt"></i>&nbsp; Started: {{ page.datestart | date_to_long_string }} <i class="fa-solid fa-ellipsis"></i>        
 						{% endif %}
@@ -35,15 +38,15 @@
 						<i class="far fa-calendar-alt"></i>&nbsp; {{ page.date | date_to_long_string }}        
 					{% endif %}
 					<br>
-
 					{% if page.projurl %}
-						<i class="fa-solid fa-link"></i></i> &nbsp;<a href="url">{{ page.projurl }}</a>
+						<i class="fa-solid fa-link"></i></i> &nbsp;<a href="{{ page.projurl }}">{{ page.projurl }}</a> <br>
 					{% endif %}
-					<br>
+					{% if page.projgit %}
+					<i class="fa-brands fa-square-github"></i> &nbsp;<a href="{{ page.projgit }}">{{ page.projgit }}</a> <br>
+					{% endif %}
 					{% if page.tools %}
-						<i class="fas fa-wrench"></i> &nbsp; {{ page.tools }} &nbsp;
+						<i class="fas fa-wrench"></i> &nbsp; {{ page.tools }} &nbsp; <br>
 					{% endif %}
-					<br>
 					{% if page.topic %}
 						<i class="fas fa-tags"></i> &nbsp; {{ page.topic }} &nbsp;
 					{% endif %}
@@ -51,7 +54,6 @@
 						<h4><i class="ai ai-doi ai" aria-hidden="true"></i> </h4> <a href=https://doi.org/{{ page.doi }}> {{ page.doi }} </a> &nbsp;
 					{% endif %}
 
-					popopopop
 				</div>
 				{{ content }}
 			</blogsection>

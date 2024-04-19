@@ -12,14 +12,14 @@ projurl: https://landsealot.eu/
 
 ### The project
 
-Land-Sea Interface: let's observe together!
+_Land-Sea Interface: let's observe together!_
 
 The project strives to integrate in-situ, satellite, modelling and citizen science observations.
 
 ### Contributions 
 
-- Low-cost sensors
-- Creation of high-resolution products in the coastal zone
+1. Low-cost sensors (drifters)
+2. Creation of high-resolution products in the coastal zone
 
 ### Results
 

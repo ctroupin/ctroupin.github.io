@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="row">
-                {% for post in site.projects %}
+                {% for post in site.projects reversed %}
                     <div class="col-sm-2 portfolio-item">
                         <a href="{{ post.url }}" class="portfolio-link">
                             <div class="caption">

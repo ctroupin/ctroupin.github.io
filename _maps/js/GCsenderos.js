@@ -135,7 +135,6 @@ var onEachFeature = function (feature, layer) {
 		latlon.push([coords[i][1], coords[i][0]]);
 	}
 };
-
 var marker_options = {startIconUrl: '', endIconUrl: '', shadowUrl: ''}
 //var polyline_options_circular = {color: randomColor(), opacity: 0.75, weight: 3}
 
@@ -150,13 +149,22 @@ var nMoves1 = moves["short"].length;
 var nMoves2 = moves["long"].length;
 
 for (var i = 0; i < nMoves0 ; i++) {
-	new L.GPX(gpxdir + moves["circular"][i], {
+	console.log(moves["circular"][i]);
+
+	new L.GPX(gpxdir + moves["circular"][i], {async: true, marker_options: marker_options}).on('loaded', function(e) {
+		layerGroupsCirc.addLayer(e.target);;
+	  }).addTo(map);
+	
+	/*
+	L.GPX(gpxdir + moves["circular"][i], {
 		async: true, 
-		marker_options: marker_options, 
-		polyline_options: {color: randomColor(), opacity: 0.75, weight: 2}	
-	}).on('loaded', function(e) {
-		layerGroupsCirc.addLayer(e.target);
-	}).addTo(map)
+		//marker_options: marker_options, 
+		//polyline_options: {color: randomColor(), opacity: 0.75, weight: 2}	
+	}).addTo(map);
+	*/
+	//.on('loaded', function(e) {
+	//	layerGroupsCirc.addLayer(e.target);
+	//}).addTo(map)
 };
 
 for (var i = 0; i < nMoves1 ; i++) {
@@ -189,6 +197,7 @@ var overlayers = {
 	"Long": layerGroupsLong,
 	"Municipalities": geojson,
 };
+
 
 L.control.scale().addTo(map);
 L.control.layers(baseMaps, overlayers, {autoZIndex:true, collapsed:false}).addTo(map);

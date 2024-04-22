@@ -21,15 +21,15 @@ contact: static
 
 # If you use disqus you need disqus shortname
 # https://help.disqus.com/customer/portal/articles/466208
-disqus_shortname: myshortname
+disqus_shortname: charles_troupin
 
 # Color settings (hex-codes without the leading hash-tag)
 color:
   primary: 1D2731 #424242
   primary-rgb: "192,96,20" #"173,73,62"
-  secondary: fdd48b #6BBAA7 #2A9D8F
-  secondary-dark: 265653 #6bbaa7 #A2122F
-  link: 6D648B
+  secondary: 90D26D #6BBAA7 #2A9D8F
+  secondary-dark: 2C7865 #6bbaa7 #A2122F
+  link: FF9800
 
 # Footer settings
 footer:
@@ -64,8 +64,6 @@ socialclosed:
 academic:
   - title: orcid
     url: http://orcid.org/0000-0002-0265-1021
-  - title: researchgate
-    url: https://www.researchgate.net/profile/Charles_Troupin
 
 collections:
   portfolio:

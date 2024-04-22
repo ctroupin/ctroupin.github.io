@@ -12,7 +12,7 @@ projurl: https://emodnet.ec.europa.eu/en/chemistry
 
 ### The project
 
-
+_European Marine Observation and Data Network (EMODnet)_
 
 ### Contributions 
 

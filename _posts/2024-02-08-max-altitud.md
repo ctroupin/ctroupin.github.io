@@ -2,9 +2,9 @@
 layout: post
 title: Maximal altitude
 date: 2024-02-08
-img: GCaltitude_nocbab_rain_m.png
+img: highest.png
 alt: Gran Canaria altitude
-tools: QGIS
+tools: QGIS - Python
 topic: Data visualisation
 ---
 

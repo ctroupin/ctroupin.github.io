@@ -2,7 +2,7 @@
 ---
 
 h1, h2 { color: #{{ site.color.secondary-dark }} ; }
-h3, h4, h5, h6 { color: #{{ site.color.link }} ; }
+h3, h4, h5, h6 { color: #{{ site.color.secondary }} ; }
 
 body { color: #{{ site.color.primary }} ; }
 
@@ -15,4 +15,13 @@ a { color: #{{ site.color.secondary-dark }} ; text-decoration: none; }
 float:left;
 width:75px;
 margin:5px 10px 10px 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }

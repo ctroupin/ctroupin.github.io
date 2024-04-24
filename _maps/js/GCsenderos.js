@@ -13,13 +13,14 @@ map.createPane('labels');
 map.getPane('labels').style.zIndex = 650;
 map.getPane('labels').style.pointerEvents = 'none';
 
+var Carto = L.layerGroup([L.tileLayer.provider('CartoDB.PositronNoLabels'), 
+						  L.tileLayer.provider('CartoDB.PositronOnlyLabels')]).addTo(map);
+				  
 var baseMaps = {
-	"CartoDB": CartoDB,
-	"OSM": OpenStreetMap_Mapnik,
-	"ERSI": Esri_WorldImagery,
+	"CartoDB": Carto,
+	"OSM": L.tileLayer.provider('OpenStreetMap'),
+	"ERSI World Map": L.tileLayer.provider('Esri.WorldImagery'),
 };
-
-CartoDB.addTo(map);
 
 var mygrad = {0.2: '#ffffb2', 0.4: '#fd8d3c', 0.6: '#fd8d3c', 0.8: '#f03b20', 1: '#bd0026'}
 

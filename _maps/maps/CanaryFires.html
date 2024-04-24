@@ -24,7 +24,7 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
-		<script type="text/javascript" src="../js/basemaps.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.13.0/leaflet-providers.min.js" integrity="sha512-5EYsvqNbFZ8HX60keFbe56Wr0Mq5J1RrA0KdVcfGDhnjnzIRsDrT/S3cxdzpVN2NGxAB9omgqnlh4/06TvWCMw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
 		<script>
@@ -37,18 +37,18 @@
 
 			var datafile1 = "./data/fire/fire_all_M6.json"
 
-			var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, ' +
-        'AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-    	});
+			var Carto = L.layerGroup([L.tileLayer.provider('CartoDB.PositronNoLabels'), 		
+				L.tileLayer.provider('CartoDB.PositronOnlyLabels')]);
+
+			var CartoDark = L.layerGroup([L.tileLayer.provider('CartoDB.DarkMatterNoLabels'), 
+				L.tileLayer.provider('CartoDB.DarkMatterOnlyLabels')]).addTo(map);
 
 			var baseMaps = {
-				"Stamen Terrain": Stamen_Terrain,
-				"Open Street Map": OpenStreetMap_Mapnik,
-				"Esri_WorldImagery": Esri_WorldImagery
+			"CartoDB": Carto,
+			"CartoDB Dark": CartoDark,
+			"OSM": L.tileLayer.provider('OpenStreetMap'),
+			"ERSI World Map": L.tileLayer.provider('Esri.WorldImagery'),
 			};
-
-			//map.addLayer(Esri_WorldImagery);
 
 			var mygrad = {.5:'#FCFCFC', .7:'#FFE104',.8:'#FFAB1B', .9:'#FF040C', 1:'#000000'};
 

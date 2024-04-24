@@ -13,13 +13,17 @@ var map = L.map('map', {
 	fullscreenControl: true,
 	}).setView([50.58,5.57], 13);
 
-map.addLayer(CartoDB_DarkMatter)
+var Carto = L.layerGroup([L.tileLayer.provider('CartoDB.PositronNoLabels'), 		
+	L.tileLayer.provider('CartoDB.PositronOnlyLabels')]);
+
+var CartoDark = L.layerGroup([L.tileLayer.provider('CartoDB.DarkMatterNoLabels'), 
+	L.tileLayer.provider('CartoDB.DarkMatterOnlyLabels')]).addTo(map);
 
 var baseMaps = {
-	"CartoDB": CartoDB,
-	"OpenStreetMap": OpenStreetMap_Mapnik,
-	"Stamen Terrain": Stamen_Terrain,
-	"CartoDB Dark": CartoDB_DarkMatter,
+"CartoDB": Carto,
+"CartoDB Dark": CartoDark,
+"OSM": L.tileLayer.provider('OpenStreetMap'),
+"ERSI World Map": L.tileLayer.provider('Esri.WorldImagery'),
 };
 
 L.control.coordinates({

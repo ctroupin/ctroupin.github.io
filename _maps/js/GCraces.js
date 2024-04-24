@@ -12,35 +12,13 @@ map.createPane('labels');
 map.getPane('labels').style.zIndex = 650;
 map.getPane('labels').style.pointerEvents = 'none';
 
-var positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
-        attribution: '©OpenStreetMap, ©CartoDB'
-});
-
-var positronLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
-        attribution: '©OpenStreetMap, ©CartoDB',
-        pane: 'labels'
-});
-
-var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-});
-
-var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-});
-
-var Stadia_Outdoors = L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png', {
-	maxZoom: 20,
-	attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-});
-
-
-var CartoDB = L.layerGroup([positron, positronLabels]).addTo(map);
-
+var Carto = L.layerGroup([L.tileLayer.provider('CartoDB.PositronNoLabels'), 
+						  L.tileLayer.provider('CartoDB.PositronOnlyLabels')]).addTo(map);
+				  
 var baseMaps = {
-	"CartoDB": CartoDB,
-	"OSM": OpenStreetMap_Mapnik,
-	"ERSI": Esri_WorldImagery,
+	"CartoDB": Carto,
+	"OSM": L.tileLayer.provider('OpenStreetMap'),
+	"ERSI World Map": L.tileLayer.provider('Esri.WorldImagery'),
 };
 
 var mygrad = {0.2: '#ffffb2', 0.4: '#fd8d3c', 0.6: '#fd8d3c', 0.8: '#f03b20', 1: '#bd0026'}

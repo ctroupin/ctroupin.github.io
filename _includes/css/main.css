@@ -52,7 +52,7 @@ ul {
 }
 
 ul li:before {
-    content: "►";
+    content: "";
     display: block;
     float: left;
     width: 1.25em;

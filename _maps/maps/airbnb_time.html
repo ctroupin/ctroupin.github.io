@@ -1,190 +1,284 @@
 <head>
-<meta charset="utf-8">
+  <meta charset="utf-8" />
 
-<script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
-<script type="text/javascript" src="../js/basemaps.js"></script>
-<style type="text/css">
-	#map {
-		width:100%;
-		height:900px;
-	}
-	#map2points {
-		width:100%;
-		height:450px;
-	}
-	#mapfarthestairports {
-		width:100%;
-		height:450px;
-	}
-	.awesome-marker i {
-		font-size: 18px;
-		margin-top: 5px;
-	}
-	.info { padding: 6px 8px; font: 18px/20px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
-	.legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
-	.popupCustom .leaflet-popup-tip,
-	.popupCustom .leaflet-popup-content-wrapper {
-		background: #e0e0e0;
-		color: #234c5e;
-	}
-</style>
-<!--[if lt IE 9]>
-<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"
+  />
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.13.0/leaflet-providers.min.js"
+    integrity="sha512-5EYsvqNbFZ8HX60keFbe56Wr0Mq5J1RrA0KdVcfGDhnjnzIRsDrT/S3cxdzpVN2NGxAB9omgqnlh4/06TvWCMw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <style type="text/css">
+    #map {
+      width: 100%;
+      height: 900px;
+    }
+    #map2points {
+      width: 100%;
+      height: 450px;
+    }
+    #mapfarthestairports {
+      width: 100%;
+      height: 450px;
+    }
+    .awesome-marker i {
+      font-size: 18px;
+      margin-top: 5px;
+    }
+    .info {
+      padding: 6px 8px;
+      font: 18px/20px Arial, Helvetica, sans-serif;
+      background: white;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+    }
+    .info h4 {
+      margin: 0 0 5px;
+      color: #777;
+    }
+    .legend {
+      text-align: left;
+      line-height: 18px;
+      color: #555;
+    }
+    .legend i {
+      width: 18px;
+      height: 18px;
+      float: left;
+      margin-right: 8px;
+      opacity: 0.7;
+    }
+    .popupCustom .leaflet-popup-tip,
+    .popupCustom .leaflet-popup-content-wrapper {
+      background: #e0e0e0;
+      color: #234c5e;
+    }
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 </head>
 
 <div id="map"></div>
-<script type="text/javascript" src="../data/MallorcaHabitantsRooms2016_2018.geojson"></script>
+<script
+  type="text/javascript"
+  src="../data/MallorcaHabitantsRooms2016_2018.geojson"
+></script>
 <script>
+  var map = L.map('map', { fullscreenControl: true }).setView([39.6, 2.93], 10)
 
-var map = L.map('map', {fullscreenControl: true}).setView([39.6, 2.93], 10);
+  map.createPane('labels')
+  map.getPane('labels').style.zIndex = 650
+  map.getPane('labels').style.pointerEvents = 'none'
 
-map.createPane('labels');
-map.getPane('labels').style.zIndex = 650;
-map.getPane('labels').style.pointerEvents = 'none';
+  var positronLabels = L.tileLayer(
+    'http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png',
+    {
+      attribution: '©OpenStreetMap, ©CartoDB',
+      pane: 'labels'
+    }
+  ).addTo(map)
 
-var positronLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
-        attribution: '©OpenStreetMap, ©CartoDB',
-        pane: 'labels'
-}).addTo(map);
+  var Carto = L.layerGroup([
+    L.tileLayer.provider('CartoDB.PositronNoLabels'),
+    L.tileLayer.provider('CartoDB.PositronOnlyLabels')
+  ])
 
-CartoDB_PositronNoLabels.addTo(map);
+  var CartoDark = L.layerGroup([
+    L.tileLayer.provider('CartoDB.DarkMatterNoLabels'),
+    L.tileLayer.provider('CartoDB.DarkMatterOnlyLabels')
+  ]).addTo(map)
 
-var baseMaps = {
-	"CartoDB": CartoDB,
-	"CartoDB Dark": CartoDB_DarkMatter,
-	"OpenStreetMap": OpenStreetMap_Mapnik,
-};
+  var baseMaps = {
+    CartoDB: Carto,
+    'CartoDB Dark': CartoDark,
+    OSM: L.tileLayer.provider('OpenStreetMap'),
+    'ERSI World Map': L.tileLayer.provider('Esri.WorldImagery')
+  }
 
-// control that shows state info on hover
-var info = L.control();
+  // control that shows state info on hover
+  var info = L.control()
 
-info.onAdd = function (map) {
-	this._div = L.DomUtil.create('div', 'info');
-	this.update();
-	return this._div;
-};
+  info.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'info')
+    this.update()
+    return this._div
+  }
 
-info.update = function (props) {
-	this._div.innerHTML = (props ?
-	'<h4>' + props.NAME_4 + ':</h4> ' + props.habitants + ' habitants<br/>' +  props.rooms2016 + ' properties (2016)<br/>' +  props.rooms2018 + ' properties (2018)<br/>' + 'increase: ' + (100 * props.increase).toFixed(1) + ' %'
-	: 'Select a location');
-};
+  info.update = function (props) {
+    this._div.innerHTML = props
+      ? '<h4>' +
+        props.NAME_4 +
+        ':</h4> ' +
+        props.habitants +
+        ' habitants<br/>' +
+        props.rooms2016 +
+        ' properties (2016)<br/>' +
+        props.rooms2018 +
+        ' properties (2018)<br/>' +
+        'increase: ' +
+        (100 * props.increase).toFixed(1) +
+        ' %'
+      : 'Select a location'
+  }
 
-info.addTo(map);
+  info.addTo(map)
 
-var geojson;
-var geojson2;
+  var geojson
+  var geojson2
 
-function getColor(d) {
-	return d < -25 ? '#0571b0' :
-	d < -10  ?       '#92c5de' :
-	d < 10  ?         '#f7f7f7' :
-	d < 25  ?        '#f4a582' :
-	'#ca0020'
-}
-function getColor(d) {
-	return d > 50 ?  '#d73027' :
-	d > 25 ? '#fc8d59':
-	d > 10 ? '#fee08b':
-	d > -10 ? '#ffffbf':
-	d > -25 ? '#d9ef8b':
-	'#1a9850'
-}
+  function getColor(d) {
+    return d < -25
+      ? '#0571b0'
+      : d < -10
+      ? '#92c5de'
+      : d < 10
+      ? '#f7f7f7'
+      : d < 25
+      ? '#f4a582'
+      : '#ca0020'
+  }
+  function getColor(d) {
+    return d > 50
+      ? '#d73027'
+      : d > 25
+      ? '#fc8d59'
+      : d > 10
+      ? '#fee08b'
+      : d > -10
+      ? '#ffffbf'
+      : d > -25
+      ? '#d9ef8b'
+      : '#1a9850'
+  }
 
-var heatStyle = {
-	gradient : {.65: "white", .75:"#FFFF36", .85:"#FF9D00", .9:"#FF1700", .95:"#900000", 1:"black"},
-	minOpacity: 0.75,
-	radius: 7,
-	blur: 7,
-};
+  var heatStyle = {
+    gradient: {
+      0.65: 'white',
+      0.75: '#FFFF36',
+      0.85: '#FF9D00',
+      0.9: '#FF1700',
+      0.95: '#900000',
+      1: 'black'
+    },
+    minOpacity: 0.75,
+    radius: 7,
+    blur: 7
+  }
 
+  function style(feature) {
+    return {
+      fillColor: getColor(100 * feature.properties.increase),
+      weight: 1,
+      opacity: 1,
+      color: 'black',
+      dashArray: '2',
+      fillOpacity: 0.75
+    }
+  }
 
-function style(feature) {
-	return {
-		fillColor: getColor(100 * feature.properties.increase),
-		weight: 1,
-		opacity: 1,
-		color: 'black',
-		dashArray: '2',
-		fillOpacity: 0.75
-	};
-}
+  function highlightFeature(e) {
+    var layer = e.target
 
-function highlightFeature(e) {
-	var layer = e.target;
+    layer.setStyle({
+      weight: 5,
+      color: '#666',
+      dashArray: '',
+      fillOpacity: 0.4
+    })
 
-	layer.setStyle({
-		weight: 5,
-		color: '#666',
-		dashArray: '',
-		fillOpacity: 0.4
-	});
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+      layer.bringToFront()
+    }
 
-	if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-		layer.bringToFront();
-	}
+    info.update(layer.feature.properties)
+  }
 
-	info.update(layer.feature.properties);
-}
+  function resetHighlight(e) {
+    geojson.resetStyle(e.target)
+    info.update()
+  }
 
-function resetHighlight(e) {
-	geojson.resetStyle(e.target);
-	info.update();
-}
+  function zoomToFeature(e) {
+    map.fitBounds(e.target.getBounds())
+  }
 
-function zoomToFeature(e) {
-	map.fitBounds(e.target.getBounds());
-}
+  function onEachFeature(feature, layer) {
+    layer.on({
+      mouseover: highlightFeature,
+      mouseout: resetHighlight,
+      click: zoomToFeature
+    })
+  }
 
+  geojson = L.geoJson(municipios, {
+    style: style,
+    onEachFeature: onEachFeature
+  }).addTo(map)
 
-function onEachFeature(feature, layer) {
-	layer.on({
-		mouseover: highlightFeature,
-		mouseout: resetHighlight,
-		click: zoomToFeature
-	});
-}
+  var legend = L.control({ position: 'bottomleft' })
+  legend.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'info legend'),
+      grades = [-25, -10, 10, 25, 50],
+      labels = ['<h4>Relative increase<br>in number of properties</h4>'],
+      from,
+      to
+    labels.push(
+      '<i style="background:' +
+        getColor(grades[grades.length - 1] + 1) +
+        '"></i> ' +
+        grades[grades.length - 1] +
+        '% or more'
+    )
+    for (var i = grades.length - 2; i >= 0; i--) {
+      from = grades[i]
+      to = grades[i + 1]
 
-geojson = L.geoJson(municipios, {
-	style: style,
-	onEachFeature: onEachFeature
-}).addTo(map);
+      labels.push(
+        '<i style="background:' +
+          getColor(from + 1) +
+          '"></i> ' +
+          from +
+          '% to ' +
+          to +
+          '%'
+      )
+    }
 
-var legend = L.control({position: 'bottomleft'});
-legend.onAdd = function (map) {
+    labels.push(
+      '<i style="background:' +
+        getColor(grades[0] - 1) +
+        '"></i> ' +
+        grades[0] +
+        '% or less'
+    )
 
-	var div = L.DomUtil.create('div', 'info legend'),
-	grades = [-25., -10., 10, 25., 50. ],
-	labels = ["<h4>Relative increase<br>in number of properties</h4>"],
-	from, to;
-	labels.push(
-	'<i style="background:' + getColor(grades[grades.length - 1] + 1.) + '"></i> '  + grades[grades.length - 1] + '% or more'
-	)
-	for (var i = grades.length-2; i >= 0; i--) {
-		from = grades[i];
-		to = grades[i + 1];
+    div.innerHTML = labels.join('<br>')
+    return div
+  }
 
-		labels.push(
-		'<i style="background:' + getColor(from + 1) + '"></i> ' +
-		from + '% to ' + to + '%');
-	}
+  legend.addTo(map)
 
-	labels.push(
-	'<i style="background:' + getColor(grades[0] - 1.) + '"></i> '  + grades[0] + '% or less'
-	)
-
-	div.innerHTML = labels.join('<br>');
-	return div;
-};
-
-legend.addTo(map);
-
-L.control.layers(baseMaps).addTo(map);
-
+  L.control.layers(baseMaps).addTo(map)
 </script>

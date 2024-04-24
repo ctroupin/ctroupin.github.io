@@ -7,8 +7,8 @@
 	<title>
 		Running and biking in Mallorca
 	</title>
-	<script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css"/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style type="text/css">
@@ -37,22 +37,29 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
 		<script type="text/javascript" src="../js/gpxcompute.js"></script>
-		<script type="text/javascript" src="../js/basemaps.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.13.0/leaflet-providers.min.js" integrity="sha512-5EYsvqNbFZ8HX60keFbe56Wr0Mq5J1RrA0KdVcfGDhnjnzIRsDrT/S3cxdzpVN2NGxAB9omgqnlh4/06TvWCMw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
 		<script src="https://d3js.org/d3-hexbin.v0.2.min.js"></script>
 		<script src="../js/leaflet-d3.min.js" charset="utf-8"></script>
 		<script>
 
 		var map = L.map('map', {fullscreenControl: true}).setView([39.57, 2.986239], 10);
-		var baseMaps = {
-			"CartoDB": CartoDB,
-			"OpenStreetMap": OpenStreetMap_Mapnik,
-			"Stamen Terrain": Stamen_Terrain,
-			"CartoDB Dark": CartoDB_DarkMatter,
-			"ESRI World Imagery": Esri_WorldImagery
-		};
+		
+		var Carto = L.layerGroup([
+        L.tileLayer.provider('CartoDB.PositronNoLabels'),
+        L.tileLayer.provider('CartoDB.PositronOnlyLabels')
+		])
+		var CartoDark = L.layerGroup([
+			L.tileLayer.provider('CartoDB.DarkMatterNoLabels'),
+			L.tileLayer.provider('CartoDB.DarkMatterOnlyLabels')
+		]).addTo(map)
 
-		map.addLayer(CartoDB)
+		var baseMaps = {
+			'CartoDB': Carto,
+			'CartoDB Dark': CartoDark,
+			'OSM': L.tileLayer.provider('OpenStreetMap'),
+			'ERSI World Map': L.tileLayer.provider('Esri.WorldImagery')
+		}
 
 		function getActivityColor(sport) {
 			return sport == 'Run' ? '#FDB117' :

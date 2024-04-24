@@ -2,7 +2,11 @@
 <script>
 
   var map3 = L.map('mapfarthestairports').setView([0, 0.], 1);
-  map3.addLayer(CartoDB)
+  var Carto = L.layerGroup([
+        L.tileLayer.provider('CartoDB.PositronNoLabels'),
+        L.tileLayer.provider('CartoDB.PositronOnlyLabels')
+      ])
+  map3.addLayer(Carto)
 
   var Geodesic = L.geodesic([], {
   	weight: 7,

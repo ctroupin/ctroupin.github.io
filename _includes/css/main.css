@@ -51,16 +51,22 @@ ul {
     padding-left: 1.5em;
 }
 
+ol {list-style: none; counter-reset: li}
+
+li::before {content: counter(li);
+    color: #{{ site.color.link }};
+  display: inline-block; width: 1em;
+  margin-left: -1em}
+
+li {counter-increment: li}
+
+
 ul li:before {
-    content: "";
+    content: ">";
     display: block;
     float: left;
     width: 1.25em;
     color: #{{ site.color.link }};
-}
-
-ol li:before {
-    color: #{{ site.color.secondary-dark }};
 }
 
 h1,

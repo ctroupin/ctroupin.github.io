@@ -21,4 +21,5 @@ _European Marine Observation and Data Network (EMODnet)_
 
 ### Results
 
-- All European Seas climatologies for several eutrophication variables
+- All European Seas climatologies for several eutrophication variables 
+- Metadata for the new products

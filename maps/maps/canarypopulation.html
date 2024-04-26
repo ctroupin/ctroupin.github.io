@@ -1,6 +1,6 @@
 <div id="map" style="height:400px;"></div>
 <script type="text/javascript" src="../data/CanariasMunicipiosHab.geojson"></script>
-<script type="text/javascript" src="../js/basemaps.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.13.0/leaflet-providers.min.js" integrity="sha512-5EYsvqNbFZ8HX60keFbe56Wr0Mq5J1RrA0KdVcfGDhnjnzIRsDrT/S3cxdzpVN2NGxAB9omgqnlh4/06TvWCMw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
 
   var map = L.map('map', {
@@ -14,13 +14,17 @@
   var dataattribution = ' | Population data: <a href="http://www.ine.es/">Instituto National de Estadística</a>,' +
               ' | Municipalities limits: <a href="http://centrodedescargas.cnig.es">Centro National de Información Geográfica</a>'
 
-  map.addLayer(OpenStreetMap_Mapnik)
+  var Carto = L.layerGroup([L.tileLayer.provider('CartoDB.PositronNoLabels'), 		
+    L.tileLayer.provider('CartoDB.PositronOnlyLabels')]);
+
+  var CartoDark = L.layerGroup([L.tileLayer.provider('CartoDB.DarkMatterNoLabels'), 
+    L.tileLayer.provider('CartoDB.DarkMatterOnlyLabels')]).addTo(map);
 
   var baseMaps = {
-    "ESRI World Imagery": Esri_WorldImagery,
-    "CartoDB": CartoDB,
-    "OpenStreetMap": OpenStreetMap_Mapnik,
-    "CartoDB Dark": CartoDB_DarkMatter
+  "CartoDB": Carto,
+  "CartoDB Dark": CartoDark,
+  "OSM": L.tileLayer.provider('OpenStreetMap'),
+  "ERSI World Map": L.tileLayer.provider('Esri.WorldImagery'),
   };
 
   // control that shows state info on hover

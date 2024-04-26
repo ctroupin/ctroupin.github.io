@@ -2,7 +2,11 @@
 <script>
 
   var map2 = L.map('map2points').setView([0, 0.], 1);
-  map2.addLayer(CartoDB)
+  var Carto = L.layerGroup([
+        L.tileLayer.provider('CartoDB.PositronNoLabels'),
+        L.tileLayer.provider('CartoDB.PositronOnlyLabels')
+      ])
+  map2.addLayer(Carto)
   var Geodesic = L.geodesic([], {
   	weight: 7,
   	opacity: 0.5,
@@ -10,19 +14,25 @@
   	steps: 50
   }).addTo(map2);
 
-  var planeMarker = L.AwesomeMarkers.icon({
-    icon: 'plane',
-    markerColor: 'red'
+  var planeMarker = L.ExtraMarkers.icon({
+    icon: 'fa-plane',
+    markerColor: 'red',
+    shape: 'square',
+    prefix: 'fa'
   });
 
-  var starMarker = L.AwesomeMarkers.icon({
-    icon: 'star',
-    markerColor: 'blue'
+  var starMarker = L.ExtraMarkers.icon({
+    icon: 'fa-star',
+    markerColor: 'blue',
+    shape: 'square',
+    prefix: 'fa'
   });
 
-  var arrowMarker = L.AwesomeMarkers.icon({
-    icon: 'check',
-    markerColor: 'blue'
+  var arrowMarker = L.ExtraMarkers.icon({
+    icon: 'fa-check',
+    markerColor: 'blue',
+    shape: 'square',
+    prefix: 'fa'
   });
 
   var liege = new L.LatLng(50.640996, 5.447525);

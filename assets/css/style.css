@@ -1,9 +1,9 @@
 h1, h2 {
-  color: #265653;
+  color: #2C7865;
 }
 
 h3, h4, h5, h6 {
-  color: #6D648B;
+  color: #90D26D;
 }
 
 body {
@@ -18,7 +18,7 @@ blogsection {
 }
 
 a {
-  color: #265653;
+  color: #2C7865;
   text-decoration: none;
 }
 
@@ -26,6 +26,15 @@ a {
   float: left;
   width: 75px;
   margin: 5px 10px 10px 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /*# sourceMappingURL=style.css.map */

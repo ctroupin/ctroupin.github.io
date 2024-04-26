@@ -1,80 +1,102 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8"/>
+  <head>
+    <meta charset="UTF-8" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>
-			Slovenia - Belgium
-		</title>
-		<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
-		  integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
-		  crossorigin=""></script>
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
-		  integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
-		  crossorigin=""/>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.4/Control.FullScreen.css"/>
-		<style type="text/css">
-			#map { height : 900px; width : 1800px}
-		</style>
-	</head>
-	<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Slovenia - Belgium</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
+      integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/3.0.1/Control.FullScreen.min.css"
+    />
+    <style type="text/css">
+      #map {
+        height: 900px;
+        width: 1800px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.13.0/leaflet-providers.min.js" integrity="sha512-5EYsvqNbFZ8HX60keFbe56Wr0Mq5J1RrA0KdVcfGDhnjnzIRsDrT/S3cxdzpVN2NGxAB9omgqnlh4/06TvWCMw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script type="text/javascript" src="data/Belgium.geojson"></script>
+    <script type="text/javascript" src="data/Slovenia.geojson"></script>
+    <script type="text/javascript" src="data/Estonia.geojson"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/3.0.1/Control.FullScreen.min.js"
+    ></script>
+    <script>
+      var map = L.map('map', { fullscreenControl: true })
 
-		<div id="map"></div>
-		<script type="text/javascript" src='js/basemaps.js'></script>
-		<script type="text/javascript" src="data/Belgium.geojson"></script>
-		<script type="text/javascript" src="data/Slovenia.geojson"></script>
-		<script type="text/javascript" src="data/Estonia.geojson"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.4/Control.FullScreen.js"></script>
-		<script>
+      var Carto = L.layerGroup([
+        L.tileLayer.provider('CartoDB.PositronNoLabels'),
+        L.tileLayer.provider('CartoDB.PositronOnlyLabels')
+      ])
+      var CartoDark = L.layerGroup([
+        L.tileLayer.provider('CartoDB.DarkMatterNoLabels'),
+        L.tileLayer.provider('CartoDB.DarkMatterOnlyLabels')
+      ]).addTo(map)
 
-			var map = L.map('map',{fullscreenControl: true,})
+      var baseMaps = {
+        'CartoDB': Carto,
+        'CartoDB Dark': CartoDark,
+        'OSM': L.tileLayer.provider('OpenStreetMap'),
+        'ERSI World Map': L.tileLayer.provider('Esri.WorldImagery')
+      }
 
-			map.addLayer(CartoDB_PositronNoLabels)
+      var bathymetry = L.tileLayer.wms('http://ows.emodnet-bathymetry.eu/wms', {
+        layers: 'emodnet:mean_atlas_land,coastlines,world:sea_names'
+      })
 
-			var baseMaps = {
-				"Esri_OceanBasemap": Esri_OceanBasemap,
-				"CartoDB": CartoDB_PositronNoLabels,
-				"OpenStreetMap": OpenStreetMap_Mapnik,
-				"ESRI World Imagery": Esri_WorldImagery,
-			};
+      var Liege = [50.633333, 5.566667]
+      var LiegeM = L.marker(Liege).addTo(map)
+      var Piran = [45.528419, 13.56845]
+      var PiranM = L.marker(Piran).addTo(map)
+      var Stareso = [42.577693, 8.723253]
+      var StaresoM = L.marker(Stareso)
 
-			var bathymetry = L.tileLayer.wms('http://ows.emodnet-bathymetry.eu/wms', {
-			    layers: 'emodnet:mean_atlas_land,coastlines,world:sea_names'
-			});
+      var polyline = L.polyline([Liege, Piran], { color: 'red' }).addTo(map)
+      var liegestareso = L.polyline([Liege, Stareso], { color: 'green' }).addTo(
+        map
+      )
 
-			var Liege = [50.633333, 5.566667];
-			var LiegeM = L.marker(Liege).addTo(map);
-			var Piran = [45.528419, 13.56845];
-			var PiranM = L.marker(Piran).addTo(map);
-			var Stareso = [42.577693, 8.723253];
-			var StaresoM = L.marker(Stareso);
+      var bel = { color: '#3CA651', weight: 2, opacity: 1 }
+      var esto = { color: 'red', weight: 2, opacity: 1 }
+      var Belgium = L.geoJson(belgium, { style: bel }).addTo(map)
+      var Slovenia = L.geoJson(slovenia, { style: bel }).addTo(map)
+      var Estonia = L.geoJson(estonia, { style: esto }).addTo(map)
 
-			var polyline = L.polyline([Liege, Piran], {color: 'red'}).addTo(map);
-			var liegestareso = L.polyline([Liege, Stareso], {color: 'green'}).addTo(map);
+      var overlayers = {
+        "Belgium": Belgium,
+        "Slovenia": Slovenia,
+        "Others": Estonia,
+        "Liège": LiegeM,
+        "Piran": PiranM,
+        "Liège - Piran": polyline,
+        "STARESO": StaresoM,
+        "Liège - STARESO": liegestareso
+      }
 
-			var bel = {"color": "#3CA651", "weight": 2, "opacity": 1};
-			var esto = {"color": "red", "weight": 2, "opacity": 1};
-			var Belgium = L.geoJson(belgium, {style: bel}).addTo(map);
-			var Slovenia = L.geoJson(slovenia, {style: bel}).addTo(map);
-			var Estonia = L.geoJson(estonia, {style: esto}).addTo(map);
+      map.setView([51, 19.3], 5)
+      L.control.scale().addTo(map)
 
-			var overlayers = {
-				"Belgium": Belgium,
-				"Slovenia": Slovenia,
-				"Others": Estonia,
-				"Liège": LiegeM,
-				"Piran": PiranM,
-				"Liège - Piran": polyline,
-				"STARESO": StaresoM,
-				"Liège - STARESO": liegestareso
-			};
-
-			map.setView([51.,19.3], 5);
-			L.control.scale().addTo(map);
-
-			L.control.layers(baseMaps, overlayers,
-				{autoZIndex:true, collapsed:true}).addTo(map);
-		</script>
-		</body>
+      L.control
+        .layers(baseMaps, overlayers, { autoZIndex: true, collapsed: true })
+        .addTo(map)
+    </script>
+  </body>
 </html>

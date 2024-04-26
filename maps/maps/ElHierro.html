@@ -7,8 +7,8 @@
 		<title>
 			El Hierro holiday map
 		</title>
-		<script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
+		<script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
@@ -29,8 +29,7 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
 		<script type="text/javascript" src="../js/L.Icon.FontAwesome.js"></script>
-		<script type="text/javascript" src="../js/basemaps.js"></script>
-
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.13.0/leaflet-providers.min.js" integrity="sha512-5EYsvqNbFZ8HX60keFbe56Wr0Mq5J1RrA0KdVcfGDhnjnzIRsDrT/S3cxdzpVN2NGxAB9omgqnlh4/06TvWCMw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 		<script>
 
@@ -40,9 +39,17 @@
 			  zoom: 12
 			});
 
+			var Carto = L.layerGroup([L.tileLayer.provider('CartoDB.PositronNoLabels'), 		
+				L.tileLayer.provider('CartoDB.PositronOnlyLabels')]);
+
+			var CartoDark = L.layerGroup([L.tileLayer.provider('CartoDB.DarkMatterNoLabels'), 
+				L.tileLayer.provider('CartoDB.DarkMatterOnlyLabels')]).addTo(map);
+
 			var baseMaps = {
-				"Stamen Terrain": Stamen_Terrain,
-				"Open Street Map": OpenStreetMap_Mapnik
+			"CartoDB": Carto,
+			"CartoDB Dark": CartoDark,
+			"OSM": L.tileLayer.provider('OpenStreetMap'),
+			"ERSI World Map": L.tileLayer.provider('Esri.WorldImagery'),
 			};
 
 			var places = [
@@ -52,8 +59,8 @@
 				{name: "Garoe", coords: [27.795975, -17.941980], color: '#348C45', icon: "tree"},
 				{name: "Verodal", coords: [27.747967, -18.151591], color: '#FCCC1E', icon: "life-ring"},
 				{name: "Sabinar", coords: [27.749392, -18.127263], color: '#348C45', icon: "tree"},
-			  {name: "Aeropuerto", coords: [27.813863, -17.886468], color: '#FFFC1E', icon: "plane"},
-			  {name: "Charco Azul", coords: [27.761919, -18.039811], color: '#FCCC1E', icon: "life-ring"},
+			    {name: "Aeropuerto", coords: [27.813863, -17.886468], color: '#FFFC1E', icon: "plane"},
+			    {name: "Charco Azul", coords: [27.761919, -18.039811], color: '#FCCC1E', icon: "life-ring"},
 				{name: "Punta Grande", coords: [27.797125, -17.991762], color: 'red', icon: "bed"},
 				{name: "Faro de Orchilla", coords: [27.706612, -18.147458], color: 'red', icon: "camera-retro"}
 			];

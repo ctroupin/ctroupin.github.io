@@ -68,31 +68,38 @@
 <head>
     <meta charset="utf-8">
 
-    <script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.3.0/MarkerCluster.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.3.0/MarkerCluster.Default.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.min.css">
-    <script type="text/javascript" src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" integrity="sha512-cUoWMYmv4H9TGP4hbm1mIjYo90WzIQFo/5jj+P5tQcDTf+iVR59RyIj/a9fRsBxzxt5Dnv/Ex7MzRIxcDwaOLw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css" integrity="sha512-ENrTWqddXrLJsQS2A86QmvA17PkJ0GVm1bqj5aTgpeMAfDKN2+SIOLpKG8R/6KkimnhTb+VW5qqUHB/r1zaRgg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.min.css" integrity="sha512-fYyZwU1wU0QWB4Yutd/Pvhy5J1oWAwFXun1pt+Bps04WSe4Aq6tyHlT4+MHSJhD8JlLfgLuC4CbCnX5KHSjyCg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.min.css" integrity="sha512-yP7tTm3rX87fOK3iDh9K2RJTHsq6BfGZ8sFqRMIfsmmZVakOw483WyOKlRWVLjHCHEDIcEkp/U+cO3TnZ8oiuw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-extra-markers/1.2.2/css/leaflet.extra-markers.min.css" integrity="sha512-wurszDyO1nj6ESdfrXb9h1hmoHMu3sQ3iXgKcu/p81lT+KaPGkta9NIPX7k6XXGgVYpcRHcc8AA4UIeQ7Ax/Cw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/togeojson/0.16.0/togeojson.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.6/leaflet.markercluster.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster-src.min.js" integrity="sha512-tWZsle/wNvFCP/7BHWNf3yG/6Ic1YVPT+1Soyag9zzZcga1St3oAa+IgvrT3ZxBLY/njmSEr0EcQoPUrH+UfNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js" integrity="sha512-LW9+kKj/cBGHqnI4ok24dUWNR/e8sUD8RLzak1mNw5Ja2JYCmTXJTF5VpgFSw+VoBfpMvPScCo2DnKTIUjrzYw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js" integrity="sha512-Oj9plGLST4IMXFXDfqMdTP+gSInbodkyno117PSjo5R08eu6TdzY9WPnnwQZGx2O2lG/kN0MzQk95ulWsRFuLA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.min.js" integrity="sha512-cdomNfv1IRJE1v+2/irZdkNU09XwtYP2bQ1qK1ybWF/vz+P3GTMZtrXwlxTU41ExwoWGvEf0njIak5l/ZQaIMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-extra-markers/1.2.2/js/leaflet.extra-markers.min.js" integrity="sha512-gGvL9Bo9cO1AY2+HRK8q4+d9yvy7z7dHhLL2YRFdoV7xZSP8wtGZltrmNDvBzIiwaBsybPmg5od7X6BlZh4kKg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="/maps/js/Leaflet.Geodesic.js"></script>
-    <script type="text/javascript" src="/maps/js/basemaps.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.4.8/css/ionicons.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.13.0/leaflet-providers.min.js" integrity="sha512-5EYsvqNbFZ8HX60keFbe56Wr0Mq5J1RrA0KdVcfGDhnjnzIRsDrT/S3cxdzpVN2NGxAB9omgqnlh4/06TvWCMw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
     <style type="text/css">
       #map {
         width:100%;
         height:450px;
       }
       #map2points {
+        width:100%;
+        height:450px;
+      }
+      #mapbase {
         width:100%;
         height:450px;
       }
@@ -149,17 +156,17 @@ of <em>X</em> kilometers. We need to find the place for which <em>X</em> is the 
 from which we can begin the analysis.
 First of all I was curious to see a <em>heatmap</em>, it’s the first image of this post.</p>
 
-<div id="mapfarthest"></div>
-<script type="text/javascript" src="../data/airports.json"></script>
+<div id="mapbase"></div>
+<script src="../data/airports.js"></script>
 
 <script>
 
-
-  var map = L.map('map', {
-    fullscreenControl: true,
-  }).setView([0, 0.], 1);
-
-  map.addLayer(CartoDB_DarkMatter)
+  var map2 = L.map('mapbase').setView([0, 0.], 2);
+  var Carto = L.layerGroup([
+        L.tileLayer.provider('CartoDB.PositronNoLabels'),
+        L.tileLayer.provider('CartoDB.PositronOnlyLabels')
+      ])
+  map2.addLayer(Carto)
 
   var heatStyle = {
     gradient : {.65: "white", .75:"#FFFF36", .85:"#FF9D00", .9:"#FF1700", .95:"#900000", 1:"black"},
@@ -169,7 +176,7 @@ First of all I was curious to see a <em>heatmap</em>, it’s the first image of 
   };
 
   var heatmap = L.heatLayer(airports, heatStyle);
-  heatmap.addTo(map);
+  heatmap.addTo(map2);
 
 </script>
 
@@ -193,8 +200,8 @@ of our map can deform the reality.</p>
 
 <p>Let’s imagine there are only 2 airports on earth surface: Liège and Denver. If we consider the <a href="http://mathworld.wolfram.com/GreatCircle.html"><em>great circle</em></a> containing these two points:</p>
 <ul>
-  <li>the location halfway of the great circle (<i class="fa fa-check-square-o" aria-hidden="true"></i>) is the point with the shortest distance to both airports,</li>
-  <li>the point located at the antipode (<i class="fa fa-star-o" aria-hidden="true"></i>)
+  <li>the location halfway of the great circle (<i class="fa-solid fa-check"></i>) is the point with the shortest distance to both airports,</li>
+  <li>the point located at the antipode (<i class="fa-solid fa-star"></i>)
 of the first one is the location we’re looking for.</li>
 </ul>
 
@@ -202,7 +209,11 @@ of the first one is the location we’re looking for.</li>
 <script>
 
   var map2 = L.map('map2points').setView([0, 0.], 1);
-  map2.addLayer(CartoDB)
+  var Carto = L.layerGroup([
+        L.tileLayer.provider('CartoDB.PositronNoLabels'),
+        L.tileLayer.provider('CartoDB.PositronOnlyLabels')
+      ])
+  map2.addLayer(Carto)
   var Geodesic = L.geodesic([], {
   	weight: 7,
   	opacity: 0.5,
@@ -210,19 +221,25 @@ of the first one is the location we’re looking for.</li>
   	steps: 50
   }).addTo(map2);
 
-  var planeMarker = L.AwesomeMarkers.icon({
-    icon: 'plane',
-    markerColor: 'red'
+  var planeMarker = L.ExtraMarkers.icon({
+    icon: 'fa-plane',
+    markerColor: 'red',
+    shape: 'square',
+    prefix: 'fa'
   });
 
-  var starMarker = L.AwesomeMarkers.icon({
-    icon: 'star',
-    markerColor: 'blue'
+  var starMarker = L.ExtraMarkers.icon({
+    icon: 'fa-star',
+    markerColor: 'blue',
+    shape: 'square',
+    prefix: 'fa'
   });
 
-  var arrowMarker = L.AwesomeMarkers.icon({
-    icon: 'check',
-    markerColor: 'blue'
+  var arrowMarker = L.ExtraMarkers.icon({
+    icon: 'fa-check',
+    markerColor: 'blue',
+    shape: 'square',
+    prefix: 'fa'
   });
 
   var liege = new L.LatLng(50.640996, 5.447525);
@@ -256,7 +273,11 @@ have something fast, second to force me to use this language.</p>
 <script>
 
   var map3 = L.map('mapfarthestairports').setView([0, 0.], 1);
-  map3.addLayer(CartoDB)
+  var Carto = L.layerGroup([
+        L.tileLayer.provider('CartoDB.PositronNoLabels'),
+        L.tileLayer.provider('CartoDB.PositronOnlyLabels')
+      ])
+  map3.addLayer(Carto)
 
   var Geodesic = L.geodesic([], {
   	weight: 7,
@@ -266,14 +287,18 @@ have something fast, second to force me to use this language.</p>
     wrap: false
   }).addTo(map3);
 
-  var planeMarker = L.AwesomeMarkers.icon({
-    icon: 'plane',
-    markerColor: 'red'
+  var planeMarker = L.ExtraMarkers.icon({
+    icon: 'fa-plane',
+    markerColor: 'red',
+    shape: 'square',
+    prefix: 'fa'
   });
 
-  var starMarker = L.AwesomeMarkers.icon({
-    icon: 'star',
-    markerColor: 'blue'
+  var starMarker = L.ExtraMarkers.icon({
+    icon: 'fa-star',
+    markerColor: 'blue',
+    shape: 'square',
+    prefix: 'fa'
   });
 
   var airport1 = new L.LatLng(0.831413984298706,127.38099670410156);
@@ -289,7 +314,7 @@ have something fast, second to force me to use this language.</p>
 </script>
 
 <p><br />
-We learn that the maximal distance, 20015 km, is between Sultan Mahmud Badaruddin II Airport (Indonesia) and Benito Salas Airport (Colombia).</p>
+We learn that the maximal distance, 20015 km, is between <em>Sultan Mahmud Badaruddin II</em> Airport (🇮🇩 Indonesia) and <em>Benito Salas</em> Airport (🇨🇴 Colombia).</p>
 
 <h3 id="first-and-wrong-solution">First (and wrong) solution</h3>
 

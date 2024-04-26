@@ -41,8 +41,8 @@ When I submit the problem to the mathematician colleague, he started with 2 ques
 2. Is this solution unique?
 
 Let's imagine there are only 2 airports on earth surface: Liège and Denver. If we consider the [*great circle*](http://mathworld.wolfram.com/GreatCircle.html) containing these two points:
-* the location halfway of the great circle (<i class="fa fa-check-square-o" aria-hidden="true"></i>) is the point with the shortest distance to both airports,
-* the point located at the antipode (<i class="fa fa-star-o" aria-hidden="true"></i>)
+* the location halfway of the great circle (<i class="fa-solid fa-check"></i>) is the point with the shortest distance to both airports,
+* the point located at the antipode (<i class="fa-solid fa-star"></i>)
 of the first one is the location we're looking for.
 
 {% include_relative maps/flyingpoints.html %}
@@ -57,7 +57,7 @@ have something fast, second to force me to use this language.
 
 {% include_relative maps/flyingfarthestairport.html %}
 <br>
-We learn that the maximal distance, 20015 km, is between Sultan Mahmud Badaruddin II Airport (Indonesia) and Benito Salas Airport (Colombia).
+We learn that the maximal distance, 20015 km, is between _Sultan Mahmud Badaruddin II_ Airport (🇮🇩 Indonesia) and _Benito Salas_ Airport (🇨🇴 Colombia).
 
 ### First (and wrong) solution
 

@@ -16,14 +16,18 @@
     wrap: false
   }).addTo(map3);
 
-  var planeMarker = L.AwesomeMarkers.icon({
-    icon: 'plane',
-    markerColor: 'red'
+  var planeMarker = L.ExtraMarkers.icon({
+    icon: 'fa-plane',
+    markerColor: 'red',
+    shape: 'square',
+    prefix: 'fa'
   });
 
-  var starMarker = L.AwesomeMarkers.icon({
-    icon: 'star',
-    markerColor: 'blue'
+  var starMarker = L.ExtraMarkers.icon({
+    icon: 'fa-star',
+    markerColor: 'blue',
+    shape: 'square',
+    prefix: 'fa'
   });
 
   var airport1 = new L.LatLng(0.831413984298706,127.38099670410156);

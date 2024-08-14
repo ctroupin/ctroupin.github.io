@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>
+			Gran Canaria con niños
+		</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/2.0.0/Control.FullScreen.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.13.0/leaflet-providers.min.js" integrity="sha512-5EYsvqNbFZ8HX60keFbe56Wr0Mq5J1RrA0KdVcfGDhnjnzIRsDrT/S3cxdzpVN2NGxAB9omgqnlh4/06TvWCMw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<style type="text/css">
+			#map { height : 800px; }
+		</style>
+	</head>
+	<body>
+
+		<div id="map" style="width: 100%; height: 800px;"></div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/2.0.0/Control.FullScreen.min.js"></script>
+		<script>
+
+            var map = L.map('map', {
+                fullscreenControl: true,
+            }).setView([27.9768, -15.5882], 11);
+
+            map.createPane('labels');
+            map.getPane('labels').style.zIndex = 650;
+            map.getPane('labels').style.pointerEvents = 'none';
+
+            var Carto = L.layerGroup([L.tileLayer.provider('CartoDB.PositronNoLabels'), 
+                                    L.tileLayer.provider('CartoDB.PositronOnlyLabels')]).addTo(map);
+                            
+            var baseMaps = {
+                "CartoDB": Carto,
+                "OSM": L.tileLayer.provider('OpenStreetMap'),
+                "ERSI World Map": L.tileLayer.provider('Esri.WorldImagery'),
+            };
+
+
+			var dataattribution = ' | <b>Data</b> by Twitter contributors | Conception @ctroupin'
+
+            var activities = [
+                [[28.07367, -15.54646], "Finca de Osorio", 1],
+                [[28.06482, -15.56419], "Laguna de Valleseco", 1],
+                [[27.95782, -15.78056], "Cactualdea", 1],
+                [[27.92694, -15.80201], "Observatorio Astronómico de Tasartico", 1],
+                [[28.14350, -15.65497], "Cueva Pintada de Gáldar", 4],
+                [[28.14565, -15.65472], "Museo Antonio Padrón", 1],
+                [[28.15377, -15.69841], "Museo del Mar en Sardina del Norte", 1],
+                [[28.07497, -15.66875], "Cafetales de Agaete", 2],
+                [[28.15099, -15.53756], "Bañaderos", 1],
+                [[28.09140, -15.59390], "Tilos de Moya", 2],
+                [[28.10330, -15.57330], "Barranco Azuaje", 1],
+                [[28.10140, -15.41450], "Casa de Colón", 3],
+                [[28.06442, -15.46172], "Jardín Botánico", 5],
+                [[27.97082, -15.61258], "Roque Nublo", 1], 
+                [[28.10401, -15.41601], "Casa Museo Pérez Galdós", 1],
+                [[28.13560, -15.44060], "Las Canteras", 1],
+                [[28.15196, -15.69637], "Playa de Sardina", 1],
+                [[27.77891, -15.60463], "Aqualand", 2],
+                [[27.81586, -15.75231], "Lago Taurito", 1], 
+                [[27.83381, -15.61706], "Palmitos Park", 1],
+                [[27.88702, -15.46663], "Cocodrilo Park", 3],
+                [[27.78714, -15.53542], "Sioux City", 1],
+                [[28.13464, -15.52035], "Museo del Plátano", 1],
+                [[28.09966, -15.41523], "Museo Canario", 1],
+                [[27.90906, -15.45356], "Jaira de Ana", 1],
+                [[28.03358, -15.49697], "Finca el Galeón", 1],
+                [[27.97917, -15.47714], "Barranco de los Cernícalos", 1],
+                [[28.03190, -15.45570], "Caldera de Bandama", 1],
+                [[28.04349, -15.66238], "Risco Caído", 1],
+                [[28.07080, -15.46578], "Bike Pump Track", 1],
+                [[28.13896, -15.60442], "Cenobio de Valerón", 1],
+                [[27.78897, -15.71002], "Angry Birds Activity Park", 1],
+                [[27.76100, -15.59383], "Holiday World", 1],
+                [[27.84417, -15.45249], "Ciudad Infantil Vecindario", 1],
+        ]
+
+
+			for (i = 0; i < activities.length ; i++) {
+
+				var marker = new L.marker(activities[i][0], { opacity: 0.9 }); //opacity may be set to zero
+				marker.bindPopup(activities[i][1]);
+				marker.addTo(map);
+			};
+
+			L.control.layers(baseMaps, null, {collapsed:false}).addTo(map);
+
+			</script>
+
+</body>
+</html>

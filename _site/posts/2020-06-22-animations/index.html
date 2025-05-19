@@ -7,7 +7,7 @@
     <meta name="description" content=" ">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
-    <link rel="canonical" href="http://localhost:4000/posts/2020-06-22-animations/">
+    <link rel="canonical" href="https://ctroupin.github.io/posts/2020-06-22-animations/">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
 
     <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
@@ -104,7 +104,7 @@ north_sea003.png
 </code></pre></div></div>
 <p>and we want to create a movie called in <code class="language-plaintext highlighter-rouge">mp4</code> format.</p>
 
-<p><img src="http://localhost:4000/figures/blog/Sentinel2_0022.png" class="img-responsive" alt="Sentinel-2 image" /></p>
+<p><img src="https://ctroupin.github.io/figures/blog/Sentinel2_0022.png" class="img-responsive" alt="Sentinel-2 image" /></p>
 
 <p>Here is an example of command we ca, use:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>ffmpeg <span class="nt">-framerate</span> 6 <span class="nt">-i</span> north_sea%03d.png <span class="nt">-c</span>:v libx264 <span class="nt">-pix_fmt</span> yuv420p animation.mp4

@@ -7,7 +7,7 @@
     <meta name="description" content=" ">
     <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
     <meta name="author" content="Troupin Charles">
-    <link rel="canonical" href="http://localhost:4000/posts/2021-04-17-cartopy-wms/">
+    <link rel="canonical" href="https://ctroupin.github.io/posts/2021-04-17-cartopy-wms/">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
 
     <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
@@ -84,7 +84,7 @@ using data from a project. She had prepared them by doing screenshots from
 a web interface, but not only the resolution was not good enough, the
 quality of the figure was not great.</p>
 
-<p><img src="http://localhost:4000/figures/blog/cartopy-wms/eut_cont.png" class="img-responsive" /></p>
+<p><img src="https://ctroupin.github.io/figures/blog/cartopy-wms/eut_cont.png" class="img-responsive" /></p>
 
 <p>In this post we will see how we can do something nicer with a few lines of code.</p>
 
@@ -133,7 +133,7 @@ use add WMS layer, and with <code class="language-plaintext highlighter-rouge">B
 <p>we get something that looks good. Note that we have to well specify the <code class="language-plaintext highlighter-rouge">epsg</code> parameter,
 otherwise we can end up with a blank plot without any error message.</p>
 
-<p><img src="http://localhost:4000/figures/blog/cartopy-wms/basemap-wms.jpg" class="img-responsive" /></p>
+<p><img src="https://ctroupin.github.io/figures/blog/cartopy-wms/basemap-wms.jpg" class="img-responsive" /></p>
 
 <p>So yes, it works with <code class="language-plaintext highlighter-rouge">Basemap</code>, now let’s check with <code class="language-plaintext highlighter-rouge">Cartopy</code> (I have to admit it did not
 work when I start drafting this post, but then I was able to find a solution).</p>
@@ -171,7 +171,7 @@ First, let’s define the projection, here we want to use <em>Mercator</em>.</p>
 <span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
 </code></pre></div></div>
 <p>Yes it works! Now time to explain why it works.
-<img src="http://localhost:4000/figures/blog/cartopy-wms/cartopywms01.jpg" class="img-responsive" /></p>
+<img src="https://ctroupin.github.io/figures/blog/cartopy-wms/cartopywms01.jpg" class="img-responsive" /></p>
 
 <ul>
   <li>We specify which projection we want to use for the plot:    <br />
@@ -194,7 +194,7 @@ According to the <a href="https://scitools.org.uk/cartopy/docs/latest/tutorials/
 <span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
 </code></pre></div></div>
 
-<p><img src="http://localhost:4000/figures/blog/cartopy-wms/cartopywms02.jpg" class="img-responsive" />
+<p><img src="https://ctroupin.github.io/figures/blog/cartopy-wms/cartopywms02.jpg" class="img-responsive" />
 The points are located at the same locations as the previous figure, but obviously the aspect ratio of the figure is different because of the projection.</p>
 
 <p>So basically, the key is to understand the <code class="language-plaintext highlighter-rouge">transform=</code> option: it has to be used to
@@ -211,7 +211,7 @@ else.</p>
 and even better, using real data?</li>
 </ul>
 
-<p><img src="http://localhost:4000/figures/blog/cartopy-wms/chlorophyll_v03.png" class="img-responsive" /></p>
+<p><img src="https://ctroupin.github.io/figures/blog/cartopy-wms/chlorophyll_v03.png" class="img-responsive" /></p>
 
 <p>This is what had been done in this <a href="https://github.com/gher-ulg/EMODnet-Chemistry/blob/master/python/plot_observations_ingestion.ipynb">notebook</a>, though I will add the code here for completeness:</p>
 

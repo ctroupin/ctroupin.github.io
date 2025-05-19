@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Running and biking in Mallorca</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/2.0.0/Control.FullScreen.min.js"
+      integrity="sha512-c6ydt5Rypa1ptlnH2U1u+JybARYppbD1qxgythCI4pJ9EOfNYEWlLBjxBX926O3tq5p4Aw5GTY68vT0FdKbG3w=="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/2.0.0/Control.FullScreen.min.css"
+      integrity="sha512-DRkMa+fn898M1uc6s9JZeztUoXN6viuHsXmh/pgz3jG6a77YWO3U3QYEjLoqbxOeclc2NunWfMTya4Y5twXAKA=="
+      crossorigin="anonymous"
+    />
+    <style type="text/css">
+      #map {
+        height: 800px;
+      }
+      .info {
+        padding: 10px 20px;
+        font: 20px/22px Arial, Helvetica, sans-serif;
+        background: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        border-radius: 7px;
+      }
+      .info h4 {
+        margin: 0 0 5px;
+        color: #777;
+      }
+      .legend {
+        text-align: left;
+        line-height: 18px;
+        color: #555;
+      }
+      .legend i {
+        width: 18px;
+        height: 18px;
+        float: left;
+        margin-right: 8px;
+        opacity: 0.7;
+      }
+      .hexbin-hexagon {
+        stroke: #000;
+        stroke-width: 0.5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.min.js"
+      integrity="sha512-55AYz+N6WyuiC8bRpQftNyCcSBCl3AEutoTsb4EeZuFVFP1+G4gll30iczAvvTpdL9nz48F7ZFEUavRUXp3FNA=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.13.0/leaflet-providers.min.js"
+      integrity="sha512-5EYsvqNbFZ8HX60keFbe56Wr0Mq5J1RrA0KdVcfGDhnjnzIRsDrT/S3cxdzpVN2NGxAB9omgqnlh4/06TvWCMw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      var map = L.map('map', { fullscreenControl: true }).setView(
+        [27.9733, -15.5853],
+        11
+      )
+      
+      var Carto = L.layerGroup([
+        L.tileLayer.provider('CartoDB.PositronNoLabels'),
+        L.tileLayer.provider('CartoDB.PositronOnlyLabels')
+      ])
+      var CartoDark = L.layerGroup([
+        L.tileLayer.provider('CartoDB.DarkMatterNoLabels'),
+        L.tileLayer.provider('CartoDB.DarkMatterOnlyLabels')
+      ]).addTo(map)
+
+      var baseMaps = {
+        'CartoDB': Carto,
+        'CartoDB Dark': CartoDark,
+        'OSM': L.tileLayer.provider('OpenStreetMap'),
+        'ERSI World Map': L.tileLayer.provider('Esri.WorldImagery')
+      }
+
+      var legend = L.control({ position: 'bottomright' })
+
+      legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend'),
+          grades = [
+            2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
+            2020, 2021
+          ],
+          labels = []
+        div.innerHTML += '<b>Year</b><br>'
+        for (var i = 0; i < grades.length; i++) {
+          div.innerHTML +=
+            '<i style="background:' +
+            getTrackColor(grades[i]) +
+            '"></i> ' +
+            grades[i] +
+            '<br>'
+        }
+
+        return div
+      }
+
+      legend.addTo(map)
+
+      function getTrackColor(y) {
+        return y == '2009'
+          ? '#a6cee3'
+          : y == '2010'
+          ? '#1f78b4'
+          : y == '2011'
+          ? '#b2df8a'
+          : y == '2012'
+          ? '#33a02c'
+          : y == '2013'
+          ? '#fb9a99'
+          : y == '2014'
+          ? '#e31a1c'
+          : y == '2015'
+          ? '#fdbf6f'
+          : y == '2016'
+          ? '#ff7f00'
+          : y == '2017'
+          ? '#cab2d6'
+          : y == '2018'
+          ? '#6a3d9a'
+          : y == '2019'
+          ? '#ffff99'
+          : y == '2020'
+          ? '#b15928'
+          : 'grey'
+      }
+
+      var customLayer = L.geoJson(null, {
+        style: function (feature) {
+          return {
+            color: getTrackColor(feature.properties.time.substring(0, 4)),
+            weight: 3,
+            opacity: 1
+          }
+        }
+      })
+
+      for (i = 2009; i < 2021; i++) {
+        datafile = './GPX/TGC/TGC-' + i + '.gpx'
+        var Parcours = omnivore.gpx(datafile, null, customLayer)
+        Parcours.addTo(map)
+      }
+
+      L.control.scale().addTo(map)
+      L.control
+        .layers(baseMaps, null, { autoZIndex: true, collapsed: false })
+        .addTo(map)
+    </script>
+  </body>
+</html>

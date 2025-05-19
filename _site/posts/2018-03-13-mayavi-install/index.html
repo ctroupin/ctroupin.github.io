@@ -1,0 +1,144 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content=" ">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="http://localhost:4000/posts/2018-03-13-mayavi-install/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Charles Troupin by </title>
+
+	<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-8 col-lg-offset-2">
+			<center>
+				<h2> Installing mayavi python module </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					
+						<h4><i class="far fa-calendar-alt"></i></h4> 13 March 2018 &nbsp;
+					
+					
+						<h4><i class="fas fa-wrench"></i></h4> Python &nbsp;
+					
+					
+						<h4><i class="fas fa-tags"></i></h4> Instructions &nbsp;
+					
+					
+				</div>
+				<p>This post started as a personal log to help me remember how to perform the installation, until I thought it could help other people. Or help myself in a future in which I totally forget how to do it.</p>
+
+<h3 id="before-to-start">Before to start</h3>
+
+<p>Working with a virtual environment is always a good idea. The pythono <em>virtual environment wrapper</em> is particularly helpful.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">mkvirtualenv</span> <span class="n">mayavi</span><span class="o">-</span><span class="n">plots</span>
+</code></pre></div></div>
+
+<h3 id="install-prerequisites">Install prerequisites</h3>
+
+<p>Download sip:   <br />
+<a href="https://riverbankcomputing.com/software/sip/download">https://riverbankcomputing.com/software/sip/download</a></p>
+
+<p>Download PyQt:   <br />
+<a href="http://pyqt.sourceforge.net/Docs/PyQt4/installation.html#downloading-pyqt4">http://pyqt.sourceforge.net/Docs/PyQt4/installation.html#downloading-pyqt4</a></p>
+
+<p>Go into the directory where you have downloaded the <code class="language-plaintext highlighter-rouge">sip</code> and <code class="language-plaintext highlighter-rouge">PyQt</code>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">tar </span>xvf sip-4.19.8.tar.gz
+<span class="nb">cd </span>sip-4.19.8
+python configure.py
+make
+<span class="nb">sudo </span>make <span class="nb">install</span>
+</code></pre></div></div>
+<p>Note that the <code class="language-plaintext highlighter-rouge">python</code> that runs <code class="language-plaintext highlighter-rouge">configure.py</code> is that of the virtual environment), as we can see from the next command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>which python
+/home/ctroupin/Software/PythonEnvs/mayavi/bin/python
+</code></pre></div></div>
+
+<p>Process in a similar way for <code class="language-plaintext highlighter-rouge">PyQt</code> (the compilation can take a few minutes):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">tar </span>xvf PyQt4_gpl_x11-4.12.1.tar.gz
+<span class="nb">cd </span>PyQt4_gpl_x11-4.12.1
+python configure-ng.py
+make
+make <span class="nb">install</span>
+</code></pre></div></div>
+<p>Both packages will be installed in the <code class="language-plaintext highlighter-rouge">mayavi-plots</code> virtalenv.</p>
+
+<h3 id="install-the-module">Install the module</h3>
+
+<p>With the version installed with <code class="language-plaintext highlighter-rouge">pip</code>,</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>pip <span class="nb">install </span>mayavi
+</code></pre></div></div>
+<p>I got the issue related to <a href="https://github.com/enthought/mayavi/issues/615">undefined ‘magnification’ attribute of a ‘WindowToImageFilter’</a>, so I made the installation using <code class="language-plaintext highlighter-rouge">setup.py</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>pip_uninstall mayavi
+git clone git@github.com:enthought/mayavi.git
+python setup.py <span class="nb">install</span>
+</code></pre></div></div>
+
+<h3 id="issues">Issues</h3>
+
+<p>Jupyter notebook 5.0 has an iopub.data_rate set to 10^7   <br />
+<strong>Solution:</strong> in bash, run</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>jupyter-notebook <span class="nt">--NotebookApp</span>.iopub_data_rate_limit<span class="o">=</span>1.0e10
+</code></pre></div></div>
+
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+</body>
+</html>

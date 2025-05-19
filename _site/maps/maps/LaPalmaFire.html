@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>#IFPuntagorda in La Palma island (15-20 July 2023)</title>
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script> 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.13.0/leaflet-providers.min.js" integrity="sha512-5EYsvqNbFZ8HX60keFbe56Wr0Mq5J1RrA0KdVcfGDhnjnzIRsDrT/S3cxdzpVN2NGxAB9omgqnlh4/06TvWCMw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="data/LaPalmaFire/taburiente.geojson"></script>
+    <script type="text/javascript" src="data/LaPalmaFire/EMS.geojson"></script>
+    
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 600px;
+			width: 600px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+
+	
+</head>
+<body>
+
+<div id="map" style="width: 100%; height: 100%;"></div>
+<script>
+  var map = L.map('map', {fullscreenControl: true}).setView([28.677, -17.851], 12);
+
+  var Carto = L.layerGroup([L.tileLayer.provider('CartoDB.PositronNoLabels'), 		
+	L.tileLayer.provider('CartoDB.PositronOnlyLabels')]);
+
+    var CartoDark = L.layerGroup([L.tileLayer.provider('CartoDB.DarkMatterNoLabels'), 
+        L.tileLayer.provider('CartoDB.DarkMatterOnlyLabels')]).addTo(map);
+
+    var baseMaps = {
+    "CartoDB": Carto,
+    "CartoDB Dark": CartoDark,
+    "OSM": L.tileLayer.provider('OpenStreetMap'),
+    "ERSI World Map": L.tileLayer.provider('Esri.WorldImagery'),
+    };
+
+  var customLayer = L.geoJson(null, {
+  	style: function(feature) {
+  		return {
+  			color: 'blue',
+  			weight: 3,
+  			opacity: .75
+  			};
+  	}
+  });
+
+  var Parcours = omnivore.gpx('data/LaPalmaFire/LP13.gpx', null, customLayer);
+  Parcours.addTo(map);
+
+  var emsStyle = {"color": "red", "weight": 2, "opacity": 1};
+  var laPalmaStyle = {"color": "green", "weight": 2, "opacity": 1};
+  
+  L.geoJSON(taburiente, {style: laPalmaStyle}).addTo(map);
+  L.geoJSON(EMS, {style: emsStyle}).addTo(map);
+
+  var contours = L.tileLayer.wms('http://servicios.idee.es/wms-inspire/mdt?SERVICE=WMS', {
+                        layers: 'EL.ContourLine', 
+                        transparent: 'true',
+                        format: 'image/png',
+                        maxZoom: 21,
+                        opacity: 0.5}).addTo(map);
+
+  $.getJSON("data/LaPalmaFire/fire_nrt_J1V-C2_367140.json", function(json) {
+                json.forEach(function (item, index) {
+                    L.circleMarker([item["latitude"], item["longitude"]], {radius: 2, color: '#FFAF00'}).addTo(map);
+                })
+  });
+
+  $.getJSON("data/LaPalmaFire/fire_nrt_M-C61_367139.json", function(json) {
+                json.forEach(function (item, index) {
+                    L.circleMarker([item["latitude"], item["longitude"]], {radius: 2, color: '#FFAF00'}).addTo(map);
+                })
+  });
+
+  $.getJSON("data/LaPalmaFire/fire_nrt_SV-C2_367141.json", function(json) {
+                json.forEach(function (item, index) {
+                    L.circleMarker([item["latitude"], item["longitude"]], {radius: 2, color: '#FFAF00'}).addTo(map);
+                })
+  });
+
+
+
+  overlayers = {contours};
+
+L.control.layers(baseMaps, overlayers, {autoZIndex:false, collapsed:false}).addTo(map);
+
+</script>
+
+</body>
+</html>

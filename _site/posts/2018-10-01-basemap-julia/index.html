@@ -1,0 +1,163 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content=" ">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="http://localhost:4000/posts/2018-10-01-basemap-julia/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Charles Troupin by </title>
+
+	<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-8 col-lg-offset-2">
+			<center>
+				<h2> Installing and using Basemap with Julia </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					
+						<h4><i class="far fa-calendar-alt"></i></h4> 01 October 2018 &nbsp;
+					
+					
+						<h4><i class="fas fa-wrench"></i></h4> Julia, Python, Basemap &nbsp;
+					
+					
+						<h4><i class="fas fa-tags"></i></h4> Oceanography, Maps &nbsp;
+					
+					
+				</div>
+				<p>A quick post about an installation, something I never remember how to do but can be useful
+to others.</p>
+
+<h3 id="update-november-2019">Update November 2019</h3>
+
+<p>Just run</p>
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">using</span> <span class="n">Conda</span>
+<span class="n">Conda</span><span class="o">.</span><span class="n">add</span><span class="x">(</span><span class="s">"basemap"</span><span class="x">)</span>
+</code></pre></div></div>
+<p>discard the rest of the post and enjoy!</p>
+
+<h3 id="download-package">Download package</h3>
+<p>Get the most recent (and stable) version of <code class="language-plaintext highlighter-rouge">Basemap</code>, for example in the <code class="language-plaintext highlighter-rouge">~/Software/</code>
+directory:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>wget https://github.com/matplotlib/basemap/archive/v1.1.0.zip
+unzip basemap-1.1.0.zip
+</code></pre></div></div>
+
+<h3 id="install-package">Install package</h3>
+<p>Create a directory where the installation will be performed, for example:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">mkdir</span> ~/Software/Geos
+</code></pre></div></div>
+<p>Go into the <code class="language-plaintext highlighter-rouge">geos</code> directory:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">cd </span>basemap-1.1.0/
+<span class="nb">cd </span>geos-3.3.3/
+</code></pre></div></div>
+<p>and start the installation of Basemap:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="nb">export </span><span class="nv">GEOS_DIR</span><span class="o">=</span><span class="s2">"~/Software/Geos"</span>
+./configure <span class="nt">--prefix</span><span class="o">=</span><span class="nv">$GEOS_DIR</span>
+make
+make <span class="nb">install</span>
+</code></pre></div></div>
+<p>The <code class="language-plaintext highlighter-rouge">make</code> can take up to a few minutes to finish.</p>
+
+<h3 id="pip-install">pip install</h3>
+<p>Now the <em>tricky</em> part: you need to localise the <code class="language-plaintext highlighter-rouge">python</code> and <code class="language-plaintext highlighter-rouge">pip</code> executables
+corresponding to your version of Julia to run the installation scripts.</p>
+
+<p>Starting in the <code class="language-plaintext highlighter-rouge">basemap-1.1.0</code> directory:</p>
+
+<p>For Julia-0.6 I had:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>~/.julia/v0.6/Conda/deps/usr/bin/pip <span class="nb">install </span>pyproj
+~/.julia/v0.6/Conda/deps/usr/bin/python setup.py <span class="nb">install</span>
+</code></pre></div></div>
+
+<p>For Julia-1.0.0, I found 3 installed <code class="language-plaintext highlighter-rouge">pip</code>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>~/.julia/packages/Conda/m7vem/deps/usr/bin/pip
+~/.julia/packages/Conda/hsaaN/deps/usr/bin/pip
+~/.julia/packages/Conda/a196m/deps/usr/bin/pip
+</code></pre></div></div>
+<p>so I used the most recent one: <code class="language-plaintext highlighter-rouge">~/.julia/packages/Conda/hsaaN/deps/usr/bin/pip</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>~/.julia/packages/Conda/hsaaN/deps/usr/bin/pip <span class="nb">install </span>pyproj
+~/.julia/packages/Conda/hsaaN/deps/usr/bin/python setup.py <span class="nb">install</span>
+</code></pre></div></div>
+
+<h3 id="build-julia-package">Build Julia package</h3>
+<p>Now everything is ready for the installation of the module in Julia:</p>
+
+<p>For Julia-0.6:</p>
+<pre><code class="language-julia-repl">ENV["PYTHON"]="~/.julia/v0.6/Conda/deps/usr/bin/python"
+Pkg.build("PyCall")
+</code></pre>
+<p>For Julia-1.0.0:</p>
+<pre><code class="language-julia-repl">ENV["PYTHON"]="~/.julia/packages/Conda/hsaaN/deps/usr/bin/python"
+</code></pre>
+<p>and then in the package REPL:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="trac"><code>pkg&gt; build PyCall
+</code></pre></div></div>
+
+<h3 id="use-it">Use it</h3>
+<pre><code class="language-julia-repl">using PyPlot, PyCall
+@pyimport mpl_toolkits.basemap as basemap
+</code></pre>
+<p>so now you should be able to use <code class="language-plaintext highlighter-rouge">Basemap</code> almost as in Python.  <br />
+This <a href="https://gist.github.com/jpwspicer/bd738886467c56c5d029">gist</a> provides several useful
+examples to get inspiration from.</p>
+
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+</body>
+</html>

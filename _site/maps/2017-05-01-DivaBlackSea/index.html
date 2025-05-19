@@ -1,0 +1,364 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content=" ">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="http://localhost:4000/maps/2017-05-01-DivaBlackSea/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://localhost:4000">Charles Troupin</a>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<!-- Header -->
+<header>
+    <div class="container">
+        <h2>Maps</h2>
+    </div>
+</header>
+
+<head>
+    <meta charset="utf-8">
+
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.3.0/MarkerCluster.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.3.0/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.min.css">
+    <script type="text/javascript" src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/togeojson/0.16.0/togeojson.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.3/Control.FullScreen.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.6/leaflet.markercluster.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.js"></script>
+    <script type="text/javascript" src="/maps/js/Leaflet.Geodesic.js"></script>
+    <script type="text/javascript" src="/maps/js/basemaps.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.4.8/css/ionicons.min.css">
+    <style type="text/css">
+      #map {
+        width:100%;
+        height:450px;
+      }
+      #map2points {
+        width:100%;
+        height:450px;
+      }
+      #mapfarthestairports {
+        width:100%;
+        height:450px;
+      }
+      .awesome-marker i {
+          font-size: 18px;
+          margin-top: 5px;
+      }
+      .info { padding: 6px 8px; font: 18px/20px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+      .legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+      .popupCustom .leaflet-popup-tip,
+      .popupCustom .leaflet-popup-content-wrapper {
+          background: #e0e0e0;
+          color: #234c5e;
+      }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h3> DIVA inputs/outputs in the Black Sea </h3>
+                <div style="text-align:left; vertical-align: middle; ">
+                    
+                    <h4><i class="far fa-calendar-alt"></i></h4> 01 February 2017 &nbsp;
+                    
+                    
+                    <h4><i class="fas fa-wrench"></i></h4> Leaflet, Python, DIVA &nbsp;
+                    
+                    
+                    
+                    <h4><i class="fab fa-github"></i></h4> <a href=http://github.com/gher-ulg/DivaPythonTools> gher-ulg/DivaPythonTools </a> &nbsp;
+                    
+                    
+                </div>
+                <h3 id="goals">Goals</h3>
+
+<p>The various <a href="https://github.com/gher-ulg/DIVA"><code class="language-plaintext highlighter-rouge">DIVA</code></a> input (data, contours) and output files (mesh, analysis) can be easily displayed on an interactive map using <code class="language-plaintext highlighter-rouge">Leaflet</code>. Each layer can be made activated separately. The following example illustrates this with data from the Black Sea.</p>
+
+<h3 id="processing">Processing</h3>
+
+<p>The file are simply transformed to <a href="http://geojson.org/">geoJSON</a> format using Python modules. For the analysis field, the iso-contours are turned into a <a href="http://wiki.geojson.org/GeoJSON_draft_version_6#MultiPolygon">multi-polygon</a> to which a style is added.</p>
+
+<p>In the toolbox <a href="https://github.com/gher-ulg/DivaPythonTools">DivaPythonTools</a>, we provide the functions to convert each type of DIVA input or output into a geoJSON.</p>
+
+<h3 id="results">Results</h3>
+
+<p>The maps obtained for mixed-layer depth measurements is shown below.</p>
+
+<div id="map"></div>
+<script type="text/javascript" src="../js/Leaflet.Coordinates-0.1.5.min.js"></script>
+
+<script type="text/javascript" src="../data/BS_MLD.js"></script>
+
+<script type="text/javascript" src="../data/BS_contour.js"></script>
+
+<script type="text/javascript" src="../data/BS_mesh.js"></script>
+
+<script type="text/javascript" src="../data/BS_field.js"></script>
+
+<script>
+
+	var map = L.map('map', {
+	  fullscreenControl: true,
+	  center: [43., 35.],
+	  zoom: 5
+	});
+
+	map.createPane('labels');
+	map.getPane('labels').style.zIndex = 950;
+	map.getPane('labels').style.pointerEvents = 'none';
+
+	var Stamen_Terrain = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.{ext}', {
+		attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+		subdomains: 'abcd',
+		minZoom: 0,
+		maxZoom: 18,
+		ext: 'png'
+	});
+
+	var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	});
+
+	var cartodbAttribution = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
+
+	var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+		attribution: cartodbAttribution
+	}).addTo(map);
+
+	var positronLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
+		attribution: cartodbAttribution,
+		pane: 'labels'
+	}).addTo(map);
+
+	var baseMaps = {
+		"Positron": positron,
+		"Stamen Terrain": Stamen_Terrain,
+		"Open Street Map": OpenStreetMap_Mapnik
+	};
+
+	L.control.coordinates({
+		position:"bottomleft",
+		decimals:3,
+		decimalSeperator:".",
+		labelTemplateLat:"Lat: {y}",
+		labelTemplateLng:"Lon: {x}"
+	}).addTo(map);
+
+	var legend = L.control({position: 'bottomright'});
+
+	legend.onAdd = function (map) {
+
+		var div = L.DomUtil.create('div', 'info legend'),
+			grades = [-50, -45, -40, -35, -30, -25, -20, -15],
+			labels = [];
+
+		div.innerHTML += '<b>Mixed layer depth (m)</b><br>'
+
+		// loop through our density intervals and generate a label with a colored square for each interval
+		for (var i = 0; i < grades.length; i++) {
+			div.innerHTML +=
+				'<i style="background:' + getMoreColor(grades[i] + 1) + '"></i> ' +
+				grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+		}
+
+		return div;
+	};
+
+	legend.addTo(map);
+
+	function getMoreColor(d) {
+		return d < -50 ? '#d73027' :
+			   d < -45 ? '#f46d43' :
+			   d < -40 ? '#fdae61' :
+			   d < -35 ? '#fee090' :
+			   d < -30 ? '#ffffbf' :
+			   d < -25 ? '#e0f3f8' :
+			   d < -20 ? '#abd9e9' :
+			   d < -15 ? '#74add1' :
+						  '#4575b4' ;
+	}
+
+	function dataStyle(feature) {
+		return {
+			radius: 5,
+			fillColor: getMoreColor(feature.properties.field),
+			weight: 1,
+			opacity: 1,
+			color: 'black',
+			fillOpacity: 0.7
+		};
+	}
+
+	var contourStyle = {
+		weight: 3,
+		opacity: 1,
+		color : 'grey',
+		fillOpacity: 0.
+	}
+
+	var meshStyle = {
+		weight: 0.5,
+		opacity: .5,
+		color : 'grey',
+		fillOpacity: 0.
+	}
+
+	var geojsonMarkerOptions = {
+		radius: 5,
+		fillColor: "#ff7800",
+		color: "#000",
+		weight: 1,
+		opacity: 1,
+		fillOpacity: 1
+	};
+
+
+	function fieldStyle(feature) {
+            return {
+			radius: 5,
+                fillColor: getMoreColor(feature.properties.field),
+                color: getMoreColor(feature.properties.field),
+                weight: 1,
+                opacity: 0.4,
+                fillOpacity: 0.7
+            };
+        }
+
+
+	var divamesh = new L.GeoJSON(mesh, {style: meshStyle});
+	var divafield = new L.GeoJSON(field, {style: fieldStyle}).addTo(map);
+	var divacontours = new L.GeoJSON(contours, {style: contourStyle}).addTo(map);
+
+	var divadata = new L.GeoJSON(datapoints, {
+		style: dataStyle,
+		pointToLayer: function (feature, latlng) {
+			return L.circleMarker(latlng, {radius: 10, fillOpacity: 0.85});
+		}
+	}).addTo(map);
+
+	var overlayers = {
+		"Contour" : divacontours,
+		"Mesh (L=3)" : divamesh,
+		"Observations" : divadata,
+		"Field" : divafield
+	};
+
+	L.control.layers(baseMaps, overlayers).addTo(map);
+
+</script>
+
+<p>The legend (bottom-right corner) has to be adapted to the specific range of the observations, the <em>Mixed Layer Depth</em> (MLD) in this case.</p>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>Copyright &copy; Charles Troupin 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visible-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+ <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-3.7.0.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/js/jqBootstrapValidation.js"></script>
+    
+    <script src="/js/contact_me_static.js"></script>
+    
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/freelancer.js"></script>
+
+</body>

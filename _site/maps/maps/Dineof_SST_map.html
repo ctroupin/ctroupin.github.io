@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sea Surface Temperature Reconstruction using DINEOF</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/3.0.1/Control.FullScreen.min.css"
+    />
+    <style type="text/css">
+      #map {
+        height: 900px;
+        width: 1800px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.13.0/leaflet-providers.min.js" integrity="sha512-5EYsvqNbFZ8HX60keFbe56Wr0Mq5J1RrA0KdVcfGDhnjnzIRsDrT/S3cxdzpVN2NGxAB9omgqnlh4/06TvWCMw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/3.0.1/Control.FullScreen.min.js"
+    ></script>
+    <script>
+      var map = L.map('map', { fullscreenControl: true })
+
+      var Carto = L.layerGroup([
+        L.tileLayer.provider('CartoDB.PositronNoLabels'),
+        L.tileLayer.provider('CartoDB.PositronOnlyLabels')
+      ])
+      var CartoDark = L.layerGroup([
+        L.tileLayer.provider('CartoDB.DarkMatterNoLabels'),
+        L.tileLayer.provider('CartoDB.DarkMatterOnlyLabels')
+      ]).addTo(map)
+
+      var baseMaps = {
+        'CartoDB': Carto,
+        'CartoDB Dark': CartoDark,
+        'OSM': L.tileLayer.provider('OpenStreetMap'),
+        'ERSI World Map': L.tileLayer.provider('Esri.WorldImagery')
+      }
+
+      var bathymetry = L.tileLayer.wms('http://ows.emodnet-bathymetry.eu/wms', {
+        layers: 'emodnet:mean_atlas_land,coastlines,world:sea_names'
+      })
+
+      var imageUrl = './images/rec20171214.png',
+        imageBounds = [
+          [34.2999, -6.57],
+          [45.0, 12.51]
+        ]
+      SSTreconstructed = L.imageOverlay(imageUrl, imageBounds, {
+        opacity: 0.9,
+        zIndex: 1
+      })
+
+      var imageUrl = './images/data20171214.png',
+        imageBounds = [
+          [34.2999, -6.57],
+          [45.0, 12.51]
+        ]
+      SSToriginal = L.imageOverlay(imageUrl, imageBounds, {
+        opacity: 1,
+        zIndex: 2
+      }).addTo(map)
+
+      var overlayers = {
+        'EMODnet Bathymetry': bathymetry,
+        'Original data': SSToriginal,
+        Reconstruction: SSTreconstructed
+      }
+
+      map.setView([40, 3], 6)
+      L.control.scale().addTo(map)
+
+      L.control
+        .layers(baseMaps, overlayers, { autoZIndex: true, collapsed: false })
+        .addTo(map)
+    </script>
+  </body>
+</html>

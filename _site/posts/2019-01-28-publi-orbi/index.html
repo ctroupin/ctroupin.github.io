@@ -1,0 +1,147 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content=" ">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="http://localhost:4000/posts/2019-01-28-publi-orbi/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Charles Troupin by </title>
+
+	<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-8 col-lg-offset-2">
+			<center>
+				<h2> From a publication to Orbi repository </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					
+						<h4><i class="far fa-calendar-alt"></i></h4> 28 January 2019 &nbsp;
+					
+					
+						<h4><i class="fas fa-wrench"></i></h4> LaTeX - BibTeX - bash &nbsp;
+					
+					
+					
+				</div>
+				<p>It’s not a surprise, but I am a big fan of the BibTeX format. It works fine for the scientific publication, but also for this blog, as the <a href="http://localhost:4000/publications">Publications</a> section and the <a href="CV/Ctroupin_CVacademic.pdf">CV</a> are both created from the same BibTeX file.</p>
+
+<p><a href="https://orbi.uliege.be/">Orbi</a> is the institutional repository for publications at the University of Liège. It’s nice because you can store there all you publications and even conferences, then generate a report in the form of a list in pdf, html or even a widget that can be included in your web page. What’s not funny maybe is when you have to update your <em>myOrbi</em>.</p>
+
+<p>Something that works well is to import one (or more) references in the form a BibTeX file.</p>
+
+<h3 id="getting-the-bibtex">Getting the BibTeX</h3>
+
+<h4 id="from-the-journal-web-page">From the journal web page</h4>
+
+<p>Nowadays almost of the (serious) journals allow you to export a reference in this format. Below is the example for <em>Earth System Science Data</em>:</p>
+
+<p><img src="http://localhost:4000/figures/blog/myorbi00.png" class="img-responsive" alt="BibTex export" /></p>
+
+<h4 id="using-the-doi">Using the DOI</h4>
+
+<p>Another quick solution is to use a bash script to get the BibTeX entry from the publication DOI (Digital Object Identifier), which is also straightforward to obtain.</p>
+
+<p>In a terminal, just execute</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>curl <span class="nt">-LH</span> <span class="s2">"Accept: text/bibliography; style=bibtex"</span> http://dx.doi.org/10.5194/essd-11-129-2019
+</code></pre></div></div>
+<p>which returns:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>@article<span class="o">{</span>Troupin_2019, <span class="nv">title</span><span class="o">={</span>The AlborEX dataset: sampling of sub-mesoscale features <span class="k">in </span>the Alboran Sea<span class="o">}</span>, <span class="nv">volume</span><span class="o">={</span>11<span class="o">}</span>, <span class="nv">ISSN</span><span class="o">={</span>1866-3516<span class="o">}</span>, <span class="nv">url</span><span class="o">={</span>http://dx.doi.org/10.5194/essd-11-129-2019<span class="o">}</span>, <span class="nv">DOI</span><span class="o">={</span>10.5194/essd-11-129-2019<span class="o">}</span>, <span class="nv">number</span><span class="o">={</span>1<span class="o">}</span>, <span class="nv">journal</span><span class="o">={</span>Earth System Science Data<span class="o">}</span>, <span class="nv">publisher</span><span class="o">={</span>Copernicus GmbH<span class="o">}</span>, <span class="nv">author</span><span class="o">={</span>Troupin, Charles and Pascual, Ananda and Ruiz, Simon and Olita, Antonio and Casas, Benjamin and Margirier, Félix and Poulain, Pierre-Marie and Notarstefano, Giulio and Torner, Marc and Fernández, Juan Gabriel and et al.<span class="o">}</span>, <span class="nv">year</span><span class="o">={</span>2019<span class="o">}</span>, <span class="nv">month</span><span class="o">={</span>Jan<span class="o">}</span>, <span class="nv">pages</span><span class="o">={</span>129–145<span class="o">}}</span>
+</code></pre></div></div>
+<p>Ideally you would prefer to write it to a file, like this:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>curl <span class="nt">-LH</span> <span class="s2">"Accept: text/bibliography; style=bibtex"</span> http://dx.doi.org/10.5194/essd-11-129-2019 <span class="o">&gt;&gt;</span> reference.bib
+</code></pre></div></div>
+<p>and finally, as you don’t want to remember that command, you create a script <code class="language-plaintext highlighter-rouge">doi2bib</code> that you can call easily:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>doi2bib 10.5194/essd-11-129-2019 reference.bib
+</code></pre></div></div>
+<p>where the DOI and the file to which it will be written have to be adapted.</p>
+
+<p><em>Issue:</em> with this technique the list of authors is not complete. It can probably be fixed using other options with <code class="language-plaintext highlighter-rouge">curl</code>.</p>
+
+<h4 id="other-technique">Other technique</h4>
+
+<p>Also, my colleague just showed me that with <a href="https://scholar.google.be/">googleScholar</a>, it’s pretty easy as well (but maybe you don’t want to use google tools). You just have to click on the double-quote below the reference, then select the format to export.</p>
+
+<p><img src="http://localhost:4000/figures/blog/myorbi04.png" class="img-responsive" alt="BibTex export" /></p>
+
+<h3 id="importing-into-orbi">Importing into Orbi</h3>
+
+<ol>
+  <li>
+    <p>From the homepage, click on “Import external references”:
+<img src="http://localhost:4000/figures/blog/myorbi01.png" class="img-responsive" alt="BibTex export" /></p>
+  </li>
+  <li>
+    <p>and then simply select the file storing the references:
+<img src="http://localhost:4000/figures/blog/myorbi02.png" class="img-responsive" alt="BibTex export" />
+Note that other formats are also available, depending on what you prefer.</p>
+  </li>
+  <li>
+    <p>Last step: you have to edit the imported reference(s). Some fields are obviously not obtained from BibTeX: funding, discipline, name of the project… but at least all the <em>donkey work</em> is done.</p>
+  </li>
+</ol>
+
+<p>Orbi will automatically detect if:</p>
+<ul>
+  <li>the reference has already been added into the catalog;</li>
+  <li>if you are one of the authors. To make sure that’s the case, check if your name is the same in the BibTeX entry than in Orbi.</li>
+</ul>
+
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+</body>
+</html>

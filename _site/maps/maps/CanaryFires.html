@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>
+			Incendios Gran Canaria
+		</title>
+		<script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.5.1/Control.FullScreen.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<style type="text/css">
+			#map { height : 800px; }
+		</style>
+	</head>
+	<body>
+
+		<div id="map"></div>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.5.1/Control.FullScreen.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.13.0/leaflet-providers.min.js" integrity="sha512-5EYsvqNbFZ8HX60keFbe56Wr0Mq5J1RrA0KdVcfGDhnjnzIRsDrT/S3cxdzpVN2NGxAB9omgqnlh4/06TvWCMw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+		<script>
+
+			var map = L.map('map', {
+			  fullscreenControl: true,
+			  center: [27.95, -15.6],
+			  zoom: 11
+			});
+
+			var datafile1 = "./data/fire/fire_all_M6.json"
+
+			var Carto = L.layerGroup([L.tileLayer.provider('CartoDB.PositronNoLabels'), 		
+				L.tileLayer.provider('CartoDB.PositronOnlyLabels')]);
+
+			var CartoDark = L.layerGroup([L.tileLayer.provider('CartoDB.DarkMatterNoLabels'), 
+				L.tileLayer.provider('CartoDB.DarkMatterOnlyLabels')]).addTo(map);
+
+			var baseMaps = {
+			"CartoDB": Carto,
+			"CartoDB Dark": CartoDark,
+			"OSM": L.tileLayer.provider('OpenStreetMap'),
+			"ERSI World Map": L.tileLayer.provider('Esri.WorldImagery'),
+			};
+
+			var mygrad = {.5:'#FCFCFC', .7:'#FFE104',.8:'#FFAB1B', .9:'#FF040C', 1:'#000000'};
+
+			var heatStyle = {
+				gradient : mygrad,
+				minOpacity: 0.75,
+				radius: 7,
+				blur: 7,
+			};
+
+			// var source = L.WMS.source("http://servicios.idee.es/wms-inspire/mdt?request=GetCapabilities&service=WMS", {
+			//     'transparent': true
+			// });
+			// source.getLayer("sombreado").addTo(map);
+
+			//var bathymetry = L.tileLayer.wms('http://servicios.idee.es/wms-inspire/mdt?request=GetCapabilities&service=WMS',
+			//{layers: 'sombreado'}).addTo(map);
+
+			var sombras = L.tileLayer.wms('http://servicios.idee.es/wms-inspire/mdt?SERVICE=WMS',
+			{layers: 'sombreado'}).addTo(map);
+
+
+			$.getJSON(datafile1, function(json) {
+					latlon = [];
+					json.forEach(function (item, index) {
+					  // console.log("Lon: " + item["latitude"] + ", Lat:" + item["longitude"]);
+						latlon.push([item["latitude"], item["longitude"]])
+					});
+					console.log(latlon);
+
+					heatmap = L.heatLayer(latlon, heatStyle);
+					heatmap.addTo(map);
+
+					overlayers = {
+						"🔥 Heat map ": heatmap,
+					};
+
+					L.control.layers(baseMaps, overlayers).addTo(map);
+				});
+
+			</script>
+
+</body>
+</html>

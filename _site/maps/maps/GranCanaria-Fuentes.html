@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>
+			Avituallamientos de agua (fuentes, nacientes, áreas recreativas) en Gran Canaria ⛲ 🚰
+		</title>
+		<script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/3.0.1/Control.FullScreen.min.css" integrity="sha512-icRYRbqvwyLFADCizHy+7d4vVNnzF92F0ADsgIlPU2eegXZJ9iHtF1BMi7xdgo1lSyd0nsyI5Lvxhhlxx7WxZg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.13.0/leaflet-providers.min.js" integrity="sha512-5EYsvqNbFZ8HX60keFbe56Wr0Mq5J1RrA0KdVcfGDhnjnzIRsDrT/S3cxdzpVN2NGxAB9omgqnlh4/06TvWCMw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<style type="text/css">
+			#map { height : 800px; }
+		</style>
+	</head>
+	<body>
+
+		<div id="map"></div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.6.0/Control.FullScreen.min.js" integrity="sha512-AmR6ebpa6q+35FINPlrJIYOOFeDIw5B+rcrMnBjZpMl1mehG/R7jVYPJpxFNc5ljk/7af5vAYuRl9mCu9avdDw==" crossorigin="anonymous"></script>
+		<script>
+
+			var map = L.map('map', {
+			  fullscreenControl: true,
+			  center: [27.94, -15.6026],
+			  zoom: 11
+			});
+
+			var dataattribution = ' | <b>Data</b> by @albercastellano, @AdrianRodri, @Adzu92, @Oliveerr46, @en_teror | Conception @ctroupin'
+
+			var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				maxZoom: 19,
+				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+			});
+
+			var CartoDB = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+				subdomains: 'abcd',
+				maxZoom: 19
+			});
+
+			var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+				attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+			});
+
+			var baseMaps = {
+				"CartoDB": CartoDB,
+				"Esri_WorldImagery": Esri_WorldImagery,
+				"Open Street Map": OpenStreetMap_Mapnik
+			};
+
+			var Fuentes = [
+										  [[28.01674, -15.55468], "Barranco de la Mina<br> (Utiaca)"],
+											[[27.95225, -15.57041], "La Culata"],
+											[[28.0663, -15.56387], "La Laguna de Valleseco "],
+											[[28.05839, -15.68844], "Fuente del Reventón<br>(Tamadaba)"],
+											[[28.08757, -15.63634], "Las Rosas"],
+											[[28.10446, -15.59875], "Santa Cristina"],
+											[[28.05901, -15.54137], "Aguas de Teror"],
+											[[27.983, -15.6677], "El Chorillo"],
+											[[27.98585, -15.58841], "Degollada de la Cumbre"],
+											[[28.10781, -15.57062], "Balneario de Azuaje"],
+											[[27.98849, -15.47892], "Fuente de las Ñameras<br>(Barranco de San Miguel)"],
+											[[28.029792, -15.561316], "San Isidro"],
+											[[27.96038, -15.54143], "Caldera de los Marteles"],
+											[[28.05361, -15.66222], "El Hornillo<br>(Gáldar)"],
+											[[27.87810, -15.64676], "Fuente de Don Simeón"],
+											[[28.020255, -15.646656], "Plaza Artenara"],
+											[[27.90212,-15.58356], "Degollada de la Manzanilla"]
+										];
+
+			var fuentesOSM = [
+				[[27.965975, -15.584001], "Llanos de la Pez"],
+				[[28.072245, -15.676407], "Montaña Bibique"],
+				[[27.978161, -15.616332], "Cruz de Timagada"],
+				[[28.057415, -15.695210], "Llanos de la Mimbre"],
+				[[27.932978, -15.730544], "Aula de la Naturaleza"],
+				[[27.936590, -15.537645], "Subida Taidía"],
+				[[27.995075, -15.615447], "Iglesia Tejeda"],
+				[[28.060391, -15.629096], "Monte Pavón"],
+				[[27.976523, -15.600450], "La Culata de Tejeda"],
+				[[28.134834, -15.430718], "Mesa y López"],
+				[[28.055869, -15.549039], "Fuente de Teror (3)"],
+				[[27.880416, -15.540656], "El Sitio de Abajo<br>(Tirajana)"],
+				[[28.135060, -15.624921], "Presa de las Garzas"],
+				[[27.969888, -15.585206], "Llanos del Garañón"],
+				[[27.990101, -15.596193], "Cuevas Caidas"],
+				[[27.935397, -15.390427], "Aeropuerto"],
+				[[28.092945, -15.594571], "Los Tilos<br>de Moya"],
+				[[28.056425, -15.549805], "Fuente de Teror (2)"],
+				[[27.938365, -15.599517], "Camino de la Plata"],
+				[[27.925425, -15.573203], "Iglesia Tunte"],
+			]
+
+			for (i = 0; i < Fuentes.length ; i++) {
+
+				var marker = new L.marker(Fuentes[i][0], { opacity: 0.85 }); //opacity may be set to zero
+				//marker.bindTooltip("🚰", {permanent: true, className: "my-label", offset: [0, 0] });
+				marker.bindPopup("🚰 " + Fuentes[i][1]);
+				marker.addTo(map);
+			};
+
+			for (i = 0; i < fuentesOSM.length ; i++) {
+
+				var marker = new L.marker(fuentesOSM[i][0], { opacity: 0.2 }); //opacity may be set to zero
+				//marker.bindTooltip("🚰", {permanent: true, className: "my-label", offset: [0, 0] });
+				marker.bindPopup("🚰 " + fuentesOSM[i][1]);
+				marker.addTo(map);
+			};
+
+
+			map.addLayer(CartoDB);
+			L.control.layers(baseMaps, null, {collapsed:false}).addTo(map);
+
+			</script>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content=" ">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="http://localhost:4000/posts/2019-03-01-ppt-to-pdf/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Charles Troupin by </title>
+
+	<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-8 col-lg-offset-2">
+			<center>
+				<h2> From ppt to pdf </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					
+						<h4><i class="far fa-calendar-alt"></i></h4> 01 March 2019 &nbsp;
+					
+					
+						<h4><i class="fas fa-wrench"></i></h4> pdftk, LibreOffice &nbsp;
+					
+					
+					
+				</div>
+				<p>The graphical summary of the post could be:</p>
+<blockquote>
+  <p><i class="far fa-file-pdf"></i> <i class="fas fa-arrow-right"></i> <i class="fas fa-file-powerpoint"></i></p>
+</blockquote>
+
+<h3 id="story">Story</h3>
+
+<p>Yesterday during the group meeting at work, a colleague reminded me a nice story that I hold him but had totally forgotten since then.</p>
+
+<p>Some years ago, I had to prepare a presentation for a talk, as usual, did it in <code class="language-plaintext highlighter-rouge">LaTeX</code>. It was a nice one, so my boss at that time asked if I could send him the <em>ppt</em>. The what? Yes, the file in powerpoint format. I did not use that for many years so that was kind of a surprise. I told him:</p>
+<blockquote>
+  <p>Sorry, I prepared it in LaTeX, so I can only send a pdf file (or the LaTeX source).</p>
+</blockquote>
+
+<p>But he told me:</p>
+<blockquote>
+  <p>No, send me the ppt, so I can use it for my own presentations.</p>
+</blockquote>
+
+<p>You imagine, in such a situation, there is not a lot of time to think, you need action!</p>
+
+<h3 id="the-solution">The solution</h3>
+
+<p>Let’s be clear: I’m not proud at all of that, but as Max Holloway says: “<em>it is what it is</em>”.</p>
+
+<h4 id="1-turn-the-pdf-into">1. Turn the pdf into</h4>
+
+<p>Get the <a href="https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/"><code class="language-plaintext highlighter-rouge">PDFtk</code></a> toolkit and run the following command on your pdf:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code>pdftk input.pdf burst
+</code></pre></div></div>
+<p>You obtain a series of pdf named: pg_0001.pdf, pg_0002.pdf, …</p>
+
+<h4 id="2-convert-the-pages-into-jpg">2. Convert the pages into jpg</h4>
+
+<p>Here we use the <a href="https://imagemagick.org/script/convert.php"><code class="language-plaintext highlighter-rouge">convert</code></a> tool, which comes with
+<code class="language-plaintext highlighter-rouge">ImageMagick</code>. You can loop on the files and apply the conversion on each of them, with something like:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="k">for </span>ii <span class="k">in</span> <span class="si">$(</span><span class="nb">ls </span>pg_<span class="k">*</span>.pdf<span class="si">)</span><span class="p">;</span> <span class="k">do
+  </span><span class="nv">outputfile</span><span class="o">=</span><span class="si">$(</span><span class="nb">basename</span> <span class="k">${</span><span class="nv">ii</span><span class="k">}</span> <span class="s1">'.pdf'</span><span class="si">)</span><span class="s2">".jpg"</span>
+  <span class="nb">echo</span> <span class="k">${</span><span class="nv">ii</span><span class="k">}</span> <span class="s2">"--&gt;"</span> <span class="k">${</span><span class="nv">outputfile</span><span class="k">}</span>
+  convert <span class="nt">-density</span> 300 <span class="k">${</span><span class="nv">ii</span><span class="k">}</span> <span class="k">${</span><span class="nv">outputfile</span><span class="k">}</span>
+<span class="k">done</span>
+</code></pre></div></div>
+<p>Note that the density (here: 300) can be modified to increase
+or decrease the quality of the jpg images.</p>
+
+<h4 id="3-add-the-images-into-the-presentation">3. Add the images into the presentation</h4>
+
+<p>As I only have <code class="language-plaintext highlighter-rouge">LibreOffice</code> installed, I will show how to do with it with Impress.   <br />
+The solution is to add a <em>media</em> which is a <em>photo album</em>, and then add the photos from the album
+into the presentation.</p>
+
+<p><img src="http://localhost:4000/figures/blog/libreoffice01.jpg" class="img-responsive" alt="LibreOffice Photo Album" /></p>
+
+<p><img src="http://localhost:4000/figures/blog/libreoffice02.jpg" class="img-responsive" alt="From ppt to pdf" /></p>
+
+<h3 id="conclusions">Conclusions</h3>
+
+<p>Sometimes you are asked to do things that maybe don’t make sense, but if you don’t want to argue,
+it is necessary comply. In this case we fulfilled our goal, ending up with a ppt, but it’s almost impossible to edit it, as there are only images.</p>
+
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+</body>
+</html>

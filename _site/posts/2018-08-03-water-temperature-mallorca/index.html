@@ -1,0 +1,139 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content=" ">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="http://localhost:4000/posts/2018-08-03-water-temperature-mallorca/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Charles Troupin by </title>
+
+	<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-8 col-lg-offset-2">
+			<center>
+				<h2> Sea water temperature in Mallorca </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					
+						<h4><i class="far fa-calendar-alt"></i></h4> 03 August 2018 &nbsp;
+					
+					
+						<h4><i class="fas fa-wrench"></i></h4> Python, Thredds, API &nbsp;
+					
+					
+						<h4><i class="fas fa-tags"></i></h4> Oceanography, Balearic Islands &nbsp;
+					
+					
+				</div>
+				<p>Recently there was an article in the newspaper <em>El diario de Mallorca</em> where they were talking
+about the water temperature around the Balearic Islands, as it seems they reached very high values for this time of the year. Let’s have a look at that.</p>
+
+<h3 id="data">Data</h3>
+
+<p>The <a href="https://www.socib.es">SOCIB</a> maintains several mooring around the islands, the
+one we will use is located in the <em>Bahía de Palma</em> and provides data since 2014.
+The data can be downloaded in netCDF format, but it is not necessary to download everything
+since there is a possibility to access the information using the <code class="language-plaintext highlighter-rouge">OPEnDAP</code> protocol.</p>
+
+<h3 id="tools">Tools</h3>
+
+<p>When I was working there I wrote some python code to read and plot this kind of time series,
+I kind of did it on a rush, so it’s not the cleanest code I’ve seen, and probably it is necessary to edit it a little bit…</p>
+
+<p>By the way, all the plotting tools are available in this GitHub project:</p>
+
+<h3 id="creating-the-plots">Creating the plots</h3>
+
+<p>It turns out that the adaptation of the script was not too bad:</p>
+<ul>
+  <li>update of the file list,</li>
+  <li>setting of the X-axis limits,</li>
+  <li>cosmetic changes: adaptation of the legend position, modification of the text font,
+removal of the SOCIB logo.</li>
+</ul>
+
+<p>More of less 10 minutes of work, the bad part being the monthly file list: the file URL doesn’t not only depends on the year and month, but also on the deployment number and the ID of the platform. Sometimes they have to replace the sensor and this is reflected in the metadata and the file name. Anyway, that kind of issues for the data user should be overcome by the deployment of new Data API.</p>
+
+<p><img src="http://localhost:4000/figures/projects/temp_bahiadepalma_20180802_2120.png" class="img-responsive" alt="Temperature in the Bay of Palma" /></p>
+
+<h3 id="what-do-we-learn">What do we learn?</h3>
+
+<p>So here we are, the comparison of temperature from June to September, between 2014 and 2018. Many things may strike in the time series:</p>
+<ol>
+  <li>The very high values observed in late July 2015, almost 30°C.</li>
+  <li>The sharp decreases for example in June 2016, July and September 2014.</li>
+  <li>Despite the strong variations in summer, the temperatures end up between 26.5 and 27.5°C by the end of September.</li>
+</ol>
+
+<p>We see that the present temperatures are at the same level as in 2017, but that doesn’t mean that the rest of the season will follow this tendency, as some events may provoke an abrupt decrease of temperature in a matter of a couple of days.</p>
+
+<h3 id="what-about-the-salinity">What about the salinity?</h3>
+
+<p>As a bonus we also have the evolution of the salinity for the same period. It is not easy to interpret what happens in the signal as there is no clear pattern in the variable evolution.</p>
+
+<p><img src="http://localhost:4000/figures/projects/psal_bahiadepalma_20180802_2120.png" class="img-responsive" alt="Salinity in the Bay of Palma" /></p>
+
+<p>The most striking feature is maybe the higher salinity values in August measured in 2014 and
+2018, between 38 and 38.2 PSU, while the salinity situated around 37.2-37.4 in 2017. The differences might have a physical origin for instance the presence of different water masses or a stronger imbalance between evaporation and precipitation. Or the origin may come from the instruments themselves, their calibration was maybe different.</p>
+
+<p>Whatever the reason, it’s something that deserves a particular attention and comparison with other sources of information such as satellite images or numerical models.</p>
+
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+</body>
+</html>

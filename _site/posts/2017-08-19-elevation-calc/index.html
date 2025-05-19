@@ -1,0 +1,275 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content=" ">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="http://localhost:4000/posts/2017-08-19-elevation-calc/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Charles Troupin by </title>
+
+	<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-8 col-lg-offset-2">
+			<center>
+				<h2> Computing positive elevation from GPX tracks </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					
+						<h4><i class="far fa-calendar-alt"></i></h4> 19 August 2017 &nbsp;
+					
+					
+					
+						<h4><i class="fas fa-tags"></i></h4> Running, GPX &nbsp;
+					
+					
+				</div>
+				<p>After a cool ride this morning, I wanted to compare (quickly) the numbers given by different platforms I’ve been using recently:</p>
+<ul>
+  <li><a href="http://www.movescount.com">Movescount</a> (Suunto)</li>
+  <li><a href="https://www.strava.com">Strava</a></li>
+  <li><a href="http://wikiloc.com/">Wikiloc</a></li>
+  <li><a href="https://connect.garmin.com">Garmin</a></li>
+</ul>
+
+<p>In addition, I compared with</p>
+<ul>
+  <li><a href="http://www.qlandkarte.org/">QLandkarteGT</a>, a good tool for the quick visualization of GPX tracks and</li>
+  <li>a personal viewer I’m playing with (total distance and elevation computed in javascript).</li>
+</ul>
+
+<p><img src="http://localhost:4000/figures/blog/GPX_compare1.png" class="img-responsive" alt="From Pépinster to Angleur" /></p>
+
+<p>The same GPX file is used for the comparison, i.e., I did register the track using different devices. Here are the results.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Total distance (km)</th>
+      <th>Ascent (m)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Movescount</td>
+      <td>80.36</td>
+      <td>385</td>
+    </tr>
+    <tr>
+      <td>Strava</td>
+      <td>80.50</td>
+      <td>1089</td>
+    </tr>
+    <tr>
+      <td>Wikiloc</td>
+      <td>80.52</td>
+      <td>627</td>
+    </tr>
+    <tr>
+      <td>Garmin</td>
+      <td>80.66</td>
+      <td>1077</td>
+    </tr>
+    <tr>
+      <td>QLandkarteGT</td>
+      <td>81.00</td>
+      <td>399</td>
+    </tr>
+    <tr>
+      <td>Own tool</td>
+      <td>80.52</td>
+      <td>734</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="http://localhost:4000/figures/blog/GPX_compare2.png" class="img-responsive" alt="Profile viewed using QLandkarteGT" /></p>
+
+<h3 id="what-do-we-see">What do we see?</h3>
+
+<p>The distance doesn’t change a lot, which is probably expected: one only computes the cumulative sum of the distance between pairs of consecutive positions.  <br />
+Concerning the ascent, the values range from around 390 meters (Movescount and QLandkarte) to more than 1070 meters (Strava and Garmin Connect), almost 3 times more! For these, I was not sure whether that value was the sum of positive and negative elevations, but reading <a href="https://support.strava.com/hc/en-us/articles/216917087-Elevation-Gain">their documentation</a> I would say that it’s the positive elevation, called <em>Ascent</em> (↗) in Movescount.</p>
+
+<h3 id="why-is-that">Why is that?</h3>
+
+<p>The altitude can be obtained from</p>
+<ul>
+  <li>a barometric altimeter: the atmospheric pressure is converted to an altitude;</li>
+  <li>the measured position: if you know where you are and have a <em>digital elevation model</em>, the altitude can be deduced;</li>
+  <li>the GPS signal itself: if I’m not wrong this method is no too accurate, but I’ll ask the colleagues to be sure.</li>
+</ul>
+
+<p>In any case, the signals are affected by errors and reducing them can be done using different methods, for example filtering the signal and remove unrealistic peaks. Also, if the digital model used in the calculation has more or less resolution and accuracy, the results will necessarily differ.</p>
+
+<p>Still, the ratio between the largest and the smallest values is about 3, in other words, when one platform tells you’ve done a Vertical Kilometer, the other says that you effort had (merely) 300-400 meters of positive elevation… So yes, it would be nice to have some kind of a consensus.</p>
+
+<h3 id="what-about-running">What about running?</h3>
+
+<p>The question is: do we find such a difference in elevation with other sports, in particular running? Let’s check a medium-distance race.</p>
+
+<p><img src="http://localhost:4000/figures/blog/GPX_compare3.png" class="img-responsive" alt="Velocity along the race" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Total distance (km)</th>
+      <th>Ascent (m)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Movescount</td>
+      <td>31.28</td>
+      <td>532</td>
+    </tr>
+    <tr>
+      <td>Strava</td>
+      <td>31.30</td>
+      <td>689</td>
+    </tr>
+    <tr>
+      <td>Wikiloc</td>
+      <td>31.29</td>
+      <td>572</td>
+    </tr>
+    <tr>
+      <td>Garmin</td>
+      <td>31.36</td>
+      <td>669</td>
+    </tr>
+    <tr>
+      <td>QLandkarteGT</td>
+      <td>31.00</td>
+      <td>584</td>
+    </tr>
+    <tr>
+      <td>Manual</td>
+      <td>31.29</td>
+      <td>727</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The total distances slightly differ between the tools, about 300 meters (1%), whereas the computed ascents range from 532 to 727 meters. The range of values appears tighter than in the case with the bike, even if a difference of 200 over 500 meters cannot be considered as negligible.</p>
+
+<p>Finally, another example on an even shorter distance (Sart Tilman - Ougrée Haut - Colonster). Note that, since the start and end points are the same, ascent and descent should be equal.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th style="text-align: center">Distance (km)</th>
+      <th style="text-align: right">↗ (m)</th>
+      <th style="text-align: right">↘ (m)</th>
+      <th style="text-align: right">Highest (m)</th>
+      <th style="text-align: right">Lowest (m)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Movescount</td>
+      <td style="text-align: center">11.57</td>
+      <td style="text-align: right">203</td>
+      <td style="text-align: right">203</td>
+      <td style="text-align: right">278</td>
+      <td style="text-align: right">140</td>
+    </tr>
+    <tr>
+      <td>Wikiloc</td>
+      <td style="text-align: center">11.98</td>
+      <td style="text-align: right">236</td>
+      <td style="text-align: right">241</td>
+      <td style="text-align: right">278</td>
+      <td style="text-align: right">140</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.strava.com/activities/1116696476">Strava</a></td>
+      <td style="text-align: center">11.98</td>
+      <td style="text-align: right">240</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right">278</td>
+      <td style="text-align: right">138</td>
+    </tr>
+    <tr>
+      <td>QLandkarteGT</td>
+      <td style="text-align: center">12.00</td>
+      <td style="text-align: right">227</td>
+      <td style="text-align: right">222</td>
+      <td style="text-align: right">278</td>
+      <td style="text-align: right">140</td>
+    </tr>
+    <tr>
+      <td>Manual</td>
+      <td style="text-align: center">11.95</td>
+      <td style="text-align: right">274</td>
+      <td style="text-align: right">270</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="whats-next">What’s next?</h3>
+
+<p>The plan will be to register the track on a trail that is totally uphill and see if we see again these discrepancies.</p>
+
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+</body>
+</html>

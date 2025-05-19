@@ -1,0 +1,162 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charles Troupin</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content=" ">
+    <meta name="keywords" content="data analyst, engineering, oceanography, ocean science, numerical modelling" />
+    <meta name="author" content="Troupin Charles">
+    <link rel="canonical" href="http://localhost:4000/posts/2019-02-12-running-polar/">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google verification -->
+    
+
+    <!-- Bing Verification -->
+    
+
+    <!-- Custom Fonts
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-brands.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome/css/fa-regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/academicons.css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Charles Troupin by </title>
+
+	<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+	<meta name="viewport" content="width=device-width">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="col-lg-8 col-lg-offset-2">
+			<center>
+				<h2> Where are we running? </h2>
+			</center>
+			<blogsection>
+				 <div style="text-align:left; vertical-align: middle; ">
+					
+						<h4><i class="far fa-calendar-alt"></i></h4> 12 February 2019 &nbsp;
+					
+					
+						<h4><i class="fas fa-wrench"></i></h4> Python - matplotlib - GPSbabel - gpxpy &nbsp;
+					
+					
+					
+				</div>
+				<p>It’s always cool to work on data very close to us, in this case I mean the running tracks around the office. The simple and direct visualisation consists in plotting all the trails on the map and add a <em>heatmap</em> or <em>hexbin</em> layer to see the spatial density.    <br />
+Here I try to explore other possibilities.</p>
+
+<h2 id="read-the-data">Read the data</h2>
+<p>First thing first: get the data. GPX is a wide-spread format and <a href="https://github.com/tkrajina/gpxpy"><code class="language-plaintext highlighter-rouge">gpxpy</code></a> the perfect tool to read the files. In the past I had my own parsing function using <em>regex</em> but hey, why not using what already exists?</p>
+
+<h3 id="available-data">Available data</h3>
+<p>I have tracks since 2013, though most of the tracks around Sart Tilman are concentrated
+in 2017-2018. The total is about 150 files.</p>
+
+<h3 id="processing">Processing</h3>
+
+<p>The GPX files are slightly edited:</p>
+<ol>
+  <li>The <em>extensions</em> tags are removed, as they don’t store information we need.</li>
+  <li>The trajectories are sub-sampled to 500 points.</li>
+</ol>
+
+<p>We will compute:</p>
+<ul>
+  <li>the distance to a central point, located close to our offices, using the <code class="language-plaintext highlighter-rouge">Vincenty</code> distance function available in th <a href="https://github.com/geopy/geopy"><code class="language-plaintext highlighter-rouge">geopy</code></a> module,</li>
+  <li>the direction with (e.g. northward, southward, eastward, …) with respect to the starting point, using the <code class="language-plaintext highlighter-rouge">bearing</code> function from the <a href="https://github.com/gojuno/geo-py"><code class="language-plaintext highlighter-rouge">geo-py</code></a> module</li>
+  <li>the altitude, directly read from the file.</li>
+</ul>
+
+<p>The code is not optimised and takes a dozen of seconds to run on all the files.</p>
+
+<h2 id="figures">Figures</h2>
+
+<h3 id="direction-histogram">Direction histogram</h3>
+<p>We start with an histogram to display the most frequent zone with respect to the starting point.</p>
+
+<p><img src="http://localhost:4000/figures/blog/gpx_histogram01.png" class="img-responsive" alt="GPX histogram" /></p>
+
+<p>We directly see that we spend more time in the southeast sector, which makes sense knowing that the sport facilities and the track are located there.</p>
+
+<p><img src="http://localhost:4000/figures/blog/gpx_histogram02.png" class="img-responsive" alt="GPX histogram" /></p>
+
+<p>I did not compute anything here but it’s clear from the plot that we stay almost always within 4 km from our starting point. In fact the locations at more than 8 km from <em>Sart Tilman</em> come from a race done in <em>Esneux</em> and training sessions in Liège center, which I might remove from the database.</p>
+
+<h3 id="positions-in-polar-coordinates">Positions in polar coordinates</h3>
+<p>In this figure we simply plot the different tracks in the new coordinate system with some points of interest (red dots) that we use to visit, helping me to check if everything is correct.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">pointsInterest</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mf">50.552</span><span class="p">,</span> <span class="mf">5.5502</span><span class="p">,</span> <span class="sh">"</span><span class="s">Roche aux Faucons</span><span class="sh">"</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">50.6024</span><span class="p">,</span> <span class="mf">5.5957</span><span class="p">,</span> <span class="sh">"</span><span class="s">Lande de Streupas</span><span class="sh">"</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">50.5818</span><span class="p">,</span> <span class="mf">5.6027</span><span class="p">,</span> <span class="sh">"</span><span class="s">Rochers du bout du monde</span><span class="sh">"</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">50.6007</span><span class="p">,</span> <span class="mf">5.5554</span><span class="p">,</span> <span class="sh">"</span><span class="s">Point de vue</span><span class="sh">"</span><span class="p">],</span>
+    <span class="p">];</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/figures/blog/polar_trajectories_poi.png" class="img-responsive" alt="GPX histogram" /></p>
+
+<h3 id="positions-and-altitude">Positions and altitude</h3>
+
+<p>Same as the previous one, but now the dots are colored according to the altitude measured by the device.
+The lowest parts (dark blue) are the valleys of the <em>Meuse</em> and the <em>Ourthe</em> rivers.</p>
+
+<p><img src="http://localhost:4000/figures/blog/polar_scatter_altitude_zoom.jpg" class="img-responsive" alt="GPX histogram" /></p>
+
+<h2 id="final-results-the-pseudo-color-plot">Final results: the pseudo-color plot</h2>
+
+<p>Final one: the goal is to count count how many times we’ve been in different subregions delimited by angles and distances. I won’t write the whole code here, just the lines that allows us to count quite easily.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="trac"><code><span class="n">r_edges</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">6.01</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">theta_edges</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">ntheta</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="p">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">16.</span>
+<span class="n">H</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">histogram2d</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span> <span class="n">angles</span><span class="p">,</span> <span class="p">[</span><span class="n">r_edges</span><span class="p">,</span> <span class="n">theta_edges</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/figures/blog/polar_pcolor.png" class="img-responsive" alt="GPX histogram" /></p>
+
+<p>I think it’s a nice starting point for other fancier versions. I like to see that some we’re often running in the same areas, for example the western sector (north of <em>Boncelles</em>) is almost void.</p>
+
+<h2 id="source-code">Source code</h2>
+
+<p>I’ve put the code into the <a href="https://github.com/ctroupin/trail-running-maps">trail-running</a> repository.
+In particular the final plot is prepared using <a href="https://github.com/ctroupin/trail-running-maps/blob/master/notebooks/GPX2dist_angle_histogram.py">GPX2dist_angle_histogram.py</a>.</p>
+
+			</blogsection>
+		</div>
+	</div>
+</body>
+
+</body>
+</html>

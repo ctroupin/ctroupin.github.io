@@ -7,7 +7,7 @@ title: Trail running
 I started *trail-running* in Gran Canaria, and it came naturally: after I explored part of the island walking, one day I though:
 >Let's do the same, but running!
 
-The cool thing about running is that you can see much more in the same amount of time, at the cost of being a little bit more tired at the end of the day. The map below show most of the tracks between 2013 and 2018 (before I had no GPS device). There is still a lot to explore, but I'm working on it!
+The cool thing about running is that you can see much more in the same amount of time, at the cost of being a little bit more tired at the end of the day. The map below show most of the tracks between 2013 and 2018 (before that, I had no GPS device). There is still a lot to explore, but I'm working on it!
 
 <a href="{{ site.url }}/maps/maps/Running-GranCanaria.html"> <img src="{{ site.url }}/figures/maps/GC_activity.jpg" class="img-responsive" alt="Running in Gran Canaria"> </a>
 
@@ -21,7 +21,7 @@ Prior to that, I've been organizing [trekking and running activities in Mallorca
 
 ### Past races
 
-Just a few lines, whenever possible a link to my [non-professional blog](https://ctroupin.wordpress.com) is provided.
+Just a few lines here, I try to update the information here: https://ctroupin.github.io/run/
 
 #### 2019
 

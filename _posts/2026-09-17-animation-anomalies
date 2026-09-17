@@ -1,0 +1,43 @@
+---
+layout: post
+date: 2026-09-17
+title: Creating an animation of SST anomalies
+alt: Animation SST anomalies
+tools: Julia - cno - bash
+img: myorbi05.png
+---
+
+## Computing the anomalies
+
+
+```bash
+#!/bin/bash
+
+datamaindir="/media/ctroupin/T7Shield/data/SST/CDS"
+outputdir=${datamaindir}/clim
+anomdir=${datamaindir}/anom
+mkdir -pv ${outputdir}
+mkdir -pv ${anomdir}
+
+# Loop on months
+END=12
+for mm in $(seq -f "%02g" 2 $END); do
+    echo $mm;
+    # Build file list per month
+    ls ${datamaindir}/????${mm}*.nc > filelistmonth_${mm}.txt
+
+    # Compute the average
+    avgfile=${outputdir}/${mm}-ESACCI-L4_GHRSST-SSTdepth-OSTIA-GLOB_ICDR3.0-v02.0-fv01.0.nc
+    if [ -f ${avgfile} ]; then
+        echo "File already created"
+    else
+        echo "Computing climatology for month ${mm}"
+        cat filelistmonth_${mm}.txt | ncea -O ${avgfile}
+    fi
+
+    # Compute the anomalies
+    for datafile in $(ls ${datamaindir}/????${mm}*.nc); do
+        ncdiff ${datafile} ${avgfile} ${anomdir}/$(basename ${datafile})
+    done
+done
+```
